@@ -65,6 +65,39 @@ class User
 	{
 		return $this->admin;
 	}
+	//compo Donner avis
+	public function donnerAvis($data, Produits $produit)
+	{
+		$manager=new AvisManager($this->link)
+		$avis = $manager->create($data, $produit, $this);
+	}
+	//compo modifier avis
+	public function modifAvis($data,Produits $produit)
+	{
+		$manager=new AvisManager($this->link)
+		$avis = $manager->update($data, $produit, $this);
+	}
+
+	//compo créer adresse
+	public function creaAdresse($data, Adresse $adresse)
+	{
+		$manager=new Adresse($this->link)
+		$adresse = $manager->create($data,$this);
+	}
+
+	//compo modifier adresse
+	public function modifAdresse($data, Adresse $adresse)
+	{
+		$manager=new Adresse($this->link)
+		$adresse = $manager->update($data,$this);
+	}
+
+	public function initPanier($data, Panier $panier)
+	{
+		$manager=new Panier($this->link)
+		$panier = $manager->create($data,$this);
+	}
+
 
 	//on définit les Set
 	//avec l'instruction suivante, on rentre le nom de la personne dans l'objet
