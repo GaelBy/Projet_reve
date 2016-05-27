@@ -45,20 +45,16 @@ class AvisManager
 			$list[] = $avis;
 		return $list;
 	}
-	public function create($data)
+	public function create($data, Produits $produit, User $user)
 	{
 		$avis = new Avis();
-		if (!isset($data['id_author']))
-			throw new Exception("Paramètre manquant: auteur");
-		if (!isset($data['id_produit']))
-			throw new Exception("Paramètre manquant: produit");
 		if (!isset($data['content']))
 			throw new Exception("Paramètre manquant: contenu");
 		if (!isset($data['note']))
 			throw new Exception("Paramètre manquant: note");
 
-		$avis->setIdAuthor($data['id_author']);
-		$avis->setIdProduit($data['id_produit']);
+		$avis->setIdAuthor($user->getId());
+		$avis->setIdProduit($produit->getId());
 		$avis->setContent($data['content']);
 		$avis->setNote($data['note']);
 		$avis->setStatut(1);
