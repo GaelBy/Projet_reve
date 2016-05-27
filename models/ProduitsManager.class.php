@@ -12,7 +12,7 @@ class ProduitsManager;
 		$id=intval($id);
 		$query="SELECT * FROM produits WHERE id=".$id;
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;
 	}
 
@@ -21,7 +21,7 @@ class ProduitsManager;
 		$reference=mysqli_real_escape_string($this->link,$reference);
 		$query="SELECT * FROM produits WHERE reference='".$reference."'";
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;	
 	}
 
@@ -30,18 +30,18 @@ class ProduitsManager;
 		$nom=mysqli_real_escape_string($this->link,$nom);
 		$query="SELECT * FROM produits WHERE nom='".$nom."'";
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;
 	}
 
 	public function getBySubCategory($id_sub_category) // récup produit par sous catégorie
 	{
-		$id_sub_category=intval($this->link,$id_sub_category);
+		$id_sub_category=intval($id_sub_category);
 		$list=[];
 		$query="SELECT * FROM produits WHERE id_sub_category='".$id_sub_category."'";
 		$res=mysqli_query($this->,$query);
 
-		while($produits=mysqli_fetch_object($res,"Produits"))
+		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
 		{
 			$list[]=$produit;
 		}
@@ -52,7 +52,7 @@ class ProduitsManager;
 	// Pour entrer nouveau produit en bdd:
 	public function create($data)
 	{
-		$produit=new Produits();
+		$produit=new Produits($this->link);
 		if(!isset($data['reference']))
 		{ 
 			throw new Exception("Paramètre manquant: référence");	
