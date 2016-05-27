@@ -106,8 +106,14 @@ class Panier {
       if ($article->getId == $produit->getId) //$produit= celui qu'on veut enlever. On détermine l'id du produit qu'on veut retirer
       // et lorsque la boucle passe dessus...
       {
-        array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
-        $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
+        if ($article->quantite > 1)
+          $article->quantite--;
+          $this->nbre_produits--;
+        else
+        {
+          array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
+          $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
+        }
         $this->prix = $this->prix - $produit->getPrixUniTtc;
         $this->poids = $this->poids - $produit->getPoidsUni;
         return $this->produits;
