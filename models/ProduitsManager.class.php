@@ -1,5 +1,5 @@
 <?php
-class ProduitsManager;
+class ProduitsManager
 {
 	private $link;
 	public function __construct($link)
@@ -112,13 +112,13 @@ class ProduitsManager;
 		$produit->setStatut(1);
 
 		$reference=mysqli_real_escape_string($this->link,$produit->getReference());
-		$stock=intval($produit->getStock();
-		$prixUniHt=floatval($produit->getPrixUniHt();
-		$tva=floatval($produit->getTva();
+		$stock=intval($produit->getStock());
+		$prixUniHt=floatval($produit->getPrixUniHt());
+		$tva=floatval($produit->getTva());
 		$description=mysqli_real_escape_string($this->link,$produit->getDescription());
 		$image=mysqli_real_escape_string($this->link,$produit->getImage());//A VOIR
 		$nom=mysqli_real_escape_string($this->link,$produit->getNom());
-		$poidsUni=floatval($produit->getPoidsUni();
+		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
 
 		$query="INSERT INTO produits (reference,stock,prix_uni_ht,tva,description,image,nom,poids_uni,statut) 
@@ -152,13 +152,13 @@ class ProduitsManager;
 	{
 		$id=$produit->getId();
 		$reference=mysqli_real_escape_string($this->link,$produit->getReference());
-		$stock=intval($produit->getStock();
-		$prixUniHt=floatval($produit->getPrixUniHt();
-		$tva=floatval($produit->getTva();
+		$stock=intval($produit->getStock());
+		$prixUniHt=floatval($produit->getPrixUniHt());
+		$tva=floatval($produit->getTva());
 		$description=mysqli_real_escape_string($this->link,$produit->getDescription());
 		$image=mysqli_real_escape_string($this->link,$produit->getImage());
 		$nom=mysqli_real_escape_string($this->link,$produit->getNom());
-		$poidsUni=floatval($produit->getPoidsUni();
+		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
 
 		$query="UPDATE produits SET
@@ -197,4 +197,7 @@ class ProduitsManager;
 			throw new Exception("Erreur Interne");
 		}
 	}
+
+}
+
 ?>
