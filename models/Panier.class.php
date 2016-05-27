@@ -6,9 +6,8 @@ class Panier {
    private $id_user;
    private $date;
    private $statut;
-   private $nombre_produits;
+   private $nbre_produits;
    private $poids;
-
    private $link;
    private $produits;
 
@@ -42,9 +41,9 @@ class Panier {
    	return $this ->prix ;
    }
 
-   public function getNombreProduits(){
+   public function getNbreProduits(){
 
-   	return $this ->nombre_produits ;
+   	return $this ->nbre_produits ;
    }
 
    public function getPoids(){
@@ -63,14 +62,14 @@ class Panier {
    public function ajoutProduit(Produit $produit)
    {
     $this->produits[] = $produit;
-    $this->nombre_produits =sizeof($produits);
+    $this->nbre_produits =sizeof($produits);
    }
 
 public function setIdUser($id_user){
 
     if(! is_int($id_user))
     {
-    	trow new Exeption 'ce n\'est pas un chiffre' ;
+    	throw new Exception 'ce n\'est pas un chiffre' ;
     }
     
     
@@ -80,28 +79,13 @@ public function setIdUser($id_user){
 
 }
 
-public function setDate($date){
-
-	if ( ! preg_match ( " \^([0-3][0-9]})(/)([0-9]{2,2})(/)([0-3]{2,2})$\ " , $date ) ))
-
-    {
-    	trow new Exeption 'veuillez entrer une date au bon format';
-    }
-    
-    
-    	$this->date = $date ;
-    
-
-
-	
-}
 
 
 public function setStatut($statut)
 	{
-		if (is_bool($statut)==FALSE)
+		if (is_int($statut)||strlen($statut) < 5)
 		{
-			trow new Exeption  "Ce n'est pas un booléen";
+			throw new Exception  "veuillez entrer au moin 5 carracteres (lettres)";
 		}
 
 		$this->statut=$statut;
@@ -116,7 +100,7 @@ public function setPrix($prix){
 
 	if(! is_int($prix))
 	{
-		trow new Exeption 'veuillez entrer un chiffre ';
+		throw new Exception  'veuillez entrer un chiffre ';
 	}
 
 	$this ->prix = $prix ;
@@ -126,14 +110,14 @@ public function setPrix($prix){
 }
 
 
-public function setIdUser($nombre_produits){
+public function setNbreProduits($nbre_produits){
 
-	if(! is_int($nombre_produits))
+	if(! is_int($nbre_produits))
 	{
-		trow new Exeption "veuillez entrer un chiffre";
+		throw new Exception  "veuillez entrer un chiffre";
 	}
 
-	$this ->nombre_produits = $nombre_produits;
+	$this ->nbre_produits = $nbre_produits;
 
 
 	
@@ -143,7 +127,7 @@ public function setPoids($poids){
 
 	if(! is_int($poids))
 	{
-		trow new Exeption "veuillez entrer un chiffre";
+		throw new Exception  "veuillez entrer un chiffre";
 	}
 
 	$this ->poids = $poids;
