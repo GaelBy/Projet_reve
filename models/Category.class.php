@@ -5,6 +5,17 @@ class Category
 	private $description;
 	private $nom;
 
+	private $link;
+
+
+	public function __construct($link){
+
+		$this ->link = $link ;
+
+
+
+	}
+
 	public function getId()
 	{
 		return $this->id;
@@ -16,6 +27,18 @@ class Category
 	public function getNom()
 	{
 		return $this->nom;
+	}
+
+
+
+	public function getSubCategory(){
+
+		$sub_ = new SubCategoryManager($this->link);
+
+		$this->sub_cat = $sub_->getByIdCategory($this);
+        return $this->sub_cat;
+
+
 	}
 
 	public function setDescription($description)
@@ -43,5 +66,10 @@ class Category
 		}
 		$this->nom=$nom;
 	}
+
+
+
+
+
 }
 ?>
