@@ -1,9 +1,9 @@
 <?php
-class SubCategoryManager;
+class SubCategoryManager
 {
 	private $link;
 
-	public function_construct($link)
+	public function __construct($link)
 	{
 		$this->link = $link;
 	}
@@ -60,7 +60,7 @@ class SubCategoryManager;
 		$description = mysqli_real_escape_string($this->link, $sub_category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $sub_category->getNom());
 		$query = "INSERT INTO SubCategory (id_category, description, nom) VALUES ( '".$id_category."', '".$description."', '".$nom."')";
-		$res = mysqli_query()
+		//$res = mysqli_query()
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{
@@ -75,5 +75,7 @@ class SubCategoryManager;
 		}
 		else
 			throw new Exception("Erreur interne");
-}
+    }
+
+  }
 ?>
