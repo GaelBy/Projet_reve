@@ -72,11 +72,11 @@ class User
 	{
 		if (strlen($nom)<2)
 		{
-			return "Nom trop court (<2)";
+			throw new Exception("Nom trop court (<2)");
 		}
 		else if (strlen($nom)>15)
 		{
-			return "Nom trop long (>15)";
+			throw new Exception("Nom trop long (>15)");
 		}
 		//on donne la valeur de la variable $nom à la partie "nom" de cet objet
 		$this->nom = $nom;
@@ -86,11 +86,11 @@ class User
 	{
 		if (strlen($prenom)<2)
 		{
-			return "Prénom trop court (<2)";
+			throw new Exception("Prénom trop court (<2)");
 		}
 		else if (strlen($prenom)>15)
 		{
-			return "Prénom trop long (>15)";
+			throw new Exception("Prénom trop long (>15)");
 		}
 	
 		$this->prenom = $prenom;
@@ -102,7 +102,7 @@ class User
 	{
 		if (filter_var($email, FILTER_VALIDATE_EMAIL) == false)
 		{
-			return "Ce n'est pas une adresse mail";
+			throw new Exception("Ce n'est pas une adresse mail");
 		}
 		
 		$this->email = $email;
@@ -112,7 +112,7 @@ class User
 	{
 		if(strlen($password)<5)
 		{
-			return "Mot de passe trop court (<5)";
+			throw new Exception("Mot de passe trop court (<5)");
 		}
 		// on va mettre dans l'objet le hash du pass en utilisant la méthode Password_bcrypt, avec le tableau d'options où on définit l'option Coût.
 		$this->password=password_hash($password,PASSWORD_BCRYPT, array("cost"=>8));
@@ -126,7 +126,7 @@ class User
 		// je vérifie dans le tableau "dateArray" (Pour la fonction, "month", "day" et "year" doivent être des Int)
 		if (checkdate($dateArray["month"],$dateArray["day"],$dateArray["year"])==FALSE)
 		{
-			return "Ce n'est pas une date de naissance!";
+			throw new Exception("Ce n'est pas une date de naissance!");
 		}
 
 		//Ce qui va être rentré dans l'objet sous forme de Timestamp (mktime convertit le tableau en timestamp)
@@ -138,7 +138,7 @@ class User
 		//avec utilisation d'une expression régulière (à creuser):
 		if (preg_match("#0[1-9]([-. ]?[0-9]{2}){4}$#",$telephone)==FALSE)
 		{
-			return "Ce n'est pas un numéro de téléphone valide";
+			throw new Exception("Ce n'est pas un numéro de téléphone valide");
 		}
 
 		$this->telephone=$telephone;
@@ -148,7 +148,7 @@ class User
 	{
 		if (is_bool($statut)==FALSE)
 		{
-			return "Ce n'est pas un booléen";
+			throw new Exception("Ce n'est pas un booléen");
 		}
 
 		$this->statut=$statut;
@@ -158,7 +158,7 @@ class User
 	{
 		if ($sexe!=1 && $sexe!=2)
 		{
-			return "Compléter champ 'sexe'";
+			throw new Exception("Compléter champ 'sexe'");
 		}
 
 		$this->sexe=$sexe;
@@ -168,11 +168,11 @@ class User
 	{
 		if(strlen($login)<4)
 		{
-			return "login trop court (<4)";
+			throw new Exception("login trop court (<4)");
 		}
 		else if (strlen($login)>15)
 		{
-			return "login trop long (>15)";
+			throw new Exception("login trop long (>15)");
 		}
 
 		$this->login=$login;
