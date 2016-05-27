@@ -71,6 +71,21 @@ class Panier {
       $this->prix = 0;
     if ($this->poids === null)
       $this->poids = 0;
+    $i = 0;
+    while ($i < sizeof($this->produits))
+    {
+      if ($this->produits[$i]->getId == $produit->getId)
+      {
+        $this->produits[$i]->quantite++;
+        $this->nbre_produits++;
+        $this->prix = $this->prix + $produit->getPrixUniTtc;
+        $this->poids = $this->poids + $produit->getPoidsUni;
+        return $this->produits[$i];
+      }
+      $i++;
+    }
+
+
     $this->produits[] = $produit; // et on prend la liste pour y ajouter le produit sélectionné
     // $this->nbre_produits++;
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste

@@ -119,7 +119,7 @@ class PanierManager{
 
 
 
-        $query="INSERT INTO users (id_user,statut,prix,nombre_produits,poids) 
+        $query="INSERT INTO panier (id_user,statut,prix,nombre_produits,poids) 
 				VALUES ('".$id_user."', '".$statut."','".$prix."','".$nombre_produits."','".$poids."')";
 		$res=mysqli_query($this->link,$query);
 
@@ -129,8 +129,13 @@ class PanierManager{
 			$id=mysqli_insert_id($this->link); // on récupère le dernièr id 
 			if($id)
 			{
-				$user=$this->getById($id); // on récupère l'user qui correspond à l'id
-				return $user;
+				$list = $panier->getProduits();
+				$produit = $list[0];
+				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->quantite."')";
+				$res = mysqli_query($link, $query);
+				$panier=$this->getById($id); // on récupère l'user qui correspond à l'id
+				return $panier;
 			}
 			else
 			{
@@ -180,7 +185,7 @@ class PanierManager{
 			{
 				$produit = $list[$i];
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', 1)";
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->quantite."')";
 				$res = mysqli_query($link, $query);
 			}
 			return $this->getById($id);
