@@ -1,7 +1,9 @@
 <?php
 
 
-class PanierManager{
+class PanierManager
+
+{
 	
 
 

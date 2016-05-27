@@ -125,7 +125,7 @@ public function setIdUser($id_user){
 
     if(! is_int($id_user))
     {
-    	throw new Exception 'ce n\'est pas un chiffre' ;
+    	throw new Exception ("veuillez entrer un chiffre") ;
     }
     
     
@@ -141,7 +141,7 @@ public function setStatut($statut)
 	{
 		if (strlen($statut) < 5)
 		{
-			throw new Exception  "veuillez entrer au moin 5 carracteres (lettres)";
+			throw new Exception  ("veuillez entrer au moin 5 carracteres (lettres)");
 		}
     else if (strlen($statut > 15))
       throw new Exception("maximum 15 caractères");
@@ -158,7 +158,7 @@ public function setStatut($statut)
 
 	if(! is_int($prix))
 	{
-		throw new Exception  'veuillez entrer un chiffre ';
+		throw new Exception  ('veuillez entrer un chiffre ');
 	}
 
 	$this->prix = $prix ;
@@ -172,7 +172,7 @@ public function setStatut($statut)
 
 	if(! is_int($nbre_produits))
 	{
-		throw new Exception  "veuillez entrer un chiffre";
+		throw new Exception  ("veuillez entrer un chiffre");
 	}
 
 	$this ->nbre_produits = $nbre_produits;
@@ -185,7 +185,7 @@ public function setStatut($statut)
 
 	if(! is_int($poids))
 	{
-		throw new Exception  "veuillez entrer un chiffre";
+		throw new Exception  ("veuillez entrer un chiffre");
 	}
 
 	$this ->poids = $poids;
@@ -215,6 +215,7 @@ $produit = $produitManager->getById(3);
 $panier->ajoutProduit($produit);
 $panierManager->update($panier);
 */
+
 ?>
 
 

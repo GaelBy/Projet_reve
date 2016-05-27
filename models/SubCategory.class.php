@@ -5,6 +5,8 @@ class SubCategory
 	private $id_category;
 	private $nom;
 	private $description;
+	private $produits;
+
 
 	public function getId()
 	{
@@ -21,6 +23,12 @@ class SubCategory
 	public function getDescription()
 	{
 		return $this->description;
+	}
+	public function getProduits()
+	{
+		$manager = new ProduitsManager($this->link);
+		$this->produits = $manager->getBySubCategory($this);
+		return $this->produits;
 	}
 
 	public function setNom($nom)
