@@ -30,7 +30,6 @@ class Category
 	}
 
 
-
 	public function getSubCategory(){
 
 		$sub_ = new SubCategoryManager($this->link);
@@ -66,10 +65,5 @@ class Category
 		}
 		$this->nom=$nom;
 	}
-
-
-
-
-
 }
 ?>
