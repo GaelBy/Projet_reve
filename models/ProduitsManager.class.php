@@ -2,7 +2,7 @@
 class ProduitsManager;
 {
 	private $link;
-	public function__construct($link)
+	public function __construct($link)
 	{
 		$this->link =$link;
 	}
@@ -12,7 +12,7 @@ class ProduitsManager;
 		$id=intval($id);
 		$query="SELECT * FROM produits WHERE id=".$id;
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;
 	}
 
@@ -21,23 +21,38 @@ class ProduitsManager;
 		$reference=mysqli_real_escape_string($this->link,$reference);
 		$query="SELECT * FROM produits WHERE reference='".$reference."'";
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;	
 	}
 
 	public function getByNom($nom) // récup produit par nom de produit
 	{
 		$nom=mysqli_real_escape_string($this->link,$nom);
-		$squery="SELECT * FROM produits WHERE nom='".$nom."'";
+		$query="SELECT * FROM produits WHERE nom='".$nom."'";
 		$res=mysqli_query($this->link,$query);
-		$produit=mysqli_fetch_object($res,"Produits");
+		$produit=mysqli_fetch_object($res,"Produits",[$this->link]);
 		return $produit;
 	}
+
+	public function getBySubCategory($id_sub_category) // récup produit par sous catégorie
+	{
+		$id_sub_category=intval($id_sub_category);
+		$list=[];
+		$query="SELECT * FROM produits WHERE id_sub_category='".$id_sub_category."'";
+		$res=mysqli_query($this->,$query);
+
+		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+		{
+			$list[]=$produit;
+		}
+		return $list;
+	}
+
 
 	// Pour entrer nouveau produit en bdd:
 	public function create($data)
 	{
-		$produit=new Produits();
+		$produit=new Produits($this->link);
 		if(!isset($data['reference']))
 		{ 
 			throw new Exception("Paramètre manquant: référence");	
@@ -95,9 +110,76 @@ class ProduitsManager;
 				VALUES ('".$reference."','".$stock."', '".$prixUniHt."','".$tva."','".$description."','".$image."','".$nom."','".$poidsUni."','".$statut."')";
 		$res=mysqli_query($this->link,$query);
 
+		//A VOIR:
 
+		if($res)
+		{
+			$id=mysqli_insert_id($this->link); // on récupère le dernièr id 
+			
+			if($id)
+			{
+				$produit=$this->getById($id); // on récupère l'user qui correspond à l'id
+				return $produit;
+			}
+			else
+			{
+				throw new Exception("Erreur interne");
+			}
+		}
+		else
+		{
+			throw new Exception("Erreur interne");
+			
+		}
 
 	}
+	public function update(Produits $produit)
+	{
+		$id=$produit->getId();
+		$reference=mysqli_real_escape_string($this->link,$produit->getReference());
+		$stock=intval($produit->getStock();
+		$prixUniHt=floatval($produit->getPrixUniHt();
+		$tva=floatval($produit->getTva();
+		$description=mysqli_real_escape_string($this->link,$produit->getDescription());
+		$image=mysqli_real_escape_string($this->link,$produit->getImage());
+		$nom=mysqli_real_escape_string($this->link,$produit->getNom());
+		$poidsUni=floatval($produit->getPoidsUni();
+		$statut=$produit->getStatut();
 
-}
+		$query="UPDATE produits SET
+		reference='".$reference."',
+		stock='".$stock."',
+		prix_uni_ht='".$prixUniHt."',
+		tva='".$tva."',
+		description='".$description."',
+		image='".$image."',
+		nom='".$nom."',
+		poids_uni='".$poidsUni."',
+		statut='".$statut."' WHERE id=".$id;
+		$res=mysqli_query($this->link,$query);
+		if($res)
+		{
+			return $this->getById($id);
+		}
+		else
+		{
+			throw new Exception("Erreur Interne");
+			
+		}
+	}
+	public function delete (Produits $produit)
+	{
+		$id=$produit->getId();
+		$statut=0;
+		$query="UPDATE produits SET statut='".$statut."'WHERE id=".$id;
+		$res=mysqli_query($this->link,$query);
+		if($res)
+		{
+			return $this->getById($id);
+		}
+		else
+		{
+			throw new Exception("Erreur Interne");
+		}
+	}
 ?>

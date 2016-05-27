@@ -76,9 +76,9 @@ class Produits
 		{
 			throw new Exception("Référence trop courte(<5)");
 		}
-		else if (strlen($reference)>5)
+		else if (strlen($reference)>15)
 		{
-			throw new Exception("Référence trop longue(>5)");
+			throw new Exception("Référence trop longue(>15)");
 		}
 		$this->reference=$reference;
 	}
