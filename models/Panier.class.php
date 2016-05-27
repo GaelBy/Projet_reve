@@ -7,6 +7,7 @@ class Panier {
    private $date;
    private $statut;
    private $nbre_produits;
+   private $prix;
    private $poids;
 
    private $produits;// NULL ==> correspond à la liste des produits dans le panier
@@ -20,37 +21,37 @@ class Panier {
 
    public function getId(){
 
-   	return $this ->id ;
+   	return $this->id ;
    }
 
    public function getIdUser(){
 
-   	return $this ->id_user;
+   	return $this->id_user;
    }
 
    public function getDate(){
 
-   	return $this ->date ;
+   	return $this->date ;
    }
 
    public function getStatut(){
 
-   	return $this ->statut ;
+   	return $this->statut ;
    }
 
    public function getPrix(){
 
-   	return $this ->prix ;
+   	return $this->prix ;
    }
 
    public function getNbreProduits(){
 
-   	return $this ->nbre_produits ;
+   	return $this->nbre_produits ;
    }
 
    public function getPoids(){
 
-   	return $this ->poids ;
+   	return $this->poids ;
    }
 
    public function getProduits() //sert à récupérer la liste des produits qui sont dans le panier
@@ -66,9 +67,15 @@ class Panier {
     // null ?
     if ($this->produits === null)// si pas encore rempli...
       $this->getProduits(); // ...on récupère la liste
+    if ($this->prix === null)
+      $this->prix = 0;
+    if ($this->poids === null)
+      $this->poids = 0;
     $this->produits[] = $produit; // et on prend la liste pour y ajouter le produit sélectionné
     // $this->nbre_produits++;
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
+    $this->prix = $this->prix + $produit->getPrixUniTtc;
+    $this->poids = $this->poids + $produit->getPoidsUni;
    }
    public function suppressionProduit(Produit $produit)
    {
@@ -86,6 +93,8 @@ class Panier {
       {
         array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
         $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
+        $this->prix = $this->prix - $produit->getPrixUniTtc;
+        $this->poids = $this->poids - $produit->getPoidsUni;
         return $this->produits;
       }
       $count++;
@@ -115,11 +124,13 @@ public function setIdUser($id_user){
 
 public function setStatut($statut)
 	{
-		if (is_int($statut)||strlen($statut) < 5)
+		if (strlen($statut) < 5)
 		{
 			throw new Exception  "veuillez entrer au moin 5 carracteres (lettres)";
 		}
-
+    else if (strlen($statut > 15))
+      throw new Exception("maximum 15 caractères");
+      
 		$this->statut=$statut;
 	}
 
@@ -128,21 +139,21 @@ public function setStatut($statut)
 
 
 
-public function setPrix($prix){
+/*public function setPrix($prix){
 
 	if(! is_int($prix))
 	{
 		throw new Exception  'veuillez entrer un chiffre ';
 	}
 
-	$this ->prix = $prix ;
+	$this->prix = $prix ;
 
 
 	
-}
+}*/
 
 
-public function setNbreProduits($nbre_produits){
+/*public function setNbreProduits($nbre_produits){
 
 	if(! is_int($nbre_produits))
 	{
@@ -153,9 +164,9 @@ public function setNbreProduits($nbre_produits){
 
 
 	
-}
+}*/
 
-public function setPoids($poids){
+/*public function setPoids($poids){
 
 	if(! is_int($poids))
 	{
@@ -171,7 +182,7 @@ public function setPoids($poids){
 
 
 	
-}
+}*/
 
 
 

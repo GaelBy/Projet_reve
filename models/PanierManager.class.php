@@ -41,7 +41,7 @@ class PanierManager{
 		$panier_user=mysqli_fetch_object($res,"Panier",[$this->link]);
 		return $panier_user;
 	}
-	public function getCurrent()
+	public function getCurrent()//pas d'intérêt sous cette forme, voir plus précisément
 	{
 		//ci-dessous, on transforme $id en entier
 		$id_user=intval($_SESSION['id']);
@@ -57,15 +57,15 @@ class PanierManager{
 
 	public function getByStatut($statut)
 	{
-		//ci-dessous, on transforme $id en entier
-		$statut=intval($statut);
-		// $query est la requête: on va chercher l'id dans la bdd
+		$statut=mysqli_real_escape_string($this->link, $statut);
+		$list = [];
 		$query="SELECT * FROM panier WHERE statut=".$statut;
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
-		$panier_statut=mysqli_fetch_object($res,"Panier",[$this->link]);
-		return $panier_statut;
+		while ($panier=mysqli_fetch_object($res,"Panier",[$this->link]));
+			$list[] = $panier;
+		return $list;
 	}
 
 
@@ -104,16 +104,14 @@ class PanierManager{
 
 
         $panier->setIdUser($data['id_user']);
-		$panier->setDate($data['date']);
 		$panier->setStatut($data['statut']);
-		$panier->setPrix($data['prix']);
+		/*$panier->setPrix($data['prix']);
 		$panier->setNombreProduits($data['nombre_produits']);
-		$panier->setPoids($data['poids']);
+		$panier->setPoids($data['poids']);*/
 
 
 
 		$id_user= mysqli_real_escape_string($this->link,$panier->getId());
-		$date= mysqli_real_escape_string($this->link,$panier->getDate());
 		$statut= mysqli_real_escape_string($this->link,$panier->getStatut());
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
 		$nombre_produits= mysqli_real_escape_string($this->link,$panier->getNombreProduits());
@@ -121,8 +119,8 @@ class PanierManager{
 
 
 
-        $query="INSERT INTO users (id_user,date,statut,prix,nombre_produits,poids) 
-				VALUES ('".$id_user."','".$date."', '".$statut."','".$prix."','".$nombre_produits."','".$poids."')";
+        $query="INSERT INTO users (id_user,statut,prix,nombre_produits,poids) 
+				VALUES ('".$id_user."', '".$statut."','".$prix."','".$nombre_produits."','".$poids."')";
 		$res=mysqli_query($this->link,$query);
 
 		// on vérifie que la requête s'est bien exécutée:
@@ -156,14 +154,12 @@ class PanierManager{
 		$id=$panier->getId();
 
 		$id_user= mysqli_real_escape_string($this->link,$panier->getId());
-		$date= mysqli_real_escape_string($this->link,$panier->getDate());
 		$statut= mysqli_real_escape_string($this->link,$panier->getStatut());
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
 		$nombre_produits= mysqli_real_escape_string($this->link,$panier->getNombreProduits());
         $poids= mysqli_real_escape_string($this->link,$panier->getPoids());
 		$query="UPDATE panier SET
 	    id_user ='".$id_user."',
-		date ='".$date."',
 		statut ='".$statut."',
 		prix='".$prix."',
 		nombre_produits='".$nombre_produits."',
@@ -173,11 +169,20 @@ class PanierManager{
 		$res=mysqli_query($this->link,$query);
 		if ($res)
 		{
-			$panier->getProduits();
+			$list = $panier->getProduits();
 			// link_panier_produits
 			// DELETE
-			while 
+			$query = "DELETE FROM link_panier_produits WHERE id_panier=".$id;
+			$res = mysqli_query($link, $query);
 			// INSERT
+			$i = 0;
+			while ($i < sizeof($list))
+			{
+				$produit = $list[$i];
+				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
+				VALUES ('".$id."', '".$produit->getId."', 1)";
+				$res = mysqli_query($link, $query);
+			}
 			return $this->getById($id);
 		}
 		else
@@ -196,12 +201,12 @@ class PanierManager{
 		$this->produits = array(Produit1, Produit3, Produit4);
 		id id_panier id_produit quantite
 		*/
-		$query = "DELETE FROM link_panier_produits WHERE id_panier=".$id;
+		/*$query = "DELETE FROM link_panier_produits WHERE id_panier=".$id;
 		while ()
 		{
 			$produit = $this->produits[0];
 			$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite) VALUES('".$id."', '".$produit->getId()."', '1')";
-		}
+		}*/
 		/*
 		id id_panier id_produit quantite
 		-- 1
