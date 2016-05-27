@@ -74,11 +74,11 @@ class Produits
 	{	
 		if (strlen($reference)<5)
 		{
-			return "Référence trop courte(<5)";
+			throw new Exception("Référence trop courte(<5)");
 		}
 		else if (strlen($reference)>5)
 		{
-			return "Référence trop longue(>5)";
+			throw new Exception("Référence trop longue(>5)");
 		}
 		$this->reference=$reference;
 	}
@@ -88,11 +88,11 @@ class Produits
 	{
 		if(is_int($stock)!=TRUE)
 		{
-			return "Ne peut être qu'un nombre entier";
+			throw new Exception("Ne peut être qu'un nombre entier");
 		}
 		else if($stock<0)
 		{
-			return "Le stock ne peut être négatif sur ce type de produits";
+			throw new Exception("Le stock ne peut être négatif sur ce type de produits");
 		}
 		$this->stock=$stock;
 	}
@@ -102,11 +102,11 @@ class Produits
 	{
 		if(is_numeric($prix_uni_ht)!=TRUE)
 		{
-			return "Ce n'est pas un nombre";
+			throw new Exception("Ce n'est pas un nombre");
 		}
 		else if ($prix_uni_ht<=0)
 		{
-			return "Le prix ne peut être nul ou négatif!";
+			throw new Exception("Le prix ne peut être nul ou négatif!");
 		}
 		$this->prix_uni_ht=$prix_uni_ht;
 	}
@@ -116,7 +116,7 @@ class Produits
 	{
 		if(is_float($tva)!=TRUE)
 		{
-			return "Ce n'est pas un taux";
+			throw new Exception("Ce n'est pas un taux");
 		}
 
 		else if($tva<=0)
@@ -132,11 +132,11 @@ class Produits
 	{
 		if(strlen($description)<10)
 		{
-			return "C'est un peu court comme description";
+			throw new Exception("C'est un peu court comme description");
 		}
 		else if (strlen($description)>2047)
 		{
-			return "C'est trop long comme description";
+			throw new Exception("C'est trop long comme description");
 		}
 		$this->description=$description;
 	}
@@ -147,7 +147,7 @@ class Produits
 
 		if(filter_var($image, FILTER_VALIDATE_URL)==FALSE)
 		{
-			return "Ce n'est pas une image"
+			throw new Exception("Ce n'est pas une image)"
 		}
 		$this->image=$image;
 
@@ -158,11 +158,11 @@ class Produits
 	{
 		if(strlen($nom)<5)
 		{
-			return "Nom de produit trop court";
+			throw new Exception("Nom de produit trop court");
 		}
 		else if(strlen($nom)>31)
 		{
-			return "Nom de produit trop long";
+			throw new Exception("Nom de produit trop long");
 		}
 		$this->nom=$nom;
 	}
@@ -172,11 +172,11 @@ class Produits
 	{
 		if(is_numeric($poids_uni)!=TRUE)
 		{
-			return "Ce n'est pas un nombre";
+			throw new Exception("Ce n'est pas un nombre");
 		}
 		else if($poids_uni<=0)
 		{
-			return "Le poids ne peut être nul ou négatif";
+			throw new Exception("Le poids ne peut être nul ou négatif");
 		}
 		$this->poids_uni=$poids_uni;
 	}
@@ -186,7 +186,7 @@ class Produits
 	{
 		if(is_bool($statut)==FALSE)
 		{
-			return "Ce n'est pas un booléen";
+			throw new Exception("Ce n'est pas un booléen");
 		}
 		$this->statut=$statut;
 	}
