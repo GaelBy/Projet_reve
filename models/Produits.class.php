@@ -14,6 +14,15 @@ class Produits
 	private $poids_uni;
 	private $statut;
 
+	private $prix_uni_ttc;
+
+	private $link;
+
+	public function __construct($link)
+	{
+    	$this->link = $link;
+	}
+
 	public function getId()
 	{
 		return $this->id;
@@ -69,6 +78,10 @@ class Produits
 		return $this->statut;
 	}
 
+	public function getPrixUniTtc()
+	{
+		return $this->prix_uni_ttc;
+	}
 
 	public function setReference($reference)
 	{	
@@ -127,6 +140,10 @@ class Produits
 		$this->tva=$tva;
 	}
 
+	public function setPrixUniTtc()
+	{
+		$this->prix_uni_ttc = $this->prix_uni_ht * (1 + $this->tva);
+	}
 
 	public function setDescription($description)
 	{
@@ -190,6 +207,11 @@ class Produits
 		}
 		$this->statut=$statut;
 	}
-	
+	public function getAvis()
+	{
+		$manager = new AvisManager($this->link);
+		$list = $manager->getByProduit($this->id);
+		return $list;
+	}
 
 }
