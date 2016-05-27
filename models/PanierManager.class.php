@@ -161,7 +161,6 @@ class PanierManager{
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
 		$nombre_produits= mysqli_real_escape_string($this->link,$panier->getNombreProduits());
         $poids= mysqli_real_escape_string($this->link,$panier->getPoids());
-		
 		$query="UPDATE panier SET
 	    id_user ='".$id_user."',
 		date ='".$date."',
@@ -174,6 +173,11 @@ class PanierManager{
 		$res=mysqli_query($this->link,$query);
 		if ($res)
 		{
+			$panier->getProduits();
+			// link_panier_produits
+			// DELETE
+			while 
+			// INSERT
 			return $this->getById($id);
 		}
 		else

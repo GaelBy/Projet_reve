@@ -10,6 +10,7 @@ class UserManager
 	}
 	// dans le manager, on travaille en direct avec la BDD
 	
+	//ci-dessous, on récupère un user par l'id
 	public function getById($id)
 	{
 		//ci-dessous, on transforme $id en entier
@@ -217,28 +218,4 @@ class UserManager
 			throw new Exception("Erreur Interne");
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

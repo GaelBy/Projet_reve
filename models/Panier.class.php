@@ -8,8 +8,10 @@ class Panier {
    private $statut;
    private $nbre_produits;
    private $poids;
-   private $link;
-   private $produits;
+
+   private $produits;// NULL ==> correspond à la liste des produits dans le panier
+   
+   private $link; //link utilisé pour la composition
 
    public function __construct($link)
    {
@@ -51,18 +53,48 @@ class Panier {
    	return $this ->poids ;
    }
 
-   public function getProduits()
+   public function getProduits() //sert à récupérer la liste des produits qui sont dans le panier
    {
-    $manager = new ProduitsManager($this->link);
-    $this->produits = $manager->getByPanier($this);
-    return $this->produits;
+    $manager = new ProduitsManager($this->link); // on crée un nouveau produitManager et on lui donne le link dont il a besoin (vers laBDD)
+    $this->produits = $manager->getByPanier($this); // On appelle la fonction getByPanier qui existe dans le produitManager: "applique cette fonction
+    // pour récupérer la liste des produits du panier"
+    return $this->produits; //ici, la liste des produits
    }
 
-
-   public function ajoutProduit(Produit $produit)
+   public function ajoutProduit(Produit $produit) // on veut un objet produit
    {
-    $this->produits[] = $produit;
-    $this->nbre_produits =sizeof($produits);
+    // null ?
+    if ($this->produits === null)// si pas encore rempli...
+      $this->getProduits(); // ...on récupère la liste
+    $this->produits[] = $produit; // et on prend la liste pour y ajouter le produit sélectionné
+    // $this->nbre_produits++;
+    $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
+   }
+   public function suppressionProduit(Produit $produit)
+   {
+    // null ?
+    if ($this->produits === null)
+      $this->getProduits();
+    
+    $count=0;// ce compteur est relatif à la boucle
+
+    while($count < sizeof($this->produits)) // tant que le compteur boucle est inférieur à la taille de la liste
+    {
+      $article = $this->produits[$count];//article est ici UN produit de la liste, on les prend un par un
+      if ($article->getId == $produit->getId) //$produit= celui qu'on veut enlever. On détermine l'id du produit qu'on veut retirer
+      // et lorsque la boucle passe dessus...
+      {
+        array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
+        $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
+        return $this->produits;
+      }
+      $count++;
+    }
+    throw new Exception("Produit non trouvé");
+    
+
+    
+    // $this->nbre_produits--;
    }
 
 public function setIdUser($id_user){
@@ -150,19 +182,12 @@ public function setPoids($poids){
 
 
 }
-
 /*
-$panierManager = new PanierManager($link);
-$panier = $panierManager->getCurrent();
-$produits = $panier->getProduits();
-$count = 0;
-$max = sizeof($produits);
-while ($count < $max)
-{
-  $produit = $produits[$count];
-  require('views/displayProduit.phtml');
-  $count++;
-}
+$panier = $panierManager->getByUser($_SESSION['id']);
+$produit = $produitManager->getById(3);
+// $produit->getStock() > 0
+$panier->ajoutProduit($produit);
+$panierManager->update($panier);
 */
 ?>
 

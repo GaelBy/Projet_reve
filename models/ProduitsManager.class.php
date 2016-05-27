@@ -6,7 +6,22 @@ class ProduitsManager;
 	{
 		$this->link =$link;
 	}
-
+// cf composition: récupération de tous les produits qui sont dans un panier donné, ici "$panier"
+	public function getByPanier(Panier $panier)
+	{
+		$id=$panier->getId(); //ici on récupère l'id du panier en question
+		$list = [];// on prépare ici la liste des produits
+		$query="SELECT * FROM produits
+			INNER JOIN link_panier_produits ON produits.id=link_panier_produits.id_produit
+			WHERE link_panier_produits.id_panier=".$id; // Ici , on fait une jointure entre link_panier et produits, on détermine que l'Id
+			//dans link_panier est égal à celui de produits et qui doit être équivalent à l'id du panier
+		$res=mysqli_query($this->link,$query);
+		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+		{
+			$list[]=$produit;
+		}
+		return $list; // tant que...on remplit la liste
+	}
 	public function getById($id) // récup produit par id
 	{
 		$id=intval($id);
@@ -39,7 +54,7 @@ class ProduitsManager;
 		$id_sub_category=intval($id_sub_category);
 		$list=[];
 		$query="SELECT * FROM produits WHERE id_sub_category='".$id_sub_category."'";
-		$res=mysqli_query($this->,$query);
+		$res=mysqli_query($this->link,$query);
 
 		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
 		{
