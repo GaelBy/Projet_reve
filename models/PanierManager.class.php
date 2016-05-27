@@ -1,7 +1,9 @@
 <?php
 
 
-class PanierManager{
+class PanierManager
+
+{
 	
 
 
@@ -176,7 +178,7 @@ class PanierManager{
 			$panier->getProduits();
 			// link_panier_produits
 			// DELETE
-			while 
+			//while ()
 			// INSERT
 			return $this->getById($id);
 		}
