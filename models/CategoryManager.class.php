@@ -54,7 +54,6 @@ class CategoryManager;
 			throw new Exception("Paramètre manquant: nom");
 		$category->setDescription($data['description']);
 		$category->setNom($data['nom']);
-		$id = intval($category->getId());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$query = "INSERT INTO category (description, nom) VALUES ('".$description."', '".$nom."')";
