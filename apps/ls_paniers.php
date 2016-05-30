@@ -1,5 +1,5 @@
 <?php
 
-require('views/ls_paniers.php');
+require('views/ls_paniers.phtml');
 
 ?>

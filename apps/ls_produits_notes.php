@@ -1,7 +1,7 @@
 <?php
 
 
-require('views/ls_produits_notes.php');
+require('views/ls_produits_notes.phtml');
 
 
 ?>

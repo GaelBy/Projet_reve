@@ -1,7 +1,7 @@
 <?php
 
 
-require('views/admin_avis.php');
+require('views/admin_avis.phtml');
 
 
 ?>

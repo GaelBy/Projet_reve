@@ -1,6 +1,6 @@
 <?php
 
 
-require('views/ls_stock.php');
+require('views/ls_stock.phtml');
 
 ?>
