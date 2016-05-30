@@ -47,16 +47,16 @@ class SubCategoryManager
 	public function create($data)
 	{
 		$sub_category = new SubCategory($this->link);
-		if (!isset($data['id']))
-			throw new Exception("Paramètre manquant: id");
+		if (!isset($data['id_category']))
+			throw new Exception("Paramètre manquant: id_category");
 		if (!isset($data['description']))
 			throw new Exception("Paramètre manquant: description");
 		if (!isset($data['nom']))
 			throw new Exception("Paramètre manquant: nom");
-		$sub_category->setId($data['id']);
+		$sub_category->setIdCategory($category->getId());
 		$sub_category->setDescription($data['description']);
 		$sub_category->setNom($data['nom']);
-		$id = intval($sub_category->getId());
+		$id_category = intval($sub_category->getIdCategory());
 		$description = mysqli_real_escape_string($this->link, $sub_category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $sub_category->getNom());
 		$query = "INSERT INTO SubCategory (id_category, description, nom) VALUES ( '".$id_category."', '".$description."', '".$nom."')";
@@ -76,6 +76,22 @@ class SubCategoryManager
 		else
 			throw new Exception("Erreur interne");
     }
-
+    public function update(SubCategory $sub_category)
+    {
+    	$id = $sub_category->getId;
+		$nom = mysqli_real_escape_string($this->link, $category->getNom());
+		$description = mysqli_real_escape_string($this->link, $category->getDescription());
+		$query = "UPDATE sub_category SET nom='".$nom."', description='".$description."'
+		WHERE id=".$id;
+		$res = mysqli_query($this->link, $query);
+		if ($res)
+		{
+			return $this->getById($id);
+		}
+		else
+		{
+			throw new Exception("Erreur Interne");
+		}
+    }
   }
 ?>
