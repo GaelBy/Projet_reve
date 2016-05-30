@@ -17,6 +17,16 @@ class CategoryManager;
 		return $category;
 	}
 
+
+	public function getByIdCategory($id_category)
+	{
+		$id_category = intval($id_category);
+		$query = "SELECT * FROM category WHERE id =".$id_category;
+		$res = mysqli_query($this->link, $query);
+		$category = mysqli_fetch_object($category, "Category", [$this->link]);
+		return $category;
+	}
+
 	public function getByDescription($description)
 	{
 		$description = mysqli_real_escape_string($this->link, $description);

@@ -34,7 +34,7 @@ class Category
 
 		$sub_ = new SubCategoryManager($this->link);
 
-		$this->sub_cat = $sub_->getByIdCategory($this);
+		$this->sub_cat = $sub_->getByIdcategory($this);
         return $this->sub_cat;
 
 

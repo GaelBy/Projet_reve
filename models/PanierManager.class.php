@@ -88,28 +88,26 @@ class PanierManager
 		{
 			throw new Exception("Paramètre manquant: statut");
 		}
-		//on vérifie que les deux password existent
-		/*if (!isset($data["prix"]))
+		if (!isset($data['prix']))
 		{
 			throw new Exception("Paramètre manquant: prix");
 		}
-
 		if (!isset($data['nombre_produits']))
 		{
-			throw new Exception("Paramètre manquant: nombre_produits");
+			throw new Exception("Paramètre manquant: noombre_produits");
 		}
-        if (!isset($data['poids']))
-        {
-
-        	throw new Exception("Paramètre manquant: poids");
-        }*/
+		if (!isset($data['poids']))
+		{
+			throw new Exception("Paramètre manquant: poids");
+		}
+		
 
 
         $panier->setIdUser($data['id_user']);
 		$panier->setStatut($data['statut']);
-		/*$panier->setPrix($data['prix']);
+		$panier->setPrix($data['prix']);
 		$panier->setNombreProduits($data['nombre_produits']);
-		$panier->setPoids($data['poids']);*/
+		$panier->setPoids($data['poids']);
 
 
 
