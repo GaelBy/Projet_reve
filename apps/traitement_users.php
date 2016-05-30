@@ -1,7 +1,7 @@
 <?php
 //register
 $manager = new UserManager($link);
-if (isset($_GET['page']) && $_GET['page'] == 'register')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'register')
 {
 	try
 	{
@@ -23,7 +23,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'register')
 	}
 }
 //login
-if (isset($_GET['page']) && $_GET['page'] == 'login')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'login')
 {
 	try
 	{
@@ -54,14 +54,14 @@ if (isset($_GET['page']) && $_GET['page'] == 'login')
 	}
 }
 //logout
-if (isset($_GET['page']) && $_GET['page'] == 'logout')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
 	header('Location: index.php?page=home');
 	exit;
 }
 //edit
-if (isset($_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
+if (isset($_POST, $_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
 {
 	if ($_GET['action'] == 'edit')
 	{
