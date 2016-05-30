@@ -5,61 +5,42 @@ if (!isset($_SESSION['login']))
 	exit;
 }
 
-	if (isset($_POST['produit_note'], $_POST['avis_item'], $_POST['produit_panier']))
+	if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note']))
 	{
-		$success = true;
-		$produit_note = $_POST['produit_note'];
-		$avis_item = $_POST['avis_item'];
-		$produit_panier = $_POST['produit_panier'];
-
-		if(strlen($produit_panier) == 0)
-			$success = false;
-			
-		if ($success)
-		{
-			$date_avis = date('Y-m-d H:m:i');
-			$query = "INSERT INTO avis (produit_note, avis_item, `date`, produit_panier) VALUES ('".$produit_note."', '".$avis_item ."', '".$date_avis."', '".$produit_panier."')";
-			$res = mysqli_query( $link, $query);
-			header('Location: ?page=panier_item&id='.$avis_item);
-			exit;
-		}
-		else
-			$error = 'Merci de vous connecter avant de déposer un avis.';
+		$produit_manager = new ProduitManager($link);
+		$user_manager = new UserManager($link);
+		$avis_manager = new AvisManager($link);
+		$produit = $produit_manager->findById($_POST['id_produit']);
+		$user = $user_manager->findById($_SESSION['id']);
+		$avis = $avis_manager->create($_POST, $produit, $user);
+		//$date_avis = date('Y-m-d H:m:i');
+		//$query = "INSERT INTO avis (id_author, content, id_produit, note) VALUES ('".$id_author."', '".$content ."', '".$id_produit."', '".$note."')";
+		// $res = mysqli_query( $link, $query);
+		header('Location: ?page=produit&id='.$produit->getId());
+		exit;
 	}
 
-	if (isset($_POST['produit_panier']))
+	if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note']))
 	{
-		$success = true;
-		$produit_panier = $_POST['produit_panier'];
-		$avis_item = $_POST['avis_item'];
-
-		if (strlen($produit_panier) == 0)
-		{
-			$success = false;
-		}
-
-		if ($success)
-		{
-			$produit_panier = mysqli_real_escape_string($link, $produit_panier);
-			$query = 'UPDATE avis SET produit_panier = \' '.$produit_panier. '\' WHERE avis_item = '.$avis_item;
-			$res = mysqli_query($link, $query);
-			header('Location: ?page=panier_item');
-			exit;
+		$produit_manager = new ProduitManager($link);
+		$user_manager = new UserManager($link);
+		$avis_manager = new AvisManager($link);
+		$produit = $produit_manager->findById($_POST['id_produit']);
+		$user = $user_manager->findById($_SESSION['id']);
+		$avis = $avis_manager->update($_POST, $produit, $user);
+		header('Location: ?page=produit&id='.$produit->getId());
+		exit;
 	}
-		else
-			$error = 'Merci de vous connecter avant de modifier un avis.';
 
-	if (isset($_POST['confirm'], $_POST['id']))
+	if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note']))
 	{
-        $confirm = $_POST['confirm'];
-        $avis_item = $_POST['id'];
-
-        if ( $confirm == 'Yes' )
-        {
-            $query = 'DELETE FROM avis WHERE avis_item = '.$avis_item;
-            $res = mysqli_query($link, $query);
-        }
-        header('Location: index.php?page=admin');
-        exit; 
-    }
+		$produit_manager = new ProduitManager($link);
+		$user_manager = new UserManager($link);
+		$avis_manager = new AvisManager($link);
+		$produit = $produit_manager->findById($_POST['id_produit']);
+		$user = $user_manager->findById($_SESSION['id']);
+		$avis = $avis_manager->delete($_POST, $produit, $user);
+		header('Location: ?page=produit&id='.$produit->getId());
+		exit;
+	}
 ?>
