@@ -76,7 +76,7 @@ class Panier {
     {
       if ($this->produits[$i]->getId == $produit->getId)
       {
-        $this->produits[$i]->quantite++;
+        $this->produits[$i]->setQuantite($this->produits[$i]->getQuantite()+1);
         $this->nbre_produits++;
         $this->prix = $this->prix + $produit->getPrixUniTtc;
         $this->poids = $this->poids + $produit->getPoidsUni;
@@ -106,8 +106,8 @@ class Panier {
       if ($article->getId == $produit->getId) //$produit= celui qu'on veut enlever. On détermine l'id du produit qu'on veut retirer
       // et lorsque la boucle passe dessus...
       {
-        if ($article->quantite > 1)
-          $article->quantite--;
+        if ($article->getQuantite() > 1)
+          $article->setQuantite($article->getQuantite()-1);
           $this->nbre_produits--;
         else
         {

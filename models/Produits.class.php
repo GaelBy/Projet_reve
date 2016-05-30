@@ -15,6 +15,7 @@ class Produits
 	private $statut;
 
 	private $prix_uni_ttc;
+	private $quantite;
 
 	private $link;
 
@@ -81,6 +82,10 @@ class Produits
 	public function getPrixUniTtc()
 	{
 		return $this->prix_uni_ttc;
+	}
+	public function getQuantite()
+	{
+		return $this->quantite;
 	}
 
 	public function setReference($reference)
@@ -206,6 +211,10 @@ class Produits
 			throw new Exception("Ce n'est pas un booléen");
 		}
 		$this->statut=$statut;
+	}
+	public function setQuantite($quantite)
+	{
+		$this->quantite = $quantite;
 	}
 	public function getAvis()
 	{

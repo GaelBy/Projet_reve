@@ -134,7 +134,7 @@ class PanierManager
 				$list = $panier->getProduits();
 				$produit = $list[0];
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', '".$produit->quantite."')";
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
 				$res = mysqli_query($link, $query);
 				$panier=$this->getById($id); // on récupère l'user qui correspond à l'id
 				return $panier;
@@ -187,7 +187,7 @@ class PanierManager
 			{
 				$produit = $list[$i];
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', '".$produit->quantite."')";
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
 				$res = mysqli_query($link, $query);
 			}
 			return $this->getById($id);
