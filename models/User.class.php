@@ -15,6 +15,12 @@ class User
 	private $login;
 	private $admin; // NB: on a défini "0" dans la base de données: par défaut=>pas admin
 
+	private $link;
+
+	public function __construct($link)
+   	{
+    	$this->link = $link;
+   	}
 	//méthodes
 	//fonction suivante: lorsque appelée, va sortir l'Id de cet objet
 	public function getId()
@@ -65,37 +71,28 @@ class User
 	{
 		return $this->admin;
 	}
-	//compo Donner avis
-	public function donnerAvis($data, Produits $produit)
+
+	public function getAvis()
 	{
-		$manager=new AvisManager($this->link)
-		$avis = $manager->create($data, $produit, $this);
+		$manager=new AvisManager($this->link);// pour aller chercher avis manager et l'utiliser
+		$list=$manager->getByAuthor($this->id);// on utilise cette fonction, avec en paramètre l'id de cet user
+		return $list;
 	}
-	//compo modifier avis
-	public function modifAvis($data,Produits $produit)
+	
+	
+	public function getAdresse()
 	{
-		$manager=new AvisManager($this->link)
-		$avis = $manager->update($data, $produit, $this);
+		$manager=new AdresseManager($this->link);
+		$list=$manager->getByUser($this->id);
+		return $list;
 	}
 
-	//compo créer adresse
-	public function creaAdresse($data, Adresse $adresse)
-	{
-		$manager=new Adresse($this->link)
-		$adresse = $manager->create($data,$this);
-	}
 
-	//compo modifier adresse
-	public function modifAdresse($data, Adresse $adresse)
+	public function getPanier()
 	{
-		$manager=new Adresse($this->link)
-		$adresse = $manager->update($data,$this);
-	}
-
-	public function initPanier($data, Panier $panier)
-	{
-		$manager=new Panier($this->link)
-		$panier = $manager->create($data,$this);
+		$manager=new PanierManager($this->link);
+		$list=$manager->getByIdUser($this->id);
+		return $list;
 	}
 
 
