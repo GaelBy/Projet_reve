@@ -56,5 +56,11 @@ class SubCategory
 		}
 		$this->description=$description;
 	}
+	public function setIdCategory($id_category)
+	{
+		if(!is_int($id_category))
+			throw new Exception("Paramètre incorrect: catégorie");
+		$this->id_category = $id_category;
+	}
 }
 ?>
