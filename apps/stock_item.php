@@ -1,5 +1,5 @@
 <?php
 
-require('views/stock_item.php');
+require('views/stock_item.phtml');
 
 ?>

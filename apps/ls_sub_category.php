@@ -1,6 +1,6 @@
 <?php
 
-require('views/ls_sub_category.php');
+require('views/ls_sub_category.phtml');
 
 
 ?>

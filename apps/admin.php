@@ -1,5 +1,5 @@
 <?php
 
-require('views/admin.php');
+require('views/admin.phtml');
 
 ?>

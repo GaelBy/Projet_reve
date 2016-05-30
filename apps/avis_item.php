@@ -1,4 +1,4 @@
 <?php
 
-require('views/avis_item.php');
+require('views/avis_item.phtml');
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-require('views/category.php');
+require('views/category.phtml');
 
 
 ?>

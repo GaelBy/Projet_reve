@@ -1,5 +1,5 @@
 <?php
 
-require('views/produit.php');
+require('views/produit.phtml');
 
 ?>

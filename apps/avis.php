@@ -1,6 +1,6 @@
 <?php
 
-require('views/avis.php');
+require('views/avis.phtml');
 
 
 ?>
