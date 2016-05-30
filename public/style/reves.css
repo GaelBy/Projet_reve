@@ -1,0 +1,20 @@
+*{
+
+
+}
+
+
+body{
+
+	background-color:orange;
+}
+
+ul a{
+
+	text-decoration:none;
+}
+
+li{
+
+	display:inline-block;
+}
