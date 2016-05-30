@@ -1,5 +1,5 @@
 <?php
 
-require('views/conf_paiement.php');
+require('views/conf_paiement.phtml');
 
 ?>

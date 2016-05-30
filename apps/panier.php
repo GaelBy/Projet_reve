@@ -1,6 +1,6 @@
 <?php
 
-reqauire('views/panier.php');
+reqauire('views/panier.phtml');
 
 
 ?>

@@ -20,7 +20,7 @@ class UserManager
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
-		$user=mysqli_fetch_object($res,"User");
+		$user=mysqli_fetch_object($res,"User", $this->link);
 		return $user;
 	}
 
@@ -32,13 +32,13 @@ class UserManager
 		$query="SELECT * FROM users WHERE login='".$login."'";
 		$res=mysqli_query($this->link,$query);
 		//on récupère l'user, avec un login donné
-		$user=mysqli_fetch_object($res,"User");
+		$user=mysqli_fetch_object($res,"User", $this->link);
 		return $user;
 	}
 	//on va entrer un nouvel utilisateur en bdd
 	public function create($data)
 	{
-		$user=new User();
+		$user = new User($this->link);
 		// on va commencer à vérifier si les champs du formulaire de register sont Set:
 		if (!isset($data['nom'])) //n'est pas set
 		{
@@ -154,7 +154,7 @@ class UserManager
 			throw new Exception("Login inexistant");
 		}
 
-		if(password_verify($data['password'],$user->getPassword()==FALSE)
+		if(password_verify($data['password'],$user->getPassword()==FALSE))
 		{
 			throw new Exception("Password incorrect");
 		}
@@ -218,4 +218,5 @@ class UserManager
 			throw new Exception("Erreur Interne");
 		}
 	}
+}
 ?>

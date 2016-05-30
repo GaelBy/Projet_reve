@@ -1,5 +1,5 @@
 <?php
 
-require('views/ls_avis.php');
+require('views/ls_avis.phtml');
 
 ?>

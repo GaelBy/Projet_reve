@@ -1,6 +1,6 @@
 <?php
 
-require('views/produit_note.php');
+require('views/produit_note.phtml');
 
 
 ?>

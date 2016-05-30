@@ -1,6 +1,6 @@
 <?php
 
-require('views/profil_user.php');
+require('views/profil_user.phtml');
 
 
 ?>

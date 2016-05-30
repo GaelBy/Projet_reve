@@ -1,6 +1,6 @@
 <?php
 
-require('views/admin_category.php');
+require('views/admin_category.phtml');
 
 
 ?>

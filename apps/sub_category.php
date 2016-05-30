@@ -1,6 +1,6 @@
 <?php
 
-require('views/sub_category.php');
+require('views/sub_category.phtml');
 
 
 ?>

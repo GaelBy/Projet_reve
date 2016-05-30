@@ -1,6 +1,6 @@
 <?php
 
-require('views/ls_produits.php');
+require('views/ls_produits.phtml');
 
 
 ?>
