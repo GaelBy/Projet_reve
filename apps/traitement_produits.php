@@ -1,18 +1,47 @@
 <?php
-$manager=new Produitsmanager($link);
-
-//CREATION
-if ($_GET['action']=='create' && $_SESSION['admin']==TRUE)
+if(isset($_SESSION['login']))
 {
-	try
+	$option_prod = new ProduitsManager($link);
+	if (isset($_GET['action']) && $_GET['action'] == "creer" )
 	{
-		$produit=$manager->create($_POST);
-		header('Location: index.php?page=produit&id='.$produit->getId);
-		exit;
+		try
+	    {
+	    	$produit = $option_prod ->create($_POST);
+	    	header('Location:index.php?page=produits');
+	    	exit;
+		}
+	    catch (Exception $e);
+	    {
+	    	$error = $e->getMessage;
+	    }
 	}
-	catch(Exception $e)
+	else if(isset($_GET['action']) && $_GET['action'] == "modifier")
 	{
-		$error=$e->getMessage();
+		try
+		{
+		    $option_prod ->update($this);
+		    header('Location:index.php?page=produits');
+		    exit;
+		}
+		catch (Exception $e);
+		{
+			$error = $e->getMessage;
+		}
+	}
+	else if(isset($_GET['action']) && $_GET['action'] == "supprimer")
+	{
+
+		try
+		{
+
+		    $option_prod ->delete($this);
+		    header('Location:index.php?page=produits');
+		    exit;
+		}
+		catch (Exception $e);
+		{
+			$error = $e->getMessage;
+		}
 	}
 }
 ?>
