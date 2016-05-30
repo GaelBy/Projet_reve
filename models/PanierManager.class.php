@@ -72,17 +72,12 @@ class PanierManager
 
 
 
-   public function create($data){
-
-    $panier = new Panier($this->link) ;
-
-    if (!isset($data['id_user'])) //n'est pas set
+   public function create($data)
+   {
+		$panier = new Panier($this->link) ;
+    	if (!isset($data['id_user'])) //n'est pas set
 		{
 			throw new Exception("Paramètre manquant:id_user"); //NB:VOIR TRAITEMENT!
-		}
-		if (!isset($data['date']))
-		{
-			throw new Exception("Paramètre manquant: date");
 		}
 		if (!isset($data['statut']))
 		{
@@ -94,7 +89,7 @@ class PanierManager
 		}
 		if (!isset($data['nombre_produits']))
 		{
-			throw new Exception("Paramètre manquant: noombre_produits");
+			throw new Exception("Paramètre manquant: nombre_produits");
 		}
 		if (!isset($data['poids']))
 		{
