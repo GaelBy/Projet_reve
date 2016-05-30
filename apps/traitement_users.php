@@ -60,9 +60,9 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 	exit;
 }
 //edit
-if (isset($_GET['page']) && $_GET['page'] == 'profil_user')
+if (isset($_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
 {
-	if (isset($_GET['action'] == 'edit'))
+	if ($_GET['action'] == 'edit')
 	{
 		if ($_SESSION['id'] == $_GET['id_user'] || $_SESSION['admin'])
 		{
@@ -97,7 +97,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'profil_user')
 		}
 	}
 //delete
-	else if (isset($_GET['action']) && $_GET['action'] == 'delete')
+	else if ($_GET['action'] == 'delete')
 	{
 		if ($_SESSION['admin'])
 		{
