@@ -34,7 +34,7 @@ class Category
 
 		$sub_ = new SubCategoryManager($this->link);
 
-		$this->sub_cat = $sub_->getByIdCategory($this);
+		$this->sub_cat = $sub_->getByIdcategory($this);
         return $this->sub_cat;
 
 
@@ -46,7 +46,7 @@ class Category
 		{
 			throw new Exception("Description trop courte !");
 		}
-		else if (strlen($description)>2047)
+		else if (strlen($description)>127)
 		{
 			throw new Exception("Description trop longue !");
 		}
@@ -59,9 +59,9 @@ class Category
 		{
 			throw new Exception("Nom trop court(<2)");
 		}
-		else if (strlen($nom)>30)
+		else if (strlen($nom)>15)
 		{
-			throw new Exception("Nom trop longue(>30)");
+			throw new Exception("Nom trop longue(>15)");
 		}
 		$this->nom=$nom;
 	}

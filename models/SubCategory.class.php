@@ -37,9 +37,9 @@ class SubCategory
 		{
 			throw new Exception("Nom trop court(<2)");
 		}
-		else if (strlen($nom)>30)
+		else if (strlen($nom)>15)
 		{
-			throw new Exception("Nom trop longue(>30)");
+			throw new Exception("Nom trop longue(>15)");
 		}
 		$this->nom=$nom;
 	}
@@ -50,7 +50,7 @@ class SubCategory
 		{
 			throw new Exception("Description trop courte !");
 		}
-		else if (strlen($description)>2047)
+		else if (strlen($description)>127)
 		{
 			throw new Exception("Description trop longue !");
 		}

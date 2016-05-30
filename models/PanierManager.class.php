@@ -88,28 +88,26 @@ class PanierManager
 		{
 			throw new Exception("Paramètre manquant: statut");
 		}
-		//on vérifie que les deux password existent
-		if (!isset($data["prix"]))
+		if (!isset($data['prix']))
 		{
 			throw new Exception("Paramètre manquant: prix");
 		}
-
 		if (!isset($data['nombre_produits']))
 		{
-			throw new Exception("Paramètre manquant: nombre_produits");
+			throw new Exception("Paramètre manquant: noombre_produits");
 		}
-        if (!isset($data['poids']))
-        {
-
-        	throw new Exception("Paramètre manquant: poids");
-        }
+		if (!isset($data['poids']))
+		{
+			throw new Exception("Paramètre manquant: poids");
+		}
+		
 
 
         $panier->setIdUser($data['id_user']);
 		$panier->setStatut($data['statut']);
-		/*$panier->setPrix($data['prix']);
+		$panier->setPrix($data['prix']);
 		$panier->setNombreProduits($data['nombre_produits']);
-		$panier->setPoids($data['poids']);*/
+		$panier->setPoids($data['poids']);
 
 
 
@@ -121,7 +119,7 @@ class PanierManager
 
 
 
-        $query="INSERT INTO users (id_user,statut,prix,nombre_produits,poids) 
+        $query="INSERT INTO panier (id_user,statut,prix,nombre_produits,poids) 
 				VALUES ('".$id_user."', '".$statut."','".$prix."','".$nombre_produits."','".$poids."')";
 		$res=mysqli_query($this->link,$query);
 
@@ -131,8 +129,13 @@ class PanierManager
 			$id=mysqli_insert_id($this->link); // on récupère le dernièr id 
 			if($id)
 			{
-				$user=$this->getById($id); // on récupère l'user qui correspond à l'id
-				return $user;
+				$list = $panier->getProduits();
+				$produit = $list[0];
+				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
+				$res = mysqli_query($link, $query);
+				$panier=$this->getById($id); // on récupère l'user qui correspond à l'id
+				return $panier;
 			}
 			else
 			{
@@ -182,7 +185,7 @@ class PanierManager
 			{
 				$produit = $list[$i];
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', 1)";
+				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
 				$res = mysqli_query($link, $query);
 			}
 			return $this->getById($id);
