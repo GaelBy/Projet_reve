@@ -4,13 +4,19 @@ $error='';
 $page='home';
 
 function __autoload($class_name) {
-    include $class_name . '.php';
+    require('models/'.$class_name.'.class.php';
+}
+require('config.php');
+$link = mysqli_connect($localhost, $login, $pass, $database);
+if (!$link)
+{
+	require('views/bigerror.phtml');
+	exit;
 }
 
 
 
-
-$acces = array('login','logout','register','home');
+$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis');
 
 if(isset($_GET['page']))
 {
@@ -24,10 +30,10 @@ if(isset($_GET['page']))
 
 
 
-$acces_traitement = array('login','register','logout');
+$acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users', 'produit'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis', 'profil_user'=>'users', 'admin_category'=>'category', 'admin_produits'=>'produits');
 
-if (in_array($page, $acces_traitement))
-	require('apps/traitement_'.$page.'.php');
+if (array_key_exists($page, $acces_traitement))
+	require('apps/traitement_'.$acces_traitement[$page].'.php');
 
 
 
