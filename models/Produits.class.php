@@ -222,5 +222,19 @@ class Produits
 		$list = $manager->getByProduit($this->id);
 		return $list;
 	}
+	public function getMoyenne()
+	{
+		$list = $this->getAvis;
+		$somme = 0;
+		$i = 0;
+		while ($i < sizeof($list))
+		{
+			$avis = $list[$i];
+			$somme = $somme + $avis->getNote;
+			$i++;
+		}
+		$moyenne = $somme / $i;
+		return $moyenne;
+	}
 
 }
