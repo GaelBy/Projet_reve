@@ -48,20 +48,15 @@ class CategoryManager;
 	public function create($data)
 	{
 		$category = new Category($this->link);
-		if (!isset($data['id']))
-			throw new Exception("Paramètre manquant: id");
 		if (!isset($data['description']))
 			throw new Exception("Paramètre manquant: description");
 		if (!isset($data['nom']))
 			throw new Exception("Paramètre manquant: nom");
-		$category->setId($data['id']);
 		$category->setDescription($data['description']);
 		$category->setNom($data['nom']);
-		$id = intval($category->getId());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$query = "INSERT INTO category (description, nom) VALUES ('".$description."', '".$nom."')";
-		$res = mysqli_query()
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{
@@ -76,5 +71,23 @@ class CategoryManager;
 		}
 		else
 			throw new Exception("Erreur interne");
+	}
+	public function update(Category $category)
+	{
+		$id = $category->getId;
+		$nom = mysqli_real_escape_string($this->link, $category->getNom());
+		$description = mysqli_real_escape_string($this->link, $category->getDescription());
+		$query = "UPDATE category SET nom='".$nom."', description='".$description."'
+		WHERE id=".$id;
+		$res = mysqli_query($this->link, $query);
+		if ($res)
+		{
+			return $this->getById($id);
+		}
+		else
+		{
+			throw new Exception("Erreur Interne");
+		}
+	}
 }
 ?>
