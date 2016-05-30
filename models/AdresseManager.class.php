@@ -31,7 +31,7 @@ class AdresseManager
 		$adresse = new Adresse();
 		if (!isset($data['id_user']))
 			throw new Exception("Paramètre manquant: user");
-		if (!isset($data['nom']))
+		if (!isset($data['nom_adresse']))
 			throw new Exception("Paramètre manquant: nom");
 		if (!isset($data['numero']))
 			throw new Exception("Paramètre manquant: numéro");
@@ -44,7 +44,7 @@ class AdresseManager
 		if (!isset($data['type_adresse']))
 			throw new Exception("Paramètre manquant: type d'adresse");
 		$adresse->setIdUser($data['id_user']);
-		$adresse->setNom($data['nom']);
+		$adresse->setNom($data['nom_adresse']);
 		$adresse->setNumero($data['numero']);
 		$adresse->setRue($data['rue']);
 		$adresse->setVille($data['ville']);
