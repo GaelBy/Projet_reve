@@ -4,7 +4,7 @@ $error='';
 $page='home';
 
 function __autoload($class_name) {
-    require('models/'.$class_name.'.class.php';
+    require('models/'.$class_name.'.class.php');
 }
 require('config.php');
 $link = mysqli_connect($localhost, $login, $pass, $database);
