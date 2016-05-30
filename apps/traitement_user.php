@@ -11,7 +11,10 @@ if (isset($_GET['page']) && $_GET['page'] == 'register')
 		$adresse_manager = new AdresseManager($link);
 		$adresse = $adresse_manager->create($data1);
 		$adresse = $adresse_manager->create($data2);
-		header('Location: index.php?page=login') ;
+		if (isset($_GET['panier_id'], $_GET['action']) && $_GET['action'] = 'validate')
+			header('Location: index.php?page=login&panier_id='.$_GET['panier_id'].'&action=validate');
+		else
+			header('Location: index.php?page=login') ;
 		exit;
 	}
 	catch (Exception $e)
@@ -26,13 +29,21 @@ if (isset($_GET['page']) && $_GET['page'] == 'login')
 	{
 		$user = $manager->login($_POST);
 		$_SESSION['id'] = $user->getId();
+		//ajouter cas si login avec panier en cours
+		if (isset($_GET['id_panier'], $_GET['action']) && $_GET['action'] = 'validate')
+		{
+			$panier_manager = new PanierManager($link);
+			$panier = $panier_manager->getById($_GET['id_panier']);
+			$panier->setIdUser($_SESSION['id']);
+			header('Location: index.php?page=paiement&id_panier='.$panier->getId());
+			exit;
+		}
 		if ($user->admin == 1)
 		{
 			$_SESSION['admin'] = 1;
 			header('Location: index.php?page=admin');
 			exit;
 		}
-		//ajouter cas si login avec panier en cours
 		header('Location: index.php?page=home');
 		exit;
 	}
