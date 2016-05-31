@@ -13,7 +13,7 @@ class AdresseManager
 		$id = intval($id);
 		$query = "SELECT * FROM adresses WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
-		$adresse = mysqli_fetch_object($res, "Adresse");
+		$adresse = mysqli_fetch_object($res, "Adresse", [$this->link]);
 		return $adresse;
 	}
 	public function getByUser($id_user)
@@ -22,13 +22,13 @@ class AdresseManager
 		$list = [];
 		$query = "SELECT * FROM adresses WHERE id_user=".$id_user;
 		$res = mysqli_query($this->link, $query);
-		while ($adresse = mysqli_fetch_object($res, "Adresse"))
+		while ($adresse = mysqli_fetch_object($res, "Adresse", [$this->link]))
 			$list[] = $adresse;
 		return $list;
 	}
 	public function create($data)
 	{
-		$adresse = new Adresse();
+		$adresse = new Adresse($this->link);
 		if (!isset($data['id_user']))
 			throw new Exception("Paramètre manquant: user");
 		if (!isset($data['nom_adresse']))

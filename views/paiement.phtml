@@ -1,0 +1,29 @@
+<h1>Paiement de la commande</h1>
+<div class="error"><?=$error?></div>
+<div class="container">
+	<h2>Prix à payer : <?=$prix?> €</h2>
+</div>
+<div class="container">
+	<form action="" method="POST">
+		<h3>Adresse de facturation</h3>
+		<input type="text" name="nom_adresse1" value="<?=$list[0]->getNom()?>">
+		<input type="text" name="numero1" value="<?=$list[0]->getNumero()?>">
+		<input type="text" name="rue1" value="<?=$list[0]->getRue()?>">
+		<input type="text" name="code_postal1" value="<?=$list[0]->getCodePostal()?>">
+		<input type="text" name="ville1" value="<?=$list[0]->getVille()?>">
+		<h3>Adresse de livraison</h3>
+		<input type="text" name="nom_adresse2" value="<?=$list[1]->getNom()?>">
+		<input type="text" name="numero2" value="<?=$list[1]->getNumero()?>">
+		<input type="text" name="rue2" value="<?=$list[1]->getRue()?>">
+		<input type="text" name="code_postal2" value="<?=$list[1]->getCodePostal()?>">
+		<input type="text" name="ville2" value="<?=$list[1]->getVille()?>">
+		<button class="btn" type="submit" name="action" value="adresse">Modifier</button>
+	</form>
+</div>
+<div class="container">
+	<form action="" method="POST">
+		<label for="numero_carte">Numéro de carte</label>
+		<input type="text" id="numero_carte" name="numero_carte">
+		<button class="btn" type="submit">Valider le paiement</button>
+	</form>
+</div>

@@ -151,7 +151,7 @@ class User
 	public function setDateNaissance($date_naissance)
 	{
 		//on récupère le jour, le mois et l'année. $dateArray parce qu'on récupère en fait les infos sous forme de tableau
-		$dateArray= date_parse_from_format(d/m/Y, $date_naissance);
+		$dateArray= date_parse_from_format('d/m/Y', $date_naissance);
 
 		// je vérifie dans le tableau "dateArray" (Pour la fonction, "month", "day" et "year" doivent être des Int)
 		if (checkdate($dateArray["month"],$dateArray["day"],$dateArray["year"])==FALSE)
@@ -176,9 +176,9 @@ class User
 
 	public function setStatut($statut)
 	{
-		if (is_bool($statut)==FALSE)
+		if ($statut != 0 && $statut != 1)
 		{
-			throw new Exception("Ce n'est pas un booléen");
+			throw new Exception("Paramètre incorrect: statut");
 		}
 
 		$this->statut=$statut;
