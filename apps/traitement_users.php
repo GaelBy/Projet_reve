@@ -29,7 +29,6 @@ if (isset($_POST, $_GET['page']) && $_GET['page'] == 'login')
 	{
 		$user = $manager->login($_POST);
 		$_SESSION['id'] = $user->getId();
-		//ajouter cas si login avec panier en cours
 		if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] = 'validate')
 		{
 			$panier_manager = new PanierManager($link);
