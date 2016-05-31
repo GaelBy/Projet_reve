@@ -20,7 +20,7 @@ class UserManager
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
-		$user=mysqli_fetch_object($res,"User", $this->link);
+		$user=mysqli_fetch_object($res,"User", [$this->link]);
 		return $user;
 	}
 
@@ -32,7 +32,7 @@ class UserManager
 		$query="SELECT * FROM users WHERE login='".$login."'";
 		$res=mysqli_query($this->link,$query);
 		//on récupère l'user, avec un login donné
-		$user=mysqli_fetch_object($res,"User", $this->link);
+		$user=mysqli_fetch_object($res,"User", [$this->link]);
 		return $user;
 	}
 	//on va entrer un nouvel utilisateur en bdd
@@ -159,7 +159,7 @@ class UserManager
 			throw new Exception("Password incorrect");
 		}
 
-		if($user->getStatut==0)
+		if($user->getStatut()==0)
 		{
 			throw new Exception("Statut inactif");
 		}
