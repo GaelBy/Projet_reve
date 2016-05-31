@@ -19,6 +19,7 @@ li{
 
 	display:inline-block;
 }
+<<<<<<< HEAD
 
 .affiche_sub{
 	margin-top:15px;
@@ -33,4 +34,8 @@ li{
 .affiche_sub_description{
 	text-align:center;
 
+=======
+.hide{
+	display: none;
+>>>>>>> fca5bb3c42cb8573783e466cf62b86b7d87ad11f
 }
