@@ -7,7 +7,7 @@ function __autoload($class_name)
 {
     require('models/'.$class_name.'.class.php');
 }
-require('config.php');
+require('apps/config.php');
 $link = mysqli_connect($localhost, $login, $pass, $database);
 if (!$link)
 {
