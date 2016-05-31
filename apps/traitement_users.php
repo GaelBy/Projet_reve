@@ -1,7 +1,7 @@
 <?php
 //register
 $manager = new UserManager($link);
-if (isset($_GET['page']) && $_GET['page'] == 'register')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'register')
 {
 	try
 	{
@@ -11,8 +11,8 @@ if (isset($_GET['page']) && $_GET['page'] == 'register')
 		$adresse_manager = new AdresseManager($link);
 		$adresse = $adresse_manager->create($data1);
 		$adresse = $adresse_manager->create($data2);
-		if (isset($_GET['panier_id'], $_GET['action']) && $_GET['action'] = 'validate')
-			header('Location: index.php?page=login&panier_id='.$_GET['panier_id'].'&action=validate');
+		if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] = 'validate')
+			header('Location: index.php?page=login&action=validate');
 		else
 			header('Location: index.php?page=login') ;
 		exit;
@@ -23,19 +23,20 @@ if (isset($_GET['page']) && $_GET['page'] == 'register')
 	}
 }
 //login
-if (isset($_GET['page']) && $_GET['page'] == 'login')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'login')
 {
 	try
 	{
 		$user = $manager->login($_POST);
 		$_SESSION['id'] = $user->getId();
 		//ajouter cas si login avec panier en cours
-		if (isset($_GET['id_panier'], $_GET['action']) && $_GET['action'] = 'validate')
+		if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] = 'validate')
 		{
 			$panier_manager = new PanierManager($link);
-			$panier = $panier_manager->getById($_GET['id_panier']);
+			$panier = $panier_manager->getById($_SESSION['panier']);
 			$panier->setIdUser($_SESSION['id']);
-			header('Location: index.php?page=paiement&id_panier='.$panier->getId());
+			$panier = $panierManager->update($panier);
+			header('Location: index.php?page=paiement');
 			exit;
 		}
 		if ($user->admin == 1)
@@ -53,16 +54,16 @@ if (isset($_GET['page']) && $_GET['page'] == 'login')
 	}
 }
 //logout
-if (isset($_GET['page']) && $_GET['page'] == 'logout')
+if (isset($_POST, $_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
 	header('Location: index.php?page=home');
 	exit;
 }
 //edit
-if (isset($_GET['page']) && $_GET['page'] == 'profil_user')
+if (isset($_POST, $_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
 {
-	if (isset($_GET['action'] == 'edit'))
+	if ($_GET['action'] == 'edit')
 	{
 		if ($_SESSION['id'] == $_GET['id_user'] || $_SESSION['admin'])
 		{
@@ -97,7 +98,7 @@ if (isset($_GET['page']) && $_GET['page'] == 'profil_user')
 		}
 	}
 //delete
-	else if (isset($_GET['action']) && $_GET['action'] == 'delete')
+	else if ($_GET['action'] == 'delete')
 	{
 		if ($_SESSION['admin'])
 		{
