@@ -1,7 +1,6 @@
 <?php
-var_dump($_POST);
-/*if(isset($_SESSION['admin']))
-{*/
+if(isset($_SESSION['admin']))
+{
 	$option_prod = new ProduitsManager($link);
 	if(isset($_POST['action']) && $_POST['action'] == "ajouter")
 	//if (isset($_POST['id_sub_category']) && $_POST['reference']&& $_POST['stock']&& $_POST['prix_uni_ht']&& $_POST['tva']
@@ -28,15 +27,13 @@ var_dump($_POST);
 			$produit->setStock($_POST['stock']);
 			$produit->setPrixUniHt($_POST['prix_unitaire']);
 			$produit->setTva($_POST['tva']);
-			$produit->setPrixUniTtc($_POST['prix_unit_ttc']);
+			$produit->setPrixUniTtc();
 			$produit->setDescription($_POST['description']);
 			$produit->setImage($_POST['image']);
 			$produit->setNom($_POST['nom']);
 			$produit->setPoidsUni($_POST['poids_uni']);
 			$produit->setStatut($_POST['statut']);
-			$produit->setQuantite($_POST['quantité']);
-			$produit->setMoyenne($_POST['moyenne']);
-		    $produit->update($this);
+			$produit->update($this);
 		    header('Location:index.php?page=admin_produits');
 		    exit;
 		}
@@ -60,5 +57,5 @@ var_dump($_POST);
 			$error = $e->getMessage();
 		}
 	}
-/*}*/
+}
 ?>
