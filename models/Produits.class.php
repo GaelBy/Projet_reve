@@ -104,9 +104,10 @@ class Produits
 
 	public function setStock($stock)
 	{
-		if(is_int($stock)!=TRUE)
+		// $stock = "42";
+		if(strlen($stock) < 2)
 		{
-			throw new Exception("Ne peut être qu'un nombre entier");
+			throw new Exception("Attention le stock ne peut inferieur a 10");
 		}
 		else if($stock<0)
 		{
@@ -120,7 +121,7 @@ class Produits
 	{
 		if(is_numeric($prix_uni_ht)!=TRUE)
 		{
-			throw new Exception("Ce n'est pas un nombre");
+			throw new Exception("Prix uniHT : Ce n'est pas un nombre");
 		}
 		else if ($prix_uni_ht<=0)
 		{
@@ -132,12 +133,12 @@ class Produits
 
 	public function setTva($tva)
 	{
-		if(is_float($tva)!=TRUE)
+		/*if(is_float($tva)!=TRUE)
 		{
 			throw new Exception("Ce n'est pas un taux");
-		}
+		}*/
 
-		else if($tva<=0)
+		/*else*/ if($tva<=0)
 		{
 			return "Ce taux ne peut être nul ou négatif";
 		}
@@ -169,7 +170,7 @@ class Produits
 
 		if(filter_var($image, FILTER_VALIDATE_URL)==FALSE)
 		{
-			throw new Exception("Ce n'est pas une image)"
+			throw new Exception("Ce n'est pas une image");
 		}
 		$this->image=$image;
 
@@ -206,7 +207,7 @@ class Produits
 
 	public function setStatut($statut)
 	{
-		if(is_bool($statut)==FALSE)
+		if(($statut)==FALSE)
 		{
 			throw new Exception("Ce n'est pas un booléen");
 		}
@@ -222,7 +223,7 @@ class Produits
 		$list = $manager->getByProduit($this->id);
 		return $list;
 	}
-	public function getMoyenne()
+	public function setMoyenne()
 	{
 		$list = $this->getAvis;
 		$somme = 0;

@@ -68,6 +68,10 @@ class ProduitsManager
 	public function create($data)
 	{
 		$produit=new Produits($this->link);
+		if(!isset($data['id_sub_category']))
+		{ 
+			throw new Exception("Paramètre manquant: référence");	
+		}
 		if(!isset($data['reference']))
 		{ 
 			throw new Exception("Paramètre manquant: référence");	
@@ -121,8 +125,11 @@ class ProduitsManager
 		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
 
-		$query="INSERT INTO produits (reference,stock,prix_uni_ht,tva,description,image,nom,poids_uni,statut) 
-				VALUES ('".$reference."','".$stock."', '".$prixUniHt."','".$tva."','".$description."','".$image."','".$nom."','".$poidsUni."','".$statut."')";
+		$query="INSERT INTO produits (reference,stock,prix_uni_ht,tva,description,
+			                image,nom,poids_uni,statut) 
+				VALUES ('".$reference."','".$stock."', '".$prixUniHt."','".$tva."',
+					    '".$description."','".$image."','".$nom."','".$poidsUni."',
+					    '".$statut."')";
 		$res=mysqli_query($this->link,$query);
 
 		//A VOIR:
