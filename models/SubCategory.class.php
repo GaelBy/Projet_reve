@@ -7,6 +7,11 @@ class SubCategory
 	private $description;
 	private $produits;
 
+	public function __construct($link)
+   {
+    $this->link = $link;
+   }
+
 
 	public function getId()
 	{
