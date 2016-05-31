@@ -6,7 +6,8 @@
 
 body{
 
-	background-color:orange;
+	
+background-image:linear-gradient(to right, yellow, orange);
 }
 
 ul a{
@@ -17,4 +18,19 @@ ul a{
 li{
 
 	display:inline-block;
+}
+
+.affiche_sub{
+	margin-top:15px;
+	margin-left:10%;
+	width:80%;
+	border:3px solid black;
+	box-shadow:5px 5px 5px white;
+}
+.affiche_sub_nom{
+    text-align:center;
+}
+.affiche_sub_description{
+	text-align:center;
+
 }
