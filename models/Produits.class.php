@@ -164,6 +164,8 @@ class Produits
 
 	public function setPrixUniTtc()
 	{
+		if ($this->prix_uni_ttc === null)
+			$this->prix_uni_ttc = 1;
 		$this->prix_uni_ttc = $this->prix_uni_ht * (1 + $this->tva);
 		return $this->prix_uni_ttc;
 	}

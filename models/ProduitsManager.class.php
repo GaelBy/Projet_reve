@@ -11,12 +11,12 @@ class ProduitsManager
 	{
 		$id=$panier->getId(); //ici on récupère l'id du panier en question
 		$list = [];// on prépare ici la liste des produits
-		$query="SELECT * FROM produits
+		$query="SELECT id_sub_category, reference, stock, prix_uni_ht, tva, description, image, nom, poids_uni, statut, id_panier, id_produit AS id, quantite FROM produits
 			INNER JOIN link_panier_produits ON produits.id=link_panier_produits.id_produit
 			WHERE link_panier_produits.id_panier=".$id; // Ici , on fait une jointure entre link_panier et produits, on détermine que l'Id
 			//dans link_panier est égal à celui de produits et qui doit être équivalent à l'id du panier
 		$res=mysqli_query($this->link,$query);
-		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+		while(($produit=mysqli_fetch_object($res,"Produits",[$this->link]))!=false)
 		{
 			$list[]=$produit;
 		}

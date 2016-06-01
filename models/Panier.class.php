@@ -83,6 +83,7 @@ class Panier {
         $produit->setPrixUniTtc();
         $this->prix = $this->prix + $produit->setPrixUniTtc();
         $this->poids = $this->poids + $produit->getPoidsUni();
+        $this->produits[$i];
         return $this->produits[$i];
       }
       $i++;
@@ -91,8 +92,11 @@ class Panier {
 
     $this->produits[] = $produit; // et on prend la liste pour y ajouter le produit sélectionné
     // $this->nbre_produits++;
+    if ($this->produits[$i]->getQuantite() === null)
+      $this->produits[$i]->setQuantite(1);
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
-    $this->prix = $this->prix + $produit->getPrixUniTtc();
+    $produit->setPrixUniTtc();
+    $this->prix = $this->prix + $produit->setPrixUniTtc();
     $this->poids = $this->poids + $produit->getPoidsUni();
    }
    public function suppressionProduit(Produit $produit)

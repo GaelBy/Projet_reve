@@ -6,6 +6,7 @@ try
 	if (isset($_POST['id_produit']))
 	{
 		$produit = $produit_manager->getById($_POST['id_produit']);
+		$produit->setPrixUniTtc();
 		//add
 		if (isset($_GET['page']) && $_GET['page'] == 'produit')
 		{

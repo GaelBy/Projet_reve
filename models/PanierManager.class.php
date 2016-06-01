@@ -152,7 +152,6 @@ class PanierManager
 	{
 		//NB: mysqli etc...a toujours besoin du link et du string)
 		$id=$panier->getId();
-
 		$id_user= mysqli_real_escape_string($this->link,$panier->getIdUser());
 		$statut= mysqli_real_escape_string($this->link,$panier->getStatut());
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
@@ -165,7 +164,6 @@ class PanierManager
 		nbre_produits='".$nombre_produits."',
 		poids ='".$poids."',
 		statut='".$statut."' WHERE id=".$id;
-		
 		$res=mysqli_query($this->link,$query);
 		if ($res)
 		{
@@ -182,6 +180,7 @@ class PanierManager
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
 				VALUES ('".$id."', '".$produit->getId()."', '".$produit->getQuantite()."')";
 				$res = mysqli_query($this->link, $query);
+				$i++;
 			}
 			return $this->getById($id);
 		}
