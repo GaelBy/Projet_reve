@@ -94,10 +94,10 @@ class SubCategoryManager
     }
     public function update(SubCategory $sub_category)
     {
-    	$id = $sub_category->getId;
+    	$id = $sub_category->getId();
 		$nom = mysqli_real_escape_string($this->link, $sub_category->getNom());
 		$description = mysqli_real_escape_string($this->link, $sub_category->getDescription());
-		$category_id = intval($sub_category->getIdCategory);
+		$category_id = intval($sub_category->getIdCategory());
 		$query = "UPDATE sub_category SET nom='".$nom."', description='".$description."', id_category='".$id_category."'
 		WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);

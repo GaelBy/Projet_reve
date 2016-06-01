@@ -105,31 +105,31 @@ class PanierManager
 		$panier->setPoids($data['poids']);
 
 
-
-		$id_user= mysqli_real_escape_string($this->link,$panier->getId());
+		$id_user= intval($panier->getIdUser());
 		$statut= mysqli_real_escape_string($this->link,$panier->getStatut());
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
 		$nombre_produits= mysqli_real_escape_string($this->link,$panier->getNombreProduits());
         $poids= mysqli_real_escape_string($this->link,$panier->getPoids());
 
 
-
-        $query="INSERT INTO panier (id_user,statut,prix,nombre_produits,poids) 
+        $query="INSERT INTO panier (id_user,statut,prix,nbre_produits,poids) 
 				VALUES ('".$id_user."', '".$statut."','".$prix."','".$nombre_produits."','".$poids."')";
 		$res=mysqli_query($this->link,$query);
-
 		// on vérifie que la requête s'est bien exécutée:
 		if($res)
 		{
 			$id=mysqli_insert_id($this->link); // on récupère le dernièr id 
 			if($id)
 			{
-				$list = $panier->getProduits();
-				$produit = $list[0];
-				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
-				$res = mysqli_query($link, $query);
 				$panier=$this->getById($id); // on récupère l'user qui correspond à l'id
+				$list = $panier->getProduits();
+				if (!empty($list))
+				{
+					$produit = $list[0];
+					$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
+					VALUES ('".$id."', '".$produit->getId()."', '".$produit->getQuantite()."')";
+					$res = mysqli_query($link, $query);
+				}
 				return $panier;
 			}
 			else
@@ -153,7 +153,7 @@ class PanierManager
 		//NB: mysqli etc...a toujours besoin du link et du string)
 		$id=$panier->getId();
 
-		$id_user= mysqli_real_escape_string($this->link,$panier->getId());
+		$id_user= mysqli_real_escape_string($this->link,$panier->getIdUser());
 		$statut= mysqli_real_escape_string($this->link,$panier->getStatut());
 		$prix= mysqli_real_escape_string($this->link,$panier->getPrix());
 		$nombre_produits= mysqli_real_escape_string($this->link,$panier->getNombreProduits());
@@ -162,7 +162,7 @@ class PanierManager
 	    id_user ='".$id_user."',
 		statut ='".$statut."',
 		prix='".$prix."',
-		nombre_produits='".$nombre_produits."',
+		nbre_produits='".$nombre_produits."',
 		poids ='".$poids."',
 		statut='".$statut."' WHERE id=".$id;
 		
@@ -173,15 +173,15 @@ class PanierManager
 			// link_panier_produits
 			// DELETE
 			$query = "DELETE FROM link_panier_produits WHERE id_panier=".$id;
-			$res = mysqli_query($link, $query);
+			$res = mysqli_query($this->link, $query);
 			// INSERT
 			$i = 0;
 			while ($i < sizeof($list))
 			{
 				$produit = $list[$i];
 				$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
-				VALUES ('".$id."', '".$produit->getId."', '".$produit->getQuantite()."')";
-				$res = mysqli_query($link, $query);
+				VALUES ('".$id."', '".$produit->getId()."', '".$produit->getQuantite()."')";
+				$res = mysqli_query($this->link, $query);
 			}
 			return $this->getById($id);
 		}

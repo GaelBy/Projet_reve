@@ -165,6 +165,7 @@ class Produits
 	public function setPrixUniTtc()
 	{
 		$this->prix_uni_ttc = $this->prix_uni_ht * (1 + $this->tva);
+		return $this->prix_uni_ttc;
 	}
 
 	public function setDescription($description)
@@ -241,17 +242,22 @@ class Produits
 	}
 	public function setMoyenne()
 	{
-		$list = $this->getAvis;
+		$list = $this->getAvis();
 		$somme = 0;
 		$i = 0;
 		while ($i < sizeof($list))
 		{
 			$avis = $list[$i];
-			$somme = $somme + $avis->getNote;
+			$somme = $somme + $avis->getNote();
 			$i++;
 		}
-		$moyenne = $somme / $i;
-		return $moyenne;
+		if ($i != 0)
+		{
+			$moyenne = $somme / $i;
+			return $moyenne;
+		}
+		else
+			return '*';
 	}
 
 }

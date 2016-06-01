@@ -44,7 +44,7 @@ class Panier {
    	return $this->prix ;
    }
 
-   public function getNbreProduits(){
+   public function getNombreProduits(){
 
    	return $this->nbre_produits ;
    }
@@ -62,24 +62,27 @@ class Panier {
     return $this->produits; //ici, la liste des produits
    }
 
-   public function ajoutProduit(Produit $produit) // on veut un objet produit
+   public function ajoutProduit(Produits $produit) // on veut un objet produit
    {
     // null ?
     if ($this->produits === null)// si pas encore rempli...
-      $this->getProduits(); // ...on récupère la liste
-    if ($this->prix === null)
+      $this->produits = $this->getProduits(); // ...on récupère la liste
+      if ($this->prix === null)
       $this->prix = 0;
     if ($this->poids === null)
       $this->poids = 0;
     $i = 0;
     while ($i < sizeof($this->produits))
     {
-      if ($this->produits[$i]->getId == $produit->getId)
+      if ($this->produits[$i]->getId() == $produit->getId())
       {
+        if ($this->produits[$i]->getQuantite() === null)
+          $this->produits[$i]->setQuantite(0);
         $this->produits[$i]->setQuantite($this->produits[$i]->getQuantite()+1);
         $this->nbre_produits++;
-        $this->prix = $this->prix + $produit->getPrixUniTtc;
-        $this->poids = $this->poids + $produit->getPoidsUni;
+        $produit->setPrixUniTtc();
+        $this->prix = $this->prix + $produit->setPrixUniTtc();
+        $this->poids = $this->poids + $produit->getPoidsUni();
         return $this->produits[$i];
       }
       $i++;
@@ -89,8 +92,8 @@ class Panier {
     $this->produits[] = $produit; // et on prend la liste pour y ajouter le produit sélectionné
     // $this->nbre_produits++;
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
-    $this->prix = $this->prix + $produit->getPrixUniTtc;
-    $this->poids = $this->poids + $produit->getPoidsUni;
+    $this->prix = $this->prix + $produit->getPrixUniTtc();
+    $this->poids = $this->poids + $produit->getPoidsUni();
    }
    public function suppressionProduit(Produit $produit)
    {
@@ -103,19 +106,21 @@ class Panier {
     while($count < sizeof($this->produits)) // tant que le compteur boucle est inférieur à la taille de la liste
     {
       $article = $this->produits[$count];//article est ici UN produit de la liste, on les prend un par un
-      if ($article->getId == $produit->getId) //$produit= celui qu'on veut enlever. On détermine l'id du produit qu'on veut retirer
+      if ($article->getId() == $produit->getId()) //$produit= celui qu'on veut enlever. On détermine l'id du produit qu'on veut retirer
       // et lorsque la boucle passe dessus...
       {
         if ($article->getQuantite() > 1)
+        {
           $article->setQuantite($article->getQuantite()-1);
           $this->nbre_produits--;
+        }
         else
         {
           array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
           $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
         }
-        $this->prix = $this->prix - $produit->getPrixUniTtc;
-        $this->poids = $this->poids - $produit->getPoidsUni;
+        $this->prix = $this->prix - $produit->getPrixUniTtc();
+        $this->poids = $this->poids - $produit->getPoidsUni();
         return $this->produits;
       }
       $count++;
@@ -160,7 +165,7 @@ public function setStatut($statut)
 
 
 
-/*public function setPrix($prix){
+public function setPrix($prix){
 
 	if(! is_int($prix))
 	{
@@ -171,10 +176,10 @@ public function setStatut($statut)
 
 
 	
-}*/
+}
 
 
-/*public function setNbreProduits($nbre_produits){
+public function setNombreProduits($nbre_produits){
 
 	if(! is_int($nbre_produits))
 	{
@@ -185,9 +190,9 @@ public function setStatut($statut)
 
 
 	
-}*/
+}
 
-/*public function setPoids($poids){
+public function setPoids($poids){
 
 	if(! is_int($poids))
 	{
@@ -203,7 +208,7 @@ public function setStatut($statut)
 
 
 	
-}*/
+}
 
 
 
