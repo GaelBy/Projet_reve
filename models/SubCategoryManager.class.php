@@ -19,9 +19,9 @@ class SubCategoryManager
 		return $sub_category;
 	}
 
-	public function getByIdCategory($id_category)
+	public function getByCategory(Category $category)
 	{
-		$id_category = intval($id_category);
+		$id_category = $category->getId();
 		$list = [];
 		$query = "SELECT * FROM sub_category WHERE id_category =".$id_category;
 		$res = mysqli_query($this->link, $query);
