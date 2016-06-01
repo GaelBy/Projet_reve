@@ -35,10 +35,20 @@ class CategoryManager;
 		$category = mysqli_fetch_object($category, "Category", [$this->link]);
 		return $category;
 	}
+	
+		public function getAll()
+	{
+		$list = [];
+		$query = "SELECT * FROM category";
+		$res = mysqli_query($this->link, $query);
+		while ($lsCategory = mysqli_fetch_object($res, "Category", [$this->link]))
+			$list[] = $lsCategory;
+		return $list;
+	}
 
 	public function getByNom($nom)
 	{
-		$description = mysqli_real_escape_string($this->link, $nom);
+		$nom = mysqli_real_escape_string($this->link, $nom);
 		$query = "SELECT * FROM category WHERE nom =".$nom;
 		$res = mysqli_query($this->link, $query);
 		$category = mysqli_fetch_object($category, "Category", [$this->link]);

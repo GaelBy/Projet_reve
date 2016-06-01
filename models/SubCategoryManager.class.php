@@ -40,6 +40,8 @@ class SubCategoryManager
 		return $list;
 	}
 
+
+
 	public function getByDescription($description)
 	{
 		$description = mysqli_real_escape_string($this->link, $description);
