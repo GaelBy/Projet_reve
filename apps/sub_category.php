@@ -1,25 +1,30 @@
 <?php
 
-$res_sub = new ProduitManager($link);
-
-$_id_sub = 1;/*$_GET['id_category'];*/
-
- 
+if(isset($_GET['id']))
+{
 
 
-$array_sub = $res_sub->getBySubCategory($_id_sub);
+	$res_sub = new ProduitsManager($link);
+
+	$_id_sub = $_GET['id'];/*$_GET['id_category'];*/
+
+	 
 
 
-$iSub = 0 ;
-$nbSub = count( $array_sub );
-while($iSub < $nbSub){
-	$affiche_sub = $array_sub[$iSub];
-	require('views/sub_category.phtml');
-	$iSub++;
-}
+	$array_sub = $res_sub->getBySubCategory($_id_sub);
 
 
-	
+	$iSub = 0 ;
+	$nbSub = count( $array_sub );
+	while($iSub < $nbSub)
+	{
+		$affiche_sub = $array_sub[$iSub];
+		require('views/sub_category.phtml');
+		$iSub++;
+	}
+
+
+}	
 
 
 
