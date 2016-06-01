@@ -7,17 +7,20 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="fonts/css/font-awesome.css">
-	<link rel="stylesheet" href="styles/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="styles/style.css"/>
+	<link rel="stylesheet" href="public/styles/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="public/styles/style.css"/>
 	<title>Accueil</title>
 </head>
 <body>
 	<main class="main">
 		<div class="hautPage">
-		<?php require('apps/menu.php');?>
-		<div class="content">
-		<?php require('apps/sidebar.php');?>
+			<?php require('apps/menu.php');?>
 		</div>
+		<div class="sidebar">
+			<?php require('apps/sidebar.php');?>
+		</div>
+		<div class="content">
+			<?php require('apps/content.php');?>
 		</div>
 		<?php require('apps/footer.php');?>
   	</main>  	
