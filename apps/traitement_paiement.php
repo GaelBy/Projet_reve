@@ -42,16 +42,16 @@ if (isset($_POST['numero_carte']))
 		while ($i < sizeof($list))
 		{
 			$produit = $list[$i];
-			$produit->setStock($produit->getStock - $produit->getQuantite);
+			$produit->setStock($produit->getStock() - $produit->getQuantite());
 			$produit = $manager->update($produit);
 			$i++;
 		}
-		header('Location: index.php?page=conf_paiement&id_panier='.$panier->getId);
+		header('Location: index.php?page=conf_paiement&id_panier='.$panier->getId());
 		exit;
 	}
 	catch(Exception $e)
 	{
-		$error = $e->getMessage;
+		$error = $e->getMessage();
 	}
 }
 ?>

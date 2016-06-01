@@ -1,44 +1,9 @@
 <header class="header">
 		<nav class="top">
-			<ul class="menuTop">
-				<li class="logo"><a href="">Logo</a></li>
-				<li><a href="">Accueil</a></li>
-				<li>
-					<a href="index.php?page=category&id=<'.$_['id'].'>">Hommes</a>
-					<ul>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Sportif Célèbre</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Super Héros</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Super Séducteur</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Cauchemars</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="index.php?page=category&id=<'.$_POST['id'].'>">Femmes</a>
-					<ul>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Prince Charmant</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Pretty Woman</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Célébrité</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Cauchemars</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="index.php?page=category&id=<'.$_POST['id'].'>">Enfants</a>
-					<ul>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Super Héros</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Bonbons</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Princes et Princesses</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Cauchemars</a></li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="index.php?page=category&id=<'.$_POST['id'].'>">Tous Publics</a>
-					<ul>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Réussite Sociale</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Réussite Sentimentale</a></li>
-					<li><a href="index.php?page=sub_category&id=<'.$_POST['id'].'>">Réussite Financière</a></li>
-					</ul>
-				</li>
+			<ul class="firstList">
+				<li class="logo"><a href=""><img src="public/images/logoMorphee.png" alt="logo"></a></li>
+				<li class="pourHover"><a href="">Accueil</a></li>
+				<?php require('apps/ls_category_menu.php'); ?>
 			</ul>
 		</nav>
 </header>

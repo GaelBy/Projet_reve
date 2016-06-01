@@ -1,8 +1,7 @@
-*{
-
-
+*
+{
+	box-sizing:border-box;
 }
-
 
 body{
 
@@ -14,18 +13,16 @@ ul a{
 	text-decoration:none;
 }
 
-li{
 
-	display:inline-block;
-}
 .hide{
 	display: none;
 }
-.col{
+/*.col{
 	width: 25%;
 	display: inline-block;
 	padding: 10px;
 }
+<<<<<<< HEAD
 
 .item_prod{
 	border:3px solid black;
@@ -34,3 +31,177 @@ li{
 	margin-left:10%;
 	text-align:center;
 }   
+=======
+*/
+.main
+{
+	width:100%;
+	height:auto;
+}
+.firstList
+{
+	text-align: right;
+	width:100%;
+	background-color: rgba(255,255,255,0.25);
+	font-size: 0; /* pour supprimer l'espace entre les li qui existe par défaut du fait du saut de ligne*/
+	box-shadow: 1px 1px 2px #3B7BBD;
+	position:relative;
+}
+
+.firstList .logo
+{
+	position:absolute;
+	top:1%;
+	left:5%;
+}
+
+.logo
+{
+	animation: slideIn 4s 1 normal;
+}
+ 
+@keyframes slideIn
+{
+	0%
+	{
+		left: 100%;
+	}
+
+	100%
+	{
+		left: 5%;
+	}
+}
+
+.firstList li
+{
+	display: inline-block;
+}
+
+.firstList li a 
+{
+	display:block; /*pour pouvoir appliquer un padding vertical*/
+	text-decoration: none;
+	padding:1em 1.5em;
+	color:#7EA6D2;
+	font-size:1.20rem;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.pourHover a:hover
+{
+	background-color: #8CC2EA;
+	color:white;
+}
+
+.secondList
+{
+	position: absolute;
+	display: none;
+}
+
+
+.secondList li
+{
+	display: block;
+	text-align: left;
+}
+
+.secondList li a
+{
+	font-size:1rem;
+	padding:1rem 1.5em;
+	display:block;
+}
+
+.deroule:hover ul 
+{
+	display:block;
+}
+
+.deroule >a:after
+{
+	content:" ↓";
+	display:inline-block;
+	font-size:1.20rem;
+}
+
+.hautPage
+{
+	width:100%;
+	height:1000px;
+	background: url(../images/mainFond4.jpeg);
+	background-repeat: no-repeat  fixed;
+	background-size: cover;
+}
+
+.sidebar
+{
+	animation: slideInLeft 4s 1 normal;
+	padding-top:3em;
+	position:absolute;
+	display: block;
+	top:30%;
+	width:40%;
+}
+
+@keyframes slideInLeft
+{
+	0%
+	{
+		left: -10%;
+	}
+
+	100%
+	{
+		left: 0%;
+	}
+}
+
+.sidebar a
+{
+	padding: 1.5em 1em;
+	display:block;
+	font-size: 1.3rem;
+	color:#FEFEFE;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	text-shadow: 1px 1px 2px #407ABD;
+	width:100%;
+}
+
+.sidebar .menuSide a:hover
+{
+	background-color: white;
+	color:#8CC2EA;
+}
+
+
+.footer
+{
+	background:linear-gradient(to bottom,white,#3A7ABA);
+	text-align: center;
+}
+
+.footer .menuBottom li 
+{
+	display: inline-block;
+}
+
+.footer .menuBottom li a
+{
+	display:block;
+	padding: 1.5em;
+	text-decoration: none;
+	color:white;
+	font-family: 'Open Sans',sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+}
+.footer p
+{
+	font-family: 'Roboto Slab';
+	padding-bottom:1em;
+	color:gray;
+}
+>>>>>>> a0090c6ca82b9fdae1a846d17a4e6ccfeb54eb87

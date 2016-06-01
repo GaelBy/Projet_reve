@@ -9,33 +9,40 @@ class Avis
 	private $note;
 	private $statut;
 
+	private $link;
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
+
 	public function getId()
 	{
-		return $id;
+		return $this->id;
 	}
 	public function getIdAuthor()
 	{
-		return $id_author;
+		return $this->id_author;
 	}
 	public function getIdProduit()
 	{
-		return $id_produit;
+		return $this->id_produit;
 	}
 	public function getContent()
 	{
-		return $content;
+		return $this->content;
 	}
 	public function getDate()
 	{
-		return $date;
+		return $this->date;
 	}
 	public function getNote()
 	{
-		return $note;
+		return $this->note;
 	}
 	public function getStatut()
 	{
-		return $statut;
+		return $this->statut;
 	}
 
 	public function setIdAuthor($id_author)

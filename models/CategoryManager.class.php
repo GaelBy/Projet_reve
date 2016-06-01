@@ -1,9 +1,9 @@
 <?php
-class CategoryManager;
+class CategoryManager
 {
 	private $link;
 
-	public function_construct($link)
+	public function __construct($link)
 	{
 		$this->link = $link;
 	}
@@ -35,8 +35,8 @@ class CategoryManager;
 		$category = mysqli_fetch_object($category, "Category", [$this->link]);
 		return $category;
 	}
-	
-		public function getAll()
+
+	public function getAll()
 	{
 		$list = [];
 		$query = "SELECT * FROM category";
@@ -84,7 +84,7 @@ class CategoryManager;
 	}
 	public function update(Category $category)
 	{
-		$id = $category->getId;
+		$id = $category->getId();
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$query = "UPDATE category SET nom='".$nom."', description='".$description."'
