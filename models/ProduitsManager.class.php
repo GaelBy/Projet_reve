@@ -70,7 +70,7 @@ class ProduitsManager
 		$produit=new Produits($this->link);
 		if(!isset($data['id_sub_category']))
 		{ 
-			throw new Exception("Paramètre manquant: référence");	
+			throw new Exception("Paramètre manquant: sous catégorie");	
 		}
 		if(!isset($data['reference']))
 		{ 
@@ -105,6 +105,7 @@ class ProduitsManager
 			throw new Exception("Paramètre manquant: poids");
 		}
 
+		$produit->setSubCategory($data['id_sub_category']);
 		$produit->setReference($data['reference']);
 		$produit->setStock($data['stock']);
 		$produit->setPrixUniHt($data['prix_uni_ht']);
@@ -115,6 +116,7 @@ class ProduitsManager
 		$produit->setPoidsUni($data['poids_uni']);
 		$produit->setStatut(1);
 
+		$sub_category = intval($produit->getIdSubCategory());
 		$reference=mysqli_real_escape_string($this->link,$produit->getReference());
 		$stock=intval($produit->getStock());
 		$prixUniHt=floatval($produit->getPrixUniHt());
@@ -125,13 +127,14 @@ class ProduitsManager
 		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
 
-		$query="INSERT INTO produits (reference,stock,prix_uni_ht,tva,description,
+		$query="INSERT INTO produits (id_sub_category, reference, stock, prix_uni_ht, tva, description,
 			                image,nom,poids_uni,statut) 
-				VALUES ('".$reference."','".$stock."', '".$prixUniHt."','".$tva."',
+				VALUES ('".$sub_category."', '".$reference."','".$stock."', '".$prixUniHt."','".$tva."',
 					    '".$description."','".$image."','".$nom."','".$poidsUni."',
 					    '".$statut."')";
 		$res=mysqli_query($this->link,$query);
-
+var_dump($query);
+var_dump($res);
 		//A VOIR:
 
 		if($res)

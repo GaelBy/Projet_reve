@@ -9,7 +9,15 @@ class SubCategoryManager
 	{
 		$this->link = $link;
 	}
-
+	public function getAll()
+	{
+		$query = "SELECT * FROM sub_category";
+		$res = mysqli_query($this->link, $query);
+		$list = [];
+		while ($subCat = mysqli_fetch_object($res, "SubCategory", [$this->link]))
+			$list[] = $subCat;
+		return $list;
+	}
 	public function getById($id)
 	{
 		$id = intval($id);

@@ -1,0 +1,12 @@
+<h1><?=$nom?></h1>
+<h3><?=$reference?></h3>
+<picture><img src="<?=$image?>" alt="image <?=$nom?>"></picture>
+<p><?=$description?></p>
+<p>Stock restant : <?=$stock?></p>
+<div class="ht">Prix HT : <?=$prix_uni_ht?> €</div>
+<div class="ttc">Prix TTC : <?=$prix_uni_ttc?> €</div>
+<form action="" method="POST">
+	<button class="btn" type="submit" name="id_produit" value="<?=$id?>">Ajouter au panier</button>
+</form>
+<h2>Avis</h2>
+<div class="container"><?php require('apps/ls_avis.php'); ?></div>
