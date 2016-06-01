@@ -1,9 +1,9 @@
 <?php
-class CategoryManager;
+class CategoryManager
 {
 	private $link;
 
-	public function_construct($link)
+	public function __construct($link)
 	{
 		$this->link = $link;
 	}
@@ -35,8 +35,8 @@ class CategoryManager;
 		$category = mysqli_fetch_object($category, "Category", [$this->link]);
 		return $category;
 	}
-	
-		public function getAll()
+
+	public function getAll()
 	{
 		$list = [];
 		$query = "SELECT * FROM category";

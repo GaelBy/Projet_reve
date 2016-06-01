@@ -30,11 +30,11 @@ class Category
 	}
 
 
-	public function getSubCategory(){
+	public function getSubCategories(){
 
 		$sub_ = new SubCategoryManager($this->link);
 
-		$this->sub_cat = $sub_->getByIdcategory($this);
+		$this->sub_cat = $sub_->getByCategory($this);
         return $this->sub_cat;
 
 
