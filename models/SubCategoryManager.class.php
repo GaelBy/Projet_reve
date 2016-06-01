@@ -1,4 +1,6 @@
 <?php
+
+
 class SubCategoryManager
 {
 	private $link;
@@ -13,25 +15,31 @@ class SubCategoryManager
 		$id = intval($id);
 		$query = "SELECT * FROM sub_category WHERE id =".$id;
 		$res = mysqli_query($this->link, $query);
-		$sub_category = mysqli_fetch_object($sub_category, "SubCategory", [$this->link]);
+		$sub_category = mysqli_fetch_object($res, "SubCategory", [$this->link]);
 		return $sub_category;
 	}
 
 	public function getByIdCategory($id_category)
 	{
 		$id_category = intval($id_category);
-		$query = "SELECT * FROM sub_category WHERE id =".$id_category;
+		$list = [];
+		$query = "SELECT * FROM sub_category WHERE id_category =".$id_category;
 		$res = mysqli_query($this->link, $query);
-		$sub_category = mysqli_fetch_object($sub_category, "SubCategory", [$this->link]);
-		return $sub_category;
+		while($subCat = mysqli_fetch_object($res, "SubCategory", [$this->link]))
+		{
+			$list[]= $subCat;
+	    }
+		return $list;
 	}
+
+
 
 	public function getByDescription($description)
 	{
 		$description = mysqli_real_escape_string($this->link, $description);
 		$query = "SELECT * FROM sub_category WHERE description =".$description;
 		$res = mysqli_query($this->link, $query);
-		$sub_category = mysqli_fetch_object($category, "SubCategory", [$this->link]);
+		$sub_category = mysqli_fetch_object($res, "SubCategory", [$this->link]);
 		return $sub_category;
 	}
 
@@ -40,7 +48,7 @@ class SubCategoryManager
 		$description = mysqli_real_escape_string($this->link, $nom);
 		$query = "SELECT * FROM category WHERE nom =".$nom;
 		$res = mysqli_query($this->link, $query);
-		$sub_category = mysqli_fetch_object($sub_category, "SubCategory", [$this->link]);
+		$sub_category = mysqli_fetch_object($res, "SubCategory", [$this->link]);
 		return $sub_category;
 	}
 

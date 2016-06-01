@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['login']))
+if (isset($_SESSION['id']))
 {
 
 	if ($_SESSION['admin'] == 1)
