@@ -1,54 +1,64 @@
+<header></header>
+
 <div class="category-content">
 
-	<div class="homme">
-		<a href=""><h2>HOMME</h2>
+	<div class="category">
+		<a href="index.php?page="><h2>HOMME</h2>
 		<img src="images/man_dream.jpg" alt="man_dream"/></a>
 		<nav>
 			<ul>
-				<li><a href="">Célébrités sportives</a></li>
-				<li><a href="">Super héros</a></li>
-				<li><a href="">Super séducteur</a></li>
-				<li><a href="">Cauchemars</a></li>
+				<li><a href="index.php?page=sportifs_celebres">Sportifs célèbres</a></li>
+				<li><a href="index.php?page=super_heros">Super héros</a></li>
+				<li><a href="index.php?page=super_seducteur">Super séducteur</a></li>
+				<li><a href="index.php?page=cauchemars_homme">Cauchemars</a></li>
 			</ul>	
 		</nav>
 	</div>
 
-	<div class="femme">
-		<a href=""><h2>FEMME</h2>
+	<div class="category">
+		<a href="index.php?page="><h2>FEMME</h2>
 		<img src="images/woman_dream.jpg" alt="woman_dream"/></a>
 		<nav>
 			<ul>
-				<li><a href="">Prince charmant</a></li>
-				<li><a href="">Pretty woman</a></li>
-				<li><a href="">Célébrités</a></li>
-				<li><a href="">Cauchemars</a></li>
-			</ul>	
-		</nav>
-	</div>
-git push
-	<div class="enfants">
-		<a href=""><h2>ENFANTS</h2>
-		<img src="images/children_dream2.jpg" alt="children_dream"/></a>
-		<nav>
-			<ul>
-				<li><a href="">Superhéros</a></li>
-				<li><a href="">Bonbons</a></li>
-				<li><a href="">Voyage dans l'espace</a></li>
-				<li><a href="">Princes et princesses</a></li>
+				<li><a href="index.php?page=prince_charmant">Prince charmant</a></li>
+				<li><a href="index.php?page=pretty_woman">Pretty woman</a></li>
+				<li><a href="index.php?page=celebrites">Célébrités</a></li>
+				<li><a href="index.php?page=cauchemars_femme">Cauchemars</a></li>
 			</ul>	
 		</nav>
 	</div>
 
-	<div class="touspublics">
-		<a href=""><h2>TOUS PUBLICS</h2>
+	<div class="category">
+		<a href="index.php?page="><h2>ENFANTS</h2>
+		<img src="images/children_dream2.jpg" alt="children_dream"/></a>
+		<nav>
+			<ul>
+				<li><a href="index.php?page=superheros">Superhéros</a></li>
+				<li><a href="index.php?page=bonbons">Bonbons</a></li>
+				<li><a href="index.php?page=voyage_dans_l_espace">Voyage dans l'espace</a></li>
+				<li><a href="index.php?page=princes_et_princesses">Princes et princesses</a></li>
+			</ul>	
+		</nav>
+	</div>
+
+	<div class="category">
+		<a href="index.php?page="><h2>TOUS PUBLICS</h2>
 		<img src="images/allpublic_dream.jpg" alt=""/></a>
 		<nav>
 			<ul>
-				<li><a href="">Réussite sociale</a></li>
-				<li><a href="">Réussite sentimentale</a></li>
-				<li><a href="">Réussite financière</a></li>
+				<li><a href="index.php?page=reussite">Réussite sociale</a></li>
+				<li><a href="index.php?page=reussite_sentimentale">Réussite sentimentale</a></li>
+				<li><a href="index.php?page=reussite_financiere">Réussite financière</a></li>
 			</ul>	
 		</nav>
 	</div>
 
 </div>
+
+<footer></footer>
+
+<?php
+
+require('apps/category.php')
+
+?>

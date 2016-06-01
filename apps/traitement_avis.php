@@ -29,7 +29,6 @@ if (!isset($_SESSION['login']))
 	    	$error = $e->getMessage;
 	    	}
 		}
-	
 
 		else if(isset($_GET['action']) && $_GET['action'] == "modifier")
 		{
@@ -49,7 +48,6 @@ if (!isset($_SESSION['login']))
 	    	{
 	    	$error = $e->getMessage;
 	    	}
-
 		}
 
 		else if(isset($_GET['action']) && $_GET['action'] == "supprimer")
