@@ -87,7 +87,23 @@ class Produits
 	{
 		return $this->quantite;
 	}
-
+	public function setSubCategory($sub_category)
+	{
+		$manager = new SubCategoryManager($this->link);
+		$list = $manager->getAll();
+		$i = 0;
+		while ($i < sizeof($list))
+		{
+			$subCat = $list[$i];
+			if ($sub_category == $subCat->getId())
+			{
+				$this->id_sub_category = $sub_category;
+				return $this->id_sub_category;
+			}
+			$i++;
+		}
+		throw new Exception("Sous catégorie non existante");
+	}
 	public function setReference($reference)
 	{	
 		if (strlen($reference)<5)
@@ -105,9 +121,9 @@ class Produits
 	public function setStock($stock)
 	{
 		// $stock = "42";
-		if(strlen($stock) < 2)
+		if(!is_numeric($stock))
 		{
-			throw new Exception("Attention le stock ne peut inferieur a 10");
+			throw new Exception("Stock : ce n'est pas un nombre");
 		}
 		else if($stock<0)
 		{
