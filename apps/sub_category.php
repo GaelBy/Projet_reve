@@ -1,6 +1,7 @@
 <?php
 
-require('views/sub_category.phtml');
+require('apps/ls_produits.php');
+require('apps/produit_item.php');
 
 
 ?>

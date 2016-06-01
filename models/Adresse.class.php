@@ -57,13 +57,13 @@ class Adresse
 	}
 	public function setNumero($numero)
 	{
-		if (strlen($numero > 7))
+		if (strlen($numero) > 7)
 			throw new Exception("Numéro trop long");
 		$this->numero = $numero;
 	}
 	public function setRue($rue)
 	{
-		if (strlen($rue < 5))
+		if (strlen($rue) < 5)
 			throw new Exception("Nom de rue trop court (<5)");
 		else if (strlen($rue >31))	
 			throw new Exception("Nom de rue trop long (>31)");
@@ -71,7 +71,7 @@ class Adresse
 	}
 	public function setVille($ville)
 	{
-		if (strlen($ville > 31))
+		if (strlen($ville) > 31)
 			throw new Exception("Nom de ville trop long (>31)");
 		$this->ville = $ville;
 	}

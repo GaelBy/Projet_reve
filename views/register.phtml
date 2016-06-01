@@ -1,54 +1,101 @@
-
+<div class="error"><?=$error?></div>
 <form method="POST">
-	<table>
-		<tr>
-			<td>nom</td>
-			<td><input type="text" name="nom"/></td>
-		</tr>
-		<tr>
-			<td>prenom</td>
-			<td><input type="text" name="prenom"/></td>
-		</tr>
-		<tr>
-			<td>email</td>
-			<td><input type="email" name="email"/></td>
-		</tr>
-		<tr>
-			<td>login</td>
-			<td><input type="text" name="statut"/></td>
-		</tr>
-		<tr>
-			<td>password</td>
-			<td><input type="password" name="password"/></td>
-		</tr>
-		<tr>
-			<td>confirm password</td>
-			<td><input type="password" name="password_2"/></td>
-		</tr>
+	<div class="container">
+		<div class="row">
+			<div class="col">nom</div>
+			<div class="col"><input type="text" name="nom"/></div>
+		</div>
+		<div class="row">
+			<div class="col">prenom</div>
+			<div class="col"><input type="text" name="prenom"/></div>
+		</div>
+		<div class="row">
+			<div class="col">email</div>
+			<div class="col"><input type="email" name="email"/></div>
+		</div>
+		<div class="row">
+			<div class="col">login</div>
+			<div class="col"><input type="text" name="login"/></div>
+		</div>
+		<div class="row">
+			<div class="col">password</div>
+			<div class="col"><input type="password" name="password"/></div>
+		</div>
+		<div class="row">
+			<div class="col">confirm password</div>
+			<div class="col"><input type="password" name="passwordBis"/></div>
+		</div>
 		
-		<tr>
-			<td>sexe</td>
-			<td><input type="text" name="sexe"/></td>
-		</tr>
-		<tr>
-			<td>date de naissance</td>
-			<td><input type="text" name="image"/></td>
-		</tr>
-		<tr>
-			<td>telephone</td>
-			<td><input type="text" name="telephone"/></td>
-		</tr>
-		<tr>
-			<td>statut</td>
-			<td><input type="checkbox" name="statut" value"0"/><input type="checkbox" name="statut" value"1"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><button type="submit" name="action" value="ajouter"/>Ajouter</button></td>
-		</tr>
+		<div class="row">
+			<div class="col">sexe</div>
+			<div class="col">
+				<select name="sexe">
+					<option value="1">Homme</option>
+					<option value="2">Femme</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">date de naissance</div>
+			<div class="col"><input type="text" name="date_naissance"/></div>
+		</div>
+		<div class="row">
+			<div class="col">telephone</div>
+			<div class="col"><input type="text" name="telephone"/></div>
+		</div>
+		<div class="row">
+			<div class="col"><h3>Adresse de facturation</h3></div>
+		</div>
+		<div class="row">
+			<div class="col">Nom de l'adresse</div>
+			<div class="col"><input type="text" name="nom_adresse1"></div>
+		</div>
+		<div class="row">
+			<div class="col">Numéro</div>
+			<div class="col"><input type="text" name="numero1"></div>
+		</div>
+		<div class="row">
+			<div class="col">Rue</div>
+			<div class="col"><input type="text" name="rue1"></div>
+		</div>
+		<div class="row">
+			<div class="col">Code postal</div>
+			<div class="col"><input type="text" name="code_postal1"></div>
+		</div>
+		<div class="row">
+			<div class="col">Ville</div>
+			<div class="col"><input type="text" name="ville1"></div>
+		</div>
+		<div class="row">
+			<div class="col"><h3>Adresse de livraison</h3></div>
+		</div>
+		<div class="row">
+			<div class="col">Nom de l'adresse</div>
+			<div class="col"><input type="text" name="nom_adresse2"></div>
+		</div>
+		<div class="row">
+			<div class="col">Numéro</div>
+			<div class="col"><input type="text" name="numero2"></div>
+		</div>
+		<div class="row">
+			<div class="col">Rue</div>
+			<div class="col"><input type="text" name="rue2"></div>
+		</div>
+		<div class="row">
+			<div class="col">Code postal</div>
+			<div class="col"><input type="text" name="code_postal2"></div>
+		</div>
+		<div class="row">
+			<div class="col">Ville</div>
+			<div class="col"><input type="text" name="ville2"></div>
+		</div>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col"><button type="submit" name="action" value="ajouter"/>Ajouter</button></div>
+		</div>
 
 
-	</table>
+	</div>
 
 
 </form>

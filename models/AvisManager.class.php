@@ -13,7 +13,7 @@ class AvisManager
 		$id = intval($id);
 		$query = "SELECT * FROM avis WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
-		$avis = mysqli_fetch_object($res, "Avis");
+		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;
 	}
 	public function getByAuthor($id_author)
@@ -22,7 +22,7 @@ class AvisManager
 		$list = [];
 		$query = "SELECT * FROM avis WHERE id_author=".$id_author;
 		$res = mysqli_query($this->link, $query);
-		while ($avis = mysqli_fetch_object($res, "Avis"))
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
 		return $list;
 	}
@@ -32,7 +32,7 @@ class AvisManager
 		$list = [];
 		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit;
 		$res = mysqli_query($this->link, $query);
-		while ($avis = mysqli_fetch_object($res, "Avis"))
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
 		return $list;
 	}
@@ -41,13 +41,13 @@ class AvisManager
 		$list = [];
 		$query = "SELECT * FROM avis";
 		$res = mysqli_query($this->link, $query);
-		while ($avis = mysqli_fetch_object($res, "Avis"))
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
 		return $list;
 	}
 	public function create($data, Produits $produit, User $user)
 	{
-		$avis = new Avis();
+		$avis = new Avis($this->link);
 		if (!isset($data['content']))
 			throw new Exception("Paramètre manquant: contenu");
 		if (!isset($data['note']))

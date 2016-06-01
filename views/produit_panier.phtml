@@ -1,0 +1,20 @@
+<div class="left"><img src="<?=$image?>" alt="image <?=$nom?>"></div>
+<h2><a href="index.php?page=produit&id_produit=<?=$id_produit?>"><?=$nom?></a></h2>
+<h3><?=$reference?></h3>
+<div class="container">
+	<div class="left">Prix unitaire : <?=$prix_u?> €</div>
+	<div class="left">Poids unitaire : <?=$poids_u?></div>
+	<div class="left">Quantité : <?=$quantite?></div>
+	<div class="right panier-important">
+		<p>Prix : <?=$prix_produit?> €</p>
+		<p>Poids : <?=$poids_produit?> g</p>
+	</div>
+</div>
+<div class="container">
+	<form action="" method="POST">
+		<input type="checkbox" name="action[]" value="remove" id="remove">
+		<label for="remove">Retirer du panier</label>
+		<button class="btn" type="submit" name="id_produit" value="<?=$id_produit?>">Retirer</button>
+	</form>
+</div>
+

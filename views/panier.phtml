@@ -1,0 +1,19 @@
+<h1>Votre panier</h1>
+<div class="error"><?=$error?></div>
+<div class="container">
+	<?php require('apps/ls_produits_panier.php'); ?>
+	<div class="<?=$panier_vide?>">
+		Votre panier est vide.
+	</div>
+</div>
+<div class="container <?=$no_panier?>">
+	<div class="poids">
+		Poids total : <?=$poids?> g
+	</div>
+	<div class="prix">
+		Montant total : <?=$prix?> €
+	</div>
+	<form action="" method="POST">
+		<button class="btn" type="submit" name="action" value="validate">Finaliser votre commande</button>
+	</form>
+</div>

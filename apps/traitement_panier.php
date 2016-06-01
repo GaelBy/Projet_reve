@@ -1,5 +1,5 @@
 <?php
-$produit_manager = new ProduitManager($link);
+$produit_manager = new ProduitsManager($link);
 $panier_manager = new PanierManager($link);
 try
 {
@@ -27,7 +27,7 @@ try
 				$panier = $panier_manager->update($panier);
 			}
 		}
-		else if (isset($_GET['page'], $_GET['action']) && $_GET['page'] == 'panier' && $_GET['action'] == 'remove')
+		else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'] == 'remove')
 		{
 			//remove
 			$panier = $panier_manager->getById($_SESSION['panier']);
@@ -48,7 +48,7 @@ try
 		exit;
 	}
 	//validation
-	if ($_SESSION['admin'] && isset($_GET['page'], $_POST['id_panier']) && $_GET['page'] == 'admin')
+	if (isset($_GET['page'], $_POST['id_panier'], $_SESSION['admin']) && $_SESSION['admin'] && $_GET['page'] == 'admin')
 	{
 		$panier = $panier_manager->getById($_POST['id_panier']);
 		$panier->setStatut('validé');
