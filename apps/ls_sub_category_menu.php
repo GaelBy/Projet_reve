@@ -1,11 +1,13 @@
 <?php
-$count=0;
-$manager = new SubCategoryManager ($link);
-$lsSubCategory = $manager->getByIdCategory($id_category);
+$count2=0;
+$lsSubCategory = $categorie->getSubCategories();
+//$manager = new SubCategoryManager ($link);
+// $lsSubCategory = $manager->getByIdCategory($id_category);
 
-while($count<sizeof($lsSubCategory))
+while($count2<sizeof($lsSubCategory))
 {
+	$subcategory = $lsSubCategory[$count2];
 	require('views/ls_sub_category_menu.phtml');
-	$count++;
+	$count2++;
 }
 ?>
