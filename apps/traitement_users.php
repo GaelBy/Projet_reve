@@ -1,7 +1,7 @@
 <?php
 //register
 $manager = new UserManager($link);
-if (isset($_POST, $_GET['page']) && $_GET['page'] == 'register')
+if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'register')
 {
 	try
 	{
@@ -23,13 +23,13 @@ if (isset($_POST, $_GET['page']) && $_GET['page'] == 'register')
 	}
 }
 //login
-if (isset($_POST, $_GET['page']) && $_GET['page'] == 'login')
+if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'login')
 {
 	try
 	{
 		$user = $manager->login($_POST);
 		$_SESSION['id'] = $user->getId();
-		if (isset($_SESSION['panier'])
+		if (isset($_SESSION['panier']))
 		{
 			$panier_manager = new PanierManager($link);
 			$panier = $panier_manager->getById($_SESSION['panier']);
@@ -53,14 +53,14 @@ if (isset($_POST, $_GET['page']) && $_GET['page'] == 'login')
 	}
 }
 //logout
-if (isset($_POST, $_GET['page']) && $_GET['page'] == 'logout')
+if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
 	header('Location: index.php?page=home');
 	exit;
 }
 //edit
-if (isset($_POST, $_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
+if (!empty($_POST) && isset($_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
 {
 	if ($_GET['action'] == 'edit')
 	{
