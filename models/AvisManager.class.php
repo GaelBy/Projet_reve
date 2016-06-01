@@ -96,7 +96,7 @@ class AvisManager
 	}
 	public function delete(Avis $avis)
 	{
-		$id = $user->getId;
+		$id = $user->getId();
 		$statut = 0;
 		$query = "UPDATE avis SET statut='".$statut."' WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);

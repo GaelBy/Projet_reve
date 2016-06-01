@@ -20,7 +20,7 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 
 		catch (Exception $e);
     	{
-    	$error = $e->getMessage;
+    	$error = $e->getMessage();
     	}
 	}
 
@@ -39,7 +39,7 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 
 		catch (Exception $e);
     	{
-    	$error = $e->getMessage;
+    	$error = $e->getMessage();
     	}
 
 	}
@@ -55,7 +55,7 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 		}
 		catch (Exception $e);
 	    {
-	    $error = $e->getMessage;
+	    $error = $e->getMessage();
 	    }
 }
 ?>

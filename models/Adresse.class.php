@@ -10,37 +10,44 @@ class Adresse
 	private $code_postal;
 	private $type_adresse;
 
+	private $link;
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
+
 	public function getId()
 	{
-		return $id;
+		return $this->id;
 	}
 	public function getIdUser()
 	{
-		return $id_user;
+		return $this->id_user;
 	}
 	public function getNom()
 	{
-		return $nom;
+		return $this->nom;
 	}
 	public function getNumero()
 	{
-		return $numero;
+		return $this->numero;
 	}
 	public function getRue()
 	{
-		return $rue;
+		return $this->rue;
 	}
 	public function getVille()
 	{
-		return $ville;
+		return $this->ville;
 	}
 	public function getCodePostal()
 	{
-		return $code_postal;
+		return $this->code_postal;
 	}
 	public function getTypeAdresse()
 	{
-		return $type_adresse;
+		return $this->type_adresse;
 	}
 
 	public function setIdUser($id_user)
