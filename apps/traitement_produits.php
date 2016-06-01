@@ -1,5 +1,5 @@
 <?php
-/if(isset($_SESSION['admin']))
+if(isset($_SESSION['admin']))
 {
 	$option_prod = new ProduitsManager($link);
 	if(isset($_POST['action']) && $_POST['action'] == "ajouter")
