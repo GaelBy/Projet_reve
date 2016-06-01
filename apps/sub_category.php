@@ -7,7 +7,7 @@ $_id_sub = 1;/*$_GET['id_category'];*/
  
 
 
-$array_sub = $res_sub->getBySubProduits($_id_sub);
+$array_sub = $res_sub->getBySubCategory($_id_sub);
 
 
 $iSub = 0 ;
