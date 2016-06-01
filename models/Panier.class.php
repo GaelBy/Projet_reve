@@ -107,8 +107,10 @@ class Panier {
       // et lorsque la boucle passe dessus...
       {
         if ($article->getQuantite() > 1)
+        {
           $article->setQuantite($article->getQuantite()-1);
           $this->nbre_produits--;
+        }
         else
         {
           array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever

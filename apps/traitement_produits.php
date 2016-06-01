@@ -48,7 +48,7 @@ if(isset($_SESSION['admin']))
 		try
 		{
             $produit = $option_prod ->getById($_GET['id_produit']);
-		    $option_prod->delete($produit);
+		    $produit->delete($this);
 		    header('Location:index.php?page=produits');
 		    exit;
 		}

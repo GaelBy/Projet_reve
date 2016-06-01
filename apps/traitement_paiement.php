@@ -36,7 +36,7 @@ if (isset($_POST['numero_carte']))
 		$panier->setStatut('Payé');
 		$panier = $manager->update($panier);
 	//baisser le stock
-		$manager = new ProduitManager($link);
+		$manager = new ProduitsManager($link);
 		$list = $panier->getProduits();
 		$i = 0;
 		while ($i < sizeof($list))
