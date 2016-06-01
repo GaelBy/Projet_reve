@@ -6,7 +6,7 @@ if(isset($_GET['id']))
 
 	$res_sub = new ProduitsManager($link);
 
-	$_id_sub = echo $_GET['id'];/*$_GET['id_category'];*/
+	$_id_sub = $_GET['id'];/*$_GET['id_category'];*/
 
 	 
 
