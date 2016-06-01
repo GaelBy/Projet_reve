@@ -1,0 +1,28 @@
+*{
+
+
+}
+
+
+body{
+
+	background-color:orange;
+}
+
+ul a{
+
+	text-decoration:none;
+}
+
+li{
+
+	display:inline-block;
+}
+.hide{
+	display: none;
+}
+.col{
+	width: 25%;
+	display: inline-block;
+	padding: 10px;
+}

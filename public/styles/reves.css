@@ -1,5 +1,5 @@
 *{
-
+	box-sizing: border-box;
 
 }
 
@@ -34,3 +34,8 @@ li{
 }
 .hide{
 	display: none;
+}
+.col{
+	width: 25%;
+	padding: 10px;
+}
