@@ -17,13 +17,33 @@ class Produits
 	private $prix_uni_ttc;
 	private $quantite;
 
+	private $sub_category;
+	private $avis;
+
 	private $link;
 
 	public function __construct($link)
 	{
     	$this->link = $link;
 	}
-
+	public function getAvis()
+	{
+		if ($this->avis === null)
+		{
+			$manager = new AvisManager($this->link);
+			$this->avis = $manager->getByProduit($this->id);
+		}
+		return $this->avis;
+	}
+	public function getSubCategory()
+	{
+		if ($this->sub_category === null)
+		{
+			$manager = new SubCategoryManager($this->link);
+			$this->sub_category = $manager->getById($this->id_sub_category);
+		}
+		return $this->sub_category;
+	}
 	public function getId()
 	{
 		return $this->id;
@@ -235,12 +255,6 @@ class Produits
 	public function setQuantite($quantite)
 	{
 		$this->quantite = $quantite;
-	}
-	public function getAvis()
-	{
-		$manager = new AvisManager($this->link);
-		$list = $manager->getByProduit($this->id);
-		return $list;
 	}
 	public function setMoyenne()
 	{

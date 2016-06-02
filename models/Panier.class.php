@@ -10,6 +10,7 @@ class Panier {
    private $prix;
    private $poids;
 
+   private $user;
    private $produits;// NULL ==> correspond à la liste des produits dans le panier
    
    private $link; //link utilisé pour la composition
@@ -18,6 +19,15 @@ class Panier {
    {
     $this->link = $link;
    }
+  public function getUser()
+  {
+    if ($this->user === null)
+    {
+      $manager = new UserManager($this->link);
+      $this->user = $manager->getById($this->id_user);
+    }
+    return $this->user;
+  }
 
    public function getId(){
 
@@ -56,8 +66,11 @@ class Panier {
 
    public function getProduits() //sert à récupérer la liste des produits qui sont dans le panier
    {
-    $manager = new ProduitsManager($this->link); // on crée un nouveau produitManager et on lui donne le link dont il a besoin (vers laBDD)
-    $this->produits = $manager->getByPanier($this); // On appelle la fonction getByPanier qui existe dans le produitManager: "applique cette fonction
+    if ($this->produits === null)
+    {
+      $manager = new ProduitsManager($this->link); // on crée un nouveau produitManager et on lui donne le link dont il a besoin (vers laBDD)
+      $this->produits = $manager->getByPanier($this); // On appelle la fonction getByPanier qui existe dans le produitManager: "applique cette fonction
+    }
     // pour récupérer la liste des produits du panier"
    return $this->produits; //ici, la liste des produits
    }

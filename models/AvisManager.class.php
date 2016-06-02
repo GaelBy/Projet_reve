@@ -30,7 +30,7 @@ class AvisManager
 	{
 		$id_produit = intval($id_produit);
 		$list = [];
-		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit;
+		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit." ORDER BY date";
 		$res = mysqli_query($this->link, $query);
 		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;

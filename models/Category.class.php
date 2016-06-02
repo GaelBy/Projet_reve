@@ -7,13 +7,12 @@ class Category
 
 	private $link;
 
+	private $sub_cat;
+
 
 	public function __construct($link){
 
-		$this ->link = $link ;
-
-
-
+		$this ->link = $link;
 	}
 
 	public function getId()
@@ -30,11 +29,13 @@ class Category
 	}
 
 
-	public function getSubCategories(){
-
-		$sub_ = new SubCategoryManager($this->link);
-
-		$this->sub_cat = $sub_->getByCategory($this);
+	public function getSubCategory()
+	{
+		if ($this->sub_cat === null)
+		{
+			$sub_ = new SubCategoryManager($this->link);
+			$this->sub_cat = $sub_->getByCategory($this);
+		}
         return $this->sub_cat;
 
 

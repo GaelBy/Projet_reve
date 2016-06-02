@@ -17,6 +17,11 @@ class User
 
 	private $link;
 
+	private $avis;
+	private $adresseFacturation;
+	private $adresseLivraison;
+	private $panier;
+
 	public function __construct($link)
    	{
     	$this->link = $link;
@@ -72,6 +77,65 @@ class User
 		return $this->admin;
 	}
 
+
+	public function getAdresseLivraison()
+	{
+	
+		if ($this->adresseLivraison===null)
+		{
+			$count=0;
+			$manager=new AdresseManager($this->link);
+			$list = $manager->getByUser($this->id);
+			while($count<sizeof($list))
+			{
+				if($list[$count]->getTypeAdresse()=='livraison')
+				{
+					$this->adresseLivraison=$list[$count];
+				}
+
+				$count++;
+			}
+		}
+
+		return $this->adresseLivraison;
+	}
+
+
+	public function getAdresseFacturation()
+	{
+	
+		if ($this->adresseFacturation===null)
+		{
+			$count=0;
+			$manager=new AdresseManager($this->link);
+			$list = $manager->getByUser($this->id);
+			while($count<sizeof($list))
+			{
+				if($list[$count]->getTypeAdresse()=='facturation')
+				{
+					$this->adresseFacturation=$list[$count];
+				}
+
+				$count++;
+			}
+		}
+
+		return $this->adresseFacturation;
+	}
+
+
+	public function getPanier()
+	{
+		if ($this->panier===null)
+		{
+			$manager=new PanierManager($this->link);
+			$this->panier=$manager->getById($this);
+		}
+
+		return $this->panier;
+	}
+
+
 	public function getAvis()
 	{
 		$manager=new AvisManager($this->link);// pour aller chercher avis manager et l'utiliser
@@ -83,7 +147,7 @@ class User
 	public function getAdresse()
 	{
 		$manager=new AdresseManager($this->link);
-		$list=$manager->getByUser($this->id);
+		$list=$manager->getyUser($this->id);
 		return $list;
 	}
 
