@@ -8,8 +8,8 @@ if(isset($_SESSION['admin']))
 	{
 		try
 	    {
-	    	$option_prod ->create($_POST);
-	    	header('Location:index.php?page=produits');
+	    	$produit = $option_prod ->create($_POST);
+	    	header('Location:index.php?page=produit&id='.$produit->getId());
 	    	exit;
 		}
 	    catch (Exception $e)
@@ -23,8 +23,10 @@ if(isset($_SESSION['admin']))
 		{
 
 			$produit = $option_prod ->getById($_POST['id_produit']);
-			$produit->setReference($_POST['reference']); 
-			$produit->setStock($_POST['stock']);
+			if (isset($_POST['reference']))
+				$produit->setReference($_POST['reference']); 
+			if (isset($_POST['stock']))
+				$produit->setStock($_POST['stock']);
 			$produit->setPrixUniHt($_POST['prix_unitaire']);
 			$produit->setTva($_POST['tva']);
 			$produit->setPrixUniTtc();

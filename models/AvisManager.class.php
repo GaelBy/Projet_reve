@@ -30,7 +30,7 @@ class AvisManager
 	{
 		$id_produit = intval($id_produit);
 		$list = [];
-		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit;
+		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit." ORDER BY date";
 		$res = mysqli_query($this->link, $query);
 		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
@@ -53,14 +53,14 @@ class AvisManager
 		if (!isset($data['note']))
 			throw new Exception("Paramètre manquant: note");
 
-		$avis->setIdAuthor($user->getId());
-		$avis->setIdProduit($produit->getId());
+		$avis->setAuthor($user);
+		$avis->setProduit($produit);
 		$avis->setContent($data['content']);
 		$avis->setNote($data['note']);
 		$avis->setStatut(1);
 
-		$id_author = intval($avis->getIdAuthor());
-		$id_produit = intval($avis->getIdProduit());
+		$id_author = intval($avis->getAuthor()->getId());
+		$id_produit = intval($avis->getProduit()->getId());
 		$content = mysqli_real_escape_string($this->link, $avis->getContent());
 		$note = intval($avis->getNote());
 		$statut = $avis->getStatut();

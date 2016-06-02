@@ -18,9 +18,9 @@ class CategoryManager
 	}
 
 
-	public function getByIdCategory($id_category)
+	public function getByCategory(Category $category)
 	{
-		$id_category = intval($id_category);
+		$id_category = intval($category->getId());
 		$query = "SELECT * FROM category WHERE id =".$id_category;
 		$res = mysqli_query($this->link, $query);
 		$category = mysqli_fetch_object($category, "Category", [$this->link]);

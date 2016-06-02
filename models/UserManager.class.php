@@ -133,39 +133,6 @@ class UserManager
 			
 		}
 	}
-
-	// on prépare le fonctionnement de "login"
-
-	public function login($data)
-	{
-		if(!isset($data['login']))
-		{
-			throw new Exception("Paramètre manquant:login");			
-		}
-
-		if(!isset($data['password']))
-		{
-			throw new Exception("Paramètre manquant: password");
-		}
-
-		//On va aller chercher le user qui a CE login, s'il y en a un. Si "non": on exécute le if
-		if(($user=$this->getByLogin($data['login']))==FALSE)
-		{
-			throw new Exception("Login inexistant");
-		}
-
-		if(password_verify($data['password'],$user->getPassword()==FALSE))
-		{
-			throw new Exception("Password incorrect");
-		}
-
-		if($user->getStatut()==0)
-		{
-			throw new Exception("Statut inactif");
-		}
-
-		return $user;
-	}
 	//fonction de modification. Dans le traitement on récupère un user, on le modifie, on l'update ici, puis on le renvoie en bdd
 	public function update(User $user)
 	{

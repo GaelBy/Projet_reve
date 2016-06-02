@@ -1,9 +1,6 @@
 <?php
 $count2=0;
-$lsSubCategory = $categorie->getSubCategories();
-//$manager = new SubCategoryManager ($link);
-// $lsSubCategory = $manager->getByIdCategory($id_category);
-
+$lsSubCategory = $categorie->getSubCategory();
 while($count2<sizeof($lsSubCategory))
 {
 	$subcategory = $lsSubCategory[$count2];

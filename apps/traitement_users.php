@@ -31,10 +31,12 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'login')
 		$_SESSION['id'] = $user->getId();
 		if (isset($_SESSION['panier']))
 		{
+			if ($user->getAdmin() == 1)
+				$_SESSION['admin'] = 1;
 			$panier_manager = new PanierManager($link);
 			$panier = $panier_manager->getById($_SESSION['panier']);
-			$panier->setIdUser($_SESSION['id']);
-			$panier = $panierManager->update($panier);
+			$panier->setIdUser(intval($_SESSION['id']));
+			$panier = $panier_manager->update($panier);
 			header('Location: index.php?page=panier');
 			exit;
 		}

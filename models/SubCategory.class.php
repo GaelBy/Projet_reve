@@ -7,12 +7,24 @@ class SubCategory
 	private $description;
 	private $produits;
 
+	private $category;
+	private $link;
+
 	public function __construct($link)
    {
     $this->link = $link;
    }
 
 
+	public function getCategories()
+	{
+		if ($this->category === null)
+		{
+			$manager = new CategoryManager($this->link);
+			$this->category = $manager->getById($this->id_category);
+		}
+		return $this->category;
+	}
 	public function getId()
 	{
 		return $this->id;
@@ -31,8 +43,11 @@ class SubCategory
 	}
 	public function getProduits()
 	{
-		$manager = new ProduitsManager($this->link);
-		$this->produits = $manager->getBySubCategory($this);
+		if ($this->produits === null)
+		{
+			$manager = new ProduitsManager($this->link);
+			$this->produits = $manager->getBySubCategory($this);
+		}
 		return $this->produits;
 	}
 

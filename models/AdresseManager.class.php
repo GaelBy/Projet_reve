@@ -16,6 +16,14 @@ class AdresseManager
 		$adresse = mysqli_fetch_object($res, "Adresse", [$this->link]);
 		return $adresse;
 	}
+	public function getLivraisonByUser(User $user)
+	{
+		$id = intval($id);
+		$query = "SELECT * FROM adresses WHERE id=".$id." AND type_adresse='livraison'";
+		$res = mysqli_query($this->link, $query);
+		$adresse = mysqli_fetch_object($res, "Adresse", [$this->link]);
+		return $adresse;
+	}
 	public function getByUser($id_user)
 	{
 		$id_user = intval($id_user);

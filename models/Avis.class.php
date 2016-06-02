@@ -2,13 +2,15 @@
 class Avis
 {
 	private $id;
-	private $id_author;
+	private $id_author;// Numéro
 	private $id_produit;
 	private $content;
 	private $date;
 	private $note;
 	private $statut;
 
+	private $author;// Objet
+	private $produit;// Objet
 	private $link;
 
 	public function __construct($link)
@@ -16,10 +18,29 @@ class Avis
 		$this->link = $link;
 	}
 
+	public function getAuthor()
+	{
+		if ($this->author === null)
+		{
+			$manager = new UserManager($this->link);
+			$this->author = $manager->getById($this->id_author);
+		}
+		return $this->author;
+	}
+	public function getProduit()
+	{
+		if ($this->produit === null)
+		{
+			$manager = new ProduitsManager($this->link);
+			$this->produit = $manager->getById($this->id_produit);
+		}
+		return $this->produit;
+	}
 	public function getId()
 	{
 		return $this->id;
 	}
+	/*
 	public function getIdAuthor()
 	{
 		return $this->id_author;
@@ -28,6 +49,7 @@ class Avis
 	{
 		return $this->id_produit;
 	}
+	*/
 	public function getContent()
 	{
 		return $this->content;
@@ -45,6 +67,17 @@ class Avis
 		return $this->statut;
 	}
 
+	public function setAuthor(User $author)
+	{
+		$this->id_author = $author->getId();
+		$this->author = $author;
+	}
+	public function setProduit(Produit $produit)
+	{
+		$this->id_produit = $produit->getId();
+		$this->produit = $produit;
+	}
+	/*
 	public function setIdAuthor($id_author)
 	{
 		$this->id_author = $id_author;
@@ -52,7 +85,7 @@ class Avis
 	public function setIdProduit($id_produit)
 	{
 		$this->id_produit = $id_produit;
-	}
+	}*/
 	public function setContent($content)
 	{
 		if (strlen($content) < 10)
