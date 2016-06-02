@@ -3,15 +3,28 @@
 <?php
 
 
-/*if(isset($_SESSION['id']))
-{*/
+if(isset($_SESSION['id']))
+{
 
-	$articles = new PanierManager($link);
+	$panier = new PanierManager($link);
 
-	$id = 1 ; 
+	$id = $_SESSION['id']; 
 
 
-	$a = $articles->getById($id);
+	$articles = $panier->getProduits($id);
+
+	$prod = 0 ;
+	$prod_panier = count( $articles );
+	while($prod < $articles)
+	{
+		$client_prod = $articles[$prod];
+		require('views/ls_produits.phtml');
+		$iSub++;
+	}
+
+
+}	
+
 
 
 	
@@ -22,8 +35,7 @@
 
 
 
-    require('views/panier_item.phtml');
 
-/*}*/
+}
 
 ?>
