@@ -19,12 +19,13 @@ try
 					$data['id_user'] = $_SESSION['id'];
 				$panier = $panier_manager->create($data);
 				$_SESSION['panier'] = $panier->getId();
+				$produit_manager->initPanierProduit($produit);
 			}
 			$panier = $panier_manager->getById($_SESSION['panier']);
 			$panier->ajoutProduit($produit);
 			$panier = $panier_manager->update($panier);
 			}
-		else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'] == 'remove')
+		else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'][0] == 'remove')
 		{
 			//remove
 			$panier = $panier_manager->getById($_SESSION['panier']);
@@ -33,7 +34,7 @@ try
 		}
 	}
 	//finalisation
-	if (isset($_GET['page'], $_GET['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate')
+	if (isset($_GET['page'], $_POST['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate')
 	{
 		//login?
 		if (!isset($_SESSION['id']))
