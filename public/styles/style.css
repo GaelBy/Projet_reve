@@ -202,3 +202,72 @@ ul a{
 	padding-bottom:1em;
 	color:gray;
 }
+
+body{
+	margin: 0;
+}
+
+.category-content{
+	padding-top: 5%;
+	width: 100%;
+	background: url(../images/background_dream.jpg);
+	background-size: 100%;
+ 	background-repeat: no-repeat;
+	height: 715px;
+	font-family: "PT Sans Narrow";
+}
+
+img{
+	display: block;
+	width: 100%;
+	border-radius: 50%;
+	/*border: 3px solid #968397;*/
+}
+
+.img-category:hover{
+	opacity: 0.8;
+}
+
+.category{
+	width: 19.77%;
+	display: inline-block;
+	text-align: center;
+	overflow: hidden;
+}
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li{
+	height: 35px;
+	line-height: 35px;
+}
+
+h2{
+	margin: 40px 0;
+	padding: 20px;
+	font-weight: bold;
+}
+
+h2:hover{
+	background-color: #5E506C;
+}
+
+a{
+	text-decoration: none;
+	color: #3A1A43;
+	font-size: 1.1em;
+	width: 100%;
+	font-weight: bold;
+}
+
+nav ul li:hover{
+	background-color: #5E506C;
+}
+
+a:hover{
+	color: #EADACF;
+}
