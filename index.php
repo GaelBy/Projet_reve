@@ -14,13 +14,9 @@ if (!$link)
 	exit;
 }
 
-<<<<<<< HEAD
+
 $acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category');
-=======
 
-
-$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis','sidebar');
->>>>>>> 484ebcd6df7aacb5a9be68ad907f833dbba26937
 
 if(isset($_GET['page']))
 {
