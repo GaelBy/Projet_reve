@@ -205,7 +205,37 @@ class ProduitsManager
 			throw new Exception("Erreur Interne");
 		}
 	}
-
+	public function initPanierProduit(Produits $produit)
+	{
+		$id_panier = intval($_SESSION['panier']);
+		$id_produit = intval($produit->getId());
+		$query = "INSERT INTO link_panier_produits (id_panier, id_produit, quantite)
+		VALUES ('".$id_panier."', '".$id_produit."',1)";
+		$res = mysqli_query($this->link, $query);
+		if (!$res)
+			throw new Exception("Erreur Interne");
+	}
+	public function updatePanierProduit(Produits $produit)
+	{
+		$id_panier = intval($_SESSION['panier']);
+		$id_produit = intval($produit->getId());
+		$quantite = intval($produit->getQuantite());
+		$query = "UPDATE link_panier_produits SET quantite=".$quantite."
+		WHERE id_panier=".$id_panier." AND id_produit=".$id_produit;
+		$res = mysqli_query($this->link, $query);
+		if (!$res)
+			throw new Exception("Erreur Interne");
+	}
+	public function deletePanierProduit(Produits $produit)
+	{
+		$id_panier = intval($_SESSION['panier']);
+		$id_produit = intval($produit->getId());
+		$query = "DELETE FROM link_panier_produits 
+		WHERE id_panier=".$id_panier." AND id_produit=".$id_produit;
+		$res = mysqli_query($this->link, $query);
+		if (!$res)
+			throw new Exception("Erreur Interne");
+	}
 }
 
 ?>

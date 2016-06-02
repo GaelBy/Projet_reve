@@ -59,7 +59,7 @@ class Panier {
     $manager = new ProduitsManager($this->link); // on crée un nouveau produitManager et on lui donne le link dont il a besoin (vers laBDD)
     $this->produits = $manager->getByPanier($this); // On appelle la fonction getByPanier qui existe dans le produitManager: "applique cette fonction
     // pour récupérer la liste des produits du panier"
-    return $this->produits; //ici, la liste des produits
+   return $this->produits; //ici, la liste des produits
    }
 
    public function ajoutProduit(Produits $produit) // on veut un objet produit
@@ -74,6 +74,7 @@ class Panier {
     $i = 0;
     while ($i < sizeof($this->produits))
     {
+      $this->produits[$i]->setPrixUniTtc();
       if ($this->produits[$i]->getId() == $produit->getId())
       {
         if ($this->produits[$i]->getQuantite() === null)
@@ -83,6 +84,8 @@ class Panier {
         $produit->setPrixUniTtc();
         $this->prix = $this->prix + $produit->setPrixUniTtc();
         $this->poids = $this->poids + $produit->getPoidsUni();
+        $manager = new ProduitsManager($this->link);
+        $manager->updatePanierProduit($this->produits[$i]);
         return $this->produits[$i];
       }
       $i++;
@@ -96,15 +99,16 @@ class Panier {
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
     $this->prix = $this->prix + $produit->setPrixUniTtc();
     $this->poids = $this->poids + $produit->getPoidsUni();
+    $manager = new ProduitsManager($this->link);
+    $manager->initPanierProduit($produit);
    }
-   public function suppressionProduit(Produit $produit)
+   public function suppressionProduit(Produits $produit)
    {
     // null ?
     if ($this->produits === null)
       $this->getProduits();
-    
     $count=0;// ce compteur est relatif à la boucle
-
+    $manager = new ProduitsManager($this->link);
     while($count < sizeof($this->produits)) // tant que le compteur boucle est inférieur à la taille de la liste
     {
       $article = $this->produits[$count];//article est ici UN produit de la liste, on les prend un par un
@@ -115,14 +119,17 @@ class Panier {
         {
           $article->setQuantite($article->getQuantite()-1);
           $this->nbre_produits--;
+          $manager->updatePanierProduit($article);
         }
         else
         {
           array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
           $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
+          $manager->deletePanierProduit($article);
         }
         $this->prix = $this->prix - $produit->getPrixUniTtc();
         $this->poids = $this->poids - $produit->getPoidsUni();
+
         return $this->produits;
       }
       $count++;

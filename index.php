@@ -31,7 +31,7 @@ if(isset($_GET['page']))
 
 
 $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users', 
-	                      'produit'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
+	                      'produit'=>'panier', 'panier'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
 	                      'profil_user'=>'users', 'admin_category'=>'category', 
 
 	                      'admin_produits'=>'produits');
