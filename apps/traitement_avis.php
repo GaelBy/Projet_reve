@@ -24,6 +24,12 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
     	}
 	}
 
+<<<<<<< HEAD
+			catch (Exception $e);
+	    	{
+	    	$error = $e->getMessage;
+	    	}
+=======
 
 	else if(isset($_GET['action']) && $_GET['action'] == "modifier")
 	{
@@ -35,6 +41,7 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 		$avis = $avis_manager->update($avis);
 		header('Location: ?page=produit&id='.$produit->getId());
 		exit;
+>>>>>>> 484ebcd6df7aacb5a9be68ad907f833dbba26937
 		}
 
 		catch (Exception $e);

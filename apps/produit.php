@@ -1,4 +1,5 @@
 <?php
+require('views/produit.phtml');
 $manager = new ProduitsManager($link);
 $produit = $manager->getById($_GET['id_produit']);
 if ($produit->getStatut())

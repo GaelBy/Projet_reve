@@ -14,6 +14,7 @@ else
 	$panier = $manager->getById($_SESSION['panier']);
 	$list = $panier->getProduits();
 	$i = 0;
+	var_dump($panier);
 	while ($i < sizeof($list))
 	{
 		$produit = $list[$i];
