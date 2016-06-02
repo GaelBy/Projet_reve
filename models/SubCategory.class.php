@@ -16,7 +16,7 @@ class SubCategory
    }
 
 
-	public function getCategory()
+	public function getCategories()
 	{
 		if ($this->category === null)
 		{

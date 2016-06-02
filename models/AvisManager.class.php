@@ -53,14 +53,14 @@ class AvisManager
 		if (!isset($data['note']))
 			throw new Exception("Paramètre manquant: note");
 
-		$avis->setIdAuthor($user->getId());
-		$avis->setIdProduit($produit->getId());
+		$avis->setAuthor($user);
+		$avis->setProduit($produit);
 		$avis->setContent($data['content']);
 		$avis->setNote($data['note']);
 		$avis->setStatut(1);
 
-		$id_author = intval($avis->getIdAuthor());
-		$id_produit = intval($avis->getIdProduit());
+		$id_author = intval($avis->getAuthor()->getId());
+		$id_produit = intval($avis->getProduit()->getId());
 		$content = mysqli_real_escape_string($this->link, $avis->getContent());
 		$note = intval($avis->getNote());
 		$statut = $avis->getStatut();

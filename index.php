@@ -35,8 +35,8 @@ if (array_key_exists($page, $acces_traitement))
 	require('apps/traitement_'.$acces_traitement[$page].'.php');
 
 // $('#panier').load('index.php?page=panier&ajax');
-require('apps/produit.php');
-exit;
+// require('apps/produit.php');
+// exit;
 if (isset($_GET['ajax']))
 {
 	$accessAjax = [];

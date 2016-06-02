@@ -83,8 +83,10 @@ class User
 	
 		if ($this->adresseLivraison===null)
 		{
-			$count=0;
 			$manager=new AdresseManager($this->link);
+			$this->adresseLivraison = $manager->getLivraisonByUser($this);
+			/*
+			$count=0;
 			$list = $manager->getByUser($this->id);
 			while($count<sizeof($list))
 			{
@@ -94,12 +96,23 @@ class User
 				}
 
 				$count++;
-			}
+			}*/
 		}
 
 		return $this->adresseLivraison;
 	}
 
+
+	// on prépare le fonctionnement de "login"
+
+	public function verifLogin($password)
+	{
+		if(password_verify($password,$this->password)==FALSE)
+		{
+			throw new Exception("Password incorrect");
+		}
+		return true;
+	}
 
 	public function getAdresseFacturation()
 	{
@@ -210,6 +223,7 @@ class User
 		}
 		// on va mettre dans l'objet le hash du pass en utilisant la méthode Password_bcrypt, avec le tableau d'options où on définit l'option Coût.
 		$this->password=password_hash($password,PASSWORD_BCRYPT, array("cost"=>8));
+		// UPDATE
 	}
 
 	public function setDateNaissance($date_naissance)

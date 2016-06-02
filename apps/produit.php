@@ -3,15 +3,15 @@ $manager = new ProduitsManager($link);
 $produit = $manager->getById($_GET['id_produit']);
 if ($produit->getStatut())
 {
-	$id = $produit->getId();
-	$reference = $produit->getReference();
-	$stock = $produit->getStock();
-	$prix_uni_ht = $produit->getPrixUniHt();
-	$prix_uni_ttc = $produit->setPrixUniTtc();
-	$description = $produit->getDescription();
-	$image = $produit->getImage();
-	$nom = $produit->getNom();
-	$moyenne = $produit->setMoyenne();
+	// $id = $produit->getId();
+	// $reference = $produit->getReference();
+	// $stock = $produit->getStock();
+	// $prix_uni_ht = $produit->getPrixUniHt();
+	// $prix_uni_ttc = $produit->setPrixUniTtc();
+	// $description = $produit->getDescription();
+	// $image = $produit->getImage();
+	// $nom = $produit->getNom();
+	// $moyenne = $produit->setMoyenne();
 	$ajout_ok = 'hide';
 	$modif_ok = 'hide';
 	$list = $produit->getAvis();

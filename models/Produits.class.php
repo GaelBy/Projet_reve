@@ -25,6 +25,7 @@ class Produits
 	public function __construct($link)
 	{
     	$this->link = $link;
+		$this->updatePrixUniTtc();
 	}
 	public function getAvis()
 	{
@@ -182,7 +183,7 @@ class Produits
 		$this->tva=$tva;
 	}
 
-	public function setPrixUniTtc()
+	public function updatePrixUniTtc()
 	{
 		if ($this->prix_uni_ttc === null)
 			$this->prix_uni_ttc = 1;

@@ -67,7 +67,18 @@ class Avis
 		return $this->statut;
 	}
 
-	/*public function setIdAuthor($id_author)
+	public function setAuthor(User $author)
+	{
+		$this->id_author = $author->getId();
+		$this->author = $author;
+	}
+	public function setProduit(Produit $produit)
+	{
+		$this->id_produit = $produit->getId();
+		$this->produit = $produit;
+	}
+	/*
+	public function setIdAuthor($id_author)
 	{
 		$this->id_author = $id_author;
 	}
