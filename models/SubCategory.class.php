@@ -15,7 +15,6 @@ class SubCategory
     $this->link = $link;
    }
 
-
 	public function getCategories()
 	{
 		if ($this->category === null)

@@ -7,7 +7,7 @@ class Category
 
 	private $link;
 
-	private $sub_cat;
+	private $sub_category;
 
 
 	public function __construct($link){
@@ -31,13 +31,12 @@ class Category
 
 	public function getSubCategory()
 	{
-		if ($this->sub_cat === null)
+		if ($this->sub_category === null)
 		{
-			$sub_ = new SubCategoryManager($this->link);
-			$this->sub_cat = $sub_->getByCategory($this);
+			$manager = new SubCategoryManager($this->link);
+			$this->sub_category = $manager->getByCategory($this);
 		}
-        return $this->sub_cat;
-
+        return $this->sub_category;
 
 	}
 
