@@ -84,7 +84,7 @@ class CategoryManager
 	}
 	public function update(Category $category)
 	{
-		$id = $category->getId;
+		$id = $category->getId();
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$query = "UPDATE category SET nom='".$nom."', description='".$description."'

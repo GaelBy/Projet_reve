@@ -58,7 +58,7 @@ class AdresseManager
 		$code_postal = intval($adresse->getCodePostal());
 		$type_adresse = mysqli_real_escape_string($this->link, $adresse->getTypeAdresse());
 		$query = "INSERT INTO adresses (id_user, nom, numero, rue, ville, code_postal, type_adresse)
-		VALUES ('".$id_user."', '".$nom."', '".$numero."', '".$rue."', '".$ville."', '".$code_postal."', '".$type_adresse."', '".$."')";
+		VALUES ('".$id_user."', '".$nom."', '".$numero."', '".$rue."', '".$ville."', '".$code_postal."', '".$type_adresse."')";
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{

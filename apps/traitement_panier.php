@@ -12,21 +12,17 @@ try
 			//create?
 			if (!isset($_SESSION['panier']))
 			{
-				$panier = new Panier($link);
-				$panier->ajoutProduit($produit);
-				$data = array('id_user'=>0, 'statut'=>'en cours', 'prix'=>$panier->prix, 'nombre_produits'=>$panier->nombre_produits, 'poids'=>$panier->poids);
-				if (!isset($_SESSION['id']))
+				//$panier = new Panier($link);
+				$data = array('id_user'=>10, 'statut'=>'en cours', 'prix'=>0, 'nombre_produits'=>0, 'poids'=>0);
+				if (isset($_SESSION['id']))
 					$data['id_user'] = $_SESSION['id'];
 				$panier = $panier_manager->create($data);
 				$_SESSION['panier'] = $panier->getId();
 			}
-			else
-			{
-				$panier = $panier_manager->getById($_SESSION['panier']);
-				$panier->ajoutProduit($produit);
-				$panier = $panier_manager->update($panier);
+			$panier = $panier_manager->getById($_SESSION['panier']);
+			$panier->ajoutProduit($produit);
+			$panier = $panier_manager->update($panier);
 			}
-		}
 		else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'] == 'remove')
 		{
 			//remove
@@ -57,6 +53,6 @@ try
 }
 catch(Exception $e)
 {
-	$error = $e->getMessage;
+	$error = $e->getMessage();
 }
 ?>

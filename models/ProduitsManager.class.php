@@ -133,8 +133,6 @@ class ProduitsManager
 					    '".$description."','".$image."','".$nom."','".$poidsUni."',
 					    '".$statut."')";
 		$res=mysqli_query($this->link,$query);
-var_dump($query);
-var_dump($res);
 		//A VOIR:
 
 		if($res)

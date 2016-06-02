@@ -1,5 +1,6 @@
 <h1><?=$nom?></h1>
 <h3><?=$reference?></h3>
+<div class="right note">Note moyenne : <?=$moyenne?>/5</div>
 <picture><img src="<?=$image?>" alt="image <?=$nom?>"></picture>
 <p><?=$description?></p>
 <p>Stock restant : <?=$stock?></p>
@@ -9,4 +10,13 @@
 	<button class="btn" type="submit" name="id_produit" value="<?=$id?>">Ajouter au panier</button>
 </form>
 <h2>Avis</h2>
-<div class="container"><?php require('apps/ls_avis.php'); ?></div>
+<div class="container <?=$no_avis?>">
+	Aucun avis pour ce produit
+</div>
+<div class="ajout <?=$ajout_ok?>">
+	<button class="btn"><a href="index.php?page=avis&id_produit=<?=$id?>&action=creer">Ajouter un avis</a></button>
+</div>
+<div class="modif <?=$modif_ok?>">
+	<button class="btn"><a href="index.php?page=avis&id_produit=<?=$id?>&action=modifier">Modifier votre avis</a></button>
+</div>
+<div class="container <?=$avis_class?>"><?php require('apps/ls_avis.php'); ?></div>
