@@ -36,13 +36,17 @@ class CategoryManager
 		return $category;
 	}
 
-	public function getAll()
+    public function getAll()
 	{
+
+		
 		$list = [];
 		$query = "SELECT * FROM category";
 		$res = mysqli_query($this->link, $query);
 		while ($lsCategory = mysqli_fetch_object($res, "Category", [$this->link]))
+	    
 			$list[] = $lsCategory;
+		
 		return $list;
 	}
 
