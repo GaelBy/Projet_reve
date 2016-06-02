@@ -53,7 +53,7 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'login')
 	}
 }
 //logout
-if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'logout')
+if (empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
 	header('Location: index.php?page=home');

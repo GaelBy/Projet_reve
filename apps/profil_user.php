@@ -1,6 +1,9 @@
+
+
 <?php
 
-require('views/profil_user.phtml');
+require('apps/ls_paniers.php');
+require('apps/panier_item.php');
 
 
 ?>

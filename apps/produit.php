@@ -1,13 +1,7 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 require('views/produit.phtml');
-=======
-=======
 $manager = new ProduitsManager($link);
 $produit = $manager->getById($_GET['id_produit']);
->>>>>>> cfab82f01cc0d9ee9159b175c3b802776d1f45f4
 if ($produit->getStatut())
 {
 	$id = $produit->getId();
@@ -54,5 +48,4 @@ if ($produit->getStatut())
 	}
 	require('views/produit.phtml');
 }
->>>>>>> 484ebcd6df7aacb5a9be68ad907f833dbba26937
 ?>
