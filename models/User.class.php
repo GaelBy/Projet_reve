@@ -119,8 +119,9 @@ class User
 	
 		if ($this->adresseFacturation===null)
 		{
-			$count=0;
 			$manager=new AdresseManager($this->link);
+			$this->adresseFacturation = $manager->getFacturationByUser($this);
+			/*$count=0;
 			$list = $manager->getByUser($this->id);
 			while($count<sizeof($list))
 			{
@@ -130,7 +131,7 @@ class User
 				}
 
 				$count++;
-			}
+			}*/
 		}
 
 		return $this->adresseFacturation;
@@ -142,7 +143,7 @@ class User
 		if ($this->panier===null)
 		{
 			$manager=new PanierManager($this->link);
-			$this->panier=$manager->getById($this);
+			$this->panier=$manager->getByIdUser($this->id);
 		}
 
 		return $this->panier;
@@ -151,8 +152,11 @@ class User
 
 	public function getAvis()
 	{
-		$manager=new AvisManager($this->link);// pour aller chercher avis manager et l'utiliser
-		$list=$manager->getByAuthor($this->id);// on utilise cette fonction, avec en paramètre l'id de cet user
+		if ($this->avis === null)
+		{
+			$manager=new AvisManager($this->link);// pour aller chercher avis manager et l'utiliser
+			$list=$manager->getByAuthor($this->id);// on utilise cette fonction, avec en paramètre l'id de cet user
+		}
 		return $list;
 	}
 	
@@ -160,7 +164,7 @@ class User
 	public function getAdresse()
 	{
 		$manager=new AdresseManager($this->link);
-		$list=$manager->getyUser($this->id);
+		$list=$manager->getByUser($this->id);
 		return $list;
 	}
 

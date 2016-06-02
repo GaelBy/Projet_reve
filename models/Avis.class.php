@@ -106,8 +106,8 @@ class Avis
 	}
 	public function setStatut($statut)
 	{
-		if (!is_bool($statut))
-			throw new Exception("Ce n'est pas un booléen");
+		if ($statut != 0 && $statut != 1)
+			throw new Exception("Paramètre incorrect: statut");
 		$this->statut = $statut;
 	}
 }

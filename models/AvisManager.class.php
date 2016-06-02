@@ -11,7 +11,7 @@ class AvisManager
 	public function getById($id)
 	{
 		$id = intval($id);
-		$query = "SELECT * FROM avis WHERE id=".$id;
+		$query = "SELECT * FROM avis WHERE id=".$id." ORDER BY `date`";
 		$res = mysqli_query($this->link, $query);
 		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;
@@ -30,7 +30,7 @@ class AvisManager
 	{
 		$id_produit = intval($id_produit);
 		$list = [];
-		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit." ORDER BY date";
+		$query = "SELECT * FROM avis WHERE id_produit=".$id_produit." ORDER BY `date`";
 		$res = mysqli_query($this->link, $query);
 		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
@@ -39,7 +39,7 @@ class AvisManager
 	public function getAll()
 	{
 		$list = [];
-		$query = "SELECT * FROM avis";
+		$query = "SELECT * FROM avis ORDER BY `date`";
 		$res = mysqli_query($this->link, $query);
 		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
