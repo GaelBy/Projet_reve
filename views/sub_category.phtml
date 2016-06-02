@@ -1,4 +1,7 @@
-
-
-
-
+<fieldset>
+	<legend><?=$subcategory->getNom()?></legend>
+	<?=$subcategory->getDescription()?>
+	<ul>
+		<?php require('apps/ls_produits.php'); ?>
+	</ul>
+</fieldset>

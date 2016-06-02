@@ -14,9 +14,12 @@ if (!$link)
 	exit;
 }
 
+<<<<<<< HEAD
 
 $acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category', 'ls_sub_category', 'sub_category_item');
-
+=======
+$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category');
+>>>>>>> 77480c144f14e58d9c2979e7aa698d7733b4c22f
 
 if(isset($_GET['page']))
 {
@@ -27,9 +30,6 @@ if(isset($_GET['page']))
  }
 }
 
-
-
-
 $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users', 
 	                      'produit'=>'panier', 'panier'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
 	                      'profil_user'=>'users', 'admin_category'=>'category', 
@@ -39,25 +39,14 @@ $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users'
 if (array_key_exists($page, $acces_traitement))
 	require('apps/traitement_'.$acces_traitement[$page].'.php');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-require('apps/skel.php')
-
-
-
-
-
-
-
+// $('#panier').load('index.php?page=panier&ajax');
+// require('apps/produit.php');
+// exit;
+if (isset($_GET['ajax']))
+{
+	$accessAjax = [];
+	require('apps/'.$pageAjax.'.php');
+}
+else
+	require('apps/skel.php');
 ?>

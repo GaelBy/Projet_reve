@@ -9,8 +9,8 @@ if (isset($_GET['page']) && $_GET['page'] == 'register')
 		$data1 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse1'], 'numero' => $_POST['numero1'], 'rue' => $_POST['rue1'], 'ville' => $_POST['ville1'], 'code_postal' => $_POST['code_postal1'], 'type_adresse' => 'facturation'];
 		$data2 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse2'], 'numero' => $_POST['numero2'], 'rue' => $_POST['rue2'], 'ville' => $_POST['ville2'], 'code_postal' => $_POST['code_postal2'], 'type_adresse' => 'livraison'];
 		$adresse_manager = new AdresseManager($link);
-		$adresse = $adresse_manager->create($data1);
-		$adresse = $adresse_manager->create($data2);
+		$adresse1 = $adresse_manager->create($data1);
+		$adresse2 = $adresse_manager->create($data2);
 		if (isset($_GET['panier_id'], $_GET['action']) && $_GET['action'] = 'validate')
 			header('Location: index.php?page=login&panier_id='.$_GET['panier_id'].'&action=validate');
 		else
@@ -27,25 +27,40 @@ if (isset($_GET['page']) && $_GET['page'] == 'login')
 {
 	try
 	{
-		$user = $manager->login($_POST);
+		$user = $manager->getByLogin($_POST['login']);
+		if ($user)
+		{
+			if ($user->verifLogin($_POST['password']))
+			{
+				$_SESSION['id'] = $user->getId();
+				if (isset($_GET['id_panier'], $_GET['action']) && $_GET['action'] == 'validate')
+				{
+					$panier_manager = new PanierManager($link);
+					$panier = $panier_manager->getById($_GET['id_panier']);
+					$panier->setIdUser($_SESSION['id']);
+					header('Location: index.php?page=paiement&id_panier='.$panier->getId());
+					exit;
+				}
+				else if ($user->admin == 1)
+				{
+					$_SESSION['admin'] = 1;
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+				{
+					header('Location: index.php?page=home');
+					exit;
+				}
+			}
+		}
+		else
+			$error = 'Login inconnu';
+		/*$user = $manager->login($_POST);
 		$_SESSION['id'] = $user->getId();
 		//ajouter cas si login avec panier en cours
-		if (isset($_GET['id_panier'], $_GET['action']) && $_GET['action'] = 'validate')
-		{
-			$panier_manager = new PanierManager($link);
-			$panier = $panier_manager->getById($_GET['id_panier']);
-			$panier->setIdUser($_SESSION['id']);
-			header('Location: index.php?page=paiement&id_panier='.$panier->getId());
-			exit;
-		}
-		if ($user->admin == 1)
-		{
-			$_SESSION['admin'] = 1;
-			header('Location: index.php?page=admin');
-			exit;
-		}
 		header('Location: index.php?page=home');
-		exit;
+		exit;*/
 	}
 	catch (Exception $e)
 	{
@@ -62,11 +77,11 @@ if (isset($_GET['page']) && $_GET['page'] == 'logout')
 //edit
 if (isset($_GET['page']) && $_GET['page'] == 'profil_user')
 {
-	if (isset($_GET['action'] == 'edit'))
+	if (isset($_GET['action']) && $_GET['action'] == 'edit')
 	{
 		if ($_SESSION['id'] == $_GET['id_user'] || $_SESSION['admin'])
 		{
-			try
+			try// $_SESSION['id']
 			{
 				$user = $manager->findById($_GET['id_user']);
 				$user->setNom($_POST['nom']);

@@ -49,9 +49,9 @@ class ProduitsManager
 		return $produit;
 	}
 
-	public function getBySubCategory($id_sub_category) // récup produit par sous catégorie
+	public function getBySubCategory(SubCategory $sub_category) // récup produit par sous catégorie
 	{
-		$id_sub_category=intval($id_sub_category);
+		$id_sub_category=intval($sub_category->getId());
 		$list=[];
 		$query="SELECT * FROM produits WHERE id_sub_category='".$id_sub_category."'";
 		$res=mysqli_query($this->link,$query);
