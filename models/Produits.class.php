@@ -113,8 +113,8 @@ class Produits
 	}
 	public function setSubCategory(SubCategory $sub_category)
 	{
-		$this->id_sub_category = $subCategory->getId();
-		$this->sub_category = $subCategory;
+		$this->id_sub_category = $sub_category->getId();
+		$this->sub_category = $sub_category;
 	}
 	public function setReference($reference)
 	{	
