@@ -2,10 +2,10 @@
 
 <table>
 	<tr>
-		<td><?php echo $articles->getNom();?></td>
-		<td><?php echo $articles->getQuantite();?></td>
-		<td><?php echo $articles->getPrixUniTtc();?></td>
-		<td><?php echo $articles->getTva();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getPrix();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getPoids();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getId();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getNombreProduits();?><em>euros</em></td>
 	</tr>
 </table>
 
