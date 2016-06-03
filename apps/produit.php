@@ -1,6 +1,9 @@
 <?php
 $manager = new ProduitsManager($link);
 $produit = $manager->getById($_GET['id_produit']);
+$admin = 'hide';
+if (isset($_SESSION['admin']) && $_SESSION['admin'])
+	$admin = '';
 if ($produit->getStatut())
 {
 	// $id = $produit->getId();

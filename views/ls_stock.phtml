@@ -1,5 +1,6 @@
-<h2>Stocks critiques</h2>
-<p>Le niveau de stock des produits suivants requiert votre attention:</p>
-<div class="criticalStocks">
-<?php require ('apps/stock_item.php');?>
+<div class="criticalItem">
+	<h4>Produit concerné:<?=$produit->getNom()?></h4>
+	<h4>Référence:<?=$produit->getReference()?></h4>
+	<h4>Quantité:<?=$produit->getStock()?></h4>
+	<a href="index.php?page=produit&id=<?=$produit->getId()?>">Accéder à la fiche <?=$produit->getNom()?></a>
 </div>
