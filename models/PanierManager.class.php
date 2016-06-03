@@ -37,7 +37,7 @@ class PanierManager
 		$id_user=intval($id_user);
 		// $query est la requête: on va chercher l'id dans la bdd
 		$list = [];
-		$query="SELECT * FROM panier WHERE id=".$id_user;
+		$query="SELECT * FROM panier WHERE id_user=".$id_user;
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
