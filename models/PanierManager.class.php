@@ -36,12 +36,17 @@ class PanierManager
 		//ci-dessous, on transforme $id en entier
 		$id_user=intval($id_user);
 		// $query est la requête: on va chercher l'id dans la bdd
+		$list = [];
 		$query="SELECT * FROM panier WHERE id=".$id_user;
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
-		$panier_user=mysqli_fetch_object($res,"Panier",[$this->link]);
-		return $panier_user;
+		while($panier_user = mysqli_fetch_object($res,"Panier",[$this->link]))
+		{
+			$list[] = $panier_user;
+		}
+
+		return $list;
 	}
 	public function getCurrent()//pas d'intérêt sous cette forme, voir plus précisément
 	{

@@ -16,7 +16,7 @@ if (!$link)
 
 
 
-$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category', 'ls_sub_category', 'sub_category_item','profil_user');
+$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis');
 
 
 
@@ -31,7 +31,7 @@ if(isset($_GET['page']))
 
 $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users', 
 	                      'produit'=>'panier', 'panier'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
-	                      'profil_user'=>'users', 'admin_category'=>'category', 
+	                      'profil_user'=>'users', 'admin'=>'panier', 'admin_category'=>'category', 
 
 	                      'admin_produits'=>'produits');
 

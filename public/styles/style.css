@@ -62,7 +62,7 @@ ul a{
 {
 	0%
 	{
-		left: 100%;
+		left: -10%;
 	}
 
 	100%
@@ -270,4 +270,10 @@ nav ul li:hover{
 
 a:hover{
 	color: #EADACF;
+}
+
+.td_panier{
+    width:175px;
+    border:1px solid black;
+    text-align:center;
 }
