@@ -1,5 +1,5 @@
 <div class="container avis">
 	<p><?=htmlentities($avis->getContent())?></p>
 	<div class="note"><?=intval($avis->getNote())?>/5</div>
-	<div class="author">Ecrit le <?=date('d/m/Y H:i', strtotime($avis->getDate()))?> par <?=$avis->getAuthor()->getLogin()?></div>
+	<div class="author">Ecrit le <?=date('d/m/Y H:i', strtotime($avis->getDate()))?> par <?=htmlentities($avis->getAuthor()->getLogin())?></div>
 </div>

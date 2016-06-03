@@ -1,22 +1,22 @@
 <h1>Paiement de la commande</h1>
 <div class="error"><?=$error?></div>
 <div class="container">
-	<h2>Prix à payer : <?=$prix?> €</h2>
+	<h2>Prix à payer : <?=htmlentities($panier->getPrix())?> €</h2>
 </div>
 <div class="container">
 	<form action="" method="POST">
 		<h3>Adresse de facturation</h3>
-		<input type="text" name="nom_adresse1" value="<?=$list[0]->getNom()?>">
-		<input type="text" name="numero1" value="<?=$list[0]->getNumero()?>">
-		<input type="text" name="rue1" value="<?=$list[0]->getRue()?>">
-		<input type="text" name="code_postal1" value="<?=$list[0]->getCodePostal()?>">
-		<input type="text" name="ville1" value="<?=$list[0]->getVille()?>">
+		<input type="text" name="nom_adresse1" value="<?=htmlentities($adresse_facturation->getNom())?>">
+		<input type="text" name="numero1" value="<?=htmlentities($adresse_facturation->getNumero())?>">
+		<input type="text" name="rue1" value="<?=htmlentities($adresse_facturation->getRue())?>">
+		<input type="text" name="code_postal1" value="<?=htmlentities($adresse_facturation->getCodePostal())?>">
+		<input type="text" name="ville1" value="<?=htmlentities($adresse_facturation->getVille())?>">
 		<h3>Adresse de livraison</h3>
-		<input type="text" name="nom_adresse2" value="<?=$list[1]->getNom()?>">
-		<input type="text" name="numero2" value="<?=$list[1]->getNumero()?>">
-		<input type="text" name="rue2" value="<?=$list[1]->getRue()?>">
-		<input type="text" name="code_postal2" value="<?=$list[1]->getCodePostal()?>">
-		<input type="text" name="ville2" value="<?=$list[1]->getVille()?>">
+		<input type="text" name="nom_adresse2" value="<?=htmlentities($adresse_livraison->getNom())?>">
+		<input type="text" name="numero2" value="<?=htmlentities($adresse_livraison->getNumero())?>">
+		<input type="text" name="rue2" value="<?=htmlentities($adresse_livraison->getRue())?>">
+		<input type="text" name="code_postal2" value="<?=htmlentities($adresse_livraison->getCodePostal())?>">
+		<input type="text" name="ville2" value="<?=htmlentities($adresse_livraison->getVille())?>">
 		<button class="btn" type="submit" name="action" value="adresse">Modifier</button>
 	</form>
 </div>
