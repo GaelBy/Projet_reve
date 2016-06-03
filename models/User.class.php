@@ -165,12 +165,12 @@ class User
 	}
 
 
-	public function getPanier()
+	/*public function getPanier()
 	{
 		$manager=new PanierManager($this->link);
 		$list=$manager->getByIdUser($this->id);
 		return $list;
-	}
+	}*/
 
 
 	//on définit les Set
