@@ -1,11 +1,12 @@
 
 
-<table>
+<table class="tbl_panier">
 	<tr>
 		<td class="td_panier"><?php echo $panier_unit->getPrix();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getNombreProduits();?></td>
+		<td class="td_panier"><?php echo $panier_unit->getPoids();?></td>
 		<td class="td_panier"><?php echo $panier_unit->getDate();?></td>
-		<td class="td_panier"><?php echo $panier_unit->getId();?></td>
-		<td class="td_panier"><?php echo $panier_unit->getNombreProduits();?><em>euros</em></td>
+		
 	</tr>
 </table>
 

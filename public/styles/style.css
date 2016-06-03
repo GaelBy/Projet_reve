@@ -280,4 +280,10 @@ a:hover{
     width:175px;
     border:1px solid black;
     text-align:center;
+    background-color:white;
+}
+
+.tbl_panier
+{
+	margin-left:175px;
 }
