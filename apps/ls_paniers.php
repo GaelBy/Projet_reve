@@ -10,6 +10,7 @@ if(isset($_SESSION['id']))
 {
 
 	$panier = new PanierManager($link);
+require('views/ls_paniers.phtml');
 
 	$id = $_SESSION['id']; 
 
@@ -22,7 +23,7 @@ if(isset($_SESSION['id']))
 		while($prod < $nbr_panier)
 		{
 			$panier_unit = $articles[$prod];
-			require('views/ls_paniers.phtml');
+			require('apps/panier_item.php');
 			$prod++;
 		}
 
