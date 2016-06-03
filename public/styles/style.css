@@ -57,7 +57,11 @@ ul a{
 {
 	animation: slideIn 4s 1 normal;
 }
- 
+.logo img
+{
+	border-radius: 0;
+}
+
 @keyframes slideIn
 {
 	0%
@@ -241,10 +245,10 @@ ul{
 	margin: 0;
 }
 
-li{
+/*li{
 	height: 35px;
 	line-height: 35px;
-}
+}*/
 
 h2{
 	margin: 40px 0;
