@@ -304,6 +304,5 @@ class Produits
 			throw new Exception("Ce produit n'est plus en stock");//A vérifier nécessité de mettre cettefonction
 		}
 	}
-
-
 }
+?>
