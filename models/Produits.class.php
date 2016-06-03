@@ -13,9 +13,12 @@ class Produits
 	private $nom;
 	private $poids_uni;
 	private $statut;
-
 	private $prix_uni_ttc;
 	private $quantite;
+
+	private $prix_ttc;
+	private $poids;
+	private $low_stock;
 
 	private $sub_category;
 	private $avis;
@@ -27,7 +30,7 @@ class Produits
     	$this->link = $link;
 		$this->updatePrixUniTtc();
 	}
-	public function getAvis()
+	public function getAvis() 
 	{
 		if ($this->avis === null)
 		{
@@ -276,5 +279,31 @@ class Produits
 		else
 			return '*';
 	}
+	public function getPrixTtc()
+	{
+		if ($quantite>0)
+		{
+			$this->prix_ttc=$this->prix_uni_ttc*$this->quantite;
+			return $this->prix_ttc;
+		}
+		else
+		{
+			throw new Exception("Ce produit n'est plus en stock");
+		}
+	}
+
+	public function getPoids()
+	{
+		if ($this->quantite>0)
+		{
+			$this->poids=$this->poids_uni*$this->quantite;
+			return $this->poids;			
+		}
+		else
+		{
+			throw new Exception("Ce produit n'est plus en stock");//A vérifier nécessité de mettre cettefonction
+		}
+	}
+
 
 }
