@@ -62,7 +62,7 @@ class ProduitsManager
 		}
 		return $list;
 	}
-	
+
 	public function getLowStock($stock)
 
 	{
@@ -76,16 +76,6 @@ class ProduitsManager
 			$list[]=$produit;
 		}
 	}
-
-		
-
-
-
-
-
-	}
-
-
 
 	// Pour entrer nouveau produit en bdd:
 	public function create($data)
@@ -258,9 +248,7 @@ class ProduitsManager
 		$res = mysqli_query($this->link, $query);
 		if (!$res)
 			throw new Exception("Erreur Interne");
-	}
-
-	
+	}	
 
 }
 
