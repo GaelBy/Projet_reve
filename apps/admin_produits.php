@@ -5,6 +5,8 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'])
 	{
 		$produit = new Produits($link);
 		$action = 'ajouter';
+		$subcat = new SubCategory($link);
+		$produit->setSubCategory($subcat);
 	}
 	if (isset($_GET['action'], $_GET['id_produit']) && $_GET['action'] == 'edit')
 	{
