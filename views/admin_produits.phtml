@@ -1,53 +1,53 @@
 <div class="error"><?=$error?></div>
 <form method="POST">
-	<table>
-		<tr>
-			<td>id_sub_category</td>
-			<td><input type="text" name="id_sub_category"/></td>
-		</tr>
-		<tr>
-			<td>reference</td>
-			<td><input type="text" name="reference"/></td>
-		</tr>
-		<tr>
-			<td>stock</td>
-			<td><input type="text" name="stock"/></td>
-		</tr>
-		<tr>
-			<td>prix_uni_ht</td>
-			<td><input type="text" name="prix_uni_ht"/></td>
-		</tr>
-		<tr>
-			<td>tva</td>
-			<td><input type="text" name="tva"/></td>
-		</tr>
-		<tr>
-			<td>description</td>
-			<td><input type="text" name="description"/></td>
-		</tr>
-		<tr>
-			<td>image</td>
-			<td><input type="text" name="image"/></td>
-		</tr>
-		<tr>
-			<td>nom</td>
-			<td><input type="text" name="nom"/></td>
-		</tr>
-		<tr>
-			<td>poids_uni</td>
-			<td><input type="text" name="poids_uni"/></td>
-		</tr>
-		<tr>
-			<td>statut</td>
-			<td><input type="text" name="statut"/></td>
-		</tr>
-		<tr>
-			<td>valider</td>
-			<td><button type="submit" name="action" value="ajouter"/>Ajouter</button></td>
-		</tr>
+	<div class="container">
+		<div class="row">
+			<div class="col">nom</div>
+			<div class="col"><input type="text" name="nom" value="<?=htmlentities($produit->getNom())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">id_sub_category</div>
+			<div class="col"><input type="text" name="id_sub_category" value="<?=htmlentities($produit->getSubCategory()->getId())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">reference</div>
+			<div class="col"><input type="text" name="reference" value="<?=htmlentities($produit->getReference())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">stock</div>
+			<div class="col"><input type="text" name="stock" value="<?=htmlentities($produit->getStock())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">prix_uni_ht</div>
+			<div class="col"><input type="text" name="prix_uni_ht" value="<?=htmlentities($produit->getPrixUniHt())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">tva</div>
+			<div class="col"><input type="text" name="tva" value="<?=htmlentities($produit->getTva())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">description</div>
+			<div class="col"><input type="text" name="description" value="<?=htmlentities($produit->getDescription())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">image</div>
+			<div class="col"><input type="text" name="image" value="<?=htmlentities($produit->getImage())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">poids_uni</div>
+			<div class="col"><input type="text" name="poids_uni" value="<?=htmlentities($produit->getPoidsUni())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">statut</div>
+			<div class="col"><input type="text" name="statut" value="<?=htmlentities($produit->getStatut())?>"/></div>
+		</div>
+		<div class="row">
+			<div class="col">valider</div>
+			<div class="col"><button type="submit" name="action" value="<?=$action?>"/>Ajouter</button></div>
+		</div>
 
 
-	</table>
+	</div>
 
 
 </form>
