@@ -14,8 +14,8 @@ else
 {
 	$panier = $manager->getById($_SESSION['panier']);
 }
-$prix = $panier->getPrix();
-$poids = $panier->getPoids();
+//$prix = $panier->getPrix();
+//$poids = $panier->getPoids();
 require('views/panier.phtml');
 
 

@@ -17,7 +17,7 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 			header('Location: ?page=produit&id='.$produit->getId());
 			exit;
 		}
-		catch (Exception $e);
+		catch (Exception $e)
     	{
     		$error = $e->getMessage();
     	}
@@ -43,7 +43,7 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 			}
 		}
 
-		catch (Exception $e);
+		catch (Exception $e)
     	{
     		$error = $e->getMessage();
     	}
@@ -62,7 +62,7 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 				exit;
 			}
 		}
-		catch (Exception $e);
+		catch (Exception $e)
 	    {
 	    	$error = $e->getMessage();
 	    }
