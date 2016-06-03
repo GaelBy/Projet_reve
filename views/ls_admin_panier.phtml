@@ -2,5 +2,7 @@
 	<h4>Nom du client:<?$panier->getUser()?></h4>
 	<h4>Montant du panier:<?$panier->getPrix()?></h4>
 	<h4>Liste des produits concernés:<?$panier->getProduits()?></h4>
-	<button type="button" class="btn btn-success">Valider ce panier</button>
+		<form method="post" action="">
+			<button name="action" value="validate" type="submit">Valider ce panier</button>
+		</form>
 </div>

@@ -1,7 +1,7 @@
 <?php
-if (isset($_SESSION['admin']))
+if (isset($_SESSION['admin'],$_POST))
     {
-    	if (isset($_POST['id_category']))
+    	if (isset($_GET['id']))
     	{
     		try
     		{
