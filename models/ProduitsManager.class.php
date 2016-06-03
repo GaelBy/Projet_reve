@@ -67,7 +67,7 @@ class ProduitsManager
 
 	{
 		$stock=intval($stock);
-		$query="SELECT * FROM produits WHERE stock<".$stock.;
+		$query="SELECT * FROM produits WHERE stock<".$stock;
 		$res=mysqli_query($this->link,$query); 
 		$list=[];
 
@@ -77,19 +77,6 @@ class ProduitsManager
 		}
 	}
 
-<<<<<<< HEAD
-		
-
-
-
-
-
-	
-
-
-
-=======
->>>>>>> dc864f1d38a98b4f84867872a65e7a7045122393
 	// Pour entrer nouveau produit en bdd:
 	public function create($data)
 	{
