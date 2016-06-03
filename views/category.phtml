@@ -1,11 +1,16 @@
 <div class="category-content">
-	<div class="category"></div>
-
 	<div class="category">
-		<a href="index.php?page=homme"><img src="images/man_dream.jpg" alt="man_dream" class="img-category"/><h2>HOMME</h2></a>
+		<img src="images/man_dream.jpg" alt="man_dream" class="img-category"/><h2><?=$category->getNom()?></h2></a>
+	</div>
+	<div class="subCategory">
 		<nav>
 			<ul>
-				<li><a href="index.php?page=sportifs_celebres">Sportifs célèbres</a></li>
+				<?php require('apps/ls_sub_category.php');?>
+			</ul>
+		</nav>
+	</div>
+</div>				
+				<!--
 				<li><a href="index.php?page=super_heros">Super héros</a></li>
 				<li><a href="index.php?page=super_seducteur">Super séducteur</a></li>
 				<li><a href="index.php?page=cauchemars_homme">Cauchemars</a></li>
@@ -53,3 +58,4 @@
 <?php
 require('apps/ls_sub_category.php')
 ?>
+-->
