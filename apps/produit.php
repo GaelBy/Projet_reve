@@ -28,7 +28,7 @@ if ($produit->getStatut())
 		while ($i < sizeof($list))
 		{
 			$avis = $list[$i];
-			if ($avis->getIdAuthor() == $_SESSION['id'])
+			if ($avis->getAuthor()->getId() == $_SESSION['id'])
 				$modif_ok = '';
 			$i++;
 		}

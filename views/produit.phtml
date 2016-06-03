@@ -9,6 +9,10 @@
 <form action="" method="POST">
 	<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Ajouter au panier</button>
 </form>
+<div class="<?=$admin?>">
+	<button class="btn"><a href="index.php?page=admin_produit&id_produit=<?=$produit->getId()?>">Modifier</a></button>
+	<button class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></button>
+</div>
 <h2>Avis</h2>
 <div class="container <?=$no_avis?>">
 	Aucun avis pour ce produit
