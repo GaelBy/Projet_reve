@@ -111,22 +111,10 @@ class Produits
 	{
 		return $this->quantite;
 	}
-	public function setSubCategory($sub_category)
+	public function setSubCategory(SubCategory $sub_category)
 	{
-		$manager = new SubCategoryManager($this->link);
-		$list = $manager->getAll();
-		$i = 0;
-		while ($i < sizeof($list))
-		{
-			$subCat = $list[$i];
-			if ($sub_category == $subCat->getId())
-			{
-				$this->id_sub_category = $sub_category;
-				return $this->id_sub_category;
-			}
-			$i++;
-		}
-		throw new Exception("Sous catégorie non existante");
+		$this->id_sub_category = $subCategory->getId();
+		$this->sub_category = $subCategory;
 	}
 	public function setReference($reference)
 	{	
