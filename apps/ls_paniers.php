@@ -22,8 +22,6 @@ if(isset($_SESSION['id']))
 		while($prod < $nbr_panier)
 		{
 			$panier_unit = $articles[$prod];
-
-			var_dump($panier_unit);
 			require('views/ls_paniers.phtml');
 			$prod++;
 		}
