@@ -1,0 +1,14 @@
+<h1>Votre avis pour le produit : <?=htmlentities($produit->getNom())?></h1>
+<div class="container">
+	<form action="" method="POST">
+		<div class="row">
+			<div class="col"><label for="content">Votre avis</label></div>
+			<div class="col"><textarea name="content" id="content" cols="30" rows="10"><?=htmlentities($avis->getContent())?></textarea></div>
+		</div>
+		<div class="row">
+			<div class="col"><label for="note"></label></div>
+			<div class="col"><input type="number" name="note" min="0" max="5" id="note" value="<?=htmlentities($avis->getNote())?>"></div>
+		</div>
+		<div class="row"><button class="btn" type="submit">Soumettre</button></div>
+	</form>
+</div>
