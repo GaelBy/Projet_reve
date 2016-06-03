@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['id']))
+if(isset(['id']))
 {
 	$id = $_POST['id'];
 

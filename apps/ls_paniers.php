@@ -1,27 +1,31 @@
 <?php
 
 
+
+
 /*if(isset($_SESSION['id']))
 {*/
 
-	$articles = new PanierManager($link);
+	$panier = new PanierManager($link);
 
-	$id = 1 ; 
-
-
-	$a = $articles->getById($id);
+	$id = 2/*$_SESSION['id']**/; 
 
 
-	
+	$articles = $panier->getById($id);
+
+	$prod = 0 ;
+	$prod_panier = count( $articles );
+	while($prod < $articles)
+	{
+		$client_prod = $articles[$prod];
+		require('views/ls_panier.phtml');
+		$iSub++;
+	}
 
 
-
-
-
-
-
-    require('views/ls_paniers.phtml');
-
+/*}	*/
 /*}*/
+
+
 
 ?>
