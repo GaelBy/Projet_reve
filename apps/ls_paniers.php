@@ -3,12 +3,12 @@
 
 
 
-/*if(isset($_SESSION['id']))
-{*/
+if(isset($_SESSION['id']))
+{
 
 	$panier = new PanierManager($link);
 
-	$id = 2/*$_SESSION['id']**/; 
+	$id = $_SESSION['id']; 
 
 
 	$articles = $panier->getById($id);
@@ -23,8 +23,8 @@
 	}
 
 
-/*}	*/
-/*}*/
+}	
+}
 
 
 

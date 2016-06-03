@@ -15,8 +15,8 @@ if (!$link)
 }
 
 
-$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category', 'ls_sub_category', 'sub_category_item','profil_user');
 
+$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis', 'category', 'ls_sub_category', 'sub_category_item','profil_user');
 
 
 

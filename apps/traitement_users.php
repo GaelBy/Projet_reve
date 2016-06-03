@@ -9,8 +9,8 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'register')
 		$data1 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse1'], 'numero' => $_POST['numero1'], 'rue' => $_POST['rue1'], 'ville' => $_POST['ville1'], 'code_postal' => $_POST['code_postal1'], 'type_adresse' => 'facturation'];
 		$data2 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse2'], 'numero' => $_POST['numero2'], 'rue' => $_POST['rue2'], 'ville' => $_POST['ville2'], 'code_postal' => $_POST['code_postal2'], 'type_adresse' => 'livraison'];
 		$adresse_manager = new AdresseManager($link);
-		$adresse = $adresse_manager->create($data1);
-		$adresse = $adresse_manager->create($data2);
+		$adresse1 = $adresse_manager->create($data1);
+		$adresse2 = $adresse_manager->create($data2);
 		if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] = 'validate')
 			header('Location: index.php?page=login&action=validate');
 		else
@@ -27,27 +27,38 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'login')
 {
 	try
 	{
-		$user = $manager->login($_POST);
-		$_SESSION['id'] = $user->getId();
-		if (isset($_SESSION['panier']))
+		$user = $manager->getByLogin($_POST['login']);
+		if ($user)
 		{
-			if ($user->getAdmin() == 1)
-				$_SESSION['admin'] = 1;
-			$panier_manager = new PanierManager($link);
-			$panier = $panier_manager->getById($_SESSION['panier']);
-			$panier->setIdUser(intval($_SESSION['id']));
-			$panier = $panier_manager->update($panier);
-			header('Location: index.php?page=panier');
-			exit;
+			if ($user->verifLogin($_POST['password']))
+			{
+				$_SESSION['id'] = $user->getId();
+				if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] == 'validate')
+				{
+					if ($user->getAdmin() == 1)
+						$_SESSION['admin'] = 1;
+					$panier_manager = new PanierManager($link);
+					$panier = $panier_manager->getById($_SESSION['panier']);
+					$panier->setIdUser(intval($_SESSION['id']));
+					$panier = $panier_manager->update($panier);
+					header('Location: index.php?page=panier');
+					exit;
+				}
+				else if ($user->getAdmin() == 1)
+				{
+					$_SESSION['admin'] = 1;
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+				{
+					header('Location: index.php?page=home');
+					exit;
+				}
+			}
 		}
-		if ($user->getAdmin() == 1)
-		{
-			$_SESSION['admin'] = 1;
-			header('Location: index.php?page=admin');
-			exit;
-		}
-		header('Location: index.php?page=home');
-		exit;
+		else
+			$error = 'Login inconnu';
 	}
 	catch (Exception $e)
 	{
@@ -55,27 +66,42 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'login')
 	}
 }
 //logout
-if (empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'logout')
+if (isset($_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
 	header('Location: index.php?page=home');
 	exit;
 }
 //edit
-if (!empty($_POST) && isset($_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
+if (isset($_POST, $_GET['page'], $_GET['action']) && $_GET['page'] == 'profil_user')
 {
 	if ($_GET['action'] == 'edit')
 	{
-		if ($_SESSION['id'] == $_GET['id_user'] || $_SESSION['admin'])
+		if (isset($_SESSION['id']))
 		{
 			try
 			{
-				$user = $manager->findById($_GET['id_user']);
-				$user->setNom($_POST['nom']);
-				$user->setPrenom($_POST['prenom']);
-				$user->setEmail($_POST['email']);
-				$user->setPassword($_POST['password']);
-				$user->setTelephone($POST['telephone']);
+				$user = $manager->findById($_SESSION['id']);
+				if (isset($_POST['nom']))
+					$user->setNom($_POST['nom']);
+				else
+					throw new Exception('Paramètre manquant : nom');
+				if (isset($_POST['prenom']))
+					$user->setPrenom($_POST['prenom']);
+				else
+					throw new Exception('Paramètre manquant : prénom');
+				if (isset($_POST['email']))
+					$user->setEmail($_POST['email']);
+				else
+					throw new Exception('Paramètre manquant : email');
+				if (isset($_POST['password']))
+					$user->setPassword($_POST['password']);
+				else
+					throw new Exception('Paramètre manquant : mot de passe');
+				if (isset($_POST['telephone']))
+					$user->setTelephone($_POST['telephone']);
+				else
+					throw new Exception('Paramètre manquant : prénom');
 				$user = $manager->update($user);
 				$adresse_manager = new AdresseManager($link);
 				$list_adresse = $user->getAdresse();
@@ -84,11 +110,26 @@ if (!empty($_POST) && isset($_GET['page'], $_GET['action']) && $_GET['page'] == 
 				{
 					$adresse = $list_adresse[$i];
 					$i++;
-					$adresse->setNom($_POST['nom_adresse'.$i]);
-					$adresse->setNumero($_POST['numero'.$i]);
-					$adresse->setRue($_POST['rue'.$i]);
-					$adresse->setVille($_POST['ville'.$i]);
-					$adresse->setCodePostal($_POST['code_postal'.$i]);
+					if (isset($_POST['nom_adresse'.$i]))
+						$adresse->setNom($_POST['nom_adresse'.$i]);
+					else
+						throw new Exception('Paramètre manquant: nom adresse');
+					if (isset($_POST['numero'.$i]))
+						$adresse->setNumero($_POST['numero'.$i]);
+					else
+						throw new Exception('Paramètre manquant: numéro');
+					if (isset($_POST['rue'.$i]))
+						$adresse->setRue($_POST['rue'.$i]);
+					else
+						throw new Exception('Paramètre manquant: rue');
+					if (isset($_POST['ville'.$i]))
+						$adresse->setVille($_POST['ville'.$i]);
+					else
+						throw new Exception('Paramètre manquant: ville');
+					if (isset($_POST['code_postal'.$i]))
+						$adresse->setCodePostal($_POST['code_postal'.$i]);
+					else
+						throw new Exception('Paramètre manquant: code postal');
 					$adresse = $adresse_manager->update($adresse);
 				}
 			}
@@ -101,11 +142,11 @@ if (!empty($_POST) && isset($_GET['page'], $_GET['action']) && $_GET['page'] == 
 //delete
 	else if ($_GET['action'] == 'delete')
 	{
-		if ($_SESSION['admin'])
+		if (isset($_SESSION['admin']) && $_SESSION['admin'])
 		{
 			try
 			{
-				$user = $manager->getById($_GET['id_user']);
+				$user = $manager->getById($_POST['id_user']);
 				$user = $manager->delete($user);
 				header('Location: index.php?page=admin');
 				exit;

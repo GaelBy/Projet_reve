@@ -8,10 +8,10 @@
 </div>
 <div class="container <?=$no_panier?>">
 	<div class="poids">
-		Poids total : <?=$poids?> g
+		Poids total : <?=floatval($panier->getPoids())?> g
 	</div>
 	<div class="prix">
-		Montant total : <?=$prix?> €
+		Montant total : <?=floatval($panier->getPrix())?> €
 	</div>
 	<form action="" method="POST">
 		<button class="btn" type="submit" name="action" value="validate">Finaliser votre commande</button>

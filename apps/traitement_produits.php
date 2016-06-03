@@ -21,21 +21,29 @@ if(isset($_SESSION['admin']))
 	{
 		try
 		{
-
 			$produit = $option_prod ->getById($_POST['id_produit']);
 			if (isset($_POST['reference']))
 				$produit->setReference($_POST['reference']); 
 			if (isset($_POST['stock']))
 				$produit->setStock($_POST['stock']);
-			$produit->setPrixUniHt($_POST['prix_unitaire']);
-			$produit->setTva($_POST['tva']);
-			$produit->setPrixUniTtc();
-			$produit->setDescription($_POST['description']);
-			$produit->setImage($_POST['image']);
-			$produit->setNom($_POST['nom']);
-			$produit->setPoidsUni($_POST['poids_uni']);
-			$produit->setStatut($_POST['statut']);
-			$produit->update($this);
+			if (isset($_POST['prix_unitaire_ht']))
+				$produit->setPrixUniHt($_POST['prix_unitaire_ht']);
+			if (isset($_POST['tva']))
+				$produit->setTva($_POST['tva']);
+			if (isset($_POST['prix_unitaire_ttc']))
+				$produit->setPrixUniTtc($_POST['prix_unitaire_ttc']);
+			if (isset($_POST['description']))
+				$produit->setDescription($_POST['description']);
+			if (isset($_POST['image']))
+				$produit->setImage($_POST['image']);
+			if (isset($_POST['nom']))
+				$produit->setNom($_POST['nom']);
+			if (isset($_POST['poids_uni']))
+				$produit->setPoidsUni($_POST['poids_uni']);
+			if (isset($_POST['statut']))
+				$produit->setStatut($_POST['statut']);
+			
+				$produit->update($this);
 		    header('Location:index.php?page=admin_produits');
 		    exit;
 		}
@@ -46,7 +54,6 @@ if(isset($_SESSION['admin']))
 	}
 	else if(isset($_GET['action']) && $_GET['action'] == "supprimer")
 	{
-
 		try
 		{
             $produit = $option_prod ->getById($_GET['id_produit']);

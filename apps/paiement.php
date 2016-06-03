@@ -6,7 +6,8 @@ if (isset($_SESSION['id'], $_SESSION['panier']))
 	$prix = $panier->getPrix();
 	$user_manager = new UserManager($link);
 	$user = $user_manager->getById($_SESSION['id']);
-	$list = $user->getAdresse();
+	$adresse_facturation = $user->getAdresseFacturation();
+	$adresse_livraison = $user->getAdresseLivraison();
 	require('views/paiement.phtml');
 }
 ?>

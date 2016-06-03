@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note']))
+if (isset($_SESSION['id'], $_POST['id_produit']))
 {
 	$produit_manager = new ProduitManager($link);
 	$user_manager = new UserManager($link);
@@ -26,13 +26,21 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 	{
 		try
 		{
-			$avis = $avis_manager->getById($_GET['id_avis']);
-			// if ($avis->getAuthor()->getId() == $_SESSION['id'])
-			$avis->setContent($_POST['content']);
-			$avis->setNote($_POST['note']);
-			$avis = $avis_manager->update($avis);
-			header('Location: ?page=produit&id='.$produit->getId());
-			exit;
+			$avis = $avis_manager->getById($_POST['id_avis']);
+			if ($avis->getAuthor()->getId() == $_SESSION['id'])
+			{
+				if (isset($_POST['content']))
+					$avis->setContent($_POST['content']);
+				else
+					throw new Exception("Paramètre manquant : contenu");
+				if (isset($_POST['note']))
+					$avis->setNote($_POST['note']);
+				else
+					throw new Exception("Paramètre manquant : note");
+				$avis = $avis_manager->update($avis);
+				header('Location: ?page=produit&id='.$produit->getId());
+				exit;
+			}
 		}
 
 		catch (Exception $e);
@@ -47,10 +55,12 @@ if (isset($_SESSION['id'], $_POST['content'], $_POST['id_produit'], $_POST['note
 		try
 		{
 			$avis = $avis_manager->getById($_GET['id_avis']);
-			// if ($avis->getAuthor()->getId() == $_SESSION['id'])
-			$avis = $avis_manager->delete($avis);
-			header('Location: ?page=produit&id='.$produit->getId());
-			exit;
+			if (isset($_SESSION['admin']) && $_SESSION['admin'])
+			{
+				$avis = $avis_manager->delete($avis);
+				header('Location: ?page=produit&id='.$produit->getId());
+				exit;
+			}
 		}
 		catch (Exception $e);
 	    {
