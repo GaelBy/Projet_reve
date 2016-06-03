@@ -62,6 +62,29 @@ class ProduitsManager
 		}
 		return $list;
 	}
+	
+	public function getLowStock($stock)
+
+	{
+		$stock=intval($stock);
+		$query="SELECT * FROM produits WHERE stock<".$stock."'";
+		$res=mysqli_query($this->link,$query); 
+		$list=[];
+
+		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+		{
+			$list[]=$produit;
+		}
+	}
+
+		
+
+
+
+
+
+	}
+
 
 
 	// Pour entrer nouveau produit en bdd:
@@ -236,6 +259,9 @@ class ProduitsManager
 		if (!$res)
 			throw new Exception("Erreur Interne");
 	}
+
+	
+
 }
 
 ?>
