@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 
@@ -11,21 +14,23 @@ if(isset($_SESSION['id']))
 	$id = $_SESSION['id']; 
 
 
-	$articles = $panier->getById($id)->getProduits();
+	$articles = $panier->getByIdUser($id);
+  
 
-	/*$prod = 0 ;
-	$prod_panier = count( $articles );
-	while($prod < $prod_panier)
-	{
-		$panier_prod= $articles[$prod];
-		require('views/ls_panier.phtml');
-		$iSub++;
-	}*/
+	$prod = 0 ;
+    $nbr_panier = count( $articles);
+		while($prod < $nbr_panier)
+		{
+			$panier_unit = $articles[$prod];
 
+			var_dump($panier_unit);
+			require('views/ls_paniers.phtml');
+			$prod++;
+		}
 
-}	
+	
 
-
+}
 
 
 ?>
