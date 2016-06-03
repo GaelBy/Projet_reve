@@ -13,7 +13,7 @@ class CategoryManager
 		$id = intval($id);
 		$query = "SELECT * FROM category WHERE id =".$id;
 		$res = mysqli_query($this->link, $query);
-		$category = mysqli_fetch_object($category, "Category", [$this->link]);
+		$category = mysqli_fetch_object($res, "Category", [$this->link]);
 		return $category;
 	}
 
