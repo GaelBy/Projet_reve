@@ -1,8 +1,8 @@
 <div class="detailsPanier">
-	<h4>Nom du client:<?$panier->getUser()?></h4>
-	<h4>Montant du panier:<?$panier->getPrix()?></h4>
-	<h4>Liste des produits concernés:<?$panier->getProduits()?></h4>
+	<h4>Nom du client:<?=$panier->getUser()->getLogin()?></h4>
+	<h4>Montant du panier:<?=$panier->getPrix()?></h4>
+	<h4>Liste des produits concernés:<?//=$panier->getProduits()?></h4>
 		<form method="post" action="">
-			<button name="action" value="validate" type="submit">Valider ce panier</button>
+			<button name="id_panier" value="<?=$panier->getId()?>" type="submit">Valider ce panier</button>
 		</form>
 </div>

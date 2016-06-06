@@ -87,15 +87,15 @@ class Panier {
     $i = 0;
     while ($i < sizeof($this->produits))
     {
-      $this->produits[$i]->setPrixUniTtc();
+      $this->produits[$i]->updatePrixUniTtc();
       if ($this->produits[$i]->getId() == $produit->getId())
       {
         if ($this->produits[$i]->getQuantite() === null)
           $this->produits[$i]->setQuantite(0);
         $this->produits[$i]->setQuantite($this->produits[$i]->getQuantite()+1);
         $this->nbre_produits++;
-        $produit->setPrixUniTtc();
-        $this->prix = $this->prix + $produit->setPrixUniTtc();
+        $produit->updatePrixUniTtc();
+        $this->prix = $this->prix + $produit->updatePrixUniTtc();
         $this->poids = $this->poids + $produit->getPoidsUni();
         $manager = new ProduitsManager($this->link);
         $manager->updatePanierProduit($this->produits[$i]);
@@ -156,7 +156,7 @@ class Panier {
 
 public function setIdUser($id_user){
 
-    if(! is_int($id_user))
+    if(intval($id_user) != $id_user)
     {
     	throw new Exception ("veuillez entrer un chiffre") ;
     }

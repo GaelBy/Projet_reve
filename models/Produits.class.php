@@ -265,11 +265,11 @@ class Produits
 			return $moyenne;
 		}
 		else
-			return '*';
+			return '0';
 	}
 	public function getPrixTtc()
 	{
-		if ($quantite>0)
+		if ($this->quantite>0)
 		{
 			$this->prix_ttc=$this->prix_uni_ttc*$this->quantite;
 			return $this->prix_ttc;

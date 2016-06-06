@@ -48,7 +48,7 @@ try
 	if (isset($_GET['page'], $_POST['id_panier'], $_SESSION['admin']) && $_SESSION['admin'] && $_GET['page'] == 'admin')
 	{
 		$panier = $panier_manager->getById($_POST['id_panier']);
-		$panier->setStatut('validé');
+		$panier->setStatut('valide');
 		$panier = $panier_manager->update($panier);
 	}
 }

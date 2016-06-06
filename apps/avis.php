@@ -21,11 +21,17 @@ if (isset($_SESSION['id']))
 		{
 			$panier = $panier_list[$i];
 			$produit_list = $panier->getProduits();
-			if (in_array($produit, $produit_list) && $panier->getStatut() == "validé" && $modif_ok == 'hide')
-				$avis = new Avis($link);
+			$j = 0;
+			while ($j < sizeof($produit_list))
+			{
+				if ($produit->getId() == $produit_list[$j]->getId() && $panier->getStatut() == "valide")
+					$avis = new Avis($link);
+				$j++;
+			}
 			$i++;
 		}
-		$error = 'produit non acheté';
+		if (!isset($avis))
+			$error = 'produit non acheté';
 
 		/*$manager = new UserManager($link);
 		$user = $manager->getById($_SESSION['id']);
@@ -34,7 +40,7 @@ if (isset($_SESSION['id']))
 		while ($i < sizeof($list))
 		{
 			$panier = $list[$i];
-			if ($panier->getStatut() == 'validé')
+			if ($panier->getStatut() == 'valide')
 			{
 				$produits = $panier->getProduits();
 				$j = 0;
