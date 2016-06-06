@@ -86,6 +86,7 @@ class ProduitsManager
 		{
 			$list[]=$produit;
 		}
+		return $list;
 	}
 
 

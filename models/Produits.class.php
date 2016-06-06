@@ -19,6 +19,7 @@ class Produits
 	private $prix_ttc;
 	private $poids;
 	private $low_stock;
+	private $moyenne;
 
 	private $sub_category;
 	private $avis;
