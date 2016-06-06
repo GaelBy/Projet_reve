@@ -35,7 +35,6 @@ if ($produit->getStatut())
 				$modif_ok = '';
 			$i++;
 		}
-
 		$panier_manager = new PanierManager($link);
 		$panier_list = $panier_manager->getByIdUser($_SESSION['id']);
 		$i = 0;
@@ -43,8 +42,13 @@ if ($produit->getStatut())
 		{
 			$panier = $panier_list[$i];
 			$produit_list = $panier->getProduits();
-			if (in_array($produit, $produit_list) && $panier->getStatut() == "validé" && $modif_ok == 'hide')
-				$ajout_ok = '';
+			$j = 0;
+			while ($j < sizeof($produit_list))
+			{
+				if ($produit->getId() == $produit_list[$j]->getId() && $panier->getStatut() == "valide" && $modif_ok == 'hide')
+					$ajout_ok = '';
+				$j++;				
+			}
 			$i++;
 		}
 	}

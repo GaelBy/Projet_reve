@@ -24,6 +24,6 @@
 	<form action="" method="POST">
 		<label for="numero_carte">Numéro de carte</label>
 		<input type="text" id="numero_carte" name="numero_carte">
-		<button class="btn" type="submit">Valider le paiement</button>
+		<button class="btn" type="submit" name="id_panier" value="<?=$panier->getId()?>">Valider le paiement</button>
 	</form>
 </div>

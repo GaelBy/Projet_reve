@@ -33,7 +33,7 @@ if (isset($_POST['numero_carte']))
 	//mettre le panier en attente de validation
 		$manager = new PanierManager($link);
 		$panier = $manager->getById($_POST['id_panier']);
-		$panier->setStatut('Payé');
+		$panier->setStatut('Paye');
 		$panier = $manager->update($panier);
 	//baisser le stock
 		$manager = new ProduitsManager($link);

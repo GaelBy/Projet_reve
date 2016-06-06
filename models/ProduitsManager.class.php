@@ -130,8 +130,8 @@ class ProduitsManager
 		{
 			throw new Exception("Paramètre manquant: poids");
 		}
-
-		$produit->setSubCategory($data['id_sub_category']);
+		$manager = new SubCategoryManager($this->link);
+		$produit->setSubCategory($manager->getById($data['id_sub_category']));
 		$produit->setReference($data['reference']);
 		$produit->setStock($data['stock']);
 		$produit->setPrixUniHt($data['prix_uni_ht']);
@@ -161,7 +161,6 @@ class ProduitsManager
 					    '".$statut."','".$moyenne."')";
 		$res=mysqli_query($this->link,$query);
 		//A VOIR:
-
 		if($res)
 		{
 			$id=mysqli_insert_id($this->link); // on récupère le dernièr id 
