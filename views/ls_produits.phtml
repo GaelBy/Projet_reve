@@ -8,7 +8,7 @@
 
 	<form method="POST">
          <input type="hidden" name="id" value="<?php echo $produit->getId(); ?>"/>
-         <input type="submit" value="voir le produit"/>
+         <a href="index.php?page=produit&id=<?=$produit->getId()?>">Voir le produit</a>
 	</form>
 	
 	
