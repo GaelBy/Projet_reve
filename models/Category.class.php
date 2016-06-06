@@ -8,6 +8,7 @@ class Category
 	private $link;
 
 	private $sub_category;
+	//private $image;
 
 
 	public function __construct($link){
@@ -27,6 +28,10 @@ class Category
 	{
 		return $this->nom;
 	}
+	/*public function getImage()
+	{
+		return $this->image;
+	}*/
 
 
 	public function getSubCategory()
@@ -65,5 +70,14 @@ class Category
 		}
 		$this->nom=$nom;
 	}
+
+	/*public function setImage($image)
+	{
+		if(filter_var($image,FILTER_VALIDATE_URL)==FALSE)
+		{
+			throw new exception("Ce n'est pas une image!")
+		}
+		$this->image=$image;
+	}*/
 }
 ?>

@@ -70,7 +70,10 @@ class CategoryManager
 		$category->setNom($data['nom']);
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
-		$query = "INSERT INTO category (description, nom) VALUES ('".$description."', '".$nom."')";
+		/*$category->setImage($data['image']);
+		$image=mysqli_real_escape_string($this->link,$category->getImage());*/
+
+		$query = "INSERT INTO category (description, nom, image) VALUES ('".$description."', '".$nom."','".$image."')";
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{
@@ -91,10 +94,27 @@ class CategoryManager
 		$id = $category->getId();
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
-		$query = "UPDATE category SET nom='".$nom."', description='".$description."'
-		WHERE id=".$id;
+		$image=mysqli_real_escape_string($this->link,$category->getImage());
+		$query = "UPDATE category SET nom='".$nom."', description='".$description."', image='".$image."' WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
 		if ($res)
+		{
+			return $this->getById($id);
+		}
+		else
+		{
+			throw new Exception("Erreur Interne");
+		}
+	}
+	//Peut-être qu'il faudrait un delete de category? Voir pour rajouter un statut en BDD? Que prévoir pour les sub_cat qui s'y rattachent?
+	
+	public function delete (Category $category)
+	{
+		$id=$category->getId();
+		$statut=0;
+		$query="UPDATE category SET statut='".$statut."'WHERE id=".$id;
+		$res=mysqli_query($this->link,$query);
+		if($res)
 		{
 			return $this->getById($id);
 		}

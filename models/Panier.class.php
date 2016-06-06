@@ -183,10 +183,6 @@ public function setStatut($statut)
 	}
 
 
-
-
-
-
 public function setPrix($prix){
 
 	if(! is_int($prix))
@@ -196,10 +192,7 @@ public function setPrix($prix){
 
 	$this->prix = $prix ;
 
-
-	
 }
-
 
 public function setNombreProduits($nbre_produits){
 
@@ -209,7 +202,6 @@ public function setNombreProduits($nbre_produits){
 	}
 
 	$this ->nbre_produits = $nbre_produits;
-
 
 	
 }
@@ -223,21 +215,7 @@ public function setPoids($poids){
 
 	$this ->poids = $poids;
 
-
-
-
-
-
-
-	
 }
-
-
-
-
-
-
-
 
 
 }
