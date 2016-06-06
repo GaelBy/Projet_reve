@@ -29,6 +29,7 @@ class Produits
 	{
     	$this->link = $link;
 		$this->updatePrixUniTtc();
+		$this->setMoyenne();
 	}
 	public function getAvis() 
 	{

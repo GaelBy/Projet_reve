@@ -63,7 +63,8 @@ if (isset($_SESSION['id']))
 				$avis = $avis_list[$i];
 			$i++;
 		}
-		$error = "Pas d'avis pour ce produit et cet user";
+		if (!isset($avis))
+			$error = "Pas d'avis pour ce produit et cet user";
 	}
 }
 else
