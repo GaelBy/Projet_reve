@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_SESSION['id']))
 {
@@ -8,3 +7,4 @@ if(isset($_SESSION['id']))
 	require('views/profil_user.phtml');
 }
 ?>
+
