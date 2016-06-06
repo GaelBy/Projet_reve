@@ -5,7 +5,7 @@
 
 body{
 
-	background-color:orange;
+	background-color:#76A4D9;
 }
 
 ul a{
@@ -58,7 +58,7 @@ ul a{
 
 .logo
 {
-	animation: slideIn 4s 1 normal;
+	animation: slideIn 2s 1 normal;
 }
 .logo img
 {
@@ -97,12 +97,15 @@ ul a{
 {
 	background-color: #8CC2EA;
 	color:white;
+	border-radius: 3%;
 }
 
 .secondList
 {
 	position: absolute;
 	display: none;
+	background:#DEF2FB;
+	border-radius: 3%;
 }
 
 
@@ -117,6 +120,8 @@ ul a{
 	font-size:1rem;
 	padding:1rem 1.5em;
 	display:block;
+	box-shadow: 1px 2px rgba(129,123,189,0.50);
+
 }
 
 .deroule:hover ul 
@@ -139,7 +144,7 @@ ul a{
 
 .sidebar
 {
-	animation: slideInLeft 4s 1 normal;
+	animation: slideInLeft 2s 1 normal;
 	padding-top:3em;
 	position:absolute;
 	display: block;

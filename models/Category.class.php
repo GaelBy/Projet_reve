@@ -55,7 +55,7 @@ class Category
 		{
 			throw new Exception("Description trop courte !");
 		}
-		else if (strlen($description)>127)
+		else if (strlen($description)>1023)
 		{
 			throw new Exception("Description trop longue !");
 		}
