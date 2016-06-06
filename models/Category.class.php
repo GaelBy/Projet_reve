@@ -79,7 +79,7 @@ class Category
 	{
 		if(filter_var($image,FILTER_VALIDATE_URL)==FALSE)
 		{
-			throw new exception("Ce n'est pas une image!")
+			throw new exception("Ce n'est pas une image!");
 		}
 		$this->image=$image;
 	}
