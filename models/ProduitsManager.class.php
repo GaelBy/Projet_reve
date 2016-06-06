@@ -77,6 +77,19 @@ class ProduitsManager
 		}
 	}
 
+	public function getByMoyenne($etalon)
+	{
+		$query="SELECT * FROM produits WHERE moyenne>=".$etalon;
+		$res=mysqli_query($this->link,$query);
+		$list=[];
+
+		while($produit=mysqli_fetch_object($res,"Produits", [$this->link]))
+		{
+			$list[]=$produit;
+		}
+	}
+
+
 	// Pour entrer nouveau produit en bdd:
 	public function create($data)
 	{
@@ -139,12 +152,13 @@ class ProduitsManager
 		$nom=mysqli_real_escape_string($this->link,$produit->getNom());
 		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
+		$moyenne=$produit->setMoyenne();
 
 		$query="INSERT INTO produits (id_sub_category, reference, stock, prix_uni_ht, tva, description,
-			                image,nom,poids_uni,statut) 
+			                image,nom,poids_uni,statut,moyenne) 
 				VALUES ('".$sub_category."', '".$reference."','".$stock."', '".$prixUniHt."','".$tva."',
 					    '".$description."','".$image."','".$nom."','".$poidsUni."',
-					    '".$statut."')";
+					    '".$statut."','".$moyenne."')";
 		$res=mysqli_query($this->link,$query);
 		//A VOIR:
 
@@ -191,7 +205,8 @@ class ProduitsManager
 		image='".$image."',
 		nom='".$nom."',
 		poids_uni='".$poidsUni."',
-		statut='".$statut."' WHERE id=".$id;
+		statut='".$statut."'
+		WHERE id=".$id;
 		$res=mysqli_query($this->link,$query);
 		if($res)
 		{

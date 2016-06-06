@@ -174,7 +174,7 @@ public function setStatut($statut)
 	{
 		if (strlen($statut) < 5)
 		{
-			throw new Exception  ("veuillez entrer au moin 5 carracteres (lettres)");
+			throw new Exception  ("veuillez entrer au moins 5 caractères (lettres)");
 		}
     else if (strlen($statut > 15))
       throw new Exception("maximum 15 caractères");
