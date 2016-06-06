@@ -44,6 +44,7 @@ if (isset($_SESSION['admin'],$_POST))
 		    		$category = $manager->getById($_GET['id_category']);
 		    		$category->setNom($_POST['nom']);
 		    		$category->setDescription($_POST['description']);
+		    		$category->setImage($_POST['image']);
 		    		$category = $manager->update($category);
 		    	}
 		    	header('Location: index.php?page=category&id_category='.$category->getId());

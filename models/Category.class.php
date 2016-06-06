@@ -8,7 +8,8 @@ class Category
 	private $link;
 
 	private $sub_category;
-	//private $image;
+	private $image;
+	private $statut;
 
 
 	public function __construct($link){
@@ -28,11 +29,14 @@ class Category
 	{
 		return $this->nom;
 	}
-	/*public function getImage()
+	public function getImage()
 	{
 		return $this->image;
-	}*/
-
+	}
+	public function getStatut()
+	{
+		return $this->statut;
+	}
 
 	public function getSubCategory()
 	{
@@ -71,13 +75,22 @@ class Category
 		$this->nom=$nom;
 	}
 
-	/*public function setImage($image)
+	public function setImage($image)
 	{
 		if(filter_var($image,FILTER_VALIDATE_URL)==FALSE)
 		{
 			throw new exception("Ce n'est pas une image!")
 		}
 		$this->image=$image;
-	}*/
+	}
+
+	public function setStatut($statut)
+	{
+		if(($statut)==FALSE)
+		{
+			throw new Exception("Ce n'est pas un booléen");
+		}
+		$this->statut=$statut;
+	}
 }
 ?>

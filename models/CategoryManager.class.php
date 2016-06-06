@@ -38,8 +38,6 @@ class CategoryManager
 
     public function getAll()
 	{
-
-		
 		$list = [];
 		$query = "SELECT * FROM category";
 		$res = mysqli_query($this->link, $query);
@@ -70,10 +68,12 @@ class CategoryManager
 		$category->setNom($data['nom']);
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
-		/*$category->setImage($data['image']);
-		$image=mysqli_real_escape_string($this->link,$category->getImage());*/
+		$category->setImage($data['image']);
+		$image=mysqli_real_escape_string($this->link,$category->getImage());
+		$category->setStatut(1);
+		$statut=$category->getStatut();
 
-		$query = "INSERT INTO category (description, nom, image) VALUES ('".$description."', '".$nom."','".$image."')";
+		$query = "INSERT INTO category (description, nom, image,statut) VALUES ('".$description."', '".$nom."','".$image."','".$statut."')";
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{
