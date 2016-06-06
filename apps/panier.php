@@ -5,7 +5,7 @@ $panier_vide = 'hide';
 $prix = 0;
 $poids = 0;
 $manager = new PanierManager($link);
-if (!isset($_SESSION['panier']) || $manager->getById($_SESSION['panier'])->getNombreProduits() == 0)
+if (!isset($_SESSION['panier']) || $manager->getById($_SESSION['panier'])->getNombreProduits() == 0 || $manager->getById($_SESSION['panier'])->getStatut() != 'en cours')
 {
 	$no_panier = 'hide';
 	$panier_vide = '';

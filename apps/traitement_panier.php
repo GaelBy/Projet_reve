@@ -33,7 +33,7 @@ try
 		}
 	}
 	//finalisation
-	if (isset($_GET['page'], $_POST['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate')
+	if (isset($_GET['page'], $_POST['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate' && $panier_manager->getById($_SESSION['panier'])->getStatut() == 'en cours')
 	{
 		//login?
 		if (!isset($_SESSION['id']))

@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['panier']) && $manager->getById($_SESSION['panier'])->getNombreProduits() != 0)
+if (isset($_SESSION['panier']) && $manager->getById($_SESSION['panier'])->getNombreProduits() != 0 && $manager->getById($_SESSION['panier'])->getStatut() == 'en cours')
 {
 	$list = $panier->getProduits();
 	$i = 0;
