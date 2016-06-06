@@ -6,6 +6,7 @@ class SubCategory
 	private $nom;
 	private $description;
 	private $produits;
+	private $statut;
 
 	private $category;
 	private $link;
@@ -49,7 +50,10 @@ class SubCategory
 		}
 		return $this->produits;
 	}
-
+	public function getStatut()
+	{
+		return $this->statut;
+	}
 	public function setNom($nom)
 	{	
 		if (strlen($nom)<2)
@@ -77,9 +81,22 @@ class SubCategory
 	}
 	public function setIdCategory($id_category)
 	{
-		if(!is_int($id_category))
+		if(intval($id_category) != $id_category)
 			throw new Exception("Paramètre incorrect: catégorie");
 		$this->id_category = $id_category;
+	}
+	public function setCategory(Category $category)
+	{
+		$this->id_category = $category->getId();
+		$this->category = $category;
+	}
+	public function setStatut($statut)
+	{
+		if(($statut)==FALSE)
+		{
+			throw new Exception("Ce n'est pas un booléen");
+		}
+		$this->statut=$statut;
 	}
 }
 ?>

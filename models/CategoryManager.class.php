@@ -95,7 +95,8 @@ class CategoryManager
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
 		$description = mysqli_real_escape_string($this->link, $category->getDescription());
 		$image=mysqli_real_escape_string($this->link,$category->getImage());
-		$query = "UPDATE category SET nom='".$nom."', description='".$description."', image='".$image."' WHERE id=".$id;
+		$statut = $category->getStatut();
+		$query = "UPDATE category SET nom='".$nom."', description='".$description."', image='".$image."', statut='".$statut."' WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
 		if ($res)
 		{

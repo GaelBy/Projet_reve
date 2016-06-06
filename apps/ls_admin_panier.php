@@ -1,6 +1,6 @@
 <?php
 $count=0;
-$manager=new PanierManager($link)
+$manager=new PanierManager($link);
 $lsPaniers=$manager->getByStatut('payé');
 
 while($count<sizeof($lsPaniers))

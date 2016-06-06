@@ -75,7 +75,8 @@ class SubCategoryManager
 		$id_category = intval($sub_category->getIdCategory());
 		$description = mysqli_real_escape_string($this->link, $sub_category->getDescription());
 		$nom = mysqli_real_escape_string($this->link, $sub_category->getNom());
-		$query = "INSERT INTO SubCategory (id_category, description, nom) VALUES ( '".$id_category."', '".$description."', '".$nom."')";
+		$statut = 1;
+		$query = "INSERT INTO SubCategory (id_category, description, nom, statut) VALUES ( '".$id_category."', '".$description."', '".$nom."', '".$statut."')";
 		//$res = mysqli_query()
 		$res = mysqli_query($this->link, $query);
 		if ($res)
@@ -97,8 +98,9 @@ class SubCategoryManager
     	$id = $sub_category->getId();
 		$nom = mysqli_real_escape_string($this->link, $sub_category->getNom());
 		$description = mysqli_real_escape_string($this->link, $sub_category->getDescription());
-		$category_id = intval($sub_category->getIdCategory());
-		$query = "UPDATE sub_category SET nom='".$nom."', description='".$description."', id_category='".$id_category."'
+		$id_category = intval($sub_category->getIdCategory());
+		$statut = $sub_category->getStatut();
+		$query = "UPDATE sub_category SET nom='".$nom."', description='".$description."', id_category='".$id_category."', statut='".$statut."'
 		WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
 		if ($res)

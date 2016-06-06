@@ -70,9 +70,12 @@ class PanierManager
 		//on applique la requête:
 		$res= mysqli_query($this->link,$query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
-		while ($panier=mysqli_fetch_object($res,"Panier",[$this->link]));
-			$list[] = $panier;
-		return $list;
+		if ($res)
+		{
+			while ($panier=mysqli_fetch_object($res,"Panier",[$this->link]));
+				$list[] = $panier;
+			return $list;
+		}
 	}
 
 

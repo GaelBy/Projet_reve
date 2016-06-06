@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['admin'],$_POST))
+if (isset($_SESSION['admin'],$_POST) && $_SESSION['admin'] && !empty($_POST))
     {
     	if (isset($_GET['id']))
     	{
@@ -18,6 +18,7 @@ if (isset($_SESSION['admin'],$_POST))
 		    		$sub_category->setNom($_POST['nom']);
 		    		$sub_category->setDescription($_POST['description']);
 		    		$sub_category->setIdCategory($_POST['id_category']);
+		    		$sub_category->setStatut($_POST['statut']);
 		    		$sub_category = $manager->update($sub_category);
 		    	}
 		    	header('Location: index.php?page=sub_category&id_sub_category='.$sub_category->getId());
@@ -45,9 +46,10 @@ if (isset($_SESSION['admin'],$_POST))
 		    		$category->setNom($_POST['nom']);
 		    		$category->setDescription($_POST['description']);
 		    		$category->setImage($_POST['image']);
+		    		$category->setStatut($_POST['statut']);
 		    		$category = $manager->update($category);
 		    	}
-		    	header('Location: index.php?page=category&id_category='.$category->getId());
+		    	header('Location: index.php?page=category&id='.$category->getId());
 				exit;
     		}
     		catch(Exception $e)
