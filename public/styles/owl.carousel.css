@@ -52,8 +52,8 @@
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
-  display: none;
-  width: 100%;
+  /*display: none;*/
+  width: 50%;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
