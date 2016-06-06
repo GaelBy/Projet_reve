@@ -9,27 +9,37 @@
 if(isset($_SESSION['id']))
 {
 
-	$panier = new PanierManager($link);
-require('views/ls_paniers.phtml');
+		$user = new UserManager($link);
 
-	$id = $_SESSION['id']; 
+		$user_uni = $user->getById($id);
 
+        $paniers = $user_uni->getPanier();
 
-	$articles = $panier->getByIdUser($id);
-  
+        $countPanier = 0;
+			while ($countPanier < sizeof($paniers))
+			{
+				$panier = $paniers[$countPanier];
+				
+				$count = 0 ;
+				$prod_list = $panier->getProduits();
+				$lengt = count($prod_list);
+				while($count < $lengt)
+				{
 
-	$prod = 0 ;
-    $nbr_panier = count( $articles);
-		while($prod < $nbr_panier)
-		{
-			$panier_unit = $articles[$prod];
-			require('apps/panier_item.php');
-			$prod++;
-		}
+					$prod_panier = $prod_list[$count];
 
-	
+			        
 
+			       
+					$count ++ ;
+				}
+				$countPanier++;
+			    require('views/ls_paniers.phtml');
+				require('apps/panier_item.php');
+			}
 }
+
+
 
 
 ?>
