@@ -1,13 +1,32 @@
-
-
 <table class="tbl_panier">
 	<tr>
-		<td class="td_panier"><?php echo $panier_unit->getPrix();?></td>
-		<td class="td_panier"><?php echo $panier_unit->getNombreProduits();?></td>
-		<td class="td_panier"><?php echo $panier_unit->getPoids();?></td>
-		<td class="td_panier"><?php echo $panier_unit->getDate();?></td>
+		<td class="td_panier"><?php echo $panier->getPrix();?></td>
+		<td class="td_panier"><?php echo $panier->getNombreProduits();?></td>
+		<td class="td_panier"><?php echo $panier->getPoids();?></td>
+		<td class="td_panier"><?php echo $panier->getDate();?></td>
 		
 	</tr>
+	<tr>
+		<td style="background-color:yellow" class="td_panier" colspan="4">PRODUITS DU PANNIER</td>
+	</tr>
+	<tr>
+	    <td style="background-color:yellow"class="td_panier">NOM</td>
+		<td style="background-color:yellow"class="td_panier">PRIX TTC</td>
+		<td style="background-color:yellow"class="td_panier">TVA</td>
+		<td style="background-color:yellow"class="td_panier">POIDS UNI</td>
+	</tr>
+	<tr>
+		<td class="td_panier"><?php echo $prod_panier->getNom();?></td>
+		<td class="td_panier"><?php echo $prod_panier->getPrixUniTtc();?></td>
+		<td class="td_panier"><?php echo $prod_panier->getTva();?></td>
+		<td class="td_panier"><?php echo $prod_panier->getReference();?></td>
+		
+	</tr>
+	
+	
 </table>
+</br>
+
+
 
 
