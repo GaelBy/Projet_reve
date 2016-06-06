@@ -72,7 +72,7 @@ class Avis
 		$this->id_author = $author->getId();
 		$this->author = $author;
 	}
-	public function setProduit(Produit $produit)
+	public function setProduit(Produits $produit)
 	{
 		$this->id_produit = $produit->getId();
 		$this->produit = $produit;
@@ -96,7 +96,7 @@ class Avis
 	}
 	public function setNote($note)
 	{
-		if (!is_int($note))
+		if (intval($note) != $note)
 			throw new Exception("Paramètre erronné: Note");
 		if ($note < 0)
 			throw new Exception("Note trop basse (<0)");

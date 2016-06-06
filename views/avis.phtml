@@ -9,6 +9,6 @@
 			<div class="col"><label for="note"></label></div>
 			<div class="col"><input type="number" name="note" min="0" max="5" id="note" value="<?=htmlentities($avis->getNote())?>"></div>
 		</div>
-		<div class="row"><button class="btn" type="submit">Soumettre</button></div>
+		<div class="row"><button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Soumettre</button></div>
 	</form>
 </div>

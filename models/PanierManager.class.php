@@ -66,13 +66,13 @@ class PanierManager
 	{
 		$statut=mysqli_real_escape_string($this->link, $statut);
 		$list = [];
-		$query="SELECT * FROM panier WHERE statut=".$statut;
+		$query='SELECT * FROM panier WHERE statut="'.$statut.'"';
 		//on applique la requête:
-		$res= mysqli_query($this->link,$query);
+		$res = mysqli_query($this->link, $query);
 		//on définit la variable user et on "l'envoie" dans l'objet user
 		if ($res)
 		{
-			while ($panier=mysqli_fetch_object($res,"Panier",[$this->link]));
+			while ($panier=mysqli_fetch_object($res,"Panier",[$this->link]))
 				$list[] = $panier;
 			return $list;
 		}

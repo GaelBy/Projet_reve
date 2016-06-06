@@ -9,7 +9,7 @@ if(isset($_SESSION['admin']))
 		try
 	    {
 	    	$produit = $option_prod ->create($_POST);
-	    	header('Location:index.php?page=produit&id='.$produit->getId());
+	    	header('Location:index.php?page=produit&id_produit='.$produit->getId());
 	    	exit;
 		}
 	    catch (Exception $e)
