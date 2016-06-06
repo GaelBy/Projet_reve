@@ -172,7 +172,7 @@ public function setIdUser($id_user){
 
 public function setStatut($statut)
 	{
-		if (strlen($statut) < 5)
+		if (strlen($statut) < 4)
 		{
 			throw new Exception  ("veuillez entrer au moins 5 caractères (lettres)");
 		}
