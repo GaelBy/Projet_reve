@@ -39,6 +39,11 @@ ul a{
 	background-repeat: no-repeat  fixed;
 	background-size: cover;
 }
+
+.hautPage
+{
+	min-height:1000px;
+}
 .firstList
 {
 	text-align: right;
@@ -230,7 +235,7 @@ body{
 
 img{
 	display: block;
-	width: 100%;
+	width:100%;
 	border-radius: 50%;
 	/*border: 3px solid #968397;*/
 }
@@ -291,4 +296,10 @@ a:hover{
 .tbl_panier
 {
 	margin-left:175px;
+}
+
+.sousCat
+{
+	position: absolute;
+	top:35%;
 }
