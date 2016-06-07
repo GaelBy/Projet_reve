@@ -36,7 +36,7 @@ if(isset($_GET['action']))
 {
 	                    $panier_user = new  PanierManager($link);
 	                    $panier_sup = $panier_user->getByIdUser($id);
-	                    ,$count=0;
+	                    $count=0;
 	                    $length = count($panier_sup);
 	                    while($count < $length)
 	                    {
