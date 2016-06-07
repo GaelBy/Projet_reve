@@ -42,8 +42,13 @@ if(isset($_SESSION['admin']))
 				$produit->setPoidsUni($_POST['poids_uni']);
 			if (isset($_POST['statut']))
 				$produit->setStatut($_POST['statut']);
-			
-				$option_prod->update($produit);
+			if (isset($_POST['id_sub_category']))
+			{
+				$manager = new SubCategoryManager($link);
+				$sub_cat = $manager->getById($_POST['id_sub_category']);
+				$produit->setSubCategory($sub_cat);
+			}
+			$option_prod->update($produit);
 		    header('Location:index.php?page=produit&id_produit='.$produit->getId());
 		    exit;
 		}

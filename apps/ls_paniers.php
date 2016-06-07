@@ -19,23 +19,8 @@ if(isset($_SESSION['id']))
 			while ($countPanier < sizeof($paniers))
 			{
 				$panier = $paniers[$countPanier];
-				
-				$count = 0 ;
-				$prod_list = $panier->getProduits();
-				$lengt = count($prod_list);
-				while($count < $lengt)
-				{
-
-					$prod_panier = $prod_list[$count];
-
-			        
-
-			       
-					$count ++ ;
-				}
+	    		require('views/ls_paniers.phtml');
 				$countPanier++;
-			    require('views/ls_paniers.phtml');
-				require('apps/panier_item.php');
 			}
 }
 
