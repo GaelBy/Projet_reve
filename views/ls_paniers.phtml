@@ -1,15 +1,30 @@
-<table 	class="tbl_panier"> 
+
     <tr>
     	<td style="background-color:orange" colspan="4">PANIER</td>
     <tr>
-   
-
     <tr>
 		<td style="background-color:orange"class="td_panier" >PRIX UNIT</td>
 		<td style="background-color:orange"class="td_panier" >NOMBRE</td>
 		<td style="background-color:orange"class="td_panier" >POIDS</td>
 		<td style="background-color:orange"class="td_panier" >DATE</td>
 	</tr>
-</table>
+	<tr>
+		<td class="td_panier"><?php echo $panier->getPrix();?></td>
+		<td class="td_panier"><?php echo $panier->getNombreProduits();?></td>
+		<td class="td_panier"><?php echo $panier->getPoids();?></td>
+		<td class="td_panier"><?php echo $panier->getDate();?></td>
+		
+	</tr>
 
+	<tr>
+		<td style="background-color:yellow" class="td_panier" colspan="4">PRODUITS DU PANNIER</td>
+	</tr>
+	<tr>
+	    <td style="background-color:yellow"class="td_panier">NOM</td>
+		<td style="background-color:yellow"class="td_panier">PRIX TTC</td>
+		<td style="background-color:yellow"class="td_panier">TVA</td>
+		<td style="background-color:yellow"class="td_panier">POIDS UNI</td>
+	</tr>
+<?php require('apps/panier_item.php'); ?>
 
+	
