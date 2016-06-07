@@ -8,7 +8,8 @@ $nbSub = count( $array_produit );
 while($iSub < $nbSub)
 {
 	$produit = $array_produit[$iSub];
-	require('views/ls_produits.phtml');
+	if ($produit->getStatut())
+		require('views/ls_produits.phtml');
 	$iSub++;
 }
 ?>

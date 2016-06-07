@@ -61,9 +61,9 @@ if(isset($_SESSION['admin']))
 	{
 		try
 		{
-            $produit = $option_prod ->getById($_GET['id_produit']);
-		    $produit->delete($this);
-		    header('Location:index.php?page=produits');
+            $produit = $option_prod->getById($_GET['id_produit']);
+		    $option_prod->delete($produit);
+		    header('Location:index.php?page=sub_category&id_sub_category=<?=$produit->getSubCategory()->getId()?>');
 		    exit;
 		}
 		catch (Exception $e)
