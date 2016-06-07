@@ -24,6 +24,7 @@ class SubCategoryManager
 		$query = "SELECT * FROM sub_category WHERE id =".$id;
 		$res = mysqli_query($this->link, $query);
 		$sub_category = mysqli_fetch_object($res, "SubCategory", [$this->link]);
+		
 		return $sub_category;
 	}
 

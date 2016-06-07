@@ -6,6 +6,8 @@
 
 
 
+
+
 if(isset($_SESSION['id']))
 {
 
@@ -18,11 +20,22 @@ if(isset($_SESSION['id']))
         $countPanier = 0;
 			while ($countPanier < sizeof($paniers))
 			{
+
 				$panier = $paniers[$countPanier];
+
+                if(isset($_POST['supprimer']))
+                {
+                     $panier->delete($this);
+                }
+				
 	    		require('views/ls_paniers.phtml');
 				$countPanier++;
 			}
+
+
+
 }
+
 
 
 
