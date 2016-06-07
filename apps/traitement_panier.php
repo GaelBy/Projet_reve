@@ -41,6 +41,9 @@ try
 			header('Location: index.php?page=login&action=validate');
 			exit;
 		}
+		$panier = $panier_manager->getById($_SESSION['panier']);
+		$panier->setIdUser(intval($_SESSION['id']));
+		$panier = $panier_manager->update($panier);
 		header('Location: index.php?page=paiement');
 		exit;
 	}
