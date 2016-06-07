@@ -1,118 +1,116 @@
 <div class="error"><?=$error?></div>
-<form method="POST">
-	<div class="container">
-		<div class="row">
-			<div class="col">Nom</div>
-			<div class="col"><input type="text" name="nom"/></div>
-		</div>
-		<div class="row">
-			<div class="col">Prénom</div>
-			<div class="col"><input type="text" name="prenom"/></div>
-		</div>
-		<div class="row">
-			<div class="col">E-mail</div>
-			<div class="col"><input type="email" name="email"/></div>
-		</div>
-		<div class="row">
-			<div class="col">Login</div>
-			<div class="col"><input type="text" name="login"/></div>
-		</div>
-		<div class="row">
-			<div class="col">Password</div>
-			<div class="col"><input type="password" name="password"/></div>
-		</div>
-		<div class="row">
-			<div class="col">Confirm password</div>
-			<div class="col"><input type="password" name="passwordBis"/></div>
-		</div>
+
+	<table style="background-image:radial-gradient(white,#4E7FBD);opacity:0.7">
+		<form method="POST">
+		<tr>
+			<td style = "color:white">Nom</td>
+			<td><input type="text" name="nom"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Prénom</div>
+			<td><input type="text" name="prenom"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">E-mail</td>
+			<td><input type="email" name="email"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Login</td>
+			<td><input type="text" name="login"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Password</td>
+			<td><input type="password" name="password"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Confirm password</td>
+			<td><input type="password" name="passwordBis"/></td>
+		</tr>
 		
-		<div class="row">
-			<div class="col">Sexe</div>
-			<div class="col">
+		<tr>
+			<td style = "color:white">Sexe</td>
+			<td>
 				<select name="sexe">
-					<option value="1">Homme</option>
-					<option value="2">Femme</option>
+					<option value="1" style = "color:white">Homme</option>
+					<option value="2" style = "color:white">Femme</option>
 				</select>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">Date de naissance</div>
-			<div class="col"><input type="text" name="date_naissance"/></div>
-		</div>
-		<div class="row">
-			<div class="col">Téléphone</div>
-			<div class="col"><input type="text" name="telephone"/></div>
-		</div>
+			</td>
+		</tr>
+		<tr>
+			<td style = "color:white">Date de naissance</td>
+			<td><input type="text" name="date_naissance"/></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Téléphone</td>
+			<td><input type="text" name="telephone"/></td>
+		</tr>
 
-		<br>
-		<br>
+		
 
-		<div class="row">
-			<div class="col"><h3>Adresse de facturation</h3></div>
-		</div>
+		<tr>
+			<td style = "color:white">Adresse de facturation</td>
+		</tr>
 
-		<br>
+	
 
-		<div class="row">
-			<div class="col">Nom de l'adresse</div>
-			<div class="col"><input type="text" name="nom_adresse1"></div>
-		</div>
-		<div class="row">
-			<div class="col">Numéro</div>
-			<div class="col"><input type="text" name="numero1"></div>
-		</div>
-		<div class="row">
-			<div class="col">Rue</div>
-			<div class="col"><input type="text" name="rue1"></div>
-		</div>
-		<div class="row">
-			<div class="col">Code postal</div>
-			<div class="col"><input type="text" name="code_postal1"></div>
-		</div>
-		<div class="row">
-			<div class="col">Ville</div>
-			<div class="col"><input type="text" name="ville1"></div>
-		</div>
+		<tr>
+			<td style = "color:white">Nom de l'adresse</td>
+			<td><input type="text" name="nom_adresse1"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Numéro</td>
+			<td><input type="text" name="numero1"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Rue</td>
+			<td><input type="text" name="rue1"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Code postal</td>
+			<td><input type="text" name="code_postal1"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Ville</td>
+			<td><input type="text" name="ville1"></td>
+		</tr>
 
-		<br>
-		<br>
+		
 
-		<div class="row">
-			<div class="col"><h3>Adresse de livraison</h3></div>
-		</div>
-
-		<br>
-
-		<div class="row">
-			<div class="col">Nom de l'adresse</div>
-			<div class="col"><input type="text" name="nom_adresse2"></div>
-		</div>
-		<div class="row">
-			<div class="col">Numéro</div>
-			<div class="col"><input type="text" name="numero2"></div>
-		</div>
-		<div class="row">
-			<div class="col">Rue</div>
-			<div class="col"><input type="text" name="rue2"></div>
-		</div>
-		<div class="row">
-			<div class="col">Code postal</div>
-			<div class="col"><input type="text" name="code_postal2"></div>
-		</div>
-		<div class="row">
-			<div class="col">Ville</div>
-			<div class="col"><input type="text" name="ville2"></div>
-		</div>
-		<div class="row">
-			<div class="col"></div>
-
-			<br>
-
-			<div class="col"><button type="submit" name="action" value="ajouter"/>Ajouter</button></div>
-		</div>
+		<tr>
+			<td colpsan="2" style = "color:white"><h3>Adresse de livraison</h3></td>
+		</tr>
 
 
-	</div>
+
+		<tr>
+			<td style = "color:white">Nom de l'adresse</td>
+			<td><input type="text" name="nom_adresse2"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Numéro</td>
+			<td><input type="text" name="numero2"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Rue</td>
+			<td><input type="text" name="rue2"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Code postal</td>
+			<td><input type="text" name="code_postal2"></td>
+		</tr>
+		<tr>
+			<td style = "color:white">Ville</td>
+			<td><input type="text" name="ville2"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button type="submit" name="action" value="ajouter"/>Ajouter</button></td>
+		</tr>
+
+
+	
 
 
 </form>
+
+</table>

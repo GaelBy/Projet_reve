@@ -193,7 +193,7 @@ ul a{
 }
 .footer
 {
-	background:linear-gradient(to bottom,white,#3A7ABA);
+	background:linear-gradient(to top,white,#3A7ABA);
 	text-align: center;
 }
 
@@ -302,4 +302,13 @@ a:hover{
 {
 	position: absolute;
 	top:35%;
+}
+
+.sub_cat:hover{
+	box-shadow:9px 9px 9px blue;
+};
+
+#h2_sub:hover{
+	
+
 }
