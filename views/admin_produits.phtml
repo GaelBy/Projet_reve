@@ -5,8 +5,14 @@
 			<div class="col"><input type="text" name="nom" value="<?=htmlentities($produit->getNom())?>"/></div>
 		</div>
 		<div class="row">
-			<div class="col">id_sub_category</div>
-			<div class="col"><input type="text" name="id_sub_category" value="<?=htmlentities($produit->getSubCategory()->getId())?>"/></div>
+			<div class="col">sous catégorie</div>
+			<div class="col">
+				<!--<input type="text" name="id_sub_category" value="<?=htmlentities($produit->getSubCategory()->getId())?>"/>-->
+				<select name="id_sub_category">
+					<?php require('apps/ls_category_admin.php'); ?>
+				</select>
+			</div>
+
 		</div>
 		<div class="row">
 			<div class="col">reference</div>
