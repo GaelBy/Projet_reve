@@ -223,7 +223,7 @@ body{
 	margin: 0;
 }
 
-.category-content{
+/*.category-content{
 	padding-top: 5%;
 	width: 100%;
 	background: url(../images/background_dream.jpg);
@@ -231,11 +231,11 @@ body{
  	background-repeat: no-repeat;
 	height: 715px;
 	font-family: "PT Sans Narrow";
-}
+}*/
 
 img{
 	display: block;
-	width:100%;
+	width:50%;
 	border-radius: 50%;
 	/*border: 3px solid #968397;*/
 }
