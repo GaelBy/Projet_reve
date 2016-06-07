@@ -75,6 +75,7 @@ class ProduitsManager
 		{
 			$list[]=$produit;
 		}
+		return $list;
 	}
 
 	public function getByMoyenne($etalon)
