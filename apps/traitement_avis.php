@@ -53,11 +53,11 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 	}
 
 }
-else if(isset($_GET['action'], $_GET['id_avis']) && $_GET['action'] == "supprimer")
+else if(isset($_POST['action'], $_POST['id_avis']) && $_POST['action'] == "supprimer")
 {
 	try
 	{
-		$avis = $avis_manager->getById($_GET['id_avis']);
+		$avis = $avis_manager->getById($_POST['id_avis']);
 		if (isset($_SESSION['admin']) && $_SESSION['admin'])
 		{
 			$avis = $avis_manager->delete($avis);

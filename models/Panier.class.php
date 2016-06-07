@@ -98,7 +98,7 @@ class Panier {
         $this->prix = $this->prix + $produit->updatePrixUniTtc();
         $this->poids = $this->poids + $produit->getPoidsUni();
         $manager = new ProduitsManager($this->link);
-        $manager->updatePanierProduit($this->produits[$i]);
+        //$manager->updatePanierProduit($this->produits[$i]);
         return $this->produits[$i];
       }
       $i++;
@@ -113,7 +113,7 @@ class Panier {
     $this->prix = $this->prix + $produit->updatePrixUniTtc();
     $this->poids = $this->poids + $produit->getPoidsUni();
     $manager = new ProduitsManager($this->link);
-    $manager->initPanierProduit($produit);
+    //$manager->initPanierProduit($produit);
    }
    public function suppressionProduit(Produits $produit)
    {
@@ -132,13 +132,13 @@ class Panier {
         {
           $article->setQuantite($article->getQuantite()-1);
           $this->nbre_produits--;
-          $manager->updatePanierProduit($article);
+          //$manager->updatePanierProduit($article);
         }
         else
         {
           array_splice($this->produits, $count, 1); //...on le retire (on n'en prend qu'un) $count correspondant au produit qu'on voulait enlever
           $this->nbre_produits = sizeof($this->produits); // on redéfinit la taille de la liste
-          $manager->deletePanierProduit($article);
+          //$manager->deletePanierProduit($article);
         }
         $this->prix = $this->prix - $produit->getPrixUniTtc();
         $this->poids = $this->poids - $produit->getPoidsUni();
