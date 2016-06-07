@@ -303,3 +303,12 @@ a:hover{
 	position: absolute;
 	top:35%;
 }
+
+.sub_cat:hover{
+	box-shadow:9px 9px 9px blue;
+};
+
+#h2_sub:hover{
+	
+
+}
