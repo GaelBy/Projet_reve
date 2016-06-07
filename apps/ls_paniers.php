@@ -23,18 +23,37 @@ if(isset($_SESSION['id']))
 
 				$panier = $paniers[$countPanier];
 
-                if(isset($_POST['supprimer']))
-                {
-                     $panier->delete($this);
-                }
+
+                
 				
 	    		require('views/ls_paniers.phtml');
 				$countPanier++;
 			}
 
 
-
 }
+if(isset($_GET['action']))
+{
+	                    $panier_user = new  PanierManager($link);
+	                    $panier_sup = $panier_user->getByIdUser($id);
+	                    ,$count=0;
+	                    $length = count($panier_sup);
+	                    while($count < $length)
+	                    {
+	                        $sup = $panier_sup[$count];
+
+
+
+	                       //$sup->delete();
+
+	              
+	                       
+	                        $count++;
+	                    }
+
+	                    require('views/ls_paniers.phtml');
+}
+
 
 
 
