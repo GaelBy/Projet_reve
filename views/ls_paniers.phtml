@@ -1,13 +1,13 @@
 
     <tr>
-    	<td style="background-color:orange;border:2px solid black">PANIER</td>
-    	<td><form method="POST"><input type="submit" name="supprimer" value="supprimer le panier" /></form></td>
+    	<td style="color:white;background-color:#272822;border:1px solid #272822">PANIER</td>
+    	<td><acolor:white href="index.php?page=profil_user&action=sup">supprimer</a></form></td>
     <tr>
     <tr>
-		<td style="background-color:orange"class="td_panier" >PRIX UNIT</td>
-		<td style="background-color:orange"class="td_panier" >NOMBRE</td>
-		<td style="background-color:orange"class="td_panier" >POIDS</td>
-		<td style="background-color:orange"class="td_panier" >DATE</td>
+		<td style="background-color:#272822;color:white"class="td_panier" >PRIX UNIT</td>
+		<td style="background-color:#272822;color:white"class="td_panier" >NOMBRE</td>
+		<td style="background-color:#272822;color:white"class="td_panier" >POIDS</td>
+		<td style="background-color:#272822;color:white"class="td_panier" >DATE</td>
 	</tr>
 	<tr>
 		<td class="td_panier"><?php echo $panier->getPrix();?></td>
@@ -18,13 +18,13 @@
 	</tr>
 
 	<tr>
-		<td style="background-color:yellow" class="td_panier" colspan="4">PRODUITS DU PANNIER</td>
+		<td style="background-color:grey;color:white" class="td_panier" colspan="4">PRODUITS DU PANNIER</td>
 	</tr>
 	<tr>
-	    <td style="background-color:yellow"class="td_panier">NOM</td>
-		<td style="background-color:yellow"class="td_panier">PRIX TTC</td>
-		<td style="background-color:yellow"class="td_panier">TVA</td>
-		<td style="background-color:yellow"class="td_panier">REFERENCE</td>
+	    <td style="background-color:grey;color:white"class="td_panier">NOM</td>
+		<td style="background-color:grey;color:white"class="td_panier">PRIX TTC</td>
+		<td style="background-color:grey;color:white"class="td_panier">TVA</td>
+		<td style="background-color:grey;color:white"class="td_panier">REFERENCE</td>
 	</tr>
 <?php require('apps/panier_item.php'); ?>
 
