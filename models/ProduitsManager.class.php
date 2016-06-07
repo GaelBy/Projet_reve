@@ -195,8 +195,10 @@ class ProduitsManager
 		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
 		$moyenne=$produit->setMoyenne();
+		$id_sub_category = intval($produit->getSubCategory()->getId());
 
 		$query="UPDATE produits SET
+		id_sub_category='".$id_sub_category."',
 		reference='".$reference."',
 		stock='".$stock."',
 		prix_uni_ht='".$prixUniHt."',
