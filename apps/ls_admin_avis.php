@@ -1,6 +1,6 @@
 <?php
 $count=0;
-$manager=new avisManager($link);
+$manager=new AvisManager($link);
 $lsAvis=$manager->getAll();
 
 while($count<sizeof($lsAvis))

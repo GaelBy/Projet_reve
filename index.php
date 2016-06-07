@@ -32,7 +32,7 @@ if(isset($_GET['page']))
 $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users', 
 	                      'produit'=>'panier', 'panier'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
 	                      'profil_user'=>'users', 'admin'=>'panier', 'admin_category'=>'category', 
-
+	                      'admin_avis'=>'avis',
 	                      'admin_produits'=>'produits');
 
 if (array_key_exists($page, $acces_traitement))

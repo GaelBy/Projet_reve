@@ -1,11 +1,12 @@
 <div class="lsAvis">
-	<h4>Nom de l'utilisateur:<?=$avis->getAuthor()?></h4>
-	<h4>Produit concerné:<?=$avis->getProduit()?></h4>
+	<h4>Nom de l'utilisateur:<?=$avis->getAuthor()->getLogin()?></h4>
+	<h4>Produit concerné:<?=$avis->getProduit()->getNom()?></h4>
 	<h4>Commentaire:<?=$avis->getContent()?></h4>
-	<form method="post" action="supprimer">
-			<button name="id" value="<?=$avis->getId()?>" type="submit">Modérer cet avis</button>
-		</form>
 	<form method="post" action="">
-			<button name="id" value="<?=$avis->getId()?>" type="submit">Valider cet avis</button>
+		<input type="hidden" name="action" value="supprimer">
+		<button name="id_avis" value="<?=$avis->getId()?>" type="submit">Modérer cet avis</button>
+	</form>
+	<form method="post" action="">
+			<button name="id_avis" value="<?=$avis->getId()?>" type="submit">Valider cet avis</button>
 		</form>
 </div>

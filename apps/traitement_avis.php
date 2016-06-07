@@ -1,9 +1,9 @@
 <?php
+$produit_manager = new ProduitsManager($link);
+$user_manager = new UserManager($link);
+$avis_manager = new AvisManager($link);
 if (isset($_SESSION['id'], $_POST['id_produit']))
 {
-	$produit_manager = new ProduitsManager($link);
-	$user_manager = new UserManager($link);
-	$avis_manager = new AvisManager($link);
 	$produit = $produit_manager->getById($_POST['id_produit']);
 	if (isset($_GET['action']) && $_GET['action'] == "creer" )		
 	{
@@ -52,23 +52,24 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 
 	}
 
-	else if(isset($_GET['action']) && $_GET['action'] == "supprimer")
+}
+else if(isset($_GET['action'], $_GET['id_avis']) && $_GET['action'] == "supprimer")
+{
+	try
 	{
-		try
+		$avis = $avis_manager->getById($_GET['id_avis']);
+		if (isset($_SESSION['admin']) && $_SESSION['admin'])
 		{
-			$avis = $avis_manager->getById($_GET['id_avis']);
-			if (isset($_SESSION['admin']) && $_SESSION['admin'])
-			{
-				$avis = $avis_manager->delete($avis);
-				$produit_manager->update($produit);
-				header('Location: ?page=produit&id_produit='.$produit->getId());
-				exit;
-			}
+			$avis = $avis_manager->delete($avis);
+			$produit = $avis->getProduit();
+			$produit_manager->update($produit);
+			header('Location: ?page=produit&id_produit='.$produit->getId());
+			exit;
 		}
-		catch (Exception $e)
-	    {
-	    	$error = $e->getMessage();
-	    }
 	}
+	catch (Exception $e)
+    {
+    	$error = $e->getMessage();
+    }
 }
 ?>
