@@ -3,6 +3,11 @@
 	box-sizing:border-box;
 }
 
+
+html, body, .main{
+	min-height: 100%;
+}
+
 body{
 
 	background-color:#76A4D9;
@@ -13,6 +18,11 @@ ul a{
 	text-decoration:none;
 }
 
+.clearfix:after{
+	content:"";
+	clear: both;
+	display: block;
+}
 
 .hide{
 	display: none;
@@ -35,25 +45,26 @@ ul a{
 {
 	width:100%;
 	height:auto;
-	background: url(../images/mainFond4.jpeg);
-	background-repeat: no-repeat  fixed;
+	background: url(../images/test.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
+	position:relative;
+	background-attachment: fixed;
 }
 
-.hautPage
+/*.hautPage
 {
 	min-height:1000px;
-}
+}*/
 .firstList
 {
 	text-align: right;
 	width:100%;
 	background-color: rgba(255,255,255,0.25);
 	font-size: 0; /* pour supprimer l'espace entre les li qui existe par défaut du fait du saut de ligne*/
-	box-shadow: 1px 1px 2px #3B7BBD;
+	box-shadow: 1px 1px 2px white;
 	position:relative;
 }
-
 .firstList .logo
 {
 	position:absolute;
@@ -86,13 +97,14 @@ ul a{
 .firstList li
 {
 	display: inline-block;
+
 }
 
 .firstList li a 
 {
 	display:block; /*pour pouvoir appliquer un padding vertical*/
 	text-decoration: none;
-	padding:1em 1.5em;
+	padding:1.5em ;
 	color:#7EA6D2;
 	font-size:1.20rem;
 	font-family: 'Open Sans', sans-serif;
@@ -111,7 +123,6 @@ ul a{
 	background:#DEF2FB;
 }
 
-
 .secondList li
 {
 	display: block;
@@ -124,7 +135,6 @@ ul a{
 	padding:1rem 1.5em;
 	display:block;
 	box-shadow: 1px 1px 2px rgba(129,123,189,0.50);
-
 }
 
 .deroule:hover ul 
@@ -142,18 +152,18 @@ ul a{
 .hautPage
 {
 	width:100%;
-	height:250px;
+	height:150px;
 }
 
 .sidebar
 {
 	animation: slideInLeft 2s 1 normal;
 	padding-top:3em;
-	position:absolute;
 	display: block;
-	top:30%;
-	width:300px;
+	width:25%;
+	float: left;
 }
+
 
 @keyframes slideInLeft
 {
@@ -176,24 +186,29 @@ ul a{
 	color:#FEFEFE;
 	text-decoration: none;
 	font-family: 'Open Sans', sans-serif;
-	text-shadow: 1px 1px 2px #407ABD;
 	width:100%;
 }
 
 .sidebar .menuSide a:hover
 {
 	background-color: white;
-	color:#8CC2EA;
+	color:black;
 	box-shadow: 1px 1px 4px rgba(129,123,189,1);
+	text-decoration: none;
+	text-shadow: 1px 1px 1px gray;
 }
 
 .content
 {
-	margin-left: 400px;
+	/*margin-left: 400px;*/
+	min-height:600px;
+	width:70%;
+	float: right;
+	position:relative;
 }
 .footer
 {
-	background:linear-gradient(to top,white,#3A7ABA);
+	background-color:#262626;
 	text-align: center;
 }
 
@@ -219,10 +234,6 @@ ul a{
 	color:gray;
 }
 
-body{
-	margin: 0;
-}
-
 .category-content{
 	padding-top: 5%;
 	width: 100%;
@@ -236,7 +247,7 @@ body{
 img{
 	display: block;
 	width:100%;
-	border-radius: 50%;
+	border-radius: 2%;
 	/*border: 3px solid #968397;*/
 }
 
@@ -268,10 +279,6 @@ h2{
 	font-weight: bold;
 }
 
-h2:hover{
-	background-color: #5E506C;
-}
-
 a{
 	text-decoration: none;
 	color: #3A1A43;
@@ -279,8 +286,6 @@ a{
 	width: 100%;
 	font-weight: bold;
 }
-
-
 
 a:hover{
 	color: #EADACF;
@@ -297,23 +302,85 @@ a:hover{
 {
 	margin-left:175px;
 }
-
 .sousCat
 {
 	position: absolute;
 	top:35%;
 }
 
-.sub_cat:hover{
+.sub_cat:hover
+{
 	box-shadow:9px 9px 9px blue;
-};
-
-#h2_sub:hover{
-	
-
 }
+
+
 .avis
 {
-	position:absolute;
+	/*position:absolute;*/
 	top:20%;
+	left:10;
+	background-color: rgba(255,255,255,0.55);
+	padding:0.5em;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px #3B7BBD;
+	border:1px solid #3B7BBD;
+}
+.adminAvis h2
+{
+	color:#3B7BBD;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 2px #407ABD;
+}
+.adminAvis h3
+{
+	color:#3B7BBD;
+	text-align: left;
+	margin:1em;
+}
+
+.lsAvis
+{
+	border:1px solid #3B7BBD;
+	border-radius:5px;
+	margin:1em;
+	background-color: rgba(59,123,189,0.35);
+	padding:1em;
+}
+.carousel
+{
+	width:50%;
+	height:auto;
+	position:absolute;
+	left:40%;
+	margin-bottom: 3%;
+}
+
+.carousel h4
+{
+	color:#7EA6D2;
+}
+.textCarousel .nom
+{
+	color:white;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size:1.5em;
+	opacity: 1;
+	position: absolute;
+	top:5%;
+	left:5%;
+}
+.textCarousel .moyenne
+{
+	color:white;
+}
+.affichage
+{
+	width:80%;
+	height:auto;
+}
+
+.imgProduit
+{
+	width:50%;
 }
