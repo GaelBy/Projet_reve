@@ -6,6 +6,8 @@
 
 
 
+
+
 if(isset($_SESSION['id']))
 {
 
@@ -18,11 +20,41 @@ if(isset($_SESSION['id']))
         $countPanier = 0;
 			while ($countPanier < sizeof($paniers))
 			{
+
 				$panier = $paniers[$countPanier];
+
+
+                
+				
 	    		require('views/ls_paniers.phtml');
 				$countPanier++;
 			}
+
+
 }
+if(isset($_GET['action']))
+{
+	                    $panier_user = new  PanierManager($link);
+	                    $panier_sup = $panier_user->getByIdUser($id);
+	                    $count=0;
+	                    $length = count($panier_sup);
+	                    while($count < $length)
+	                    {
+	                        $sup = $panier_sup[$count];
+
+
+
+	                       //$sup->delete();
+
+	              
+	                       
+	                        $count++;
+	                    }
+
+	                    require('views/ls_paniers.phtml');
+}
+
+
 
 
 

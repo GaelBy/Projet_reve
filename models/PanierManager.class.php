@@ -222,7 +222,7 @@ class PanierManager
 		*/
 	}
 
-		public function delete(Panier $panier) //NB: on ne delete pas, on passe le statut à 0, on le cache
+		public function delete(/*Panier*/ $panier) //NB: on ne delete pas, on passe le statut à 0, on le cache
 	{
 		$id=$panier->getId();
 		$statut=0; // puisque par défaut, dans le create, on l'a défini à 1
