@@ -1,7 +1,7 @@
 <?php
 $count=0;
 $manager=new ProduitsManager($link);
-$lsProduitsNotes=$manager->getByMoyenne(4);
+$lsProduitsNotes = $manager->getByMoyenne(4);
 while($count<sizeof($lsProduitsNotes))
 {
 	$produitNote=$lsProduitsNotes[$count];

@@ -1,7 +1,7 @@
-<fieldset>
-	<legend><?=$subcategory->getNom()?></legend>
-	<?=$subcategory->getDescription()?>
+<div class="sousCat">
+	<h2><?=$subcategory->getNom()?></h2>
+	<p><?=$subcategory->getDescription()?></p>
 	<ul>
 		<?php require('apps/ls_produits.php'); ?>
 	</ul>
-</fieldset>
+</div>

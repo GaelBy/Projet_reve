@@ -10,7 +10,7 @@ try
 		if (isset($_GET['page']) && $_GET['page'] == 'produit')
 		{
 			//create?
-			if (!isset($_SESSION['panier']))
+			if (!isset($_SESSION['panier']) || $panier_manager->getById($_SESSION['panier'])->getStatut() != 'en cours')
 			{
 				//$panier = new Panier($link);
 				$data = array('id_user'=>10, 'statut'=>'en cours', 'prix'=>0, 'nombre_produits'=>0, 'poids'=>0);
@@ -33,7 +33,7 @@ try
 		}
 	}
 	//finalisation
-	if (isset($_GET['page'], $_POST['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate')
+	if (isset($_GET['page'], $_POST['action'], $_SESSION['panier']) && $_GET['page'] == 'panier' && $_POST['action'] == 'validate' && $panier_manager->getById($_SESSION['panier'])->getStatut() == 'en cours')
 	{
 		//login?
 		if (!isset($_SESSION['id']))

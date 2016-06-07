@@ -10,8 +10,8 @@
 	<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Ajouter au panier</button>
 </form>
 <div class="<?=$admin?>">
-	<button class="btn"><a href="index.php?page=admin_produit&id_produit=<?=$produit->getId()?>">Modifier</a></button>
-	<button class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></button>
+	<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=edit">Modifier</a></div>
+	<div class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></div>
 </div>
 <h2>Avis</h2>
 <div class="container <?=$no_avis?>">
@@ -21,6 +21,6 @@
 	<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=creer">Ajouter un avis</a></div>
 </div>
 <div class="modif <?=$modif_ok?>">
-	<button class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=modifier">Modifier votre avis</a></button>
+	<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=modifier">Modifier votre avis</a></div>
 </div>
 <div class="container <?=$avis_class?>"><?php require('apps/ls_avis.php'); ?></div>

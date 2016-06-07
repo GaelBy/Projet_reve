@@ -4,13 +4,14 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 	$produit_manager = new ProduitsManager($link);
 	$user_manager = new UserManager($link);
 	$avis_manager = new AvisManager($link);
+	$produit = $produit_manager->getById($_POST['id_produit']);
 	if (isset($_GET['action']) && $_GET['action'] == "creer" )		
 	{
 		try
 		{
-			$produit = $produit_manager->getById($_POST['id_produit']);
 			$user = $user_manager->getById($_SESSION['id']);
 			$avis = $avis_manager->create($_POST, $produit, $user);
+			$produit_manager->update($produit);
 			//$date_avis = date('Y-m-d H:m:i');
 			//$query = "INSERT INTO avis (id_author, content, id_produit, note) VALUES ('".$id_author."', '".$content ."', '".$id_produit."', '".$note."')";
 			// $res = mysqli_query( $link, $query);
@@ -38,6 +39,7 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 				else
 					throw new Exception("Paramètre manquant : note");
 				$avis = $avis_manager->update($avis);
+				$produit_manager->update($produit);
 				header('Location: ?page=produit&id_produit='.$produit->getId());
 				exit;
 			}
@@ -58,6 +60,7 @@ if (isset($_SESSION['id'], $_POST['id_produit']))
 			if (isset($_SESSION['admin']) && $_SESSION['admin'])
 			{
 				$avis = $avis_manager->delete($avis);
+				$produit_manager->update($produit);
 				header('Location: ?page=produit&id_produit='.$produit->getId());
 				exit;
 			}

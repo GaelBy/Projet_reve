@@ -82,11 +82,11 @@ class ProduitsManager
 		$query="SELECT * FROM produits WHERE moyenne>=".$etalon;
 		$res=mysqli_query($this->link,$query);
 		$list=[];
-
 		while($produit=mysqli_fetch_object($res,"Produits", [$this->link]))
 		{
 			$list[]=$produit;
 		}
+		return $list;
 	}
 
 
@@ -194,6 +194,7 @@ class ProduitsManager
 		$nom=mysqli_real_escape_string($this->link,$produit->getNom());
 		$poidsUni=floatval($produit->getPoidsUni());
 		$statut=$produit->getStatut();
+		$moyenne=$produit->setMoyenne();
 
 		$query="UPDATE produits SET
 		reference='".$reference."',
@@ -204,7 +205,8 @@ class ProduitsManager
 		image='".$image."',
 		nom='".$nom."',
 		poids_uni='".$poidsUni."',
-		statut='".$statut."'
+		statut='".$statut."',
+		moyenne='".$moyenne."'
 		WHERE id=".$id;
 		$res=mysqli_query($this->link,$query);
 		if($res)

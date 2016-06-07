@@ -110,7 +110,7 @@ class Panier {
     if ($this->produits[$i]->getQuantite() === null)
       $this->produits[$i]->setQuantite(1);
     $this->nbre_produits = sizeof($this->produits); // le nombre de produits correspond à la taille de la liste
-    $this->prix = $this->prix + $produit->setPrixUniTtc();
+    $this->prix = $this->prix + $produit->updatePrixUniTtc();
     $this->poids = $this->poids + $produit->getPoidsUni();
     $manager = new ProduitsManager($this->link);
     $manager->initPanierProduit($produit);
@@ -172,7 +172,7 @@ public function setIdUser($id_user){
 
 public function setStatut($statut)
 	{
-		if (strlen($statut) < 5)
+		if (strlen($statut) < 4)
 		{
 			throw new Exception  ("veuillez entrer au moins 5 caractères (lettres)");
 		}

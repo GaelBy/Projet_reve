@@ -21,7 +21,7 @@ if(isset($_SESSION['admin']))
 	{
 		try
 		{
-			$produit = $option_prod ->getById($_POST['id_produit']);
+			$produit = $option_prod ->getById($_GET['id_produit']);
 			if (isset($_POST['reference']))
 				$produit->setReference($_POST['reference']); 
 			if (isset($_POST['stock']))
@@ -43,8 +43,8 @@ if(isset($_SESSION['admin']))
 			if (isset($_POST['statut']))
 				$produit->setStatut($_POST['statut']);
 			
-				$produit->update($this);
-		    header('Location:index.php?page=admin_produits');
+				$option_prod->update($produit);
+		    header('Location:index.php?page=produit&id_produit='.$produit->getId());
 		    exit;
 		}
 		catch (Exception $e)
