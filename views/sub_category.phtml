@@ -1,15 +1,11 @@
 <div style ="border:5px solid #B5CCEA; border-radius:45px;width:750px;background-color:#4E7FBD;opacity:0.4"class="sub_cat">
 
-<<<<<<< HEAD
-	<h3 id="h2_sub" style="font-size:25px;color:white;text-align:center"><?=$subcategory->getNom();?></h3>
-	<p style="color:white;text-align:center"><?=$subcategory->getDescription();?></p>
-=======
+
 	<h3 id="h2_sub" style="font-size:25px;color:white;text-align:center"><?=$subcategory->getNom()?></h3>
 	<p style="color:white;text-align:center"><?=$subcategory->getDescription()?></p>
 	<div class="<?=$admin?>">
 		<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a></div>
 	</div>
->>>>>>> b9d54117008fa59fce2f966c0ad61d2861243c68
 	<ul>
 		<?php require('apps/ls_produits.php'); ?>
 	</ul>
