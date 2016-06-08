@@ -356,20 +356,16 @@ a:hover{
 
 .sub_cat
 {
-<<<<<<< HEAD
-
-	border-radius:45px;
+	/*border-radius:45px;
 	width:750px;
 	background-color:black;
     transform: skewX(20deg) skewY(15deg);
 	transform: scale(0.2, 0.2); 
-	opacity:0.1;
-=======
+	opacity:0.1;*/
 	/*border:5px solid #272822;*/
 	border-radius:5px;
 	width:750px;
 	background-color:rgba(255,255,255,0.60);
->>>>>>> 2a29d826ebeb7a1d82d20ee662e5a1063b437e91
 	color:white;
 	text-align:center;
 	padding:1em;
@@ -694,7 +690,6 @@ a:hover{
 		left: -10%;
 	}
 
-<<<<<<< HEAD
 	100%
 	{
 		left: 0%;
@@ -707,10 +702,4 @@ a:hover{
 	margin-bottom: 1em;
 	background-color:rgba(0,140,184,0.50); 
 
-<<<<<<< HEAD
 }
-=======
-=======
->>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
-}
->>>>>>> 2a29d826ebeb7a1d82d20ee662e5a1063b437e91
