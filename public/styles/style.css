@@ -356,17 +356,58 @@ a:hover{
 
 .sub_cat
 {
-	border:5px solid #272822;
+<<<<<<< HEAD
+
 	border-radius:45px;
 	width:750px;
-	background-color:grey;
-	opacity:0.4;
+	background-color:black;
+    transform: skewX(20deg) skewY(15deg);
+	transform: scale(0.2, 0.2); 
+	opacity:0.1;
+=======
+	/*border:5px solid #272822;*/
+	border-radius:5px;
+	width:750px;
+	background-color:rgba(255,255,255,0.60);
+>>>>>>> 2a29d826ebeb7a1d82d20ee662e5a1063b437e91
 	color:white;
 	text-align:center;
+	padding:1em;
+	background: url(../images/mainFond1.jpg) no-repeat;
+	/*background-attachment: fixed;*/
+	background-size:cover;
+	background-position: center;
+	margin-left:15%;
 }
+
+
 .sub_cat:hover
 {
-	box-shadow:9px 9px 9px #262626;
+	/*box-shadow:9px 9px 9px #262626;*/
+     /*background-image: linear-gradient( white, rgba(255,255,255,0));
+     transition: background-color 1s;
+     opacity:0.7;*/
+
+     animation: fontbulger 1s infinite;
+     transition: all .5s ease-in-out;
+ 
+
+	
+}
+@keyframes fontbulger {
+  0% {
+    background-color:black;
+    opacity:0.5;
+    transform: scale(1, 1); 
+   
+  }
+  100% {
+    background-color:black;
+    opacity:0.5;
+    transform: scale(1, 1); 
+   
+  }
+  
 }
 .sub_cat h3
 {
@@ -636,14 +677,40 @@ a:hover{
 }
 .slogan 
 {
-	animation: slideIn 2s 1 normal;
+	animation: slideInTwo 2s 1 normal;
 	font-family:'Roboto Slab';
 	color:white;
 	font-style: italic;
 	font-size:1.7rem;
 	float:left;
+	position:relative;
 	margin-left:17%;
 	margin-top:6%;
-	
-
 }
+@keyframes slideInTwo
+{
+	0%
+	{
+		left: -10%;
+	}
+
+<<<<<<< HEAD
+	100%
+	{
+		left: 0%;
+	}
+}
+.enteteProduit
+{
+	border:1px solid #008CB8;
+	border-radius: 5px;
+	margin-bottom: 1em;
+	background-color:rgba(0,140,184,0.50); 
+
+<<<<<<< HEAD
+}
+=======
+=======
+>>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
+}
+>>>>>>> 2a29d826ebeb7a1d82d20ee662e5a1063b437e91
