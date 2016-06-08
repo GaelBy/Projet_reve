@@ -435,6 +435,8 @@ a:hover{
 {
 	width:80%;
 	height:auto;
+	/*height:500px;*/
+	/*overflow:auto;*/
 }
 
 .imgProduit
@@ -500,6 +502,17 @@ a:hover{
 {
 	margin-bottom: 10px;
 }
+.produit .avis
+{
+	color: #222;
+}
+.admin_produit
+{
+	background: rgba(255, 255, 255, 0.55);
+	width: 31%;
+	padding: 30px !important;
+	border-radius: 3px;
+}
 .panier .thumb
 {
 	width: 20%;
@@ -553,7 +566,16 @@ a:hover{
 {
 	margin-top: 10px !important;
 }
-
+.admin_cat
+{
+	background: rgba(255, 255, 255, 0.55);
+	padding: 30px !important;
+	border-radius: 3px;
+	width: 50%;
+}
+.admin_cat button{
+	margin-top: 10px;
+}
 .carouselAvis
 {
 	width:40%;
