@@ -1,12 +1,12 @@
-<h1>Votre panier</h1>
-<div class="container">
+<h1 class="white">Votre panier</h1>
+<div class="container panier">
 
 	<?php require('apps/ls_produits_panier.php'); ?>
 	<div class="<?=$panier_vide?>">
 		Votre panier est vide.
 	</div>
 </div>
-<div class="container <?=$no_panier?>">
+<div class="container info_panier <?=$no_panier?>">
 	<div class="poids">
 		Poids total : <?=floatval($panier->getPoids())?> g
 	</div>

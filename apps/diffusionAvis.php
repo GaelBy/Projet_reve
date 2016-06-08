@@ -5,7 +5,8 @@ $lsAvis = $manager->getAll();
 while($count<sizeof($lsAvis))
 {
 	$avisDiffuse=$lsAvis[$count];
-	require('views/diffusionAvis.phtml');
+	if ($avisDiffuse->getStatut())
+		require('views/diffusionAvis.phtml');
 	$count++;
 }
 ?>

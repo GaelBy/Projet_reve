@@ -70,6 +70,7 @@ ul a{
 	position:absolute;
 	top:1%;
 	left:5%;
+	width:20%;
 }
 
 .logo
@@ -152,11 +153,7 @@ ul a{
 .hautPage
 {
 	width:100%;
-
-	height:180px;
-
 	height:200px;
-
 }
 
 .sidebar
@@ -164,7 +161,7 @@ ul a{
 	animation: slideInLeft 2s 1 normal;
 	padding-top:4em;
 	display: block;
-	width:20%;
+	width:18%;
 	float: left;
 }
 
@@ -438,6 +435,9 @@ a:hover{
 	width:80%;
 	height:auto;
 	margin-left:-15%;
+
+	/*height:500px;*/
+	/*overflow:auto;*/
 }
 
 .imgProduit
@@ -445,11 +445,11 @@ a:hover{
 	width:50%;
 	padding: 10px;
 }
-.produit
+.produit, .panier
 {
 	color: #eee;
 }
-.produit button
+.produit button, .panier button, .info_panier button
 {
 	color: #111;
 	margin-top: 10px;
@@ -458,12 +458,12 @@ a:hover{
 {
 	vertical-align: middle;
 }
-.produit .left
+.produit .left, .panier .left
 {
 	float: left;
 	display: inline-block;
 }
-.produit .right
+.produit .right, .panier .right
 {
 	float: right;
 	padding: 10px;
@@ -504,6 +504,80 @@ a:hover{
 	margin-bottom: 10px;
 }
 
+.produit .avis
+{
+	color: #222;
+}
+.admin_produit
+{
+	background: rgba(255, 255, 255, 0.55);
+	width: 31%;
+	padding: 30px !important;
+	border-radius: 3px;
+}
+.panier .thumb
+{
+	width: 20%;
+}
+.panier h2, .panier h3
+{
+	margin: 0 50px;
+	padding: 0 0 10px;
+}
+.panier a
+{
+	color: #eee;
+	text-decoration: none !important;
+}
+.panier .left
+{
+	padding: 10px;
+}
+.panier_important
+{
+	font-size: 1.1em;
+}
+.panier .check, .panier button
+{
+	padding: 10px !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+.panier input, .panier label, .panier button
+{
+	margin: 0 !important;
+}
+.info_panier
+{
+	color: #eee;
+	margin-top: 10px;
+}
+.info_panier .poids, .info_panier .prix
+{
+	font-size: 1.2em;
+}
+.paiement h1, .paiement h2, .paiement h3, .paiement label
+{
+	color: #eee;
+}
+.paiement .row
+{
+	margin: 5px 0;
+}
+.paiement .carte
+{
+	margin-top: 10px !important;
+}
+.admin_cat
+{
+	background: rgba(255, 255, 255, 0.55);
+	padding: 30px !important;
+	border-radius: 3px;
+	width: 50%;
+}
+.admin_cat button{
+	margin-top: 10px;
+}
 
 .carouselAvis
 {
@@ -539,4 +613,17 @@ a:hover{
 	margin:0;
 	color:white;
 	font-weight:bold;
+}
+.slogan 
+{
+	animation: slideIn 2s 1 normal;
+	font-family:'Roboto Slab';
+	color:white;
+	font-style: italic;
+	font-size:1.7rem;
+	float:left;
+	margin-left:17%;
+	margin-top:6%;
+	
+
 }

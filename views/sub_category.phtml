@@ -7,19 +7,11 @@
 			<p><?=$subcategory->getDescription()?></p>
 			
 
-			<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
+			<div class="btn <?=$admin?>">
+				<a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
+			</div>
 
-				<div class="affiche_sub">
-					<h2 class="affiche_sub_nom"><?php echo $produit->getNom();?></h2>
-
-					<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
-                </div>
-
-
-				
-					<div class="btn"><a style="color:white;text-decoration:none"href="index.php?page=produit&id_produit=<?=$produit->getId()?>">Voir le produit</a></div>
-			
-		</div>
+			<?php require('apps/ls_produits.php');?>
 
     </div>
 
