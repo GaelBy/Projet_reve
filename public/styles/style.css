@@ -152,11 +152,11 @@ ul a{
 .hautPage
 {
 	width:100%;
-<<<<<<< HEAD
+
 	height:180px;
-=======
+
 	height:200px;
->>>>>>> 75d9fd062d90dbf82c5de9984a635871c8f6fa1a
+
 }
 
 .sidebar
@@ -410,9 +410,8 @@ a:hover{
 {
 	width:53%;
 	height:auto;
-	position:absolute;
-	left:45%;
-	margin-bottom: 3%;
+	float:right;
+	margin-right:-20%;
 }
 
 .carousel h4
@@ -438,6 +437,7 @@ a:hover{
 {
 	width:80%;
 	height:auto;
+	margin-left:-15%;
 }
 
 .imgProduit
@@ -503,26 +503,22 @@ a:hover{
 {
 	margin-bottom: 10px;
 }
-<<<<<<< HEAD
+
 
 .carouselAvis
 {
-	width:40%;
+	margin-top:14%;
+	width:45%;
 	height:auto;
-	position:absolute;
-	left:-10%;
-	top:25%;
-	margin-bottom: 3%;
-	
-	
-
+	float:left;
 }
+
 .carousel2
 {
 	width:90%;
 	margin:0;
 	background-color: rgba(0,140,184,0.60);
-	padding:2em 1em;
+	padding:3em 1em 1em;
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px rgba(255,255,255,0.60);
 }
@@ -544,5 +540,3 @@ a:hover{
 	color:white;
 	font-weight:bold;
 }
-=======
->>>>>>> 75d9fd062d90dbf82c5de9984a635871c8f6fa1a
