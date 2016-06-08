@@ -62,7 +62,7 @@ ul a{
 	width:100%;
 	background-color: rgba(255,255,255,0.25);
 	font-size: 0; /* pour supprimer l'espace entre les li qui existe par défaut du fait du saut de ligne*/
-	box-shadow: 1px 1px 2px white;
+	box-shadow: 2px 2px 2px #008CB8;
 	position:relative;
 }
 .firstList .logo
@@ -105,14 +105,14 @@ ul a{
 	display:block; /*pour pouvoir appliquer un padding vertical*/
 	text-decoration: none;
 	padding:1.5em ;
-	color:#7EA6D2;
-	font-size:1.20rem;
+	color:#008CB8;
+	font-size:1.4rem;
 	font-family: 'Open Sans', sans-serif;
 }
 
 .pourHover a:hover
 {
-	background-color: #8CC2EA;
+	background-color: #008CB8;
 	color:white;
 }
 
@@ -120,13 +120,13 @@ ul a{
 {
 	position: absolute;
 	display: none;
-	background:#DEF2FB;
+	background:white;
 }
 
 .secondList li
 {
 	display: block;
-	text-align: left;
+	text-align: center;
 }
 
 .secondList li a
@@ -152,15 +152,16 @@ ul a{
 .hautPage
 {
 	width:100%;
+	/*height:180px;*/
 	height:200px;
 }
 
 .sidebar
 {
 	animation: slideInLeft 2s 1 normal;
-	padding-top:3em;
+	padding-top:4em;
 	display: block;
-	width:25%;
+	width:20%;
 	float: left;
 }
 
@@ -192,7 +193,7 @@ ul a{
 .sidebar .menuSide a:hover
 {
 	background-color: white;
-	color:black;
+	color:#008CB8;
 	box-shadow: 1px 1px 4px rgba(129,123,189,1);
 	text-decoration: none;
 	text-shadow: 1px 1px 1px gray;
@@ -375,9 +376,6 @@ a:hover{
 
 .avis
 {
-	/*position:absolute;*/
-	top:20%;
-	left:10;
 	background-color: rgba(255,255,255,0.55);
 	padding:0.5em;
 	border-radius: 5px;
@@ -407,16 +405,16 @@ a:hover{
 }
 .carousel
 {
-	width:50%;
+	width:53%;
 	height:auto;
 	position:absolute;
-	left:40%;
+	left:45%;
 	margin-bottom: 3%;
 }
 
 .carousel h4
 {
-	color:#7EA6D2;
+	color: #008CB8;
 }
 .textCarousel .nom
 {
@@ -554,4 +552,44 @@ a:hover{
 .paiement .carte
 {
 	margin-top: 10px !important;
+}
+
+.carouselAvis
+{
+	width:40%;
+	height:auto;
+	position:absolute;
+	left:-10%;
+	top:25%;
+	margin-bottom: 3%;
+	
+	
+
+}
+.carousel2
+{
+	width:90%;
+	margin:0;
+	background-color: rgba(0,140,184,0.60);
+	padding:2em 1em;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(255,255,255,0.60);
+}
+.textCarousel2 .contentAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	font-size: 2em;
+	font-style:italic;
+	text-align:left;
+	margin:0;
+	color:white;
+}
+
+.textCarousel2 .auteurAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	text-align:right;
+	margin:0;
+	color:white;
+	font-weight:bold;
 }
