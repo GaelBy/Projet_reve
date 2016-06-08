@@ -299,6 +299,10 @@ a:hover{
 	background-image:radial-gradient(white,#4E7FBD);
 	opacity:0.7;
 }*/
+.error
+{
+	color: #eee;
+}
 .register td
 {
 	padding: 1px 0;
@@ -355,7 +359,7 @@ a:hover{
 
 	border-radius:45px;
 	width:750px;
-	background-color:red;
+	background-color:black;
 	transform: scale(0.2, 0.2); 
 	opacity:0.1;
 	color:white;
@@ -369,7 +373,7 @@ a:hover{
      /*background-image: linear-gradient( white, rgba(255,255,255,0));
      transition: background-color 1s;
      opacity:0.7;*/
-     animation: fontbulger 1s ;
+     animation: fontbulger 1s infinite;
      transition: all .2s ease-in-out;
  
 
@@ -383,9 +387,10 @@ a:hover{
    
   }
   100% {
-    background-color:white;
-    opacity:0.6;
+    background-color:black;
+    opacity:0.5;
     transform: scale(1, 1); 
+   
   }
   
 }
@@ -460,6 +465,8 @@ a:hover{
 {
 	width:80%;
 	height:auto;
+	/*height:500px;*/
+	/*overflow:auto;*/
 }
 
 .imgProduit
@@ -525,6 +532,23 @@ a:hover{
 {
 	margin-bottom: 10px;
 }
+.produit .avis
+{
+	color: #222;
+}
+.admin_produit
+{
+	background: rgba(255, 255, 255, 0.55);
+	width: 31%;
+	padding: 30px !important;
+	border-radius: 3px;
+}
+.adminProd, .adminPaniers
+{
+	background: rgba(255,255,255,0.55);
+	padding: 10px;
+	border-radius: 3px;
+}
 .panier .thumb
 {
 	width: 20%;
@@ -578,7 +602,25 @@ a:hover{
 {
 	margin-top: 10px !important;
 }
-
+.conf_paiement
+{
+	color: #eee;
+}
+.conf_paiement a
+{
+	color: #eee;
+	text-decoration: none !important;
+}
+.admin_cat
+{
+	background: rgba(255, 255, 255, 0.55);
+	padding: 30px !important;
+	border-radius: 3px;
+	width: 50%;
+}
+.admin_cat button{
+	margin-top: 10px;
+}
 .carouselAvis
 {
 	width:40%;
