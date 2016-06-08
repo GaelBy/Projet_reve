@@ -444,11 +444,11 @@ a:hover{
 	width:50%;
 	padding: 10px;
 }
-.produit
+.produit, .panier
 {
 	color: #eee;
 }
-.produit button
+.produit button, .panier button, .info_panier button
 {
 	color: #111;
 	margin-top: 10px;
@@ -457,12 +457,12 @@ a:hover{
 {
 	vertical-align: middle;
 }
-.produit .left
+.produit .left, .panier .left
 {
 	float: left;
 	display: inline-block;
 }
-.produit .right
+.produit .right, .panier .right
 {
 	float: right;
 	padding: 10px;
@@ -501,4 +501,57 @@ a:hover{
 .produit .modif
 {
 	margin-bottom: 10px;
+}
+.panier .thumb
+{
+	width: 20%;
+}
+.panier h2, .panier h3
+{
+	margin: 0 50px;
+	padding: 0 0 10px;
+}
+.panier a
+{
+	color: #eee;
+	text-decoration: none !important;
+}
+.panier .left
+{
+	padding: 10px;
+}
+.panier_important
+{
+	font-size: 1.1em;
+}
+.panier .check, .panier button
+{
+	padding: 10px !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+.panier input, .panier label, .panier button
+{
+	margin: 0 !important;
+}
+.info_panier
+{
+	color: #eee;
+	margin-top: 10px;
+}
+.info_panier .poids, .info_panier .prix
+{
+	font-size: 1.2em;
+}
+.paiement h1, .paiement h2, .paiement h3, .paiement label
+{
+	color: #eee;
+}
+.paiement .row
+{
+	margin: 5px 0;
+}
+.paiement .carte
+{
+	margin-top: 10px !important;
 }
