@@ -205,6 +205,7 @@ class Produits
 		{
 			throw new Exception("Ce n'est pas une image");
 		}
+		$image=str_replace(['http://localhost/developpement/php/projet_reve/','http://localhost/projet_reve/'],'',$image);
 		$this->image=$image;
 
 	}
