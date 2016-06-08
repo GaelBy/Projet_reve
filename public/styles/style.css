@@ -637,6 +637,7 @@ a:hover{
 	margin:0;
 	color:white;
 	font-weight:bold;
+
 }
 .slogan 
 {
@@ -657,6 +658,7 @@ a:hover{
 		left: -10%;
 	}
 
+<<<<<<< HEAD
 	100%
 	{
 		left: 0%;
@@ -669,4 +671,6 @@ a:hover{
 	margin-bottom: 1em;
 	background-color:rgba(0,140,184,0.50); 
 
+=======
+>>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
 }
