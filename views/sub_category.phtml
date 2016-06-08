@@ -1,12 +1,26 @@
-<div style ="border:5px solid #B5CCEA; border-radius:45px;width:750px;background-color:#4E7FBD;opacity:0.4"class="sub_cat">
 
 
-	<h3 id="h2_sub" style="font-size:25px;color:white;text-align:center"><?=$subcategory->getNom()?></h3>
-	<p style="color:white;text-align:center"><?=$subcategory->getDescription()?></p>
-	<div class="<?=$admin?>">
-		<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a></div>
-	</div>
-	<ul>
-		<?php require('apps/ls_produits.php'); ?>
-	</ul>
-</div>
+	<div class="sub_cat">
+
+
+			<h3 id="h2_sub"><?=$subcategory->getNom()?></h3>
+			<p><?=$subcategory->getDescription()?></p>
+			
+
+			<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
+
+				<div class="affiche_sub">
+					<h2 class="affiche_sub_nom"><?php echo $produit->getNom();?></h2>
+
+					<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
+                </div>
+
+
+				
+					<div class="btn"><a style="color:white;text-decoration:none"href="index.php?page=produit&id_produit=<?=$produit->getId()?>">Voir le produit</a></div>
+			
+		</div>
+
+    </div>
+
+	

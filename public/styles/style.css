@@ -152,7 +152,11 @@ ul a{
 .hautPage
 {
 	width:100%;
+<<<<<<< HEAD
 	height:180px;
+=======
+	height:200px;
+>>>>>>> 75d9fd062d90dbf82c5de9984a635871c8f6fa1a
 }
 
 .sidebar
@@ -234,6 +238,7 @@ ul a{
 	color:gray;
 }
 
+
 .category-content{
 	padding-top: 5%;
 	width: 100%;
@@ -246,6 +251,8 @@ ul a{
 
 img{
 	display: block;
+	/*width:50%;*/
+	/*border-radius: 50%;*/
 	width:100%;
 	border-radius: 2%;
 	/*border: 3px solid #968397;*/
@@ -290,17 +297,55 @@ a{
 a:hover{
 	color: #EADACF;
 }
-
+/*.register
+{
+	background-image:radial-gradient(white,#4E7FBD);
+	opacity:0.7;
+}*/
+.register td
+{
+	padding: 1px 0;
+}
+.profile
+{
+	color: #fff;
+	text-align: center;
+}
 .td_panier{
     width:200px;
     border:1px solid black;
     text-align:center;
-    background-color:white;
 }
 
 .tbl_panier
 {
-	margin-left:175px;
+	margin: 0 50px;
+}
+.tbl_panier table
+{
+	margin-bottom: 10px;
+}
+.tbl_panier .table_titre
+{
+	margin: 10px 0;
+}
+.td_panier_titre
+{
+	color: #fff;
+	background: #272822;
+}
+.td_panier_content
+{
+    background-color:white;
+}
+.td_produit_titre
+{
+	color: #fff;
+	background: grey;
+}
+.white
+{
+	color: #fff;
 }
 .sousCat
 {
@@ -308,11 +353,29 @@ a:hover{
 	top:35%;
 }
 
+.sub_cat
+{
+	border:5px solid #272822;
+	border-radius:45px;
+	width:750px;
+	background-color:grey;
+	opacity:0.4;
+	color:white;
+	text-align:center;
+}
 .sub_cat:hover
 {
-	box-shadow:9px 9px 9px blue;
+	box-shadow:9px 9px 9px #262626;
 }
-
+.sub_cat h3
+{
+	font-size:25px;
+}
+.sub_cat a
+{
+	color: #fff;
+	text-decoration: none !important;
+}
 
 .avis
 {
@@ -440,6 +503,7 @@ a:hover{
 {
 	margin-bottom: 10px;
 }
+<<<<<<< HEAD
 
 .carouselAvis
 {
@@ -480,3 +544,5 @@ a:hover{
 	color:white;
 	font-weight:bold;
 }
+=======
+>>>>>>> 75d9fd062d90dbf82c5de9984a635871c8f6fa1a
