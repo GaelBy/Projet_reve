@@ -352,17 +352,42 @@ a:hover{
 
 .sub_cat
 {
-	border:5px solid #272822;
+
 	border-radius:45px;
 	width:750px;
-	background-color:grey;
-	opacity:0.4;
+	background-color:red;
+	transform: scale(0.2, 0.2); 
+	opacity:0.1;
 	color:white;
 	text-align:center;
 }
+
+
 .sub_cat:hover
 {
-	box-shadow:9px 9px 9px #262626;
+	/*box-shadow:9px 9px 9px #262626;*/
+     /*background-image: linear-gradient( white, rgba(255,255,255,0));
+     transition: background-color 1s;
+     opacity:0.7;*/
+     animation: fontbulger 1s ;
+     transition: all .2s ease-in-out;
+ 
+
+	
+}
+@keyframes fontbulger {
+  0% {
+    background-color:black;
+    opacity:0.5;
+    transform: scale(1, 1); 
+   
+  }
+  100% {
+    background-color:white;
+    opacity:0.6;
+    transform: scale(1, 1); 
+  }
+  
 }
 .sub_cat h3
 {
