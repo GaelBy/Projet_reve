@@ -1,13 +1,13 @@
 <hr>
-<div style="text-align:center;">
-<h3 style="color:white"><?php echo $user->getNom();?></h3>
-<h5 style="color:white"><?php echo $user->getPrenom();?></h5>
-<p style="color:white"><?php echo $user->getEmail();?></p>
-<p style="color:white"><?php echo $user->getTelephone();?></p>
+<div class="profile">
+<h3><?php echo $user->getNom();?></h3>
+<h5><?php echo $user->getPrenom();?></h5>
+<p><?php echo $user->getEmail();?></p>
+<p><?php echo $user->getTelephone();?></p>
 </div>
 <hr>
-<table 	class="tbl_panier"> 
+<div class="tbl_panier"> 
    
-
-<?php require('apps/ls_paniers.php'); ?>
-</table>
+	<div class="td_panier td_panier_titre table_titre">PANIERS</div>
+	<?php require('apps/ls_paniers.php'); ?>
+</div>
