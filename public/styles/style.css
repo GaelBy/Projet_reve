@@ -293,7 +293,20 @@ a{
 a:hover{
 	color: #EADACF;
 }
-
+/*.register
+{
+	background-image:radial-gradient(white,#4E7FBD);
+	opacity:0.7;
+}*/
+.register td
+{
+	padding: 1px 0;
+}
+.profile
+{
+	color: #fff;
+	text-align: center;
+}
 .td_panier{
     width:200px;
     border:1px solid black;
