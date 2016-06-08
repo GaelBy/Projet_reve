@@ -92,7 +92,7 @@ class SubCategory
 	}
 	public function setStatut($statut)
 	{
-		if(($statut)==FALSE)
+		if($statut != 0 && $statut != 1)
 		{
 			throw new Exception("Ce n'est pas un booléen");
 		}
