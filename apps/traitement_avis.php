@@ -72,4 +72,24 @@ else if(isset($_POST['action'], $_POST['id_avis']) && $_POST['action'] == "suppr
     	$error = $e->getMessage();
     }
 }
+else if(isset($_POST['action'], $_POST['id_avis']) && $_POST['action'] == "valider")
+{
+	try
+	{
+		$avis = $avis_manager->getById($_POST['id_avis']);
+		if (isset($_SESSION['admin']) && $_SESSION['admin'])
+		{
+			$avis->setStatut(1);
+			$avis_manager->update($avis);
+			$produit = $avis->getProduit();
+			$produit_manager->update($produit);
+			header('Location: ?page=produit&id_produit='.$produit->getId());
+			exit;
+		}
+	}
+	catch (Exception $e)
+    {
+    	$error = $e->getMessage();
+    }
+}
 ?>
