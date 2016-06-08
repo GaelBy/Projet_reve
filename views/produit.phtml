@@ -1,26 +1,32 @@
-<h1><?=htmlentities($produit->getNom())?></h1>
-<h3><?=htmlentities($produit->getReference())?></h3>
-<div class="right note">Note moyenne : <?=htmlentities($produit->setMoyenne())?>/5</div>
-<picture><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>"></picture>
-<p><?=htmlentities($produit->getDescription())?></p>
-<p>Stock restant : <?=htmlentities($produit->getStock())?></p>
-<div class="ht">Prix HT : <?=htmlentities($produit->getPrixUniHt())?> €</div>
-<div class="ttc">Prix TTC : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
-<form action="" method="POST">
-	<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Ajouter au panier</button>
-</form>
-<div class="<?=$admin?>">
-	<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=edit">Modifier</a></div>
-	<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></div>
+<div class="produit">
+	<div class="clearfix produit_header">
+		<div class="left">
+			<h1><?=htmlentities($produit->getNom())?></h1>
+			<h4><?=htmlentities($produit->getReference())?></h4>
+		</div>
+		<div class="right note"><h3>Note moyenne : <?=htmlentities($produit->setMoyenne())?> / 5</h3></div>
+	</div>
+	<div class="<?=$admin?>">
+		<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=edit">Modifier</a></div>
+		<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></div>
+	</div>
+	<picture class="imgProduit"><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>"></picture>
+	<p><?=htmlentities($produit->getDescription())?></p>
+	<p>Stock restant : <?=htmlentities($produit->getStock())?></p>
+	<div class="ht">Prix HT : <?=htmlentities($produit->getPrixUniHt())?> €</div>
+	<div class="ttc">Prix TTC : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
+	<form action="" method="POST">
+		<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Ajouter au panier</button>
+	</form>
+	<h2>Avis</h2>
+	<div class="container <?=$no_avis?>">
+		Aucun avis pour ce produit
+	</div>
+	<div class="ajout <?=$ajout_ok?>">
+		<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=creer">Ajouter un avis</a></div>
+	</div>
+	<div class="modif <?=$modif_ok?>">
+		<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=modifier">Modifier votre avis</a></div>
+	</div>
+	<div class="container <?=$avis_class?>"><?php require('apps/ls_avis.php'); ?></div>
 </div>
-<h2>Avis</h2>
-<div class="container <?=$no_avis?>">
-	Aucun avis pour ce produit
-</div>
-<div class="ajout <?=$ajout_ok?>">
-	<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=creer">Ajouter un avis</a></div>
-</div>
-<div class="modif <?=$modif_ok?>">
-	<div class="btn"><a href="index.php?page=avis&id_produit=<?=$produit->getId()?>&action=modifier">Modifier votre avis</a></div>
-</div>
-<div class="container <?=$avis_class?>"><?php require('apps/ls_avis.php'); ?></div>
