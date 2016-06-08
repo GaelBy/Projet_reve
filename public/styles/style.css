@@ -240,7 +240,12 @@ ul a{
 .category-content{
 	padding-top: 5%;
 	width: 100%;
-	background: url(../images/background_dream.jpg);
+	border-radius:5px;
+	width:750px;
+	background-color:rgba(255,255,255,0.60);
+	color:white;
+	text-align:center;
+	padding:1em;
 	background-size: 100%;
  	background-repeat: no-repeat;
 	height: 715px;
@@ -357,6 +362,12 @@ a:hover{
 
 .sub_cat
 {
+	/*border-radius:45px;
+	width:750px;
+	background-color:black;
+    transform: skewX(20deg) skewY(15deg);
+	transform: scale(0.2, 0.2); 
+	opacity:0.1;*/
 	/*border:5px solid #272822;*/
 	border-radius:5px;
 	width:750px;
@@ -370,9 +381,33 @@ a:hover{
 	background-position: center;
 	margin-left:15%;
 }
-.sub_cat:hover
+
+
+.enteteProduit:hover
 {
-	box-shadow:9px 9px 9px #262626;
+	/*box-shadow:9px 9px 9px #262626;*/
+     /*background-image: linear-gradient( white, rgba(255,255,255,0));
+     transition: background-color 1s;
+     opacity:0.7;*/
+
+     animation: fontbulger 1s infinite;
+     transition: all .5s ease-in-out;
+ 
+
+	
+}
+@keyframes fontbulger {
+  0% {
+    background-color:rgba(0,0,0,0.5);
+    transform: scale(1, 1); 
+   
+  }
+  100% {
+    background-color:rgba(0,0,0,0.5);
+    transform: scale(1, 1); 
+   
+  }
+  
 }
 .sub_cat h3
 {
@@ -500,10 +535,25 @@ a:hover{
 	padding: 5px;
 	margin-left: -10px;
 }
+.enteteProduit .btn
+{
+	background-color: rgba(255,255,255,0.60);
+	margin-bottom: 0.5em;
+	border:1px solid rgba(0,140,184,1);
+	display: inline-block;
+	padding:10px;
+	width:15%;
+}
+
+
+
 .produit .btn a:hover
 {
 	text-decoration: none !important;
+	background-color: rgba(0,140,184,1);
+	color: white;
 }
+
 .produit h2
 {
 	margin-top: 10px;
@@ -659,7 +709,6 @@ a:hover{
 		left: -10%;
 	}
 
-<<<<<<< HEAD
 	100%
 	{
 		left: 0%;
@@ -671,7 +720,4 @@ a:hover{
 	border-radius: 5px;
 	margin-bottom: 1em;
 	background-color:rgba(0,140,184,0.50); 
-
-=======
->>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
 }

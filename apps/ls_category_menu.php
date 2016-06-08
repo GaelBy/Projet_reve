@@ -6,7 +6,8 @@ $lsCategory = $manager->getAll();
 while($count<sizeof($lsCategory))
 {
 	$categorie = $lsCategory[$count];
-	require('views/ls_category_menu.phtml');
+	if ($categorie->getStatut()) 
+		require('views/ls_category_menu.phtml');
 	$count++;
 }
 

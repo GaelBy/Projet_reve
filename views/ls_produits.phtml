@@ -2,6 +2,6 @@
 	<div class="affiche_sub">
 		<h2 class="affiche_sub_nom"><?php echo $produit->getNom();?></h2>
 		<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
-		<div class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>"> Voir le produit </a></div>
+		<a href="index.php?page=produit&id_produit=<?=$produit->getId()?>" class="btn"> Voir le produit </a>
 	</div>
 </div>
