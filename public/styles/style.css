@@ -70,6 +70,7 @@ ul a{
 	position:absolute;
 	top:1%;
 	left:5%;
+	width:20%;
 }
 
 .logo
@@ -160,7 +161,7 @@ ul a{
 	animation: slideInLeft 2s 1 normal;
 	padding-top:4em;
 	display: block;
-	width:20%;
+	width:18%;
 	float: left;
 }
 
@@ -410,9 +411,8 @@ a:hover{
 {
 	width:53%;
 	height:auto;
-	position:absolute;
-	left:45%;
-	margin-bottom: 3%;
+	float:right;
+	margin-right:-20%;
 }
 
 .carousel h4
@@ -438,6 +438,8 @@ a:hover{
 {
 	width:80%;
 	height:auto;
+	margin-left:-15%;
+
 	/*height:500px;*/
 	/*overflow:auto;*/
 }
@@ -505,6 +507,7 @@ a:hover{
 {
 	margin-bottom: 10px;
 }
+
 .produit .avis
 {
 	color: #222;
@@ -594,24 +597,21 @@ a:hover{
 .admin_cat button{
 	margin-top: 10px;
 }
+
 .carouselAvis
 {
-	width:40%;
+	margin-top:14%;
+	width:45%;
 	height:auto;
-	position:absolute;
-	left:-10%;
-	top:25%;
-	margin-bottom: 3%;
-	
-	
-
+	float:left;
 }
+
 .carousel2
 {
 	width:90%;
 	margin:0;
 	background-color: rgba(0,140,184,0.60);
-	padding:2em 1em;
+	padding:3em 1em 1em;
 	border-radius: 5px;
 	box-shadow: 1px 1px 2px rgba(255,255,255,0.60);
 }
@@ -632,4 +632,18 @@ a:hover{
 	margin:0;
 	color:white;
 	font-weight:bold;
+
+}
+.slogan 
+{
+	animation: slideIn 2s 1 normal;
+	font-family:'Roboto Slab';
+	color:white;
+	font-style: italic;
+	font-size:1.7rem;
+	float:left;
+	margin-left:17%;
+	margin-top:6%;
+	
+
 }
