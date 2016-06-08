@@ -31,6 +31,8 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'])
 			$manager = new CategoryManager($link);
 			$cat = $manager->getById($_GET['id_category']);
 			$image_cat = $cat->getImage();
+			if (!strpos($image_cat, 'http://'))
+			$image_cat = 'http://localhost/projet_reve/'.$image_cat;
 			$action = 'edit';
 		}
 		else
