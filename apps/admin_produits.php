@@ -15,7 +15,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'])
 		$produit = $manager->getById($_GET['id_produit']);
 		$action = 'modifier';
 		if (!strpos($produit->getImage(), 'http://'))
-			$http = 'http://localhost/projet_reve';
+			$http = 'http://localhost/projet_reve/';
 	}
 	require('views/admin_produits.phtml');
 }
