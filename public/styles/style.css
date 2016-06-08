@@ -239,7 +239,12 @@ ul a{
 .category-content{
 	padding-top: 5%;
 	width: 100%;
-	background: url(../images/background_dream.jpg);
+	border-radius:5px;
+	width:750px;
+	background-color:rgba(255,255,255,0.60);
+	color:white;
+	text-align:center;
+	padding:1em;
 	background-size: 100%;
  	background-repeat: no-repeat;
 	height: 715px;
@@ -377,7 +382,7 @@ a:hover{
 }
 
 
-.sub_cat:hover
+.enteteProduit:hover
 {
 	/*box-shadow:9px 9px 9px #262626;*/
      /*background-image: linear-gradient( white, rgba(255,255,255,0));
@@ -392,14 +397,12 @@ a:hover{
 }
 @keyframes fontbulger {
   0% {
-    background-color:black;
-    opacity:0.5;
+    background-color:rgba(0,0,0,0.5);
     transform: scale(1, 1); 
    
   }
   100% {
-    background-color:black;
-    opacity:0.5;
+    background-color:rgba(0,0,0,0.5);
     transform: scale(1, 1); 
    
   }
@@ -530,14 +533,18 @@ a:hover{
 	font-weight: normal;
 	padding: 5px;
 	margin-left: -10px;
-
 }
 .enteteProduit .btn
 {
 	background-color: rgba(255,255,255,0.60);
 	margin-bottom: 0.5em;
-	border:2px solid rgba(0,140,184,1);
+	border:1px solid rgba(0,140,184,1);
+	display: inline-block;
+	padding:10px;
+	width:15%;
 }
+
+
 
 .produit .btn a:hover
 {
