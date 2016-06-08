@@ -3,7 +3,7 @@ if(isset($_GET['id_sub_category']))
 {
 	$manager = new SubCategoryManager($link);
 	$subcategory = $manager->getById($_GET['id_sub_category']);
-<<<<<<< HEAD
+
 	//$admin = 'hide';
 	//if (isset($_SESSION['admin']) && $_SESSION['admin'])
 		//$admin = '';
@@ -25,7 +25,7 @@ if(isset($_GET['id_sub_category']))
 			$iSub++;
 		}
  //require('apps/produit_item.php');
-=======
+
 	$array_produit = $subcategory->getProduits();
 	$admin='hide';
 	
@@ -34,6 +34,6 @@ if(isset($_GET['id_sub_category']))
 		$admin="";
 	}
 	require('views/sub_category.phtml');
->>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
+
 }
 ?>
