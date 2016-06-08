@@ -160,7 +160,7 @@ ul a{
 	animation: slideInLeft 2s 1 normal;
 	padding-top:4em;
 	display: block;
-	width:25%;
+	width:20%;
 	float: left;
 }
 
@@ -345,10 +345,10 @@ a:hover{
 }
 .carousel
 {
-	width:50%;
+	width:53%;
 	height:auto;
 	position:absolute;
-	left:40%;
+	left:45%;
 	margin-bottom: 3%;
 }
 
@@ -439,4 +439,44 @@ a:hover{
 .produit .modif
 {
 	margin-bottom: 10px;
+}
+
+.carouselAvis
+{
+	width:40%;
+	height:auto;
+	position:absolute;
+	left:-10%;
+	top:25%;
+	margin-bottom: 3%;
+	
+	
+
+}
+.carousel2
+{
+	width:90%;
+	margin:0;
+	background-color: rgba(0,140,184,0.60);
+	padding:2em 1em;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(255,255,255,0.60);
+}
+.textCarousel2 .contentAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	font-size: 2em;
+	font-style:italic;
+	text-align:left;
+	margin:0;
+	color:white;
+}
+
+.textCarousel2 .auteurAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	text-align:right;
+	margin:0;
+	color:white;
+	font-weight:bold;
 }
