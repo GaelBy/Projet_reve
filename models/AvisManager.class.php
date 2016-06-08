@@ -86,7 +86,8 @@ class AvisManager
 		$id = $avis->getId();
 		$content = mysqli_real_escape_string($this->link, $avis->getContent());
 		$note = intval($avis->getNote());
-		$query = "UPDATE avis SET content='".$content."', note='".$note."'
+		$statut = $avis->getStatut();
+		$query = "UPDATE avis SET content='".$content."', note='".$note."', statut='".$statut."'
 		WHERE id=".$id;
 		$res = mysqli_query($this->link, $query);
 		if ($res)

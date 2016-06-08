@@ -299,6 +299,10 @@ a:hover{
 	background-image:radial-gradient(white,#4E7FBD);
 	opacity:0.7;
 }*/
+.error
+{
+	color: #eee;
+}
 .register td
 {
 	padding: 1px 0;
@@ -515,6 +519,12 @@ a:hover{
 	padding: 30px !important;
 	border-radius: 3px;
 }
+.adminProd, .adminPaniers
+{
+	background: rgba(255,255,255,0.55);
+	padding: 10px;
+	border-radius: 3px;
+}
 .panier .thumb
 {
 	width: 20%;
@@ -567,6 +577,15 @@ a:hover{
 .paiement .carte
 {
 	margin-top: 10px !important;
+}
+.conf_paiement
+{
+	color: #eee;
+}
+.conf_paiement a
+{
+	color: #eee;
+	text-decoration: none !important;
 }
 .admin_cat
 {
