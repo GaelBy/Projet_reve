@@ -1,14 +1,12 @@
+
 <div class="sub_cat">
 	<h3 id="h2_sub"><?=$subcategory->getNom()?></h3>
 	<p><?=$subcategory->getDescription()?></p>
-	<div class="btn <?=$admin?>">
-		<a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
+	<div class="<?=$admin?>">
+		<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a></div>
 	</div>
-	<?php require('apps/ls_produits.php');?>
+	<?php require('apps/ls_produits.php'); ?>
 </div>
-
-
-<<<<<<< HEAD
 	<div class="sub_cat">
 
 
@@ -16,7 +14,6 @@
 			<p  style="color:#2E2E2E"><?=$subcategory->getDescription()?></p>
 			
 
-<<<<<<< HEAD
 			<div class="btn"><a style="color:#2E2E2E" href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
 
 				<div class="affiche_sub">
@@ -30,16 +27,12 @@
 					<div class="btn"><a style="color:#2E2E2E;text-decoration:none"href="index.php?page=produit&id_produit=<?=$produit->getId()?>">Voir le produit</a></div>
 			
 		</div>
-=======
 			<div class="btn <?=$admin?>">
 				<a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a>
 			</div>
 
 			<?php require('apps/ls_produits.php');?>
->>>>>>> 36a04c7a83db01dbe9a54f8d4201ce59613d906a
 
     </div>
 
 	
-=======
->>>>>>> 2a29d826ebeb7a1d82d20ee662e5a1063b437e91
