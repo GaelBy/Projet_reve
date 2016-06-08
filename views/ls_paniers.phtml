@@ -1,31 +1,28 @@
-
+<table>
     <tr>
-    	<td style="color:white;background-color:#272822;border:1px solid black">PANIER</td>
-    	
-    <tr>
-    <tr>
-		<td style="background-color:#272822;color:white"class="td_panier" >PRIX UNIT</td>
-		<td style="background-color:#272822;color:white"class="td_panier" >NOMBRE</td>
-		<td style="background-color:#272822;color:white"class="td_panier" >POIDS</td>
-		<td style="background-color:#272822;color:white"class="td_panier" >DATE</td>
+		<td class="td_panier td_panier_titre" >PRIX UNIT</td>
+		<td class="td_panier td_panier_titre" >NOMBRE</td>
+		<td class="td_panier td_panier_titre" >POIDS</td>
+		<td class="td_panier td_panier_titre" >DATE</td>
 	</tr>
 	<tr>
-		<td class="td_panier"><?php echo $panier->getPrix();?></td>
-		<td class="td_panier"><?php echo $panier->getNombreProduits();?></td>
-		<td class="td_panier"><?php echo $panier->getPoids();?></td>
-		<td class="td_panier"><?php echo $panier->getDate();?></td>
+		<td class="td_panier td_panier_content"><?php echo $panier->getPrix();?></td>
+		<td class="td_panier td_panier_content"><?php echo $panier->getNombreProduits();?></td>
+		<td class="td_panier td_panier_content"><?php echo $panier->getPoids();?></td>
+		<td class="td_panier td_panier_content"><?php echo date('d/m/Y H:i', strtotime($panier->getDate()));?></td>
 		
 	</tr>
 
 	<tr>
-		<td style="background-color:grey;color:white" class="td_panier" colspan="4">PRODUITS DU PANNIER</td>
+		<td style="background-color:grey;color:white" class="td_panier td_produit_titre" colspan="4">PRODUITS DU PANIER</td>
 	</tr>
 	<tr>
-	    <td style="background-color:grey;color:white"class="td_panier">NOM</td>
-		<td style="background-color:grey;color:white"class="td_panier">PRIX TTC</td>
-		<td style="background-color:grey;color:white"class="td_panier">TVA</td>
-		<td style="background-color:grey;color:white"class="td_panier">REFERENCE</td>
+	    <td style="background-color:grey;color:white"class="td_panier td_produit_titre">NOM</td>
+		<td style="background-color:grey;color:white"class="td_panier td_produit_titre">PRIX TTC</td>
+		<td style="background-color:grey;color:white"class="td_panier td_produit_titre">TVA</td>
+		<td style="background-color:grey;color:white"class="td_panier td_produit_titre">REFERENCE</td>
 	</tr>
-<?php require('apps/panier_item.php'); ?>
+	<?php require('apps/panier_item.php'); ?>
+</table>
 
 	

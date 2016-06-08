@@ -1,14 +1,10 @@
 <li>
-<div class="affiche_sub">
-	<h2 class="affiche_sub_nom"><?php echo $produit->getNom();?></h2>
-
-	<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
+	<div class="affiche_sub">
+		<h2 class="affiche_sub_nom"><?php echo $produit->getNom();?></h2>
 
 <<<<<<< HEAD
-	
-	
-	<div class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>"> Voir le produit </a></div>
-=======
+	<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
+
 
 
 	<!--<form method="POST">
@@ -16,9 +12,12 @@
          <input type="submit" value="voir le produit"/>
 	</form>-->
 	<div class="btn"><a style="color:white;text-decoration:none"href="index.php?page=produit&id_produit=<?=$produit->getId()?>">Voir le produit</a></div>
->>>>>>> 2872320ec50660f1de88d6e98e7aab67106d58fd
 	
 </div>
 
-</div>
+=======
+		<h2 class="affiche_sub_nom"><?php echo $produit->getDescription();?></h2>
+		<div class="btn"><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>"> Voir le produit </a></div>
+	</div>
+>>>>>>> 69007710340d11ab26768b6ad9a1d8eba305d8d1
 </li>

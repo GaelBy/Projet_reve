@@ -62,7 +62,7 @@ ul a{
 	width:100%;
 	background-color: rgba(255,255,255,0.25);
 	font-size: 0; /* pour supprimer l'espace entre les li qui existe par défaut du fait du saut de ligne*/
-	box-shadow: 1px 1px 2px white;
+	box-shadow: 2px 2px 2px #008CB8;
 	position:relative;
 }
 .firstList .logo
@@ -105,14 +105,14 @@ ul a{
 	display:block; /*pour pouvoir appliquer un padding vertical*/
 	text-decoration: none;
 	padding:1.5em ;
-	color:#7EA6D2;
-	font-size:1.20rem;
+	color:#008CB8;
+	font-size:1.4rem;
 	font-family: 'Open Sans', sans-serif;
 }
 
 .pourHover a:hover
 {
-	background-color: #8CC2EA;
+	background-color: #008CB8;
 	color:white;
 }
 
@@ -120,13 +120,13 @@ ul a{
 {
 	position: absolute;
 	display: none;
-	background:#DEF2FB;
+	background:white;
 }
 
 .secondList li
 {
 	display: block;
-	text-align: left;
+	text-align: center;
 }
 
 .secondList li a
@@ -158,9 +158,9 @@ ul a{
 .sidebar
 {
 	animation: slideInLeft 2s 1 normal;
-	padding-top:3em;
+	padding-top:4em;
 	display: block;
-	width:25%;
+	width:20%;
 	float: left;
 }
 
@@ -192,7 +192,7 @@ ul a{
 .sidebar .menuSide a:hover
 {
 	background-color: white;
-	color:black;
+	color:#008CB8;
 	box-shadow: 1px 1px 4px rgba(129,123,189,1);
 	text-decoration: none;
 	text-shadow: 1px 1px 1px gray;
@@ -234,15 +234,8 @@ ul a{
 	color:gray;
 }
 
-<<<<<<< HEAD
-body{
-	margin: 0;
-}
 
-/*.category-content{
-=======
 .category-content{
->>>>>>> 2872320ec50660f1de88d6e98e7aab67106d58fd
 	padding-top: 5%;
 	width: 100%;
 	background: url(../images/background_dream.jpg);
@@ -250,17 +243,14 @@ body{
  	background-repeat: no-repeat;
 	height: 715px;
 	font-family: "PT Sans Narrow";
-}*/
+}
 
 img{
 	display: block;
-<<<<<<< HEAD
-	width:50%;
-	border-radius: 50%;
-=======
+	/*width:50%;*/
+	/*border-radius: 50%;*/
 	width:100%;
 	border-radius: 2%;
->>>>>>> 2872320ec50660f1de88d6e98e7aab67106d58fd
 	/*border: 3px solid #968397;*/
 }
 
@@ -303,17 +293,55 @@ a{
 a:hover{
 	color: #EADACF;
 }
-
+/*.register
+{
+	background-image:radial-gradient(white,#4E7FBD);
+	opacity:0.7;
+}*/
+.register td
+{
+	padding: 1px 0;
+}
+.profile
+{
+	color: #fff;
+	text-align: center;
+}
 .td_panier{
     width:200px;
     border:1px solid black;
     text-align:center;
-    background-color:white;
 }
 
 .tbl_panier
 {
-	margin-left:175px;
+	margin: 0 50px;
+}
+.tbl_panier table
+{
+	margin-bottom: 10px;
+}
+.tbl_panier .table_titre
+{
+	margin: 10px 0;
+}
+.td_panier_titre
+{
+	color: #fff;
+	background: #272822;
+}
+.td_panier_content
+{
+    background-color:white;
+}
+.td_produit_titre
+{
+	color: #fff;
+	background: grey;
+}
+.white
+{
+	color: #fff;
 }
 .sousCat
 {
@@ -321,17 +349,32 @@ a:hover{
 	top:35%;
 }
 
+.sub_cat
+{
+	border:5px solid #272822;
+	border-radius:45px;
+	width:750px;
+	background-color:grey;
+	opacity:0.4;
+	color:white;
+	text-align:center;
+}
 .sub_cat:hover
 {
 	box-shadow:9px 9px 9px #262626;
 }
-
+.sub_cat h3
+{
+	font-size:25px;
+}
+.sub_cat a
+{
+	color: #fff;
+	text-decoration: none !important;
+}
 
 .avis
 {
-	/*position:absolute;*/
-	top:20%;
-	left:10;
 	background-color: rgba(255,255,255,0.55);
 	padding:0.5em;
 	border-radius: 5px;
@@ -361,16 +404,16 @@ a:hover{
 }
 .carousel
 {
-	width:50%;
+	width:53%;
 	height:auto;
 	position:absolute;
-	left:40%;
+	left:45%;
 	margin-bottom: 3%;
 }
 
 .carousel h4
 {
-	color:#7EA6D2;
+	color: #008CB8;
 }
 .textCarousel .nom
 {
@@ -391,6 +434,8 @@ a:hover{
 {
 	width:80%;
 	height:auto;
+	/*height:500px;*/
+	/*overflow:auto;*/
 }
 
 .imgProduit
@@ -398,11 +443,11 @@ a:hover{
 	width:50%;
 	padding: 10px;
 }
-.produit
+.produit, .panier
 {
 	color: #eee;
 }
-.produit button
+.produit button, .panier button, .info_panier button
 {
 	color: #111;
 	margin-top: 10px;
@@ -411,12 +456,12 @@ a:hover{
 {
 	vertical-align: middle;
 }
-.produit .left
+.produit .left, .panier .left
 {
 	float: left;
 	display: inline-block;
 }
-.produit .right
+.produit .right, .panier .right
 {
 	float: right;
 	padding: 10px;
@@ -455,4 +500,117 @@ a:hover{
 .produit .modif
 {
 	margin-bottom: 10px;
+}
+.produit .avis
+{
+	color: #222;
+}
+.admin_produit
+{
+	background: rgba(255, 255, 255, 0.55);
+	width: 31%;
+	padding: 30px !important;
+	border-radius: 3px;
+}
+.panier .thumb
+{
+	width: 20%;
+}
+.panier h2, .panier h3
+{
+	margin: 0 50px;
+	padding: 0 0 10px;
+}
+.panier a
+{
+	color: #eee;
+	text-decoration: none !important;
+}
+.panier .left
+{
+	padding: 10px;
+}
+.panier_important
+{
+	font-size: 1.1em;
+}
+.panier .check, .panier button
+{
+	padding: 10px !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+.panier input, .panier label, .panier button
+{
+	margin: 0 !important;
+}
+.info_panier
+{
+	color: #eee;
+	margin-top: 10px;
+}
+.info_panier .poids, .info_panier .prix
+{
+	font-size: 1.2em;
+}
+.paiement h1, .paiement h2, .paiement h3, .paiement label
+{
+	color: #eee;
+}
+.paiement .row
+{
+	margin: 5px 0;
+}
+.paiement .carte
+{
+	margin-top: 10px !important;
+}
+.admin_cat
+{
+	background: rgba(255, 255, 255, 0.55);
+	padding: 30px !important;
+	border-radius: 3px;
+	width: 50%;
+}
+.admin_cat button{
+	margin-top: 10px;
+}
+.carouselAvis
+{
+	width:40%;
+	height:auto;
+	position:absolute;
+	left:-10%;
+	top:25%;
+	margin-bottom: 3%;
+	
+	
+
+}
+.carousel2
+{
+	width:90%;
+	margin:0;
+	background-color: rgba(0,140,184,0.60);
+	padding:2em 1em;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(255,255,255,0.60);
+}
+.textCarousel2 .contentAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	font-size: 2em;
+	font-style:italic;
+	text-align:left;
+	margin:0;
+	color:white;
+}
+
+.textCarousel2 .auteurAvisCarou
+{
+	font-family: 'Open Sans',sans-serif;
+	text-align:right;
+	margin:0;
+	color:white;
+	font-weight:bold;
 }

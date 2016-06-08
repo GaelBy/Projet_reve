@@ -1,30 +1,32 @@
-<form action="" method="POST">
-	<div class="row">
-		<div class="col">Nom</div>
-		<div class="col"><input type="text" name="nom" value="<?=htmlentities($cat->getNom())?>"></div>
-	</div>
-	<div class="row <?=$sub_cat_hide?>">
-		<div class="col">Catégorie</div>
-		<div class="col">
-			<!--<input type="text" name="id_category" value="<?=htmlentities($id_cat)?>">-->
-			<select name="id_category">
-				<?php require('apps/admin_category_list.php'); ?>
-			</select>
+<div class="admin_cat">
+	<form action="" method="POST">
+		<div class="row">
+			<div class="col">Nom</div>
+			<div class="col"><input type="text" name="nom" value="<?=htmlentities($cat->getNom())?>"></div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col">Description</div>
-		<div class="col"><textarea name="description" cols="30" rows="10"><?=htmlentities($cat->getDescription())?></textarea></div>
-	</div>
-	<div class="row <?=$cat_hide?>">
-		<div class="col">Image</div>
-		<div class="col"><input type="text" name="image" value="<?=htmlentities($image_cat)?>"></div>
-	</div>
-	<div class="row">
-		<div class="col">Statut</div>
-		<div class="col"><input type="text" name="statut" value="<?=htmlentities($cat->getStatut())?>"></div>
-	</div>
-	<div class="row">
-		<button class="btn" type="submit" name="action" value="<?=$action?>">Envoyer</button>
-	</div>
-</form>
+		<div class="row <?=$sub_cat_hide?>">
+			<div class="col">Catégorie</div>
+			<div class="col">
+				<!--<input type="text" name="id_category" value="<?=htmlentities($id_cat)?>">-->
+				<select name="id_category">
+					<?php require('apps/admin_category_list.php'); ?>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">Description</div>
+			<div class="col"><textarea name="description" cols="30" rows="10"><?=htmlentities($cat->getDescription())?></textarea></div>
+		</div>
+		<div class="row <?=$cat_hide?>">
+			<div class="col">Image</div>
+			<div class="col"><input type="text" name="image" value="<?=htmlentities($image_cat)?>"></div>
+		</div>
+		<div class="row">
+			<div class="col">Statut</div>
+			<div class="col"><input type="text" name="statut" value="<?=htmlentities($cat->getStatut())?>"></div>
+		</div>
+		<div class="row">
+			<button class="btn" type="submit" name="action" value="<?=$action?>">Envoyer</button>
+		</div>
+	</form>
+</div>
