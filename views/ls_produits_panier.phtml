@@ -1,24 +1,25 @@
-
-
-
-<div class="container">
-	<div class="left"><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>"></div>
-	<h2><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>"><?=htmlentities($produit->getNom())?></a></h2>
-	<h3><?=htmlentities($produit->getReference())?></h3>
-	<div class="container">
-		<div class="left">Prix unitaire : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
-		<div class="left">Poids unitaire : <?=htmlentities($produit->getPoidsUni())?></div>
-		<div class="left">Quantité : <?=htmlentities($produit->getQuantite())?></div>
-		<div class="right panier-important">
-			<p>Prix : <?=htmlentities($produit->getPrixTtc())?> €</p>
-			<p>Poids : <?=htmlentities($produit->getPoids())?> g</p>
-		</div>
+<div class="clearfix">
+	<div class="left thumb"><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>"></div>
+	<div class="left">
+		<h2><a href="index.php?page=produit&id_produit=<?=$produit->getId()?>"><?=htmlentities($produit->getNom())?></a></h2>
+		<h3><?=htmlentities($produit->getReference())?></h3>
 	</div>
-	<div class="container">
-		<form action="" method="POST">
+</div>
+<div class="container">
+	<div class="left">Prix unitaire : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
+	<div class="left">Poids unitaire : <?=htmlentities($produit->getPoidsUni())?></div>
+	<div class="left">Quantité : <?=htmlentities($produit->getQuantite())?></div>
+	<div class="right panier_important">
+		<p>Prix : <?=htmlentities($produit->getPrixTtc())?> €</p>
+		<p>Poids : <?=htmlentities($produit->getPoids())?> g</p>
+	</div>
+</div>
+<div class="container">
+	<form action="" method="POST">
+		<div class="check">
 			<input type="checkbox" name="action[]" value="remove" id="remove">
 			<label for="remove">Retirer du panier</label>
-			<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Retirer</button>
-		</form>
-	</div>
+		</div>
+		<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Retirer</button>
+	</form>
 </div>

@@ -164,7 +164,7 @@ class User
 	public function getAdresse()
 	{
 		$manager=new AdresseManager($this->link);
-		$list=$manager->getByUser($this->id);
+		$list=$manager->getByUser($this);
 		return $list;
 	}
 
