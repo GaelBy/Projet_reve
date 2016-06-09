@@ -2,11 +2,11 @@
 <h2><a href="index.php?page=produit&id_produit=<?=$id_produit?>"><?=$nom?></a></h2>
 <h3><?=$reference?></h3>
 <div class="container">
-	<div class="left">Prix unitaire : <?=$prix_u?> €</div>
+	<div class="left">Prix unitaire : <?=number_format($prix_u,2)?> €</div>
 	<div class="left">Poids unitaire : <?=$poids_u?></div>
 	<div class="left">Quantité : <?=$quantite?></div>
 	<div class="right panier-important">
-		<p>Prix : <?=$prix_produit?> €</p>
+		<p>Prix : <?=number_format($prix_produit,2)?> €</p>
 		<p>Poids : <?=$poids_produit?> g</p>
 	</div>
 </div>

@@ -11,7 +11,7 @@
 		Poids total : <?=floatval($panier->getPoids())?> g
 	</div>
 	<div class="prix">
-		Montant total : <?=floatval($panier->getPrix())?> €
+		Montant total : <?=number_format(floatval($panier->getPrix()),2)?> €
 	</div>
 	<form action="" method="POST">
 		<button class="btn" type="submit" name="action" value="validate">Finaliser votre commande</button>
