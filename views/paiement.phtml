@@ -7,27 +7,27 @@
 		<form action="" method="POST">
 			<h3>Adresse de facturation</h3>
 			<div class="row">
-				<input type="text" name="nom_adresse1" value="<?=htmlentities($adresse_facturation->getNom())?>">
+				<input type="text" name="nom_adresse1" placeholder="désignation" value="<?=htmlentities($adresse_facturation->getNom())?>">
 			</div>
 			<div class="row">
-				<input type="text" name="numero1" value="<?=htmlentities($adresse_facturation->getNumero())?>">
-				<input type="text" name="rue1" value="<?=htmlentities($adresse_facturation->getRue())?>">
+				<input type="text" name="numero1" placeholder="numéro" value="<?=htmlentities($adresse_facturation->getNumero())?>">
+				<input type="text" name="rue1" placeholder="rue" value="<?=htmlentities($adresse_facturation->getRue())?>">
 			</div>
 			<div class="row">
-				<input type="text" name="code_postal1" value="<?=htmlentities($adresse_facturation->getCodePostal())?>">
-				<input type="text" name="ville1" value="<?=htmlentities($adresse_facturation->getVille())?>">
+				<input type="text" name="code_postal1" placeholder="code postal" value="<?=htmlentities($adresse_facturation->getCodePostal())?>">
+				<input type="text" name="ville1" placeholder="ville" value="<?=htmlentities($adresse_facturation->getVille())?>">
 			</div>
 			<h3>Adresse de livraison</h3>
 			<div class="row">
-				<input type="text" name="nom_adresse2" value="<?=htmlentities($adresse_livraison->getNom())?>">
+				<input type="text" name="nom_adresse2" placeholder="désignation" value="<?=htmlentities($adresse_livraison->getNom())?>">
 			</div>
 			<div class="row">
-				<input type="text" name="numero2" value="<?=htmlentities($adresse_livraison->getNumero())?>">
-				<input type="text" name="rue2" value="<?=htmlentities($adresse_livraison->getRue())?>">
+				<input type="text" name="numero2" placeholder="numéro" value="<?=htmlentities($adresse_livraison->getNumero())?>">
+				<input type="text" name="rue2" placeholder="rue" value="<?=htmlentities($adresse_livraison->getRue())?>">
 			</div>
 			<div class="row">
-				<input type="text" name="code_postal2" value="<?=htmlentities($adresse_livraison->getCodePostal())?>">
-				<input type="text" name="ville2" value="<?=htmlentities($adresse_livraison->getVille())?>">
+				<input type="text" name="code_postal2" placeholder="code postal" value="<?=htmlentities($adresse_livraison->getCodePostal())?>">
+				<input type="text" name="ville2" placeholder="ville" value="<?=htmlentities($adresse_livraison->getVille())?>">
 			</div>
 			<button class="btn" type="submit" name="action" value="adresse">Modifier</button>
 		</form>
