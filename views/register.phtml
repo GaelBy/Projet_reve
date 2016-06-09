@@ -3,19 +3,19 @@
 		<form method="POST">
 		<tr>
 			<td class="white">Nom</td>
-			<td><input type="text" name="nom"/></td>
+			<td><input type="text" name="nom" value="<?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="white">Prénom</div>
-			<td><input type="text" name="prenom"/></td>
+			<td><input type="text" name="prenom" value="<?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="white">E-mail</td>
-			<td><input type="email" name="email"/></td>
+			<td><input type="email" name="email" value="<?php if (isset($_POST['email'])){echo $_POST['email'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="white">Login</td>
-			<td><input type="text" name="login"/></td>
+			<td><input type="text" name="login" value="<?php if (isset($_POST['login'])){echo $_POST['login'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="white">Password</td>
@@ -37,11 +37,11 @@
 		</tr>
 		<tr>
 			<td class="white">Date de naissance</td>
-			<td><input type="text" name="date_naissance"/></td>
+			<td><input type="text" name="date_naissance" placeholder="jj/mm/aaaa" value="<?php if (isset($_POST['date_naissance'])){echo $_POST['date_naissance'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="white">Téléphone</td>
-			<td><input type="text" name="telephone"/></td>
+			<td><input type="text" name="telephone" value="<?php if (isset($_POST['telephone'])){echo $_POST['telephone'];} ?>"/></td>
 		</tr>
 
 		
@@ -54,23 +54,23 @@
 
 		<tr>
 			<td class="white">Nom de l'adresse</td>
-			<td><input type="text" name="nom_adresse1"></td>
+			<td><input type="text" name="nom_adresse1" value="<?php if (isset($_POST['nom_adresse1'])){echo $_POST['nom_adresse1'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Numéro</td>
-			<td><input type="text" name="numero1"></td>
+			<td><input type="text" name="numero1" value="<?php if (isset($_POST['numero1'])){echo $_POST['numero1'];} ?>" ></td>
 		</tr>
 		<tr>
 			<td class="white">Rue</td>
-			<td><input type="text" name="rue1"></td>
+			<td><input type="text" name="rue1" value="<?php if (isset($_POST['rue1'])){echo $_POST['rue1'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Code postal</td>
-			<td><input type="text" name="code_postal1"></td>
+			<td><input type="text" name="code_postal1" value="<?php if (isset($_POST['code_postal1'])){echo $_POST['code_postal1'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Ville</td>
-			<td><input type="text" name="ville1"></td>
+			<td><input type="text" name="ville1" value="<?php if (isset($_POST['ville1'])){echo $_POST['ville1'];} ?>"></td>
 		</tr>
 
 		
@@ -83,23 +83,23 @@
 
 		<tr>
 			<td class="white">Nom de l'adresse</td>
-			<td><input type="text" name="nom_adresse2"></td>
+			<td><input type="text" name="nom_adresse2" value="<?php if (isset($_POST['nom_adresse2'])){echo $_POST['nom_adresse2'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Numéro</td>
-			<td><input type="text" name="numero2"></td>
+			<td><input type="text" name="numero2" value="<?php if (isset($_POST['numero2'])){echo $_POST['numero2'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Rue</td>
-			<td><input type="text" name="rue2"></td>
+			<td><input type="text" name="rue2" value="<?php if (isset($_POST['rue2'])){echo $_POST['rue2'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Code postal</td>
-			<td><input type="text" name="code_postal2"></td>
+			<td><input type="text" name="code_postal2" value="<?php if (isset($_POST['code_postal2'])){echo $_POST['code_postal2'];} ?>"></td>
 		</tr>
 		<tr>
 			<td class="white">Ville</td>
-			<td><input type="text" name="ville2"></td>
+			<td><input type="text" name="ville2" value="<?php if (isset($_POST['ville2'])){echo $_POST['ville2'];} ?>"></td>
 		</tr>
 		<tr>
 			<td></td>

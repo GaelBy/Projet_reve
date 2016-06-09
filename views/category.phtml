@@ -2,8 +2,9 @@
 	<div class="category">
 		<img src="<?=$category->getImage()?>" alt="<?=$category->getNom()?>" class="img-category"/><h2><?=$category->getNom()?></h2>
 	</div>
-	<div class="<?=$admin?>">
+	<div class="<?=$admin?> lsBtnAdmin">
 		<div class="btn"><a href="index.php?page=admin_category&id_category=<?=$category->getId()?>&action=edit">Modifier la catégorie</a></div>
+		<div class="btn"><a href="index.php?page=admin_category&id=<?=$categorie->getId()?>&action=create">Création Sous-Catégorie</a></div>
 	</div>
 	<div class="subCategory">
 		<nav>
@@ -11,11 +12,6 @@
 				<?php require('apps/ls_sub_category.php');?>
 			</ul>
 		</nav>
-	</div>
-	<div class="<?=$admin?>">
-		<li>
-			<a href="index.php?page=admin_category&id=<?=$categorie->getId()?>&action=create">Création Sous-Catégorie</a>
-		</li>
 	</div>
 </div>				
 				<!--

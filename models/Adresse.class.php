@@ -57,15 +57,15 @@ class Adresse
 	public function setNom($nom)
 	{
 		if (strlen($nom) < 3)
-			throw new Exception("Nom trop court (<3)");
+			throw new Exception("Nom d'adresse trop court (<3)");
 		else if (strlen($nom) > 15)
-			throw new Exception("Nom trop long (>15)");
+			throw new Exception("Nom d'adresse trop long (>15)");
 		$this->nom = $nom;			
 	}
 	public function setNumero($numero)
 	{
 		if (strlen($numero) > 7)
-			throw new Exception("Numéro trop long");
+			throw new Exception("Numéro de téléphone trop long");
 		$this->numero = $numero;
 	}
 	public function setRue($rue)

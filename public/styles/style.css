@@ -241,15 +241,37 @@ ul a{
 	padding-top: 5%;
 	width: 100%;
 	border-radius:5px;
-	width:750px;
+	width:600px;
 	background-color:rgba(255,255,255,0.60);
 	color:white;
-	text-align:center;
+	text-align:left;
 	padding:1em;
 	background-size: 100%;
  	background-repeat: no-repeat;
-	height: 715px;
 	font-family: "PT Sans Narrow";
+	position:relative;
+	margin:110px auto;
+}
+.category-content img
+{
+	width:100%;
+}
+.category-content h2
+{
+	position:absolute;
+	left:40%;
+	top:0%;
+	margin-top: -2%;
+}
+
+.category-content .lsBtnAdmin
+{
+	float:right;
+}
+.category-content .btn 
+{
+	display: block;
+	text-align: right;
 }
 
 img{
@@ -259,6 +281,16 @@ img{
 	width:100%;
 	border-radius: 2%;
 	/*border: 3px solid #968397;*/
+}
+
+.subCategory
+{
+	width:20%;
+	margin:auto;
+	position:absolute;
+	top:27%;
+	left:40%;
+	text-align: center;
 }
 
 .img-category:hover{
@@ -526,7 +558,7 @@ a:hover{
 {
 	width: 100% !important;
 }
-.produit .btn a
+.produit .btn a,.category-content .btn a
 {
 	color: #111;
 	background: #f9f9f8;

@@ -7,10 +7,21 @@ if (isset($_SESSION['id'], $_SESSION['panier']))
 	$user_manager = new UserManager($link);
 	$user = $user_manager->getById($_SESSION['id']);
 	$adresse_facturation = $user->getAdresseFacturation();
+	if (empty($adresse_facturation))
+	{
+		$adresse_facturation = new Adresse($link);
+		$adresse_facturation->setIdUser($user->getId());
+		$adresse_facturation->setTypeAdresse('facturation');
+	}
 	$adresse_livraison = $user->getAdresseLivraison();
+	if (empty($adresse_livraison))
+	{
+		$adresse_livraison = new Adresse($link);
+		$adresse_livraison->setIdUser($user->getId());
+		$adresse_livraison->setTypeAdresse('livraison');
+	}
 	require('views/paiement.phtml');
 }
-if (isset($_POST['id_panier']))
-	header ('Location: index.php?page=conf_paiement');
+
 
 ?>
