@@ -6,5 +6,8 @@ if(isset($_SESSION['admin'])&&$_SESSION['admin'])
 {
 	$admin="";
 }
-require('views/category.phtml');
+if (!empty($category))
+	require('views/category.phtml');
+else
+	require('views/home.phtml');
 ?>

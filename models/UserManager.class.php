@@ -112,7 +112,6 @@ class UserManager
 		$query="INSERT INTO users (nom,prenom,email,password,date_naissance,telephone,statut,sexe,login) 
 				VALUES ('".$nom."','".$prenom."', '".$email."','".$password."','".$dateNaissance."','".$telephone."','".$statut."','".$sexe."','".$login."')";
 		$res=mysqli_query($this->link,$query);
-var_dump($query);
 		// on vérifie que la requête s'est bien exécutée:
 		if($res)
 		{
