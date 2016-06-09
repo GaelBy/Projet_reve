@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 09 Juin 2016 à 09:55
+-- Généré le: Jeu 09 Juin 2016 à 14:49
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -121,18 +121,14 @@ CREATE TABLE IF NOT EXISTS `link_panier_produits` (
   PRIMARY KEY (`id`),
   KEY `id_panier` (`id_panier`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111 ;
 
 --
 -- Contenu de la table `link_panier_produits`
 --
 
 INSERT INTO `link_panier_produits` (`id`, `id_panier`, `id_produit`, `quantite`) VALUES
-(17, 23, 1, 4),
-(18, 24, 2, 1),
-(23, 25, 2, 2),
-(64, 26, 2, 2),
-(65, 26, 3, 2);
+(110, 33, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -150,34 +146,14 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `poids` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Contenu de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `id_user`, `date`, `statut`, `nbre_produits`, `prix`, `poids`) VALUES
-(6, 10, '2016-06-01 12:04:13', 'en cours', 0, 0, 0),
-(7, 10, '2016-06-01 12:05:40', 'en cours', 0, 0, 0),
-(8, 10, '2016-06-01 12:06:09', 'en cours', 0, 0, 0),
-(9, 10, '2016-06-01 12:07:09', 'en cours', 0, 0, 0),
-(10, 10, '2016-06-01 12:09:40', 'en cours', 0, 0, 0),
-(11, 10, '2016-06-01 12:09:56', 'en cours', 0, 0, 0),
-(12, 10, '2016-06-01 12:10:51', 'en cours', 0, 0, 0),
-(13, 10, '2016-06-01 12:12:03', 'en cours', 0, 0, 0),
-(14, 10, '2016-06-01 12:13:05', 'en cours', 0, 0, 0),
-(15, 10, '2016-06-01 12:14:01', 'en cours', 0, 0, 0),
-(16, 10, '2016-06-01 12:16:16', 'en cours', 0, 0, 0),
-(17, 10, '2016-06-01 12:16:35', 'en cours', 0, 0, 0),
-(18, 10, '2016-06-01 12:17:19', 'en cours', 0, 0, 0),
-(19, 10, '2016-06-01 12:19:39', 'en cours', 1, 660, 23),
-(20, 10, '2016-06-01 14:00:48', 'en cours', 24, 1502, 26),
-(21, 10, '2016-06-02 07:03:14', 'en cours', 1, 60, 1),
-(22, 2, '2016-06-02 07:20:47', 'en cours', 1, 724, 14),
-(23, 2, '2016-06-06 11:30:44', 'valide', 3, 3.48, 3),
-(24, 2, '2016-06-06 14:09:34', 'valide', 1, 0, 0),
-(25, 2, '2016-06-07 07:59:04', 'valide', 1, 1.16, 1),
-(26, 2, '2016-06-07 08:14:36', 'valide', 2, 6.96, 4);
+(33, 12, '2016-06-09 12:18:38', 'Paye', 1, 1.16, 1);
 
 -- --------------------------------------------------------
 
@@ -207,68 +183,68 @@ CREATE TABLE IF NOT EXISTS `produits` (
 --
 
 INSERT INTO `produits` (`id`, `id_sub_category`, `reference`, `stock`, `prix_uni_ht`, `tva`, `description`, `image`, `nom`, `poids_uni`, `statut`, `moyenne`) VALUES
-(1, 3, 'zd9830fr', 37, 1, 0.16, 'Gagne la Coupe du Monde en devenant Zizou!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport4.jpg', 'Zinedine Zidane', 1, 1, 5),
-(2, 4, 'spm001kr', 7, 1, 0.16, 'Sauve le monde en cape et collants!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme4.jpg', 'Superman', 1, 1, 5),
-(3, 5, 'CL11NES', 44, 2, 0.16, 'Deviens le chouchou de ces dames!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme3.jpeg', 'George Clooney', 1, 1, 1),
-(5, 3, 'AIR3JDNBL', 10, 5, 0.16, 'Envole-toi sur un terrain de basket!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport1.jpeg', 'Michael Jordan', 1, 1, 0),
-(6, 3, 'BXM10KO', 50, 5, 0.16, 'Deviens le roi du ring!!', 'public/images/homme/legendes_sport/legendes_sport2.jpg', 'Muhammad Ali', 2, 1, 0),
-(7, 4, 'BAT01DC', 52, 4, 0.16, 'Veille sur Gotham City!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme1.jpg', 'Batman', 1, 1, 0),
-(8, 6, 'VOL66MGM', 8, 2, 0.16, 'Dans le coeur du volcan!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme4.jpg', 'Volcan', 3, 1, 0),
-(9, 9, 'WDBCH02', 22, 3, 0.16, 'Profite d''une lune de miel magique!', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel2.jpg', 'Lune de miel de rÃªve', 1, 1, 0),
-(10, 8, 'ACC20SLD', 50, 1.5, 0.16, 'Sacs, bijoux, et plus encore', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping3.jpg', 'Accessoires', 1, 0, 0),
-(11, 11, 'STRK12Fe', 60, 2, 0.16, 'Sauve le monde en armure!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant2.jpg', 'Iron Man', 2, 1, 0),
-(12, 3, 'rg6565fed', 10, 15, 0.16, 'Jeu, set & match!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport3.jpeg', 'Roger Federer', 1, 1, 0),
-(13, 4, 'hulk12345', 10, 30, 0.16, 'Subis la colere de Hulk!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme2.jpg', 'Incroyable Hulk', 20, 1, 0),
-(14, 4, 'spider9857', 23, 25, 0.16, 'Sois pret à tisser ta toile!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme3.jpeg', 'Spiderman', 7, 1, 0),
-(15, 5, 'alpacino6565', 17, 40, 0.16, 'Deviens une legende du 7eme art!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme1.jpg', 'Al Pacino', 18, 1, 0),
-(16, 5, 'bradpitt5656', 21, 60, 0.16, 'Tourne dans les plus grands films!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme2.jpeg', 'Brad Pitt', 32, 1, 0),
-(17, 5, 'leonardo9875', 78, 55, 0.16, 'Recois l''oscar du meilleur acteur!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme5.jpg', 'Leonardo DiCaprio', 15, 1, 0),
-(18, 6, 'earthquake65657', 5, 18, 0.16, 'En avant les secousses!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme1.jpg', 'Earthquake', 18, 1, 0),
-(19, 6, 'prison654654', 6, 35, 0.16, 'Peur de finir derriere les barreaux?', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme2.jpg', 'Prison', 6, 1, 0),
-(20, 6, 'tsunamis564', 5, 20, 0.16, 'Provoque un raz-de-maree!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme3.jpeg', 'Tsunamis', 7, 1, 0),
-(21, 7, 'bijoux568', 67, 99, 0.16, 'Brille de mille feux avec les plus belles parures!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping1.jpg', 'Bijoux', 1, 1, 0),
-(22, 7, 'chaussures3685', 89, 199, 0.16, 'Chausse les plus grandes marques!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping2.jpeg', 'Chaussures', 2, 1, 0),
-(23, 7, 'sacs6586', 33, 399, 0.16, 'Porte les sacs des plus grands createurs!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping3.jpg', 'Sacs Ã  main', 3, 1, 0),
-(24, 7, 'smartphone356', 8, 899, 0.16, 'Profite de la toute derniere technologie!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping4.jpg', 'Smartphones', 1, 1, 0),
-(25, 8, 'angelina4565', 2, 89, 0.16, 'Adopte des petits Cambodgiens!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme1.jpg', 'Angelina Jolie', 30, 1, 0),
-(26, 8, 'beyonce65876', 5, 199, 0.16, 'Fais danser la foule!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme2.jpg', 'Beyonce', 50, 1, 0),
-(27, 8, 'emma354756', 4, 59, 0.16, 'Deviens Emma Watson d''un coup de baguette magique!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme3.jpg', 'Emma Watson', 45, 1, 0),
-(28, 8, 'taylor', 3, 499, 0.16, 'Deviens une star de la pop!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme5.jpeg', 'Taylor Swift', 50, 1, 0),
-(29, 9, 'luneluxe354', 8, 7999, 0.16, 'Vis une experience inoubliable!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel1.jpg', 'Lune de miel de luxe', 5, 1, 0),
-(30, 9, 'mariage354654', 6, 9999, 0.16, 'Qui n''a jamais reve de se marier devant des paysages aussi sublimes?', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel5.jpg', 'Mariage sur la plage', 1, 1, 0),
-(31, 9, 'mariage35785', 3, 5999, 0.16, 'Envie d''un mariage dans un cadre verdoyant?', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel3.jpg', 'Mariage montagne', 1, 1, 0),
-(32, 10, 'accidents35435', 3, 899, 0.16, 'Envie de faire peur Ã  la belle-mÃ¨re?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme1.jpeg', 'Accidents', 999, 1, 0),
-(33, 10, 'agressions3243', 8, 199, 0.16, 'Envie de se dÃ©fouler sur la belle-mÃ¨re?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme2.jpg', 'Agressions', 76, 1, 0),
-(34, 10, 'cafards32425', 18325898, 0.3, 0.16, 'Besoin de protÃ©ines?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme3.jpg', 'Cafards', 0.001, 1, 0),
-(35, 10, 'serpents65456', 156, 150, 0.16, 'Effrayez vos amis en devenant un animal Ã  sang froid!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme4.jpg', 'Serpents', 0.3, 1, 0),
-(36, 11, 'captain32553', 89, 59, 0.16, 'PrÃªt Ã  diriger les Avengers?', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant1.jpg', 'Captain America', 10, 1, 0),
-(37, 11, 'thor35365', 5, 29, 0.16, 'Deviens le Dieu de la Foudre!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant3.jpg', 'Thor - Dieu de la Foudre', 9, 1, 0),
-(38, 11, 'wolve35835', 4, 79, 0.16, 'Sois prÃªt Ã  sortir tes griffes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant4.jpg', 'Wolverine', 3, 1, 0),
-(39, 13, 'disney354584', 78, 99, 0.16, 'Vis le monde merveilleux de Disney!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion1.jpeg', 'Disneyland Paris', 1, 1, 0),
-(40, 13, 'europa3689358', 75, 40, 0.16, 'Visite le plus beau parc d''attraction d''Europe!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion2.jpg', 'Europa Park', 1, 1, 0),
-(41, 13, 'asterix2585', 124, 50, 0.16, 'Ils sont fous ces romains!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion5.jpg', 'Parc AstÃ©rix', 1, 1, 0),
-(42, 13, 'zoo35835', 86, 30, 0.16, 'Un des plus beaux parcs zoologiques d''Europe!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion6.jpg', 'Zoo d''AmnÃ©ville', 1, 1, 0),
-(43, 12, 'barbie3553', 18, 30, 0.16, 'Si tu peux le rÃªver, tu peux le devenir!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes1.jpg', 'Barbie', 4, 1, 0),
-(44, 12, 'reine656568', 356, 79, 0.16, 'LibÃ©rÃ©e, dÃ©livrÃ©e, tu peux devenir comme moi dÃ©sormais!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes2.jpeg', 'La Reine des Neiges', 2, 1, 0),
-(45, 12, 'shrek6868', 9, 19, 0.16, 'Deviens le roi des ogres...et l''ami des Ã¢nes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes3.jpeg', 'Shrek', 300, 1, 0),
-(46, 12, 'simpsons58536', 56, 49, 0.16, 'Fais partie de la famille la plus dÃ©jantÃ©e de Springfield!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes4.jpeg', 'Les Simpsons', 50, 1, 0),
-(47, 14, 'tagada5356', 124, 3, 0.16, 'DÃ©pÃªche-toi de ramener ta fraise!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons1.jpg', 'Fraises Tagada', 1, 1, 0),
-(48, 14, 'kinder35356', 64, 2, 0.16, 'Les Kinder Surprise c''est comme la vie: on sait jamais sur quoi on va tomber!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons2.jpg', 'Kinder Surprise', 1, 1, 0),
-(49, 14, 'tetes5336547', 59, 1.5, 0.16, 'Les tÃªtes brÃ»lÃ©es, le bonbon qui t''arrache la tÃªte!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons3.jpg', 'Les TÃªtes BrÃ»lÃ©es', 1, 1, 0),
-(50, 14, 'mms353658', 214, 2, 0.16, 'Faites la fÃªte aux cacahuÃ¨tes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons4.jpg', 'M&M''s', 1, 1, 0),
-(51, 15, 'amis5676', 56, 45, 0.16, 'Fais le plein d''amis!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale5.jpg', 'Se faire des amis', 5, 1, 0),
-(52, 15, 'famille35454', 48, 199, 0.16, 'Lave ton linge sale en famille!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale4.jpg', 'Fonder une famille', 50, 1, 0),
-(53, 15, 'patron3574357', 21, 499, 0.16, 'C''est qui le patron?', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale2.jpg', 'Devenir patron', 20, 1, 0),
-(54, 15, 'travail3574357', 45, 299, 0.16, 'Gravis tous les Ã©chelons professionnels!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale1.jpg', 'RÃ©ussir au travail', 45, 1, 0),
-(55, 16, 'la654654', 1, 15000000, 0.16, 'A toi la vie dans la CitÃ© des Anges!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve1.jpg', 'Maison Ã  Los Angeles', 1, 1, 0),
-(56, 16, 'miami654564', 1, 15000000, 0.16, 'A toi la vie Ã  South Beach!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve2.jpg', 'Maison Ã  Miami', 1, 1, 0),
-(57, 16, 'rio75575', 1, 15000000, 0.16, 'A toi la vie Ã  Rio de Janeiro!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve4.jpg', 'Maison Ã  Rio', 1, 1, 0),
-(58, 16, 'shangai654564', 1, 15000000, 0.16, 'A toi la vie Ã  ShangaÃ¯!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve3.jpeg', 'Maison Ã  ShangaÃ¯', 1, 1, 0),
-(59, 17, 'finance564654', 22, 15000, 0.16, 'Compte tes piÃ¨ces d''or!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_financiere/reussite_financiere5.jpg', 'RÃ©ussir financiÃ¨rement', 3, 1, 0),
-(60, 18, 'chine654564', 4, 999, 0.16, 'Explore la Grande Muraille!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage1.jpg', 'Voyage en Chine', 1, 1, 0),
-(61, 18, 'usa564564', 4, 1699, 0.16, 'A la conquÃªte de l''ouest amÃ©ricain!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage6.jpg', 'Voyage USA', 1, 1, 0),
-(62, 18, 'rome68775', 4, 499, 0.16, 'DÃ©couvre le ColisÃ©e!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage3.jpg', 'Voyage Ã  Rome', 1, 1, 0),
-(63, 18, 'inde564564', 4, 1499, 0.16, 'A la dÃ©couverte du Taj Mahal!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage5.jpg', 'Voyage en Inde', 1, 1, 0);
+(1, 3, 'Ref: zd9830fr', 32, 99, 0.16, 'Gagne la Coupe du Monde en devenant Zizou!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport4.jpg', 'Zinedine Zidane', 1, 1, 5),
+(2, 4, 'Ref: spm001kr', 59, 199, 0.16, 'Sauve le monde en cape et collants!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme4.jpg', 'Superman', 1, 1, 5),
+(3, 5, 'Ref: CL11NES', 44, 89, 0.16, 'Deviens le chouchou de ces dames!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme3.jpeg', 'George Clooney', 1, 1, 1),
+(5, 3, 'Ref: AIR3JDNBL', 10, 599, 0.16, 'Envole-toi sur un terrain de basket!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport1.jpeg', 'Michael Jordan', 1, 1, 0),
+(6, 3, 'Ref: BXM10KO', 50, 199, 0.16, 'Deviens le roi du ring!!', 'public/images/homme/legendes_sport/legendes_sport2.jpg', 'Muhammad Ali', 2, 1, 0),
+(7, 4, 'Ref: BAT01DC', 52, 79, 0.16, 'Veille sur Gotham City!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme1.jpg', 'Batman', 1, 1, 0),
+(8, 6, 'Ref: VOL66MGM', 8, 1499, 0.16, 'Dans le coeur du volcan!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme4.jpg', 'Volcan', 3, 1, 0),
+(9, 9, 'Ref: WDBCH02', 22, 7999, 0.16, 'Profite d''une lune de miel magique!', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel2.jpg', 'Lune de miel de rÃªve', 1, 1, 0),
+(10, 8, 'Ref: ACC20SLD', 50, 499, 0.16, 'Sacs, bijoux, et plus encore', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping3.jpg', 'Accessoires', 1, 0, 0),
+(11, 11, 'Ref: STRK12Fe', 60, 129, 0.16, 'Sauve le monde en armure!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant2.jpg', 'Iron Man', 2, 1, 0),
+(12, 3, 'Ref: rg6565fed', 10, 269, 0.16, 'Jeu, set & match!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport3.jpeg', 'Roger Federer', 1, 1, 0),
+(13, 4, 'Ref: hulk12345', 10, 569, 0.16, 'Subis la colere de Hulk!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme2.jpg', 'Incroyable Hulk', 20, 1, 0),
+(14, 4, 'Ref: spider9857', 23, 125, 0.16, 'Sois pret à tisser ta toile!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme3.jpeg', 'Spiderman', 7, 1, 0),
+(15, 5, 'Ref: pacino6565', 17, 349, 0.16, 'Deviens une legende du 7eme art!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme1.jpg', 'Al Pacino', 18, 1, 0),
+(16, 5, 'Ref: pitt5656', 21, 659, 0.16, 'Tourne dans les plus grands films!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme2.jpeg', 'Brad Pitt', 32, 1, 0),
+(17, 5, 'Ref: leonardo98', 78, 559, 0.16, 'Recois l''oscar du meilleur acteur!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme5.jpg', 'Leonardo DiCaprio', 15, 1, 0),
+(18, 6, 'Ref: earthqua65', 5, 2999, 0.16, 'En avant les secousses!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme1.jpg', 'Earthquake', 18, 1, 0),
+(19, 6, 'Ref: prison654', 6, 75, 0.16, 'Peur de finir derriere les barreaux?', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme2.jpg', 'Prison', 6, 1, 0),
+(20, 6, 'Ref: tsunamis5', 5, 9999, 0.16, 'Provoque un raz-de-maree!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme3.jpeg', 'Tsunamis', 7, 1, 0),
+(21, 7, 'Ref: bijoux568', 67, 1799, 0.16, 'Brille de mille feux avec les plus belles parures!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping1.jpg', 'Bijoux', 1, 1, 0),
+(22, 7, 'Ref: chaussu36', 87, 199, 0.16, 'Chausse les plus grandes marques!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping2.jpeg', 'Chaussures', 2, 1, 0),
+(23, 7, 'Ref: sacs6586', 33, 399, 0.16, 'Porte les sacs des plus grands createurs!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping3.jpg', 'Sacs Ã  main', 3, 1, 0),
+(24, 7, 'Ref: smartp356', 8, 899, 0.16, 'Profite de la toute derniere technologie!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping4.jpg', 'Smartphones', 1, 1, 0),
+(25, 8, 'Ref: angelina45', 2, 4999, 0.16, 'Adopte des petits Cambodgiens!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme1.jpg', 'Angelina Jolie', 30, 1, 0),
+(26, 8, 'Ref: beyonce65', 5, 5799, 0.16, 'Fais danser la foule!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme2.jpg', 'Beyonce', 50, 1, 0),
+(27, 8, 'Ref: emma3547', 4, 5199, 0.16, 'Deviens Emma Watson d''un coup de baguette magique!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme3.jpg', 'Emma Watson', 45, 1, 0),
+(28, 8, 'Ref: taylor', 3, 499, 0.16, 'Deviens une star de la pop!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/celebrites_femme/celebrites_femme5.jpeg', 'Taylor Swift', 50, 1, 0),
+(29, 9, 'Ref: lunel354', 8, 7999, 0.16, 'Vis une experience inoubliable!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel1.jpg', 'Lune de miel de luxe', 5, 1, 0),
+(30, 9, 'Ref: mariage354', 6, 9999, 0.16, 'Qui n''a jamais reve de se marier devant des paysages aussi sublimes?', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel5.jpg', 'Mariage sur la plage', 1, 1, 0),
+(31, 9, 'Ref: mariage357', 3, 5999, 0.16, 'Envie d''un mariage dans un cadre verdoyant?', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel3.jpg', 'Mariage montagne', 1, 1, 0),
+(32, 10, 'Ref: accident35', 3, 899, 0.16, 'Envie de faire peur a la belle-mere?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme1.jpeg', 'Accidents', 999, 1, 0),
+(33, 10, 'Ref: agression3', 8, 199, 0.16, 'Envie de se defouler sur la belle-mere?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme2.jpg', 'Agressions', 76, 1, 0),
+(34, 10, 'Ref: cafards32', 18325898, 0.3, 0.16, 'Besoin de proteines?', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme3.jpg', 'Cafards', 0.001, 1, 0),
+(35, 10, 'Ref: serpents65', 156, 150, 0.16, 'Effrayez vos amis en devenant un animal Ã  sang froid!!', 'http://localhost/developpement/php/projet_reve/public/images/femme/cauchemars_femme/cauchemars_femme4.jpg', 'Serpents', 0.3, 1, 0),
+(36, 11, 'Ref: captain32', 89, 599, 0.16, 'Pret Ã  diriger les Avengers?', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant1.jpg', 'Captain America', 10, 1, 0),
+(37, 11, 'Ref: thor35365', 5, 299, 0.16, 'Deviens le Dieu de la Foudre!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant3.jpg', 'Thor - Dieu de la Foudre', 9, 1, 0),
+(38, 11, 'Ref: wolve35835', 4, 799, 0.16, 'Sois pret Ã  sortir tes griffes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant4.jpg', 'Wolverine', 3, 1, 0),
+(39, 13, 'Ref: disney354', 78, 99, 0.16, 'Vis le monde merveilleux de Disney!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion1.jpeg', 'Disneyland Paris', 1, 1, 0),
+(40, 13, 'Ref: europa3689', 75, 40, 0.16, 'Visite le plus beau parc d''attraction d''Europe!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion2.jpg', 'Europa Park', 1, 1, 0),
+(41, 13, 'Ref: asterix25', 124, 50, 0.16, 'Ils sont fous ces romains!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion5.jpg', 'Parc AstÃ©rix', 1, 1, 0),
+(42, 13, 'Ref: zoo35835', 86, 30, 0.16, 'Un des plus beaux parcs zoologiques d''Europe!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/parcs_et_evasion/parcs_et_evasion6.jpg', 'Zoo d''AmnÃ©ville', 1, 1, 0),
+(43, 12, 'Ref: barbie3553', 18, 300, 0.16, 'Si tu peux le rever, tu peux le devenir!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes1.jpg', 'Barbie', 4, 1, 0),
+(44, 12, 'Ref: reine6565', 356, 79, 0.16, 'Liberee, delivree, tu peux devenir comme moi desormais!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes2.jpeg', 'La Reine des Neiges', 2, 1, 0),
+(45, 12, 'Ref: shrek6868', 9, 79, 0.16, 'Deviens le roi des ogres...et l''ami des Ã¢nes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes3.jpeg', 'Shrek', 300, 1, 0),
+(46, 12, 'Ref: simpsons58', 56, 49, 0.16, 'Fais partie de la famille la plus dejantee de Springfield!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/heros_animes/heros_animes4.jpeg', 'Les Simpsons', 50, 1, 0),
+(47, 14, 'Ref: tagada5356', 124, 3, 0.16, 'Depeche-toi de ramener ta fraise!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons1.jpg', 'Fraises Tagada', 1, 1, 0),
+(48, 14, 'Ref: kinder353', 64, 2, 0.16, 'Les Kinder Surprise c''est comme la vie: on sait jamais sur quoi on va tomber!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons2.jpg', 'Kinder Surprise', 1, 1, 0),
+(49, 14, 'Ref: tetes5336', 59, 1.5, 0.16, 'Les tetes brulees, le bonbon qui t''arrache la tete!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons3.jpg', 'Les TÃªtes BrÃ»lÃ©es', 1, 1, 0),
+(50, 14, 'Ref: mms353658', 214, 2, 0.16, 'Faites la fete aux cacahuetes!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/bonbons/bonbons4.jpg', 'M&M''s', 1, 1, 0),
+(51, 15, 'Ref: amis5676', 56, 45, 0.16, 'Fais le plein d''amis!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale5.jpg', 'Se faire des amis', 5, 1, 0),
+(52, 15, 'Ref: famille354', 48, 199, 0.16, 'Lave ton linge sale en famille!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale4.jpg', 'Fonder une famille', 50, 1, 0),
+(53, 15, 'Ref: patron3574', 21, 499, 0.16, 'C''est qui le patron?', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale2.jpg', 'Devenir patron', 20, 1, 0),
+(54, 15, 'Ref: travail35', 45, 299, 0.16, 'Gravis tous les echelons professionnels!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_sociale/reussite_sociale1.jpg', 'RÃ©ussir au travail', 45, 1, 0),
+(55, 16, 'Ref: la654654', 1, 15000000, 0.16, 'A toi la vie dans la Cite des Anges!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve1.jpg', 'Maison Ã  Los Angeles', 1, 1, 0),
+(56, 16, 'Ref: miami6545', 1, 15000000, 0.16, 'A toi la vie Ã  South Beach!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve2.jpg', 'Maison Ã  Miami', 1, 1, 0),
+(57, 16, 'Ref: rio75575', 1, 15000000, 0.16, 'A toi la vie Ã  Rio de Janeiro!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve4.jpg', 'Maison Ã  Rio', 1, 1, 0),
+(58, 16, 'Ref: shangai654', 1, 15000000, 0.16, 'A toi la vie Ã  Shangai!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/maison_reve/maison_reve3.jpeg', 'Maison Ã  ShangaÃ¯', 1, 1, 0),
+(59, 17, 'Ref: finance564', 22, 15000, 0.16, 'Compte tes pieces d''or!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/reussite_financiere/reussite_financiere5.jpg', 'RÃ©ussir financiÃ¨rement', 3, 1, 0),
+(60, 18, 'Ref: chine6545', 4, 999, 0.16, 'Explore la Grande Muraille!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage1.jpg', 'Voyage en Chine', 1, 1, 0),
+(61, 18, 'Ref: usa5645', 4, 1699, 0.16, 'A la conquete de l''ouest americain!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage6.jpg', 'Voyage USA', 1, 1, 0),
+(62, 18, 'Ref: rome687', 4, 499, 0.16, 'Decouvre le Colisee!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage3.jpg', 'Voyage Ã  Rome', 1, 1, 0),
+(63, 18, 'Ref: inde564', 4, 1499, 0.16, 'A la decouverte du Taj Mahal!!', 'http://localhost/developpement/php/projet_reve/public/images/tous_publics/voyage/voyage5.jpg', 'Voyage en Inde', 1, 1, 0);
 
 -- --------------------------------------------------------
 
