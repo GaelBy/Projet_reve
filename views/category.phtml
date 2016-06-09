@@ -1,6 +1,6 @@
 <div class="category-content">
 	<div class="category">
-		<img src="<?=$category->getImage()?>" alt="<?=$category->getNom()?>" class="img-category"/><h2><?=$category->getNom()?></h2>
+		<img src="<?=$category->getImage()?>" alt="<?=$category->getNom()?>" class="img-category"/><h2><?=htmlentities($category->getNom())?></h2>
 	</div>
 	<div class="<?=$admin?> lsBtnAdmin">
 		<div class="btn"><a href="index.php?page=admin_category&id_category=<?=$category->getId()?>&action=edit">Modifier la catégorie</a></div>

@@ -1,7 +1,7 @@
 
 <div class="sub_cat">
-	<h2 id="h2_sub"><?=$subcategory->getNom()?></h2>
-	<p><?=$subcategory->getDescription()?></p>
+	<h2 id="h2_sub"><?=htmlentities($subcategory->getNom())?></h2>
+	<p><?=htmlentities($subcategory->getDescription())?></p>
 	<br>
 	<div class="<?=$admin?>">
 		<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a></div>
