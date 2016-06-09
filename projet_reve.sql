@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 09 Juin 2016 à 14:49
+-- Généré le: Jeu 09 Juin 2016 à 14:52
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
 INSERT INTO `produits` (`id`, `id_sub_category`, `reference`, `stock`, `prix_uni_ht`, `tva`, `description`, `image`, `nom`, `poids_uni`, `statut`, `moyenne`) VALUES
 (1, 3, 'Ref: zd9830fr', 32, 99, 0.16, 'Gagne la Coupe du Monde en devenant Zizou!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport4.jpg', 'Zinedine Zidane', 1, 1, 5),
 (2, 4, 'Ref: spm001kr', 59, 199, 0.16, 'Sauve le monde en cape et collants!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme4.jpg', 'Superman', 1, 1, 5),
-(3, 5, 'Ref: CL11NES', 44, 89, 0.16, 'Deviens le chouchou de ces dames!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme3.jpeg', 'George Clooney', 1, 1, 1),
+(3, 5, 'Ref: CL11NES', 44, 89, 0.16, 'What else?', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme3.jpeg', 'George Clooney', 1, 1, 1),
 (5, 3, 'Ref: AIR3JDNBL', 10, 599, 0.16, 'Envole-toi sur un terrain de basket!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport1.jpeg', 'Michael Jordan', 1, 1, 0),
 (6, 3, 'Ref: BXM10KO', 50, 199, 0.16, 'Deviens le roi du ring!!', 'public/images/homme/legendes_sport/legendes_sport2.jpg', 'Muhammad Ali', 2, 1, 0),
 (7, 4, 'Ref: BAT01DC', 52, 79, 0.16, 'Veille sur Gotham City!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme1.jpg', 'Batman', 1, 1, 0),
@@ -198,7 +198,7 @@ INSERT INTO `produits` (`id`, `id_sub_category`, `reference`, `stock`, `prix_uni
 (14, 4, 'Ref: spider9857', 23, 125, 0.16, 'Sois pret à tisser ta toile!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme3.jpeg', 'Spiderman', 7, 1, 0),
 (15, 5, 'Ref: pacino6565', 17, 349, 0.16, 'Deviens une legende du 7eme art!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme1.jpg', 'Al Pacino', 18, 1, 0),
 (16, 5, 'Ref: pitt5656', 21, 659, 0.16, 'Tourne dans les plus grands films!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme2.jpeg', 'Brad Pitt', 32, 1, 0),
-(17, 5, 'Ref: leonardo98', 78, 559, 0.16, 'Recois l''oscar du meilleur acteur!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme5.jpg', 'Leonardo DiCaprio', 15, 1, 0),
+(17, 5, 'Ref: leonardo98', 78, 559, 0.16, 'Deviens le chouchou de ces dames!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/celebrites_homme/celebrites_homme5.jpg', 'Leonardo DiCaprio', 15, 1, 0),
 (18, 6, 'Ref: earthqua65', 5, 2999, 0.16, 'En avant les secousses!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme1.jpg', 'Earthquake', 18, 1, 0),
 (19, 6, 'Ref: prison654', 6, 75, 0.16, 'Peur de finir derriere les barreaux?', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme2.jpg', 'Prison', 6, 1, 0),
 (20, 6, 'Ref: tsunamis5', 5, 9999, 0.16, 'Provoque un raz-de-maree!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme3.jpeg', 'Tsunamis', 7, 1, 0),
