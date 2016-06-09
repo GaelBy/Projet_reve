@@ -6,7 +6,7 @@
 		<td class="td_panier td_panier_titre" >DATE</td>
 	</tr>
 	<tr>
-		<td class="td_panier td_panier_content"><?php echo $panier->getPrix();?></td>
+		<td class="td_panier td_panier_content"><?php echo number_format($panier->getPrix(),2);?></td>
 		<td class="td_panier td_panier_content"><?php echo $panier->getNombreProduits();?></td>
 		<td class="td_panier td_panier_content"><?php echo $panier->getPoids();?></td>
 		<td class="td_panier td_panier_content"><?php echo date('d/m/Y H:i', strtotime($panier->getDate()));?></td>

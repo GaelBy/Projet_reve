@@ -6,11 +6,11 @@
 	</div>
 </div>
 <div class="container">
-	<div class="left">Prix unitaire : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
+	<div class="left">Prix unitaire : <?=number_format($produit->getPrixUniTtc(),2)?> €</div>
 	<div class="left">Poids unitaire : <?=htmlentities($produit->getPoidsUni())?></div>
 	<div class="left">Quantité : <?=htmlentities($produit->getQuantite())?></div>
 	<div class="right panier_important">
-		<p>Prix : <?=htmlentities($produit->getPrixTtc())?> €</p>
+		<p>Prix : <?=number_format($produit->getPrixTtc(),2)?> €</p>
 		<p>Poids : <?=htmlentities($produit->getPoids())?> g</p>
 	</div>
 </div>

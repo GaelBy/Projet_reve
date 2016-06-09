@@ -16,7 +16,7 @@ if (!$link)
 
 
 
-$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis','diffusionAvis');
+$acces = array('login','logout','register','home', 'category', 'sub_category', 'produit', 'panier', 'paiement', 'conf_paiement', 'avis', 'profil_user', 'admin', 'admin_category', 'admin_produits', 'admin_avis','diffusionAvis','search_result');
 
 
 
@@ -33,7 +33,7 @@ $acces_traitement = array('login'=>'users','register'=>'users','logout'=>'users'
 	                      'produit'=>'panier', 'panier'=>'panier', 'paiement'=>'paiement', 'avis'=>'avis',
 	                      'profil_user'=>'users', 'admin'=>'panier', 'admin_category'=>'category', 
 	                      'admin_avis'=>'avis',
-	                      'admin_produits'=>'produits');
+	                      'admin_produits'=>'produits','search_result'=>'produits'); //NB: ici, on indique aussi de quel fichier traitement dépend la page. Par exemple, ici, search_result pointe vers le traitement produits.
 
 if (array_key_exists($page, $acces_traitement))
 	require('apps/traitement_'.$acces_traitement[$page].'.php');

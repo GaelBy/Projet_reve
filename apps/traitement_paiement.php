@@ -43,21 +43,24 @@ if (isset($_POST['numero_carte']))
 	//mettre le panier en attente de validation
 		$manager = new PanierManager($link);
 		$panier = $manager->getById($_POST['id_panier']);
-		$panier->setStatut('Paye');
-		$panier = $manager->update($panier);
-	//baisser le stock
-		$manager = new ProduitsManager($link);
-		$list = $panier->getProduits();
-		$i = 0;
-		while ($i < sizeof($list))
+		if (isset($panier))
 		{
-			$produit = $list[$i];
-			$produit->setStock($produit->getStock() - $produit->getQuantite());
-			$produit = $manager->update($produit);
-			$i++;
+			$panier->setStatut('Paye');
+			$panier = $manager->update($panier);
+		//baisser le stock
+			$manager = new ProduitsManager($link);
+			$list = $panier->getProduits();
+			$i = 0;
+			while ($i < sizeof($list))
+			{
+				$produit = $list[$i];
+				$produit->setStock($produit->getStock() - $produit->getQuantite());
+				$produit = $manager->update($produit);
+				$i++;
+			}
+			header('Location: index.php?page=conf_paiement&id_panier='.$panier->getId());
+			exit;
 		}
-		header('Location: index.php?page=conf_paiement&id_panier='.$panier->getId());
-		exit;
 	}
 	catch(Exception $e)
 	{

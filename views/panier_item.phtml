@@ -1,7 +1,7 @@
 
 	<tr>
 		<td class="td_panier td_panier_content"><?php echo $prod_panier->getNom();?></td>
-		<td class="td_panier td_panier_content"><?php echo $prod_panier->getPrixUniTtc();?></td>
+		<td class="td_panier td_panier_content"><?php echo number_format($prod_panier->getPrixUniTtc(),2);?></td>
 		<td class="td_panier td_panier_content"><?php echo $prod_panier->getTva();?></td>
 		<td class="td_panier td_panier_content"><?php echo $prod_panier->getReference();?></td>
 		

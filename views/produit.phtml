@@ -13,8 +13,8 @@
 	<picture><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>" class="imgProduit"></picture>
 	<p><?=htmlentities($produit->getDescription())?></p>
 	<p>Stock restant : <?=htmlentities($produit->getStock())?></p>
-	<div class="ht">Prix HT : <?=htmlentities($produit->getPrixUniHt())?> €</div>
-	<div class="ttc">Prix TTC : <?=htmlentities($produit->getPrixUniTtc())?> €</div>
+	<div class="ht">Prix HT : <?=number_format($produit->getPrixUniHt(),2)?> €</div>
+	<div class="ttc">Prix TTC : <?=number_format($produit->getPrixUniTtc(),2)?> €</div>
 	<form action="" method="POST">
 		<button class="btn" type="submit" name="id_produit" value="<?=$produit->getId()?>">Ajouter au panier</button>
 	</form>

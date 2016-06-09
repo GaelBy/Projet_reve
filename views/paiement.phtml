@@ -1,7 +1,7 @@
 <div class="paiement">
 	<h1>Paiement de la commande</h1>
 	<div class="container">
-		<h2>Prix à payer : <?=htmlentities($panier->getPrix())?> €</h2>
+		<h2>Prix à payer : <?=number_format($panier->getPrix(),2)?> €</h2>
 	</div>
 	<div class="container">
 		<form action="" method="POST">
