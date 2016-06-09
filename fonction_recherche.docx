@@ -1,0 +1,2 @@
+﻿WHERE name LIKE '%a%'
+distance Levenstein
