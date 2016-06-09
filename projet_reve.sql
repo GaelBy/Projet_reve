@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 09 Juin 2016 à 14:52
+-- Généré le: Jeu 09 Juin 2016 à 14:55
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -191,7 +191,6 @@ INSERT INTO `produits` (`id`, `id_sub_category`, `reference`, `stock`, `prix_uni
 (7, 4, 'Ref: BAT01DC', 52, 79, 0.16, 'Veille sur Gotham City!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme1.jpg', 'Batman', 1, 1, 0),
 (8, 6, 'Ref: VOL66MGM', 8, 1499, 0.16, 'Dans le coeur du volcan!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/cauchemars_homme/cauchemars_homme4.jpg', 'Volcan', 3, 1, 0),
 (9, 9, 'Ref: WDBCH02', 22, 7999, 0.16, 'Profite d''une lune de miel magique!', 'http://localhost/developpement/php/projet_reve/public/images/femme/mariage_et_lune_de_miel/mariage_et_lune_de_miel2.jpg', 'Lune de miel de rÃªve', 1, 1, 0),
-(10, 8, 'Ref: ACC20SLD', 50, 499, 0.16, 'Sacs, bijoux, et plus encore', 'http://localhost/developpement/php/projet_reve/public/images/femme/shopping/shopping3.jpg', 'Accessoires', 1, 0, 0),
 (11, 11, 'Ref: STRK12Fe', 60, 129, 0.16, 'Sauve le monde en armure!!', 'http://localhost/developpement/php/projet_reve/public/images/enfants/super_heros_enfant/super_heros_enfant2.jpg', 'Iron Man', 2, 1, 0),
 (12, 3, 'Ref: rg6565fed', 10, 269, 0.16, 'Jeu, set & match!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/legendes_sport/legendes_sport3.jpeg', 'Roger Federer', 1, 1, 0),
 (13, 4, 'Ref: hulk12345', 10, 569, 0.16, 'Subis la colere de Hulk!!', 'http://localhost/developpement/php/projet_reve/public/images/homme/super_heros_homme/super_heros_homme2.jpg', 'Incroyable Hulk', 20, 1, 0),
