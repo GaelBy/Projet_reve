@@ -18,7 +18,7 @@ try
 					$data['id_user'] = $_SESSION['id'];
 				$panier = $panier_manager->create($data);
 				$_SESSION['panier'] = $panier->getId();
-				$produit_manager->initPanierProduit($produit);
+				//$produit_manager->initPanierProduit($produit);
 			}
 			$panier = $panier_manager->getById($_SESSION['panier']);
 			$panier->ajoutProduit($produit);

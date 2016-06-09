@@ -10,7 +10,6 @@ if (isset($_SESSION['id'], $_SESSION['panier']))
 	$adresse_livraison = $user->getAdresseLivraison();
 	require('views/paiement.phtml');
 }
-if (isset($_POST['id_panier']))
-	header ('Location: index.php?page=conf_paiement');
+
 
 ?>
