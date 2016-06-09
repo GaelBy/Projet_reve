@@ -91,7 +91,7 @@ class Panier {
       if ($this->produits[$i]->getId() == $produit->getId())
       {
         if ($this->produits[$i]->getQuantite() === null)
-          $this->produits[$i]->setQuantite(0);
+        $this->produits[$i]->setQuantite(0);
         $this->produits[$i]->setQuantite($this->produits[$i]->getQuantite()+1);
         $this->nbre_produits++;
         $produit->updatePrixUniTtc();

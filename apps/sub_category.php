@@ -26,14 +26,5 @@ if(isset($_GET['id_sub_category']))
 		}
  //require('apps/produit_item.php');
 
-	$array_produit = $subcategory->getProduits();
-	$admin='hide';
-	
-	if(isset($_SESSION['admin'])&& $_SESSION['admin'])
-	{
-		$admin="";
 	}
-	require('views/sub_category.phtml');
-
-}
 ?>
