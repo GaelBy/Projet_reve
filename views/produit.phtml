@@ -10,7 +10,7 @@
 		<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=edit">Modifier</a></div>
 		<div class="btn"><a href="index.php?page=admin_produits&id_produit=<?=$produit->getId()?>&action=supprimer">Supprimer</a></div>
 	</div>
-	<picture class="imgProduit"><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>"></picture>
+	<picture><img src="<?=$produit->getImage()?>" alt="image <?=htmlentities($produit->getNom())?>" class="imgProduit"></picture>
 	<p><?=htmlentities($produit->getDescription())?></p>
 	<p>Stock restant : <?=htmlentities($produit->getStock())?></p>
 	<div class="ht">Prix HT : <?=htmlentities($produit->getPrixUniHt())?> €</div>
