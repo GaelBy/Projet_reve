@@ -1,6 +1,21 @@
 <nav class="side">
 	<ul class="menuSide">
-		<li><a href="index.php?page=home">Rechercher</a></li><!--A VOIR: vers quelle page pointe ce lien?-->
+		<li><a href="index.php?page=home">Rechercher</a>
+		    <input id="ajax" type="text" name="ajax" /></li><!--A VOIR: vers quelle page pointe ce lien?-->
+		    <script>
+
+
+                 $(document).ready(function(){
+
+                 	$('#ajax').keyup(function(){
+                      $.ajax({url: "traitement_produits.php", success: function(result){
+                      $("#ajax").html(result);
+
+                       }});
+                 	
+                 	})
+                 });
+		    </script>
 		<li><a href="index.php?page=register">S'inscrire</a></li>
 		<li><a href="index.php?page=login">Se connecter</a></li>
 		<li><a href="index.php?page=panier">Panier</a></li>
