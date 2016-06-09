@@ -6,35 +6,38 @@ try
 	if (isset($_POST['id_produit']))
 	{
 		$produit = $produit_manager->getById($_POST['id_produit']);
-		//add
-		if (isset($_GET['page']) && $_GET['page'] == 'produit')
+		if (isset($produit))
 		{
-			//create?
-			if ($produit->getStock() > 0)
+			//add
+			if (isset($_GET['page']) && $_GET['page'] == 'produit')
 			{
-				if (!isset($_SESSION['panier']) || $panier_manager->getById($_SESSION['panier'])->getStatut() != 'en cours')
+				//create?
+				if ($produit->getStock() > 0)
 				{
-					//$panier = new Panier($link);
-					$data = array('id_user'=>10, 'statut'=>'en cours', 'prix'=>0, 'nombre_produits'=>0, 'poids'=>0);
-					if (isset($_SESSION['id']))
-						$data['id_user'] = $_SESSION['id'];
-					$panier = $panier_manager->create($data);
-					$_SESSION['panier'] = $panier->getId();
-					//$produit_manager->initPanierProduit($produit);
+					if (!isset($_SESSION['panier']) || $panier_manager->getById($_SESSION['panier'])->getStatut() != 'en cours')
+					{
+						//$panier = new Panier($link);
+						$data = array('id_user'=>10, 'statut'=>'en cours', 'prix'=>0, 'nombre_produits'=>0, 'poids'=>0);
+						if (isset($_SESSION['id']))
+							$data['id_user'] = $_SESSION['id'];
+						$panier = $panier_manager->create($data);
+						$_SESSION['panier'] = $panier->getId();
+						//$produit_manager->initPanierProduit($produit);
+					}
+					$panier = $panier_manager->getById($_SESSION['panier']);
+					$panier->ajoutProduit($produit);
+					$panier = $panier_manager->update($panier);
 				}
+				else
+					throw new Exception("Ce produit n'est plus en stock");				
+			}
+			else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'][0] == 'remove')
+			{
+				//remove
 				$panier = $panier_manager->getById($_SESSION['panier']);
-				$panier->ajoutProduit($produit);
+				$panier->suppressionProduit($produit);
 				$panier = $panier_manager->update($panier);
 			}
-			else
-				throw new Exception("Ce produit n'est plus en stock");				
-		}
-		else if (isset($_GET['page'], $_POST['action']) && $_GET['page'] == 'panier' && $_POST['action'][0] == 'remove')
-		{
-			//remove
-			$panier = $panier_manager->getById($_SESSION['panier']);
-			$panier->suppressionProduit($produit);
-			$panier = $panier_manager->update($panier);
 		}
 	}
 	//finalisation
