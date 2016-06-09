@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 
 
@@ -33,3 +34,13 @@
 
     </div>
 
+=======
+<div class="sub_cat">
+	<h3 id="h2_sub"><?=$subcategory->getNom()?></h3>
+	<p><?=$subcategory->getDescription()?></p>
+	<div class="<?=$admin?>">
+		<div class="btn"><a href="index.php?page=admin_category&action=edit&id=<?=$subcategory->getCategories()->getId()?>&id_sub_category=<?=$subcategory->getId()?>">Modifier la sous catégorie</a></div>
+	</div>
+	<?php require('apps/ls_produits.php'); ?>
+</div>
+>>>>>>> 9bac0582538164d1ad43a87cb6db6566dc08dcc7
