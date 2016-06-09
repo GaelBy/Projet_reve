@@ -102,7 +102,7 @@ class UserManager
 		$prenom= mysqli_real_escape_string($this->link,$user->getPrenom());
 		$email= mysqli_real_escape_string($this->link,$user->getEmail());
 		$password= mysqli_real_escape_string($this->link,$user->getPassword());
-		$dateNaissance=intval($user->getDateNaissance());
+		$dateNaissance=date('Y-m-d H:i:s', $user->getDateNaissance());
 		$telephone= mysqli_real_escape_string($this->link,$user->getTelephone());
 		$statut=$user->getStatut();
 		$sexe=intval($user->getSexe());
@@ -112,7 +112,7 @@ class UserManager
 		$query="INSERT INTO users (nom,prenom,email,password,date_naissance,telephone,statut,sexe,login) 
 				VALUES ('".$nom."','".$prenom."', '".$email."','".$password."','".$dateNaissance."','".$telephone."','".$statut."','".$sexe."','".$login."')";
 		$res=mysqli_query($this->link,$query);
-
+var_dump($query);
 		// on vérifie que la requête s'est bien exécutée:
 		if($res)
 		{
@@ -142,7 +142,7 @@ class UserManager
 		$prenom= mysqli_real_escape_string($this->link,$user->getPrenom());
 		$email= mysqli_real_escape_string($this->link,$user->getEmail());
 		$password= mysqli_real_escape_string($this->link,$user->getPassword());
-		$dateNaissance=intval($user->getDateNaissance());
+		$dateNaissance=date('Y-m-d H:i:s', $user->getDateNaissance());
 		$telephone= mysqli_real_escape_string($this->link,$user->getTelephone());
 		$statut=$user->getStatut();
 		$sexe=intval($user->getSexe());
