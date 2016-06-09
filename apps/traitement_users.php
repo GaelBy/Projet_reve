@@ -6,11 +6,6 @@ if (!empty($_POST) && isset($_GET['page']) && $_GET['page'] == 'register')
 	try
 	{
 		$user = $manager->create($_POST);
-		$data1 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse1'], 'numero' => $_POST['numero1'], 'rue' => $_POST['rue1'], 'ville' => $_POST['ville1'], 'code_postal' => $_POST['code_postal1'], 'type_adresse' => 'facturation'];
-		$data2 = ['id_user'=>$user->getId(), 'nom_adresse' => $_POST['nom_adresse2'], 'numero' => $_POST['numero2'], 'rue' => $_POST['rue2'], 'ville' => $_POST['ville2'], 'code_postal' => $_POST['code_postal2'], 'type_adresse' => 'livraison'];
-		$adresse_manager = new AdresseManager($link);
-		$adresse1 = $adresse_manager->create($data1);
-		$adresse2 = $adresse_manager->create($data2);
 		if (isset($_SESSION['panier'], $_GET['action']) && $_GET['action'] = 'validate')
 			header('Location: index.php?page=login&action=validate');
 		else

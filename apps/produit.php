@@ -4,7 +4,7 @@ $produit = $manager->getById($_GET['id_produit']);
 $admin = 'hide';
 if (isset($_SESSION['admin']) && $_SESSION['admin'])
 	$admin = '';
-if ($produit->getStatut())
+if (!empty($produit) &&$produit->getStatut())
 {
 	// $id = $produit->getId();
 	// $reference = $produit->getReference();
@@ -54,4 +54,6 @@ if ($produit->getStatut())
 	}
 	require('views/produit.phtml');
 }
+else
+	require('views/home.phtml');
 ?>
