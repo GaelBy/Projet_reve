@@ -1,14 +1,14 @@
 <nav class="side">
 	<ul class="menuSide">
 		<li><a href="index.php?page=home">Rechercher</a>
-		<form method="GET">
-		    <input id="ajax" type="text" name="ajax" />
+		<form action="index.php?page=search_result" method="GET">
+		    <input id="ajax" type="text" name="search" />
 		    <input type="submit" value="rechercher"/>
 		    </form></li><!--A VOIR: vers quelle page pointe ce lien?-->
 		    <script>
 
 
-                 $(document).ready(function(){
+                 /*$(document).ready(function(){
 
                  	$('#ajax').keyup(function(){
                       $.ajax({url: "traitement_produits.php", success: function(result){
@@ -17,7 +17,7 @@
                        }});
                  	
                  	})
-                 });
+                 });*/
 		    </script></li><!--A VOIR: vers où pointe ce lien?-->
 		<li><a href="index.php?page=panier">Panier</a></li>
 		<li><a href="index.php?page=profil_user">Mon compte</a></li>

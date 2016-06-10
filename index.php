@@ -2,7 +2,6 @@
 session_start();
 $error='';
 $page='home';
-
 function __autoload($class_name) {
     require('models/'.$class_name.'.class.php');
 }
@@ -43,9 +42,17 @@ if (array_key_exists($page, $acces_traitement))
 // exit;
 if (isset($_GET['ajax']))
 {
-	$accessAjax = [];
-	require('apps/'.$pageAjax.'.php');
+	$accessAjax = ['search_result'];
+	if (in_array($_GET['page'], $accessAjax))
+	{
+		$pageAjax = $_GET['page'];
+		require('apps/'.$pageAjax.'.php');
+	}
 }
 else
+{
+	if (isset($_GET['search']))
+		$page = 'search_result';
 	require('apps/skel.php');
+}
 ?>

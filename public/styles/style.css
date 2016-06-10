@@ -753,3 +753,8 @@ a:hover{
 	margin-bottom: 1em;
 	background-color:rgba(0,140,184,0.50); 
 }
+.search_results
+{
+	color: #eee;
+	text-align: center;
+}

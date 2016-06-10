@@ -24,16 +24,17 @@ class ProduitsManager
 	}
 
 	public function getSearch($search)
-	$list=[];
-	$query="SELECT id, id_sub_category, reference, stock, prix_uni_ht, tva, produit.description, image, produit.nom, poids_uni, statut FROM produits INNER JOIN sub_category ON produits.id_sub_category=sub_category.id 
-	WHERE produit.name LIKE '%".$search."%' OR produit.description LIKE '%".$search."%' OR sub_category.nom LIKE '%".$search."%' OR sub_category.description LIKE '%".$search."%'";
-	$res=mysqli_query($this->link,$query);
-
-	while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
-		{
-			$list[]=$produit;
-		}
-		return $list;
+	{
+		$list=[];
+		$query="SELECT produits.id, id_sub_category, reference, stock, prix_uni_ht, tva, produits.description, image, produits.nom, poids_uni, produits.statut FROM produits INNER JOIN sub_category ON produits.id_sub_category=sub_category.id 
+		WHERE produits.nom LIKE '%".$search."%' OR produits.description LIKE '%".$search."%' OR sub_category.nom LIKE '%".$search."%' OR sub_category.description LIKE '%".$search."%'";
+		$res=mysqli_query($this->link,$query);
+		while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+			{
+				$list[]=$produit;
+			}
+			return $list;
+	}
 
 
 	public function getById($id) // récup produit par id
