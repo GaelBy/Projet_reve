@@ -1,11 +1,14 @@
 <?php
-$count=0;
-$manager=new Manager($link);
-$lsResult=$manager->getSearch($search);
-while($count<sizeof($lsResult))
+if (isset($_GET['search']))
 {
-	$result=$lsResult[$count];
-	require('views/ls_result.phtml');
-	$count++;
+	$count=0;
+	$manager=new ProduitsManager($link);
+	$lsResult=$manager->getSearch($_GET['search']);
+	while($count<sizeof($lsResult))
+	{
+		$result=$lsResult[$count];
+		require('views/ls_result.phtml');
+		$count++;
+	}
 }
 ?>
