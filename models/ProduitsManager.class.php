@@ -22,6 +22,19 @@ class ProduitsManager
 		}
 		return $list; // tant que...on remplit la liste
 	}
+
+	public function getSearch($search)
+	$list=[];
+	$query="SELECT         ?    AS    ?       FROM produits INNER JOIN sub_category ON produits.??=sub_category.?? WHERE name LIKE '%'.$search.'%'";
+	$res=mysqli_query($this->link,$query);
+
+	while($produit=mysqli_fetch_object($res,"Produits",[$this->link]))
+		{
+			$list[]=$produit;
+		}
+		return $list;
+
+
 	public function getById($id) // récup produit par id
 	{
 		$id=intval($id);
